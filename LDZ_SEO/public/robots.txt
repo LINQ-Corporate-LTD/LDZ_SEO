@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.bitcoin-innovation-market-evolution.online/sitemap.xml

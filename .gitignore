@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment Variables
+.env
+.flaskenv
+
+# Databases
+*.sqlite3
+
+# Build outputs
+build/
+dist/
+*.zip
+
+# System files
+.DS_Store
+Thumbs.db
