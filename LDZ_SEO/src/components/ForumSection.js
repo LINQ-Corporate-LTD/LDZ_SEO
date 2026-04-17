@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 import "../assets/css/ForumSection.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import speakerVideo from "../../src/assets/WebVideo/iq-hub-video.mp4";
 const bgIg =
   "https://www.desalination-resource-recovery.com/api/images/1742798974985.png";
 
@@ -15,7 +16,7 @@ const ForumSection = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/taglinedata`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/taglinedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -68,7 +69,7 @@ const ForumSection = () => {
         <div className="ForumSction_forumRight__f3wIx">
           <div className="lazyload-wrapper">
             <iframe
-              src="https://harsh7541.pythonanywhere.com/media/mediaPixVerse_V5.5_Image_Text_360P_give_me_video_fo.mp4"
+              src={speakerVideo}
               frameborder="0"
               webkitallowfullscreen
               mozallowfullscreen

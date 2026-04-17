@@ -77,7 +77,7 @@ const EditSponsorOfferCoupon = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://harsh7541.pythonanywhere.com/admin1/editsponsoroffercoupon", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/editsponsoroffercoupon", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

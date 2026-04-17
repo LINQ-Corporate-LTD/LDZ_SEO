@@ -77,7 +77,7 @@ const MediaPageHelpers = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/mediapagehelpers`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/mediapagehelpers`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -190,7 +190,7 @@ const MediaPageHelpers = () => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/deletemediapagehelpers",
+        "http://127.0.0.1:8000/admin1/deletemediapagehelpers",
         requestOptions
       )
         .then((response) => response.json())

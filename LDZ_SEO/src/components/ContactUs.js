@@ -58,7 +58,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/contactushelpers`,
+      `http://127.0.0.1:8000/admin1/contactushelpers`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -88,7 +88,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/contactusstaticdata`,
+      `http://127.0.0.1:8000/admin1/contactusstaticdata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -647,7 +647,7 @@ const ContactUs = () => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addcontactusrequest",
+        "http://127.0.0.1:8000/admin1/addcontactusrequest",
         requestOptions,
       )
         .then((response) => response.json())
@@ -885,12 +885,12 @@ const ContactUs = () => {
                       height="12"
                       width="18"
                     ></img>
-                    delegates@abcd.com
+                    delegates@iq-hub.com
                   </a>
                 </div>
                 <div className="ContactUs_emailCard__YpEIv">
                   <h5>Group Sales Team:</h5>
-                  <h6>Sales Person</h6>
+                  <h6>Ethan Mitchell</h6>
                   <p style={{ visibility: "visible" }}>Group Sales Director</p>
                   <a href="mailto:salesperson1@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026">
                     <img
@@ -899,12 +899,12 @@ const ContactUs = () => {
                       height="12"
                       width="18"
                     ></img>
-                    salesperson1@abcd.com
+                    ethan.mitchell@iq-hub.com
                   </a>
                 </div>
                 <div className="ContactUs_emailCard__YpEIv">
                   <h5>Sponsorship & Media Partners:</h5>
-                  <h6>Company Person1</h6>
+                  <h6>LEE NAVARRO</h6>
                   <p style={{ visibility: "visible" }}>
                     Event & Marketing Manager
                   </p>
@@ -915,12 +915,12 @@ const ContactUs = () => {
                       height="12"
                       width="18"
                     ></img>
-                    person1@abcd.com
+                    lee.navarro@iq-hub.com
                   </a>
                 </div>
                 <div className="ContactUs_emailCard__YpEIv">
                   <h5>Conference Content & Speaking:</h5>
-                  <h6>Company Person2</h6>
+                  <h6>Sean Collins</h6>
                   <p style={{ visibility: "visible" }}>Conference Producer</p>
                   <a href="mailto:person2@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026">
                     <img
@@ -929,7 +929,7 @@ const ContactUs = () => {
                       height="12"
                       width="18"
                     ></img>
-                    person2@abcd.com
+                    sean.collins@iq-hub.com
                   </a>
                 </div>
               </div>

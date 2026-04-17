@@ -5198,7 +5198,7 @@ def create_payment_intent(request):
             # Automatically confirm the payment
             confirm=True,
             # Return URL for 3D Secure authentication (optional but recommended)
-            return_url='https://harsh7541.pythonanywhere.com/payment-success',
+            return_url='http://127.0.0.1:8000/payment-success',
             # These are useful metadata you can retrieve later
             metadata={
                 'order_id': data.get('order_id', ''),

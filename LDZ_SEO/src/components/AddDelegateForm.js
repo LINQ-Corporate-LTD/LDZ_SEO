@@ -12,7 +12,7 @@ import { FormControl, FormHelperText } from "@mui/material";
 import { useApiData } from "../../src/common/ApiContext";
 import { useSSRData } from "../common/useSSRData";
 const logo =
-  "https://harsh7541.pythonanywhere.com/media/mediabitcoin_logo_white.png";
+  "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
 const plusIcon =
   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
 const closeBtn =
@@ -254,7 +254,7 @@ const CompanyRegistrationForm = () => {
       let invoiceNumber;
       try {
         const invoiceRes = await fetch(
-          "https://harsh7541.pythonanywhere.com/admin1/generate-invoice-no"
+          "http://127.0.0.1:8000/admin1/generate-invoice-no"
         );
         const invoiceData = await invoiceRes.json();
         invoiceNumber = invoiceData.invoiceNo;
@@ -366,7 +366,7 @@ const CompanyRegistrationForm = () => {
 
         try {
           const emailResponse = await fetch(
-            "https://harsh7541.pythonanywhere.com/admin1/sendmail",
+            "http://127.0.0.1:8000/admin1/sendmail",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -441,7 +441,7 @@ const CompanyRegistrationForm = () => {
 
         try {
           const zohoResponse = await fetch(
-            "https://harsh7541.pythonanywhere.com/admin1/sendtozoho",
+            "http://127.0.0.1:8000/admin1/sendtozoho",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

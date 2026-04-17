@@ -58,7 +58,7 @@ const SpeakerProfile = () => {
       formData.append("speakerId", speakerId);
 
       const response = await fetch(
-        `https://harsh7541.pythonanywhere.com/admin1/speakerbyid`,
+        `http://127.0.0.1:8000/admin1/speakerbyid`,
         {
           method: "POST",
           body: formData,
@@ -80,7 +80,7 @@ const SpeakerProfile = () => {
   const fetchSpeakerBySlug = async (slug) => {
     try {
       const response = await fetch(
-        `https://harsh7541.pythonanywhere.com/admin1/eventspeakers`
+        `http://127.0.0.1:8000/admin1/eventspeakers`
       );
       const data = await response.json();
 

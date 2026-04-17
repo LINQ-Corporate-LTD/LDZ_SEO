@@ -107,7 +107,7 @@ const EditContactUsHelper = ({
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/editcontactuspagehelper",
+        "http://127.0.0.1:8000/admin1/editcontactuspagehelper",
         requestOptions
       )
         .then((response) => response.json())

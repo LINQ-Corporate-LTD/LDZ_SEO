@@ -4,6 +4,7 @@ import "./assets/css/footer.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSSRData } from "./common/useSSRData";
+import { useApiData } from "../src/common/ApiContext";
 const emailImage =
   "https://www.desalination-resource-recovery.com/images/icons/icon-mail.png";
 const linkedInIcon =
@@ -24,6 +25,9 @@ const Footer = () => {
   const speakers = useSSRData("speakers") || [];
   const trends = useSSRData("trends") || [];
   const [footerNavOptions, setFooterNavOptions] = useState([]);
+  const { eventDetails, eventGeneralSettings, navLogos } = useApiData();
+  console.log('footereventDetails: ', eventDetails);
+  console.log('footereventDetails2: ', navLogos);
 
   const toSlug = (str) => {
     if (!str) return ""; // 🚨 Prevent 'null' stringification
@@ -53,7 +57,7 @@ const Footer = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/footersocialmediaoptions`,
+      `http://127.0.0.1:8000/admin1/footersocialmediaoptions`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -90,10 +94,7 @@ const Footer = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/relatedevents`,
-      requestOptions,
-    )
+    fetch(`http://127.0.0.1:8000/admin1/relatedevents`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -117,7 +118,7 @@ const Footer = () => {
   };
 
   const callFooterOptionsApi = () => {
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/footeroptions`, {
+    fetch(`http://127.0.0.1:8000/admin1/footeroptions`, {
       method: "GET",
     })
       .then((response) => response.json())
@@ -326,7 +327,7 @@ const Footer = () => {
             <div className="lazyload-wrapper ">
               <a href="/" style={{ textDecoration: "none", color: "inherit" }}>
                 <img
-                  src="https://harsh7541.pythonanywhere.com/media/mediabitcoin_logo_white.png"
+                  src={navLogos?.whiteLogo}
                   alt="Bitcoin Innovation & Market EvolutionLogo"
                   height={64}
                 ></img>
@@ -475,9 +476,9 @@ const Footer = () => {
           <p>
             <a href="/privacy-policy">Privacy Policy</a>
             <span> | </span>
-            ABCD Company
+            IQ International PTe. LTD
           </p>
-          <p>©2026 Bitcoin Innovation & Market Evolution 2026</p>
+          <p>©2026 Lithium Downstream Summit 2026</p>
         </div>
         <div
           style={{
@@ -494,16 +495,14 @@ const Footer = () => {
           <a href="/attandees">Attendees Hub</a>
           <a href="/sponsor-booking">Sponsor Booking Hub</a>
 
-
           {/* Dynamic Slugs Harvested from SSR Data */}
           {sponsors.map((s, i) => {
-            const slug = s.sponsorComapnyName ? toSlug(s.sponsorComapnyName) : null;
+            const slug = s.sponsorComapnyName
+              ? toSlug(s.sponsorComapnyName)
+              : null;
             if (!slug) return null; // 🚨 Skip if name is missing to prevent /sponsor/null
             return (
-              <a
-                key={`seosp-${i}`}
-                href={`/sponsor/${slug}`}
-              >
+              <a key={`seosp-${i}`} href={`/sponsor/${slug}`}>
                 {s.sponsorComapnyName}
               </a>
             );

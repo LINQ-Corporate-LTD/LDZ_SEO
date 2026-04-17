@@ -40,7 +40,7 @@ const EditWhoShouldAttendContent = (props) => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/whoshouldattendpagedata`,
+      `http://127.0.0.1:8000/admin1/whoshouldattendpagedata`,
       requestOptions
     )
       .then((response) => response.json())
@@ -190,7 +190,7 @@ const EditWhoShouldAttendContent = (props) => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addwhoshouldattendpagestaticdata",
+        "http://127.0.0.1:8000/admin1/addwhoshouldattendpagestaticdata",
         requestOptions
       )
         .then((response) => response.json())

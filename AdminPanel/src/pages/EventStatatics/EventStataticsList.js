@@ -71,7 +71,7 @@ const EventStataticsList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/eventstatatics`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventstatatics`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -183,7 +183,7 @@ const EventStataticsList = () => {
         body: finalData,
       };
       fetch(
-        'https://harsh7541.pythonanywhere.com/admin1/deletehomecountpoints',
+        'http://127.0.0.1:8000/admin1/deletehomecountpoints',
         requestOptions
       )
         .then((response) => response.json())

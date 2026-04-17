@@ -38,7 +38,7 @@ export default function TestimonialCarousel() {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/eventtestimonials`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventtestimonials`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {

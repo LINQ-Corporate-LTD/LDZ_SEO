@@ -26,7 +26,7 @@ const News = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/generalnews`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/generalnews`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {

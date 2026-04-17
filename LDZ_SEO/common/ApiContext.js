@@ -46,7 +46,7 @@
 //       method: "GET",
 //     };
 
-//     fetch(`https://harsh7541.pythonanywhere.com/admin1/homepagedata`, requestOptions)
+//     fetch(`http://127.0.0.1:8000/admin1/homepagedata`, requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (
@@ -177,7 +177,7 @@ export const ApiDataProvider = ({ children, initialData = null }) => {
       method: "GET",
     };
 
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/homepagedata`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/homepagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (

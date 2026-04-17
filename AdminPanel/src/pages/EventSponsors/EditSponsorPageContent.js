@@ -45,7 +45,7 @@ const EditSponsorPageContent = (props) => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/getsponsorpagedata`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/getsponsorpagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -101,9 +101,9 @@ const EditSponsorPageContent = (props) => {
         progress: undefined,
       });
       setVisible(false);
-    } else if (descriptionLength > 500) {
+    } else if (descriptionLength > 550) {
       toast.error(
-        "Introduction Paragraph Description cannot exceed 500 characters!",
+        "Introduction Paragraph Description cannot exceed 550 characters!",
         {
           position: "top-right",
           autoClose: 5000,
@@ -126,7 +126,7 @@ const EditSponsorPageContent = (props) => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addsponsorpagestaticdata",
+        "http://127.0.0.1:8000/admin1/addsponsorpagestaticdata",
         requestOptions
       )
         .then((response) => response.json())
@@ -206,7 +206,7 @@ const EditSponsorPageContent = (props) => {
                 <div>
                   <Label htmlFor="amount-field" className="form-label">
                     Sponsor Page Data <span className="required_span">*</span>{" "}
-                    (Max. length 500 characters)
+                    (Max. length 550 characters)
                   </Label>
                   <div className="input-group" style={{ width: "100%" }}>
                     <div style={{ width: "100%" }}>
@@ -220,7 +220,7 @@ const EditSponsorPageContent = (props) => {
                           const plainTextLength = getPlainTextLength(ipdata);
                           console.log("plainTextLength: ", plainTextLength);
 
-                          if (plainTextLength <= 500) {
+                          if (plainTextLength <= 550) {
                             setParaDes(ipdata);
                             if (plainTextLength >= 3) {
                               setParaDesError(false);
@@ -241,13 +241,13 @@ const EditSponsorPageContent = (props) => {
                           fontSize: "12px",
                           marginTop: "3px",
                           color:
-                            getPlainTextLength(paraDes) > 500
+                            getPlainTextLength(paraDes) > 550
                               ? "red"
                               : "inherit",
                         }}
                       >
                         Character count: {getPlainTextLength(paraDes)}
-                        /500
+                        /550
                       </p>
                     </div>
                   </div>

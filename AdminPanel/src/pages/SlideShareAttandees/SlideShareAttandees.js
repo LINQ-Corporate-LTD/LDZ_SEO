@@ -77,7 +77,7 @@ const SlideShareAttandees = () => {
         const requestOptions = {
             method: "GET",
         };
-        fetch(`https://harsh7541.pythonanywhere.com/admin1/getslideShareAttandee`, requestOptions)
+        fetch(`http://127.0.0.1:8000/admin1/getslideShareAttandee`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (
@@ -193,7 +193,7 @@ const SlideShareAttandees = () => {
                 body: finalData,
             };
             fetch(
-                'https://harsh7541.pythonanywhere.com/admin1/deleteslideShareAttandee',
+                'http://127.0.0.1:8000/admin1/deleteslideShareAttandee',
                 requestOptions
             )
                 .then((response) => response.json())

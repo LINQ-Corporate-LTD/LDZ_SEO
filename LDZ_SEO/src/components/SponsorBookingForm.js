@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet-async";
 const ticket =
   "https://www.desalination-resource-recovery.com/images/ticket.svg";
 const logo =
-  "https://harsh7541.pythonanywhere.com/media/mediabitcoin_logo_white.png";
+  "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
 const toggle =
   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
 const cardLabel =
@@ -164,7 +164,7 @@ const SponsorBookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://harsh7541.pythonanywhere.com/admin1/sendmail",
+          "http://127.0.0.1:8000/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -453,7 +453,7 @@ const SponsorBookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://harsh7541.pythonanywhere.com/admin1/sendmail",
+          "http://127.0.0.1:8000/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -509,7 +509,7 @@ const SponsorBookingForm = () => {
       };
 
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addnewsponsor",
+        "http://127.0.0.1:8000/admin1/addnewsponsor",
         requestOptions,
       )
         .then((response) => response.json())
@@ -578,7 +578,7 @@ const SponsorBookingForm = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/sponsoraddons`,
+      `http://127.0.0.1:8000/admin1/sponsoraddons`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -643,7 +643,7 @@ const SponsorBookingForm = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/getactivedelegatepackage`,
+      `http://127.0.0.1:8000/admin1/getactivedelegatepackage`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -672,7 +672,7 @@ const SponsorBookingForm = () => {
   //       body: formData,
   //     };
   //     fetch(
-  //       `https://harsh7541.pythonanywhere.com/admin1/sponsoroffercouponbycode`,
+  //       `http://127.0.0.1:8000/admin1/sponsoroffercouponbycode`,
   //       requestOptions,
   //     )
   //       .then((response) => response.json())
@@ -712,7 +712,7 @@ const SponsorBookingForm = () => {
     let formData = new FormData();
     formData.append("couponCode", code);
 
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/sponsoroffercouponbycode`, {
+    fetch(`http://127.0.0.1:8000/admin1/sponsoroffercouponbycode`, {
       method: "POST",
       body: formData,
     })

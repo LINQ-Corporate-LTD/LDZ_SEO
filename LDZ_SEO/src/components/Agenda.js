@@ -26,7 +26,7 @@ const Agenda = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/getagenda`,
+      `http://127.0.0.1:8000/admin1/getagenda`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -307,7 +307,7 @@ const Agenda = () => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addcontactusrequest",
+        "http://127.0.0.1:8000/admin1/addcontactusrequest",
         requestOptions,
       )
         .then((response) => response.json())
@@ -365,7 +365,7 @@ const Agenda = () => {
 
   //   setIsVerify(true);
   //   try {
-  //     const response = await fetch("https://harsh7541.pythonanywhere.com/admin1/verifyemaildomain", {
+  //     const response = await fetch("http://127.0.0.1:8000/admin1/verifyemaildomain", {
   //       method: "POST",
   //       headers: {
   //         "Content-Type": "application/json",
@@ -425,7 +425,7 @@ const Agenda = () => {
 
     try {
       const response = await fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/verifyemaildomain",
+        "http://127.0.0.1:8000/admin1/verifyemaildomain",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -437,7 +437,7 @@ const Agenda = () => {
 
       // ✅ Save entry in DB regardless of blocked or valid
       await fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addagendasubscriber",
+        "http://127.0.0.1:8000/admin1/addagendasubscriber",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

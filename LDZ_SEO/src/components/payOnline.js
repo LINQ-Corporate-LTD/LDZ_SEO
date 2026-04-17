@@ -103,7 +103,7 @@ const PayOnline = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://harsh7541.pythonanywhere.com/admin1/sendmail",
+          "http://127.0.0.1:8000/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -128,7 +128,7 @@ const PayOnline = () => {
     finalData.append("totalPayAmount", payFormData?.amount);
     finalData.append("email", payFormData?.email);
 
-    fetch("https://harsh7541.pythonanywhere.com/admin1/addpayonlinerequest", {
+    fetch("http://127.0.0.1:8000/admin1/addpayonlinerequest", {
       method: "POST",
       body: finalData,
     })

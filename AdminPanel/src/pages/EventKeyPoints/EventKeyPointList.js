@@ -43,7 +43,7 @@ const EventKeyPointList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/eventkeypoints`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventkeypoints`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -153,7 +153,7 @@ const EventKeyPointList = () => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://harsh7541.pythonanywhere.com/admin1/deletekeypoint", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/deletekeypoint", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

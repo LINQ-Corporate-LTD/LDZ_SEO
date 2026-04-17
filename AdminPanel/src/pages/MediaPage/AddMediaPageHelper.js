@@ -76,7 +76,7 @@ const AddMediaPageHelper = (props) => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://harsh7541.pythonanywhere.com/admin1/addmediapagehelpers", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/addmediapagehelpers", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

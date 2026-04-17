@@ -67,7 +67,7 @@ const JoinedCompanies = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/joinedcompanies`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/joinedcompanies`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -197,7 +197,7 @@ const JoinedCompanies = () => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://harsh7541.pythonanywhere.com/admin1/deletefaq", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/deletefaq", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

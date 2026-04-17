@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import { FormControl, FormHelperText } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 const logo =
-  "https://harsh7541.pythonanywhere.com/media/mediabitcoin_logo_white.png";
+  "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
 const plusIcon =
   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
 const closeBtn =

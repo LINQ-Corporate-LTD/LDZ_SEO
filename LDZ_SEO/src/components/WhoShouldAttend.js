@@ -45,7 +45,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/whoshouldattendpagedata`,
+      `http://127.0.0.1:8000/admin1/whoshouldattendpagedata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -75,7 +75,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/eventtestimonials`,
+      `http://127.0.0.1:8000/admin1/eventtestimonials`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -104,7 +104,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/eventcoreattandees`,
+      `http://127.0.0.1:8000/admin1/eventcoreattandees`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -133,7 +133,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/eventparticipatedindustries`,
+      `http://127.0.0.1:8000/admin1/eventparticipatedindustries`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -331,7 +331,7 @@ const WhoShouldAttend = () => {
                   className="BenefitScreen_imageContainer__dQ2Lk"
                   style={{
                     backgroundImage:
-                      "url(	https://www.frac-sand-conference.com/static/media/benefits1.f71bdc353409b0e5b816.png)",
+                      "url(	https://www.middleeast.carbon-capture-conference.com/static/media/benefits.747bc65104bda2644a4f.webp)",
                   }}
                 ></div>
                 <div className="BenefitScreen_textContainer__-wzXh">
@@ -446,7 +446,7 @@ const WhoShouldAttend = () => {
                   className="BenefitScreen_imageContainer__dQ2Lk"
                   style={{
                     backgroundImage:
-                      "url(	https://www.frac-sand-conference.com/static/media/benefits2.10516737e5b8b580662d.png)",
+                      "url(	https://www.middleeast.carbon-capture-conference.com/static/media/keytakeaways.48e237b4175748cef8ed.webp)",
                   }}
                 ></div>
               </div>

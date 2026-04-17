@@ -82,7 +82,7 @@ const Sponsors = () => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addcrowdformrequest",
+        "http://127.0.0.1:8000/admin1/addcrowdformrequest",
         requestOptions,
       )
         .then((response) => response.json())
@@ -369,8 +369,7 @@ const Sponsors = () => {
                   ></div>
                   <div className="DetailsContainer_textContainer__D8Ukb">
                     <h1>
-                      EXHIBIT YOUR SERVICES AT BITCOIN INNOVATION & MARKET
-                      EVOLUTION 2026
+                      EXHIBIT YOUR SERVICES AT LITHIUM DOWNSTREAM SUMMIT 2026
                     </h1>
                     <div className="DetailsContainer_innerContent__6NQGR">
                       <div>

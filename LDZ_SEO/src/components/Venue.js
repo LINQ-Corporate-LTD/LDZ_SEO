@@ -13,7 +13,7 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import { useSSRData } from "../common/useSSRData";
 
 const bgImage =
-  "https://www.frac-sand-conference.com/static/media/venue-image.ad9c328038bb8cdfb219.png";
+  "https://www.middleeast.carbon-capture-conference.com/static/media/venue.577468d061be4cf8216b.webp";
 const locationIcon =
   "https://www.desalination-resource-recovery.com/images/icons/pin.png";
 const phoneIcon =

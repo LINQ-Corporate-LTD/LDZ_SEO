@@ -45,7 +45,7 @@ const AddNavSubCategory = (props) => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/navmaincategories`,
+      `http://127.0.0.1:8000/admin1/navmaincategories`,
       requestOptions
     )
       .then((response) => response.json())
@@ -143,7 +143,7 @@ const AddNavSubCategory = (props) => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addnavsubcategory",
+        "http://127.0.0.1:8000/admin1/addnavsubcategory",
         requestOptions
       )
         .then((response) => response.json())

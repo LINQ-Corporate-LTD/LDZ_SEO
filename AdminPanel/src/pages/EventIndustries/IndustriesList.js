@@ -72,7 +72,7 @@ const IndustriesList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/eventparticipatedindustries`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventparticipatedindustries`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -172,7 +172,7 @@ const IndustriesList = () => {
         body: finalData,
       };
       fetch(
-        'https://harsh7541.pythonanywhere.com/admin1/deleteeventparticipatedindustry',
+        'http://127.0.0.1:8000/admin1/deleteeventparticipatedindustry',
         requestOptions
       )
         .then((response) => response.json())

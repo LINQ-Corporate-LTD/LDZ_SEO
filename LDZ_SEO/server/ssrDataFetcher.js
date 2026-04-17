@@ -5,7 +5,7 @@
 const fetch = require("node-fetch");
 // AbortController is a global in Node.js v15+ — no import needed
 
-const BASE_URL = "https://harsh7541.pythonanywhere.com/admin1";
+const BASE_URL = "http://127.0.0.1:8000/admin1";
 
 // How long to wait for a single API call before giving up (ms)
 const FETCH_TIMEOUT_MS = 4000;

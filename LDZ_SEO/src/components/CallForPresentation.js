@@ -373,7 +373,7 @@ const CallForPresentation = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/getspeakerpagedata`,
+      `http://127.0.0.1:8000/admin1/getspeakerpagedata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -462,7 +462,7 @@ const CallForPresentation = () => {
         body: finalData,
       };
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addquickproposalrequest",
+        "http://127.0.0.1:8000/admin1/addquickproposalrequest",
         requestOptions,
       )
         .then((response) => response.json())
@@ -548,7 +548,7 @@ const CallForPresentation = () => {
               className="Speakers_imageContainer__Lv+er"
               style={{
                 backgroundImage:
-                  "url(https://www.frac-sand-conference.com/static/media/speakers1.8c179830acd9a6a00019.png)",
+                  "url(https://www.middleeast.carbon-capture-conference.com/static/media/calling-all-speakers.b7aa47b9ca78f1f64b90.webp)",
               }}
             ></div>
             <div className="Speakers_textContainer__UsgLs">
@@ -654,7 +654,7 @@ const CallForPresentation = () => {
 
                       try {
                         await fetch(
-                          "https://harsh7541.pythonanywhere.com/admin1/addcalendersubscriber",
+                          "http://127.0.0.1:8000/admin1/addcalendersubscriber",
                           {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
@@ -693,7 +693,7 @@ const CallForPresentation = () => {
               className="Speakers_imageContainer__Lv+er"
               style={{
                 backgroundImage:
-                  "url(https://www.frac-sand-conference.com/static/media/speakers2.33e7cbc8fa54cd4e2ad5.png)",
+                  "url(https://www.middleeast.carbon-capture-conference.com/static/media/be-a-part-of-our-multi-disciplined-agenda.3413c18db1d1759da276.webp)",
               }}
             ></div>
           </div>

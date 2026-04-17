@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSSRData } from "../common/useSSRData";
 const logo =
-  "https://harsh7541.pythonanywhere.com/media/mediabitcoin_logo_white.png";
+  "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
 
 const ticket =
   "https://www.desalination-resource-recovery.com/images/ticket.svg";
@@ -165,7 +165,7 @@ const BookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://harsh7541.pythonanywhere.com/admin1/sendmail",
+          "http://127.0.0.1:8000/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -237,7 +237,7 @@ const BookingForm = () => {
   //     };
 
   //     fetch(
-  //       "https://harsh7541.pythonanywhere.com/admin1/addnewdelegate",
+  //       "http://127.0.0.1:8000/admin1/addnewdelegate",
   //       requestOptions,
   //     )
   //       .then((response) => response.json())
@@ -563,7 +563,7 @@ const BookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://harsh7541.pythonanywhere.com/admin1/sendmail",
+          "http://127.0.0.1:8000/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -616,7 +616,7 @@ const BookingForm = () => {
       };
 
       fetch(
-        "https://harsh7541.pythonanywhere.com/admin1/addnewdelegate",
+        "http://127.0.0.1:8000/admin1/addnewdelegate",
         requestOptions,
       )
         .then((response) => response.json())
@@ -684,7 +684,7 @@ const BookingForm = () => {
       method: "GET",
     };
     fetch(
-      `https://harsh7541.pythonanywhere.com/admin1/delegatepackageaddons`,
+      `http://127.0.0.1:8000/admin1/delegatepackageaddons`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -714,7 +714,7 @@ const BookingForm = () => {
   //       body: formData,
   //     };
   //     fetch(
-  //       `https://harsh7541.pythonanywhere.com/admin1/offercouponbycode`,
+  //       `http://127.0.0.1:8000/admin1/offercouponbycode`,
   //       requestOptions,
   //     )
   //       .then((response) => response.json())
@@ -754,7 +754,7 @@ const BookingForm = () => {
     let formData = new FormData();
     formData.append("couponCode", code);
 
-    fetch(`https://harsh7541.pythonanywhere.com/admin1/offercouponbycode`, {
+    fetch(`http://127.0.0.1:8000/admin1/offercouponbycode`, {
       method: "POST",
       body: formData,
     })

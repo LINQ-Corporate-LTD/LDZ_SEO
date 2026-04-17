@@ -27,6 +27,8 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@vtaits/react-color-picker": "^1.0.2",
+    "ajv": "^8.18.0",
+    "ajv-keywords": "^5.1.0",
     "aos": "^2.3.4",
     "apexcharts": "^3.54.1",
     "axios": "^1.7.7",
