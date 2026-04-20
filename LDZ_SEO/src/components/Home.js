@@ -97,7 +97,7 @@ const Home = () => {
     return () => window.removeEventListener("resize", updateSettings);
   }, [ssrSponsorList]);
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Register Now`;
+  const seoTitle = `Lithium Downstream Summit 2026 | Register Now`;
   const seoDesc = "Join Bitcoin Innovation & Market Evolution 2026 to explore institutional adoption, mining, Layer-2 scalability, regulation and AI in Bitcoin markets.";
 
 
