@@ -7,9 +7,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 const mediaImage1 =
-  "	https://www.frac-sand-conference.com/static/media/media.ba0e44e0a54f375e3e8f.png";
+  "https://www.europe.autonomous-vehicles-conference.com/static/media/media.8d91a0418af8c33f6344.webp"
 const mediaImage2 =
-  "https://www.frac-sand-conference.com/static/media/media-res.4ba0b7b4e8eee792e1b4.png";
+  "https://www.europe.autonomous-vehicles-conference.com/static/media/media-res.6077ae0e16c49f9f4184.webp";
 
 const emailIcon =
   "https://www.desalination-resource-recovery.com/images/icons/msg.png";
