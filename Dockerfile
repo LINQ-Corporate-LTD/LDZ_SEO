@@ -6,4 +6,4 @@ COPY LDZ_SEO/ .
 RUN npm run build
 RUN npm install -g serve
 EXPOSE 3000
-CMD ["node", "LDZ_SEO/server/index.js"]
+CMD ["node", "server/index.js"]
