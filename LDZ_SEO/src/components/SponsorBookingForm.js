@@ -8,16 +8,20 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSSRData } from "../common/useSSRData";
 import { Helmet } from "react-helmet-async";
-const ticket =
-  "https://www.desalination-resource-recovery.com/images/ticket.svg";
-const logo =
-  "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
-const toggle =
-  "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
-const cardLabel =
-  "https://www.desalination-resource-recovery.com/images/logos/card-labels.png";
-const lockIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/lock.png";
+import toggle from "../../src/assets/WebCommonImages/toggle.png";
+import cardLabel from "../../src/assets/WebCommonImages/card-labels.png";
+import lockIcon from "../../src/assets/WebCommonImages/lock.png";
+
+// const ticket =
+//   "https://www.desalination-resource-recovery.com/images/ticket.svg";
+// const logo =
+//   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
+// const toggle =
+//   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
+// const cardLabel =
+//   "https://www.desalination-resource-recovery.com/images/logos/card-labels.png";
+// const lockIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/lock.png";
 
 const SponsorBookingForm = () => {
   const navigate = useNavigate();
@@ -60,6 +64,7 @@ const SponsorBookingForm = () => {
     eventDetails,
     eventGeneralSettings,
     themeSettings,
+    navLogos
   } = useApiData();
 
   const seoTitle = "Sponsor Booking | Bitcoin Innovation & Market Evolution 2026";
@@ -991,7 +996,7 @@ const SponsorBookingForm = () => {
               className="PageForm_headerInner__sdlhn"
               style={{ maxWidth: "1280px" }}
             >
-              <img onClick={() => navigate("/")} src={logo} alt="Site logo"></img>
+              <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="Site logo"></img>
             </div>
           </div>
           <div className="SponsorFormV2_container__d5aHK">
@@ -1175,7 +1180,7 @@ const SponsorBookingForm = () => {
                               <script xmlns=""></script>
                             </svg>
                             <div className="SponsorFormV2_ticketLogo__Nm2y4">
-                              <img src={logo} alt="logo img"></img>
+                              <img src={navLogos?.whiteLogo} alt="logo img"></img>
                             </div>
                           </div>
                         </div>
@@ -1341,7 +1346,7 @@ const SponsorBookingForm = () => {
                             <script xmlns=""></script>
                           </svg>
                           <div className="SponsorFormV2_ticketLogo__Nm2y4">
-                            <img src={logo} alt="logo img"></img>
+                            <img src={navLogos?.whiteLogo} alt="logo img"></img>
                           </div>
                         </div>
                       </div>

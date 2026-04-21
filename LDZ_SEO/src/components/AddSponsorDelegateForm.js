@@ -17,19 +17,24 @@ import { useApiData } from "../common/ApiContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
+import plusIcon from '../assets/WebCommonImages/plus.png'
+import closeBtn from '../assets/WebCommonImages/del-cross.png'
+import toggle from '../assets/WebCommonImages/toggle.png'
+import cardLabel from '../assets/WebCommonImages/card-labels.png'
+import lockIcon from '../assets/WebCommonImages/lock.png'
 
-const logo =
-  "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
-const plusIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/plus.png";
-const closeBtn =
-  "https://www.desalination-resource-recovery.com/images/icons/del-cross.png";
-const toggle =
-  "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
-const cardLabel =
-  "https://www.desalination-resource-recovery.com/images/logos/card-labels.png";
-const lockIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/lock.png";
+// const logo =
+//   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
+// const plusIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
+// const closeBtn =
+//   "https://www.desalination-resource-recovery.com/images/icons/del-cross.png";
+// const toggle =
+//   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
+// const cardLabel =
+//   "https://www.desalination-resource-recovery.com/images/logos/card-labels.png";
+// const lockIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/lock.png";
 
 const countries = getNames();
 const metaSeoTitle = "Sponsor Booking | Bitcoin Innovation & Market Evolution 2026";
@@ -48,6 +53,7 @@ const AddSponsorDelegateForm = () => {
   const {
     eventDetails,
     eventGeneralSettings,
+    navLogos
   } = useApiData();
 
   const [delegateCount, setDelegateCount] = useState(1);
@@ -1025,7 +1031,7 @@ const AddSponsorDelegateForm = () => {
           <meta name="debug-ssr" content="AddSponsorDelegateForm Step 2" />
           <meta property="og:title" content={metaSeoTitle} />
           <meta property="og:description" content={metaSeoDesc} />
-          <meta property="og:image" content={logo} />
+          <meta property="og:image" content={navLogos?.whiteLogo} />
           <link rel="canonical" href={metaCanonicalUrl} />
           <meta name="description" content={metaSeoDesc} />
         </Helmet>
@@ -1038,7 +1044,7 @@ const AddSponsorDelegateForm = () => {
               >
                 <img
                   onClick={() => navigate("/")}
-                  src={logo}
+                  src={navLogos?.whiteLogo}
                   alt="Site logo"
                 ></img>
               </div>
@@ -1134,7 +1140,7 @@ const AddSponsorDelegateForm = () => {
                             <div>
                               <TicketSVG />
                               <div className="SponsorFormV2_ticketLogo__Nm2y4">
-                                <img src={logo} alt="logo img"></img>
+                                <img src={navLogos?.whiteLogo} alt="logo img"></img>
                               </div>
                             </div>
                           </div>
@@ -1204,7 +1210,7 @@ const AddSponsorDelegateForm = () => {
                           <div>
                             <TicketSVG />
                             <div className="SponsorFormV2_ticketLogo__Nm2y4">
-                              <img src={logo} alt="logo img"></img>
+                              <img src={navLogos?.whiteLogo} alt="logo img"></img>
                             </div>
                           </div>
                         </div>
@@ -1245,7 +1251,7 @@ const AddSponsorDelegateForm = () => {
         <meta name="debug-ssr" content="AddSponsorDelegateForm Step 1" />
         <meta property="og:title" content={metaSeoTitle} />
         <meta property="og:description" content={metaSeoDesc} />
-        <meta property="og:image" content={logo} />
+        <meta property="og:image" content={navLogos?.whiteLogo} />
         <link rel="canonical" href={metaCanonicalUrl} />
         <meta name="description" content={metaSeoDesc} />
       </Helmet>
@@ -1256,7 +1262,7 @@ const AddSponsorDelegateForm = () => {
               className="PageForm_headerInner__sdlhn"
               style={{ maxWidth: "1070px" }}
             >
-              <img onClick={() => navigate("/")} src={logo} alt="site logo"></img>
+              <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="site logo"></img>
             </div>
           </div>
           <div className="SponsorFormV2_container__d5aHK">

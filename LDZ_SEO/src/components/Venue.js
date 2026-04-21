@@ -11,15 +11,19 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import { useSSRData } from "../common/useSSRData";
+import bgImage from "../assets/WebImages/venue-main-image.webp";
+import locationIcon from "../assets/WebCommonImages/location-pin.png";
+import phoneIcon from "../assets/WebCommonImages/icon-phone.png";
+import webIcon from "../assets/WebCommonImages/icon-web.png";
 
-const bgImage =
-  "https://www.middleeast.carbon-capture-conference.com/static/media/venue.577468d061be4cf8216b.webp";
-const locationIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/pin.png";
-const phoneIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/icon-phone.png";
-const webIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/icon-web.png";
+// const bgImage =
+//   "https://www.middleeast.carbon-capture-conference.com/static/media/venue.577468d061be4cf8216b.webp";
+// const locationIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/pin.png";
+// const phoneIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/icon-phone.png";
+// const webIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/icon-web.png";
 
 const Venue = () => {
   // ✅ SSR data — no client-side API calls

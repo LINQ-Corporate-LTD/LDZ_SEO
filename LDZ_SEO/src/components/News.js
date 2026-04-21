@@ -8,10 +8,12 @@ import "../../src/assets/css/News.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
-const leftArrowIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
-const rightArrowIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-right.png";
+import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
+import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
+// const leftArrowIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
+// const rightArrowIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-right.png";
 
 const News = () => {
   const navigate = useNavigate();

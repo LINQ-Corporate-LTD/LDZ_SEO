@@ -361,12 +361,15 @@ import { useNavigate } from "react-router-dom";
 import "../assets/css/navbar.css";
 import GoogleTranslate from "./GoogleTranslate";
 import { useSSRData } from "../common/useSSRData";
+import closeBtn from '../assets/WebCommonImages/close-white.png'
+import hamburger from '../assets/WebCommonImages/navbar-toggle.png'
+import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
 
-const closeBtn =
-  "https://www.desalination-resource-recovery.com/images/icons/close-white.png";
-const hamburger = "https://cdn-icons-png.flaticon.com/512/56/56763.png";
-const leftArrowIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
+// const closeBtn =
+//   "https://www.desalination-resource-recovery.com/images/icons/close-white.png";
+// const hamburger = "https://cdn-icons-png.flaticon.com/512/56/56763.png";
+// const leftArrowIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
 
 const Navbar = ({ disableScrollEffect = false, forceScrolled = false }) => {
   const navigate = useNavigate();

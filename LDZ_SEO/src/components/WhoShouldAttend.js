@@ -11,11 +11,15 @@ import "react-toastify/dist/ReactToastify.css";
 import Slider from "react-slick";
 import Popup from "reactjs-popup";
 import { Helmet } from "react-helmet-async";
+import benefitsBg from "../assets/WebImages/benefits-who-should-attend.webp";
+import ketTakewaysBg from "../assets/WebImages/keytakeaways-who-should-attend.webp";
+import arrowUpIcon from "../assets/WebCommonImages/accordion-arrow-up.png";
+import arrowDownIcon from "../assets/WebCommonImages/arrow-down-black.png";
 
-const arrowUpIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/accordion-arrow-up.png";
-const arrowDownIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/arrow-down-black.png";
+// const arrowUpIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/accordion-arrow-up.png";
+// const arrowDownIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/arrow-down-black.png";
 
 const WhoShouldAttend = () => {
   const navigate = useNavigate();
@@ -331,7 +335,7 @@ const WhoShouldAttend = () => {
                   className="BenefitScreen_imageContainer__dQ2Lk"
                   style={{
                     backgroundImage:
-                      "url(	https://www.middleeast.carbon-capture-conference.com/static/media/benefits.747bc65104bda2644a4f.webp)",
+                      `url(${benefitsBg})`,
                   }}
                 ></div>
                 <div className="BenefitScreen_textContainer__-wzXh">
@@ -446,7 +450,7 @@ const WhoShouldAttend = () => {
                   className="BenefitScreen_imageContainer__dQ2Lk"
                   style={{
                     backgroundImage:
-                      "url(	https://www.middleeast.carbon-capture-conference.com/static/media/keytakeaways.48e237b4175748cef8ed.webp)",
+                      `url(${ketTakewaysBg})`,
                   }}
                 ></div>
               </div>

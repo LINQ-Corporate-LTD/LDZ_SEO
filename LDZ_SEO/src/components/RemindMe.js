@@ -12,12 +12,13 @@ import { MuiTelInput } from "mui-tel-input";
 import Button from "@mui/material/Button";
 import { FormControl, FormHelperText } from "@mui/material";
 import { Helmet } from "react-helmet-async";
-const logo =
-  "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
-const plusIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/plus.png";
-const closeBtn =
-  "https://www.desalination-resource-recovery.com/images/icons/del-cross.png";
+import { useApiData } from "../common/ApiContext";
+// const logo =
+//   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
+// const plusIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
+// const closeBtn =
+//   "https://www.desalination-resource-recovery.com/images/icons/del-cross.png";
 const countries = getNames();
 
 const RemindMeLater = () => {
@@ -36,6 +37,13 @@ const RemindMeLater = () => {
     email: "",
     mobile: "",
   });
+  const {
+    homeVideoSettings,
+    eventDetails,
+    eventGeneralSettings,
+    themeSettings,
+    navLogos
+  } = useApiData();
 
   // Initialize delegates based on selectedQty
   const initializeDelegates = () => {
@@ -323,6 +331,9 @@ const RemindMeLater = () => {
     return isValid;
   };
 
+  const dispositionKey = eventDetails?.hubspotDisposition; // e.g. "disposition_wdrm_2025"
+  const emailStatusKey = eventDetails?.hubspotEmailStatus;
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -470,7 +481,7 @@ const RemindMeLater = () => {
             className="PageForm_headerInner__sdlhn"
             style={{ maxWidth: "1070px" }}
           >
-            <img onClick={() => navigate("/")} src={logo} alt="site logo"></img>
+            <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="site logo"></img>
           </div>
         </div>
         <div className="RemindMeLater_container__vWyw0">

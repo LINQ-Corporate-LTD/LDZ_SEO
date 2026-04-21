@@ -1,10 +1,12 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/ForumSection.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import speakerVideo from "../../src/assets/WebVideo/iq-hub-video.mp4";
-const bgIg =
-  "https://www.desalination-resource-recovery.com/api/images/1742798974985.png";
+import homePageIqHubVideo from "../assets/WebVideo/iq-hub-video.mp4";
+import homePageIqHubVideoPoster from "../assets/WebImages/home-video-poster.jpg";
+// const bgIg =
+//   "https://www.desalination-resource-recovery.com/api/images/1742798974985.png";
 
 const ForumSection = () => {
   const [taglineData, setTaglineData] = useState([]);

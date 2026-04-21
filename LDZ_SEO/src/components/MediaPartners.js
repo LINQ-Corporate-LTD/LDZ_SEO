@@ -6,15 +6,20 @@ import SubscribeForm from "./SubscribeForm";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
-const mediaImage1 =
-  "https://www.europe.autonomous-vehicles-conference.com/static/media/media.8d91a0418af8c33f6344.webp"
-const mediaImage2 =
-  "https://www.europe.autonomous-vehicles-conference.com/static/media/media-res.6077ae0e16c49f9f4184.webp";
+import mediaImage1 from "../assets/WebImages/media1.webp";
+import mediaImage2 from "../assets/WebImages/media-res2.webp";
+import emailIcon from "../assets/WebCommonImages/msg.png";
+import phoneIcon from "../assets/WebCommonImages/phone-call.png";
 
-const emailIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/msg.png";
-const phoneIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/phone-call.png";
+// const mediaImage1 =
+//   "https://www.europe.autonomous-vehicles-conference.com/static/media/media.8d91a0418af8c33f6344.webp"
+// const mediaImage2 =
+//   "https://www.europe.autonomous-vehicles-conference.com/static/media/media-res.6077ae0e16c49f9f4184.webp";
+
+// const emailIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/msg.png";
+// const phoneIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/phone-call.png";
 
 const MediaPartners = () => {
   const [mediaPageHelpersList, setMediaPageHelpersList] = useState([]);

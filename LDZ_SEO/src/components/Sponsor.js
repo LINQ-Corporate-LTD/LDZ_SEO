@@ -13,15 +13,19 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TestimonialCarousel from "./TestimonialCarousel";
 import { useSSRData } from "../common/useSSRData";
+import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
+import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
+import emailIcon from '../assets/WebCommonImages/msg.png'
+import phoneIcon from '../assets/WebCommonImages/phone-call.png'
 
-const leftArrowIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
-const rightArrowIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-right.png";
-const emailIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/msg.png";
-const phoneIcon =
-  "https://www.desalination-resource-recovery.com/images/icons/phone-call.png";
+// const leftArrowIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
+// const rightArrowIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-right.png";
+// const emailIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/msg.png";
+// const phoneIcon =
+//   "https://www.desalination-resource-recovery.com/images/icons/phone-call.png";
 
 const Sponsors = () => {
   const sliderRef = useRef(null);
