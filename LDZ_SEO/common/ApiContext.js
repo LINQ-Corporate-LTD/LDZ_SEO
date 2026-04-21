@@ -177,7 +177,7 @@ export const ApiDataProvider = ({ children, initialData = null }) => {
       method: "GET",
     };
 
-    fetch(`http://127.0.0.1:8000/admin1/homepagedata`, requestOptions)
+   fetch(`${process.env.REACT_APP_API_URL}/admin1/homepagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
