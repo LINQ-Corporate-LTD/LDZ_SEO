@@ -1,8 +1,8 @@
 FROM node:18-alpine
 WORKDIR /app
-COPY package*.json ./
+COPY LDZ_SEO/package*.json ./
 RUN npm install --legacy-peer-deps
-COPY . .
+COPY LDZ_SEO/ .
 RUN npm run build
 RUN npm install -g serve
 EXPOSE 3000
