@@ -42,7 +42,7 @@ const AddSlideShareAccess = (props) => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/eventprojects`,
+      `https://api.linq-staging-site.com/admin1/eventprojects`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -142,7 +142,7 @@ const AddSlideShareAccess = (props) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addslideShareAccess",
+        "https://api.linq-staging-site.com/admin1/addslideShareAccess",
         requestOptions,
       )
         .then((response) => response.json())

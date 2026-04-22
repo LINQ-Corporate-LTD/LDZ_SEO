@@ -71,7 +71,7 @@ const RelatedEvents = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/relatedevents`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/relatedevents`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -190,7 +190,7 @@ const RelatedEvents = () => {
         body: finalData,
       };
       fetch(
-        'http://127.0.0.1:8000/admin1/deleterelatedevent',
+        'https://api.linq-staging-site.com/admin1/deleterelatedevent',
         requestOptions
       )
         .then((response) => response.json())

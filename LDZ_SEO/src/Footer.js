@@ -57,7 +57,7 @@ const Footer = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/footersocialmediaoptions`,
+      `https://api.linq-staging-site.com/admin1/footersocialmediaoptions`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -94,7 +94,7 @@ const Footer = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/relatedevents`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/relatedevents`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -118,7 +118,7 @@ const Footer = () => {
   };
 
   const callFooterOptionsApi = () => {
-    fetch(`http://127.0.0.1:8000/admin1/footeroptions`, {
+    fetch(`https://api.linq-staging-site.com/admin1/footeroptions`, {
       method: "GET",
     })
       .then((response) => response.json())

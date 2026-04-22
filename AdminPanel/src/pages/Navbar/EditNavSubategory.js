@@ -63,7 +63,7 @@ const EditNavSubCategory = ({
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/navmaincategories`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/navmaincategories`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -159,7 +159,7 @@ const EditNavSubCategory = ({
         method: "POST",
         body: finalData,
       };
-      fetch("http://127.0.0.1:8000/admin1/editnavsubcategory", requestOptions)
+      fetch("https://api.linq-staging-site.com/admin1/editnavsubcategory", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

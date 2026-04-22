@@ -71,7 +71,7 @@ const ExpertSpeakers = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/expertspeakers`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/expertspeakers`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -177,7 +177,7 @@ const ExpertSpeakers = () => {
         body: finalData,
       };
       fetch(
-        'http://127.0.0.1:8000/admin1/deleteexpertspeaker',
+        'https://api.linq-staging-site.com/admin1/deleteexpertspeaker',
         requestOptions
       )
         .then((response) => response.json())

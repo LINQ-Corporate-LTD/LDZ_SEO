@@ -71,7 +71,7 @@ const BecomeSpeakerResponse = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/becomespeakerresponses`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/becomespeakerresponses`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -182,7 +182,7 @@ const BecomeSpeakerResponse = () => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/deletebecomespeakerrequest",
+        "https://api.linq-staging-site.com/admin1/deletebecomespeakerrequest",
         requestOptions
       )
         .then((response) => response.json())

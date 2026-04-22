@@ -52,7 +52,7 @@ const AddSocialMediaOption = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/footersocialmediaoptions`,
+      `https://api.linq-staging-site.com/admin1/footersocialmediaoptions`,
       requestOptions
     )
       .then((response) => response.json())
@@ -110,7 +110,7 @@ const AddSocialMediaOption = () => {
       method: "POST",
       body: formDataObj,
     };
-    fetch("http://127.0.0.1:8000/admin1/addfootersocialmediaoptions", requestOptions)
+    fetch("https://api.linq-staging-site.com/admin1/addfootersocialmediaoptions", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {

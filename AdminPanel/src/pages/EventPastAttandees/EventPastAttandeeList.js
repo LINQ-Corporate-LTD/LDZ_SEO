@@ -71,7 +71,7 @@ const EventPastAttandeeList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/pastAttandeelist`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/pastAttandeelist`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -192,7 +192,7 @@ const EventPastAttandeeList = () => {
         body: finalData,
       };
       fetch(
-        'http://127.0.0.1:8000/admin1/deletepastattandee',
+        'https://api.linq-staging-site.com/admin1/deletepastattandee',
         requestOptions
       )
         .then((response) => response.json())

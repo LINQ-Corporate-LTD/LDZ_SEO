@@ -62,7 +62,7 @@ const EditSponsorAddOnType = ({
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/editsponsoraddontype",
+        "https://api.linq-staging-site.com/admin1/editsponsoraddontype",
         requestOptions
       )
         .then((response) => response.json())

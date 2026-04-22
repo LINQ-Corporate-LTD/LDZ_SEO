@@ -77,7 +77,7 @@ const MainCategories = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/navmaincategories`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/navmaincategories`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -187,7 +187,7 @@ const MainCategories = () => {
         body: finalData,
       };
       fetch(
-        'http://127.0.0.1:8000/admin1/deletenavmaincategory',
+        'https://api.linq-staging-site.com/admin1/deletenavmaincategory',
         requestOptions
       )
         .then((response) => response.json())

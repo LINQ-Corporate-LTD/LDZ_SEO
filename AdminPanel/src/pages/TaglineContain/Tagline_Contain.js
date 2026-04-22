@@ -97,7 +97,7 @@ const Tagline_Contain = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/taglinedata`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/taglinedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -226,7 +226,7 @@ const Tagline_Contain = () => {
   //       body: finalData,
   //     };
   //     fetch(
-  //       'http://127.0.0.1:8000/admin1/deletesponsor',
+  //       'https://api.linq-staging-site.com/admin1/deletesponsor',
   //       requestOptions
   //     )
   //       .then((response) => response.json())

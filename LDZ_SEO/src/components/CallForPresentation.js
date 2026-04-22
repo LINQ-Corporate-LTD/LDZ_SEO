@@ -375,7 +375,7 @@ const CallForPresentation = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/getspeakerpagedata`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/getspeakerpagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -462,7 +462,7 @@ const CallForPresentation = () => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addquickproposalrequest",
+        "https://api.linq-staging-site.com/admin1/addquickproposalrequest",
         requestOptions,
       )
         .then((response) => response.json())
@@ -652,7 +652,7 @@ const CallForPresentation = () => {
 
                       try {
                         await fetch(
-                          "http://127.0.0.1:8000/admin1/addcalendersubscriber",
+                          "https://api.linq-staging-site.com/admin1/addcalendersubscriber",
                           {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
