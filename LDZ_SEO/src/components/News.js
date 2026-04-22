@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
 import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
+import { usePageSeo } from "../common/usePageSeo";
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
 // const rightArrowIcon =
@@ -174,8 +175,10 @@ const News = () => {
     return `/newsdescription/${slug}`;
   };
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Latest News`;
-  const seoDesc = "Read Bitcoin market updates on regulation, ETFs, mining, Layer-2 and security, published by Bitcoin Innovation & Market Evolution 2026.";
+  const pageSeo = usePageSeo("news");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
   return (
     <>
       <Helmet>
@@ -184,10 +187,12 @@ const News = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/news" />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/news" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

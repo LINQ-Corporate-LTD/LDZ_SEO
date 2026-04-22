@@ -8,6 +8,7 @@ import "../assets/css/contactUs.css";
 import { Helmet } from "react-helmet-async";
 import emailImage from "../assets/WebCommonImages/icon-email.png";
 import emailIcon from "../assets/WebCommonImages/msg.png";
+import { usePageSeo } from "../common/usePageSeo";
 // const emailImage =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-email.png";
 // const emailIcon =
@@ -699,8 +700,10 @@ const ContactUs = () => {
     }
   };
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Get in Touch`;
-  const seoDesc = "Reach the Bitcoin Innovation & Market Evolution 2026 team for registration help, sponsorship options, agenda questions, and venue support.";
+  const pageSeo = usePageSeo("contact-us");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
@@ -710,10 +713,12 @@ const ContactUs = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/contact-us" />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/contact-us" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>

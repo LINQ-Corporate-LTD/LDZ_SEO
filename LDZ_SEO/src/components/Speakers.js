@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../assets/css/speakers.css";
 import "../assets/css/form.css";
 import { Helmet } from "react-helmet-async";
+import { usePageSeo } from "../common/usePageSeo";
 const Speakers = () => {
   const navigate = useNavigate();
   const [windowWidth, setWindowWidth] = useState(
@@ -162,20 +163,22 @@ const Speakers = () => {
         });
     }
   };
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Speakers`;
-  const seoDesc = "Meet featured experts shaping adoption, mining, Layer-2, security, and regulation, presented by Bitcoin Innovation & Market Evolution 2026.";
+  const pageSeo = usePageSeo("featured-speakers");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDescription = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
   return (
     <>
       <Helmet>
         <title>{seoTitle}</title>
-        <meta name="description" content={seoDesc} />
+        <meta name="description" content={seoDescription} />
         <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDesc} />
+        <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
-        <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/featured-speakers" />
+        <meta name="twitter:description" content={seoDescription} />
+        <link rel="canonical" href="http://localhost:3001/featured-speakers" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

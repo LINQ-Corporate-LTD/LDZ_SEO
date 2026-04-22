@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet-async";
 import toggle from "../../src/assets/WebCommonImages/toggle.png";
 import cardLabel from "../../src/assets/WebCommonImages/card-labels.png";
 import lockIcon from "../../src/assets/WebCommonImages/lock.png";
-
+import { usePageSeo } from "../common/usePageSeo";
 // const ticket =
 //   "https://www.desalination-resource-recovery.com/images/ticket.svg";
 // const logo =
@@ -67,9 +67,11 @@ const SponsorBookingForm = () => {
     navLogos
   } = useApiData();
 
-  const seoTitle = "Sponsor Booking | Bitcoin Innovation & Market Evolution 2026";
-  const seoDesc = "Book your sponsorship package for Bitcoin Innovation & Market Evolution 2026. Secure your presence at the premier Bitcoin event.";
-  const canonicalUrl = "https://www.bitcoin-innovation-market-evolution.online/sponsor-booking";
+  const pageSeo = usePageSeo("sponsor-booking");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
+  const canonicalUrl = "http://localhost:3001/sponsor-booking";
 
   const numDelegates = delegates?.length;
   const sponsorPackageDelegateQty = parseInt(selectedPackage?.delegatePassQty);
@@ -984,9 +986,11 @@ const SponsorBookingForm = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <div id="root">

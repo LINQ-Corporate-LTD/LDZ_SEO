@@ -22,7 +22,7 @@ import { useApiData } from "../common/ApiContext";
 import { useSSRData } from "../common/useSSRData";
 import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
 import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
-
+import { usePageSeo } from "../common/usePageSeo";
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
 // const rightArrowIcon =
@@ -99,8 +99,10 @@ const Home = () => {
     return () => window.removeEventListener("resize", updateSettings);
   }, [ssrSponsorList]);
 
-  const seoTitle = `Lithium Downstream Summit 2026 | Register Now`;
-  const seoDesc = "Join Bitcoin Innovation & Market Evolution 2026 to explore institutional adoption, mining, Layer-2 scalability, regulation and AI in Bitcoin markets.";
+  const pageSeo = usePageSeo("home");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
 
   return (
@@ -111,8 +113,10 @@ const Home = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
         <link rel="canonical" href="/" />
       </Helmet>
       <Navbar />

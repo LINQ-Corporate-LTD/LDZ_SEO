@@ -661,7 +661,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useApiData } from "../../src/common/ApiContext";
 import icon from "../../src/assets/images/group-icon.png";
 import { useSSRData } from "../common/useSSRData";
-
+import { usePageSeo } from "../common/usePageSeo";
 const Register = () => {
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -887,8 +887,10 @@ const Register = () => {
     );
   };
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Book Delegate`;
-  const seoDesc = "Book your pass for Bitcoin Innovation & Market Evolution 2026. Choose delegate packages, access networking and materials.";
+  const pageSeo = usePageSeo("booking");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
@@ -898,10 +900,12 @@ const Register = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/booking" />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/booking" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

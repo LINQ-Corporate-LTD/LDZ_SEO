@@ -23,6 +23,7 @@ import iconNetwork from "../assets/WebCommonImages/icon-network.png";
 import iconLearn from "../assets/WebCommonImages/icon-learn.png";
 import iconLeadGeneration from "../assets/WebCommonImages/icon-lead-generation.png";
 import iconAmplify from "../assets/WebCommonImages/icon-amplify.png";
+import { usePageSeo } from "../common/usePageSeo";
 const CallForPresentation = () => {
   const [speakerPageData, setSpeakerPageData] = useState([]);
   const [paraOne, setParaOne] = useState("");
@@ -46,29 +47,25 @@ const CallForPresentation = () => {
   };
   const features = [
     {
-      iconUrl:
-        `${iconNetwork}`,
+      iconUrl: `${iconNetwork}`,
       title: "NETWORK",
       description:
         "Connect with industry peers and experts to build valuable relationships. An opportunity to build your professional network in an environment fostering growth and collaboration.",
     },
     {
-      iconUrl:
-        `${iconLearn}`,
+      iconUrl: `${iconLearn}`,
       title: "LEARN",
       description:
         "Engage with leading tech and business leaders in the current landscape. Join industry thought leaders tackling major challenges, and dive into deeper discussions on cutting-edge topics.",
     },
     {
-      iconUrl:
-        `${iconLeadGeneration}`,
+      iconUrl: `${iconLeadGeneration}`,
       title: "LEAD GENERATION",
       description:
         "Discover and connect with key industry players relevant to your business. Generate significant leads and broaden your corporate reach, enhancing your presence in the global market.",
     },
     {
-      iconUrl:
-        `${iconAmplify}`,
+      iconUrl: `${iconAmplify}`,
       title: "AMPLIFY",
       description:
         "Join an exclusive gathering that draws journalists from top media outlets like Bloomberg, Financial Times, Forbes, and CNN Business. Elevate your message to a global audience.",
@@ -378,10 +375,7 @@ const CallForPresentation = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(
-      `http://127.0.0.1:8000/admin1/getspeakerpagedata`,
-      requestOptions,
-    )
+    fetch(`http://127.0.0.1:8000/admin1/getspeakerpagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -512,9 +506,10 @@ const CallForPresentation = () => {
     }
   };
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Submit Talk`;
-  const seoDesc =
-    "Submit your speaker proposal for Bitcoin Innovation & Market Evolution 2026 and contribute insights on adoption, regulation, scalability, mining and markets.";
+  const pageSeo = usePageSeo("speakers");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
@@ -523,15 +518,13 @@ const CallForPresentation = () => {
         <meta name="description" content={seoDesc} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
-        {/* <meta property="og:image" content={bgImage} /> */}
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link
-          rel="canonical"
-          href="https://www.bitcoin-innovation-market-evolution.online/speakers"
-        />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/speakers" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>
@@ -553,8 +546,7 @@ const CallForPresentation = () => {
             <div
               className="Speakers_imageContainer__Lv+er"
               style={{
-                backgroundImage:
-                  `url(${callingSpeakerBg})`,
+                backgroundImage: `url(${callingSpeakerBg})`,
               }}
             ></div>
             <div className="Speakers_textContainer__UsgLs">
@@ -698,8 +690,7 @@ const CallForPresentation = () => {
             <div
               className="Speakers_imageContainer__Lv+er"
               style={{
-                backgroundImage:
-                  `url(${beAPartOfOurBg})`,
+                backgroundImage: `url(${beAPartOfOurBg})`,
               }}
             ></div>
           </div>

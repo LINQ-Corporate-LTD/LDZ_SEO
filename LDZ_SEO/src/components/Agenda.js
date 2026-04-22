@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet-async";
 import { useApiData } from "../common/ApiContext";
 import speakerDummy from "../../src/assets/images/Speaker_photos/Speaker_dummy.jpg";
 import companyDummy from "../../src/assets/images/Speaker_photos/companyLogo_dummy.png";
-
+import { usePageSeo } from "../common/usePageSeo";
 const Agenda = () => {
   const navigate = useNavigate();
   const [agendaList, setAgendaList] = useState(null);
@@ -526,9 +526,10 @@ const Agenda = () => {
     }
   }, []);
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Explore Agenda`;
-  const seoDesc =
-    "Explore sessions, key topics and program highlights shaping Bitcoin markets in Bitcoin Innovation & Market Evolution 2026.";
+  const pageSeo = usePageSeo("agenda");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
@@ -538,12 +539,14 @@ const Agenda = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
         <link
           rel="canonical"
-          href="https://www.bitcoin-innovation-market-evolution.online/agenda"
+          href="http://localhost:3001/agenda"
         />
       </Helmet>
       <Navbar forceScrolled />

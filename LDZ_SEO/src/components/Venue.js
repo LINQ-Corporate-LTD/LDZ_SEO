@@ -15,7 +15,7 @@ import bgImage from "../assets/WebImages/venue-main-image.webp";
 import locationIcon from "../assets/WebCommonImages/location-pin.png";
 import phoneIcon from "../assets/WebCommonImages/icon-phone.png";
 import webIcon from "../assets/WebCommonImages/icon-web.png";
-
+import { usePageSeo } from "../common/usePageSeo";
 // const bgImage =
 //   "https://www.middleeast.carbon-capture-conference.com/static/media/venue.577468d061be4cf8216b.webp";
 // const locationIcon =
@@ -43,25 +43,50 @@ const Venue = () => {
   };
 
   const venuePlace = venueData[0]?.venueFirstSectionFirstTitle || "";
-  const venueDescription = venueData[0]?.venueFirstSectionDescription?.replace(/^"(.*)"$/, "$1") || "";
+  const venueDescription =
+    venueData[0]?.venueFirstSectionDescription?.replace(/^"(.*)"$/, "$1") || "";
   const venueWebsiteLink = getCleanUrl(venueData[0]?.venueAddressLink);
-  const venueWebsiteLinkDisplay = venueData[0]?.venueAddressLink?.replace(/<[^>]+>/g, "").replace(/\\"/g, "").replace(/"/g, "").trim() || "";
-  const venueLocation = venueData[0]?.venueLocation?.replace(/^"(.*)"$/, "$1").replace(/<\/?p>/gi, "") || "";
-  const venueContact = venueData[0]?.venueContact?.replace(/<[^>]+>/g, "").replace(/\\"/g, "").replace(/"/g, "").trim() || "";
+  const venueWebsiteLinkDisplay =
+    venueData[0]?.venueAddressLink
+      ?.replace(/<[^>]+>/g, "")
+      .replace(/\\"/g, "")
+      .replace(/"/g, "")
+      .trim() || "";
+  const venueLocation =
+    venueData[0]?.venueLocation
+      ?.replace(/^"(.*)"$/, "$1")
+      .replace(/<\/?p>/gi, "") || "";
+  const venueContact =
+    venueData[0]?.venueContact
+      ?.replace(/<[^>]+>/g, "")
+      .replace(/\\"/g, "")
+      .replace(/"/g, "")
+      .trim() || "";
   const venueMapLink = getCleanUrl(venueData[0]?.venueMapLink);
   const venueWebAddress = getCleanUrl(venueData[0]?.venueWebsiteAddress);
 
   const venueGalleryImg1 = venueGalleryData[0]?.gallerySectionOneBigImage || "";
-  const venueGalleryImg2 = venueGalleryData[0]?.gallerySectionOneSmallImage || "";
+  const venueGalleryImg2 =
+    venueGalleryData[0]?.gallerySectionOneSmallImage || "";
   const venueGalleryImg3 = venueGalleryData[0]?.gallerySectionTwoBigImage || "";
-  const venueGalleryImg4 = venueGalleryData[0]?.gallerySectionTwoSmallImage || "";
-  const venueGalleryImg5 = venueGalleryData[0]?.gallerySectionThreeBigImage || "";
-  const venueGalleryImg6 = venueGalleryData[0]?.gallerySectionThreeSmallImage || "";
+  const venueGalleryImg4 =
+    venueGalleryData[0]?.gallerySectionTwoSmallImage || "";
+  const venueGalleryImg5 =
+    venueGalleryData[0]?.gallerySectionThreeBigImage || "";
+  const venueGalleryImg6 =
+    venueGalleryData[0]?.gallerySectionThreeSmallImage || "";
 
-  const imgArr = [venueGalleryImg1, venueGalleryImg2, venueGalleryImg3, venueGalleryImg4, venueGalleryImg5, venueGalleryImg6];
+  const imgArr = [
+    venueGalleryImg1,
+    venueGalleryImg2,
+    venueGalleryImg3,
+    venueGalleryImg4,
+    venueGalleryImg5,
+    venueGalleryImg6,
+  ];
 
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
+    typeof window !== "undefined" ? window.innerWidth : 1200,
   );
 
   useEffect(() => {
@@ -78,7 +103,10 @@ const Venue = () => {
       if (!element) return;
       const headerHeight = 120;
       const elementTop = element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: Math.max(elementTop - headerHeight, 0), behavior: "smooth" });
+      window.scrollTo({
+        top: Math.max(elementTop - headerHeight, 0),
+        behavior: "smooth",
+      });
     }, 100);
   }, []);
 
@@ -110,12 +138,17 @@ const Venue = () => {
     if (contactSectionRef.current) {
       const navbarHeight = 0;
       const elementPosition = contactSectionRef.current.offsetTop;
-      window.scrollTo({ top: elementPosition - navbarHeight, behavior: "smooth" });
+      window.scrollTo({
+        top: elementPosition - navbarHeight,
+        behavior: "smooth",
+      });
     }
   };
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Venue`;
-  const seoDesc = "View the event venue information for Bitcoin Innovation & Market Evolution 2026 including location and directions.";
+  const pageSeo = usePageSeo("venue");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
@@ -129,7 +162,7 @@ const Venue = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/venue" />
+        <link rel="canonical" href="http://localhost:3001/venue" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>
@@ -137,11 +170,21 @@ const Venue = () => {
           <article className="Venue_container__Lol8U">
             <div className="DetailsContainer_wholeContainer__385Iv">
               <div className="DetailsContainer_container__JrWjX">
-                <div className="DetailsContainer_imageContainer__ncJwH" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover" }} />
+                <div
+                  className="DetailsContainer_imageContainer__ncJwH"
+                  style={{
+                    backgroundImage: `url(${bgImage})`,
+                    backgroundSize: "cover",
+                  }}
+                />
                 <div className="DetailsContainer_textVenueContainer__XnUJF">
                   <h1>Venue</h1>
                   <div className="DetailsContainer_innerContent__6NQGR">
-                    <div dangerouslySetInnerHTML={{ __html: cleanHtml(venueDescription) }} />
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: cleanHtml(venueDescription),
+                      }}
+                    />
                   </div>
                   <button onClick={scrollToContact}>MORE INFORMATION</button>
                 </div>
@@ -153,16 +196,40 @@ const Venue = () => {
                   <div className="LightBox_images__L7242">
                     <h2>Venue Gallery</h2>
                     <div className="LightBox_top__L68+7">
-                      <img src={venueGalleryImg1} alt="Gallery Img" onClick={() => setLightboxIndex(0)} />
-                      <img src={venueGalleryImg2} alt="Gallery Img" onClick={() => setLightboxIndex(1)} />
+                      <img
+                        src={venueGalleryImg1}
+                        alt="Gallery Img"
+                        onClick={() => setLightboxIndex(0)}
+                      />
+                      <img
+                        src={venueGalleryImg2}
+                        alt="Gallery Img"
+                        onClick={() => setLightboxIndex(1)}
+                      />
                     </div>
                     <div className="LightBox_middle__k7r70">
-                      <img src={venueGalleryImg3} alt="Gallery Img" onClick={() => setLightboxIndex(2)} />
-                      <img src={venueGalleryImg4} alt="Gallery Img" onClick={() => setLightboxIndex(3)} />
+                      <img
+                        src={venueGalleryImg3}
+                        alt="Gallery Img"
+                        onClick={() => setLightboxIndex(2)}
+                      />
+                      <img
+                        src={venueGalleryImg4}
+                        alt="Gallery Img"
+                        onClick={() => setLightboxIndex(3)}
+                      />
                     </div>
                     <div className="LightBox_bottom__x1J0A">
-                      <img src={venueGalleryImg5} alt="Gallery Img" onClick={() => setLightboxIndex(4)} />
-                      <img src={venueGalleryImg6} alt="Gallery Img" onClick={() => setLightboxIndex(5)} />
+                      <img
+                        src={venueGalleryImg5}
+                        alt="Gallery Img"
+                        onClick={() => setLightboxIndex(4)}
+                      />
+                      <img
+                        src={venueGalleryImg6}
+                        alt="Gallery Img"
+                        onClick={() => setLightboxIndex(5)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -173,33 +240,73 @@ const Venue = () => {
                   slides={imgArr.map((src) => ({ src }))}
                   plugins={[Fullscreen]}
                   animation={{ fade: true, swipe: false }}
-                  styles={{ container: { backgroundColor: "#292929d5" }, button: { backgroundColor: "#4d4d4d9a" } }}
+                  styles={{
+                    container: { backgroundColor: "#292929d5" },
+                    button: { backgroundColor: "#4d4d4d9a" },
+                  }}
                   on={{
-                    click: ({ target }) => { if (target.classList.contains("yarl__container")) setLightboxIndex(-1); },
+                    click: ({ target }) => {
+                      if (target.classList.contains("yarl__container"))
+                        setLightboxIndex(-1);
+                    },
                     view: ({ index }) => setLightboxIndex(index),
                   }}
                   render={{
                     slide: ({ slide, rect }) => (
                       <>
-                        <div style={{ position: "absolute", top: "10px", left: "10px", padding: "5px 10px", backgroundColor: "rgba(0,0,0,0)", color: "#fff", fontSize: "14px", borderRadius: "4px", zIndex: 1000 }}>
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "10px",
+                            left: "10px",
+                            padding: "5px 10px",
+                            backgroundColor: "rgba(0,0,0,0)",
+                            color: "#fff",
+                            fontSize: "14px",
+                            borderRadius: "4px",
+                            zIndex: 1000,
+                          }}
+                        >
                           {lightboxIndex + 1} / {imgArr.length}
                         </div>
-                        <img src={slide.src} style={{ maxWidth: rect.width, maxHeight: rect.height, display: "block", margin: "0 auto" }} alt="" />
+                        <img
+                          src={slide.src}
+                          style={{
+                            maxWidth: rect.width,
+                            maxHeight: rect.height,
+                            display: "block",
+                            margin: "0 auto",
+                          }}
+                          alt=""
+                        />
                       </>
                     ),
                   }}
                 />
               </div>
             </div>
-            <div className="Venue_contact__jdZNn" ref={contactSectionRef} style={{ transition: "margin-top 0.3s ease" }}>
+            <div
+              className="Venue_contact__jdZNn"
+              ref={contactSectionRef}
+              style={{ transition: "margin-top 0.3s ease" }}
+            >
               <h2>Contact the venue</h2>
               <div className="Venue_cardsContainer__U8T+R">
                 <div>
                   <h5>Location</h5>
                   <p>
-                    <img src={locationIcon} alt="location icon" style={{ width: "14px" }} />
-                    <a href={venueMapLink} target="_blank" rel="noopener noreferrer"
-                      dangerouslySetInnerHTML={{ __html: cleanHtml(venueLocation) }}
+                    <img
+                      src={locationIcon}
+                      alt="location icon"
+                      style={{ width: "14px" }}
+                    />
+                    <a
+                      href={venueMapLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      dangerouslySetInnerHTML={{
+                        __html: cleanHtml(venueLocation),
+                      }}
                     />
                   </p>
                 </div>
@@ -213,13 +320,21 @@ const Venue = () => {
                     <img src={webIcon} alt="web icon" />
                     <p style={{ marginLeft: "5px" }}>
                       <p>
-                        <a href={getCleanUrl(venueWebsiteLink)} >{venueWebsiteLinkDisplay}</a>
+                        <a href={getCleanUrl(venueWebsiteLink)}>
+                          {venueWebsiteLinkDisplay}
+                        </a>
                       </p>
                     </p>
                   </p>
                 </div>
               </div>
-              <a target="_blank" href={getCleanUrl(venueMapLink)} rel="noopener noreferrer">Take me there</a>
+              <a
+                target="_blank"
+                href={getCleanUrl(venueMapLink)}
+                rel="noopener noreferrer"
+              >
+                Take me there
+              </a>
             </div>
             <LogoCarousel />
             <SubscribeForm />

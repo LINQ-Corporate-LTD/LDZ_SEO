@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import { FormControl, FormHelperText } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import { useApiData } from "../common/ApiContext";
+import { usePageSeo } from "../common/usePageSeo";
 // const logo =
 //   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
 // const plusIcon =
@@ -459,8 +460,10 @@ const RemindMeLater = () => {
 
   const [showTextarea, setShowTextarea] = useState(false);
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Remind Me`;
-  const seoDesc = "Get a reminder for Bitcoin Innovation & Market Evolution 2026 and receive updates on passes, speakers and sponsorship opportunities.";
+  const pageSeo = usePageSeo("remind-me");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <div id="root">
@@ -470,10 +473,12 @@ const RemindMeLater = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/remind-me-later" />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/remind-me-later" />
       </Helmet>
       <div className="PageForm_container__NA5Wr">
         <div className="PageForm_header__7W2Cz">

@@ -10,7 +10,7 @@ import mediaImage1 from "../assets/WebImages/media1.webp";
 import mediaImage2 from "../assets/WebImages/media-res2.webp";
 import emailIcon from "../assets/WebCommonImages/msg.png";
 import phoneIcon from "../assets/WebCommonImages/phone-call.png";
-
+import { usePageSeo } from "../common/usePageSeo";
 // const mediaImage1 =
 //   "https://www.europe.autonomous-vehicles-conference.com/static/media/media.8d91a0418af8c33f6344.webp"
 // const mediaImage2 =
@@ -68,8 +68,10 @@ const MediaPartners = () => {
       });
   };
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Media Partners`;
-  const seoDesc = "Apply for media partnership and press access, plus brand exposure and industry reach through Bitcoin Innovation & Market Evolution 2026.";
+  const pageSeo = usePageSeo("media-partners");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
@@ -79,10 +81,12 @@ const MediaPartners = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/media-partners" />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/media-partners" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>

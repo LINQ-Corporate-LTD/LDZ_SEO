@@ -17,7 +17,7 @@ import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
 import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
 import emailIcon from '../assets/WebCommonImages/msg.png'
 import phoneIcon from '../assets/WebCommonImages/phone-call.png'
-
+import { usePageSeo } from "../common/usePageSeo";
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
 // const rightArrowIcon =
@@ -340,8 +340,11 @@ const Sponsors = () => {
 
   const sponsorLogoBlack = "https://www.direct-lithium-extraction-show.com/api/images/sponsor/1757675931045-678212680.png"
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Sponsorship`;
-  const seoDesc = "Exhibit or sponsor at Bitcoin Innovation & Market Evolution 2026 and connect with miners, exchanges, fintechs, regulators and blockchain leaders.";
+  const pageSeo = usePageSeo("sponsors");
+  console.log('pageSeo sponsors: ', pageSeo);
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
   return (
     <div id="root">
       <>
@@ -353,7 +356,7 @@ const Sponsors = () => {
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content={seoTitle} />
-          <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/sponsors" />
+          <link rel="canonical" href="http://localhost:3001/sponsors" />
         </Helmet>
         <Navbar forceScrolled />
         <div style={{ opacity: 1 }}>

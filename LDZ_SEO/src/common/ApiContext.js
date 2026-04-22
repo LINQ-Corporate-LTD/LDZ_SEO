@@ -22,6 +22,7 @@ function buildValue(data) {
     eventGeneralSettings: home?.eventGeneralSettings?.[0],
     themeSettings: home?.themeSetting?.[0],
     navLogos: data?.navLogos || home?.navLogos?.[0] || null,
+    pageSeoSettings: home?.pageSeoSettings || [],
     refetch: () => { },
   };
 }

@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 // import { Navigation } from "swiper/modules";
 import Slider from "react-slick";
 import { Helmet } from "react-helmet-async";
+import { usePageSeo } from "../common/usePageSeo";
 const allTopics = [
   {
     id: 1,
@@ -277,8 +278,10 @@ const Attandees = () => {
     }
   }, [isDataLoaded, chunkedLeaders]);
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Past Attendees`;
-  const seoDesc = "Discover industry leaders who attended and preview agenda topics shaping Bitcoin Innovation & Market Evolution 2026.";
+  const pageSeo = usePageSeo("attandees");
+    const seoTitle = pageSeo.pageMetaTitle;
+    const seoDesc = pageSeo.pageMetaDescription
+    const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
@@ -288,10 +291,12 @@ const Attandees = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/attandees" />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/attandees" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>

@@ -13,7 +13,7 @@ import SimpleStripeForm from "./PaymentForm";
 import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
 import { useApiData } from "../common/ApiContext";
-
+import { usePageSeo } from "../common/usePageSeo";
 const lockIcon = "https://img.icons8.com/ios-filled/50/ffffff/lock.png";
 
 const PayOnline = () => {
@@ -181,8 +181,10 @@ const PayOnline = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Secure Online Payment`;
-  const seoDescription = `Pay securely for your Bitcoin Innovation & Market Evolution 2026 delegate pass. Fast, reliable, and encrypted transactions for your conference registration.`;
+  const pageSeo = usePageSeo("pay-online");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDescription = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
 
   return (
@@ -193,9 +195,11 @@ const PayOnline = () => {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/pay-online" />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href="http://localhost:3001/pay-online" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

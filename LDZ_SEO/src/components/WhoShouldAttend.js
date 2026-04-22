@@ -15,7 +15,7 @@ import benefitsBg from "../assets/WebImages/benefits-who-should-attend.webp";
 import ketTakewaysBg from "../assets/WebImages/keytakeaways-who-should-attend.webp";
 import arrowUpIcon from "../assets/WebCommonImages/accordion-arrow-up.png";
 import arrowDownIcon from "../assets/WebCommonImages/arrow-down-black.png";
-
+import { usePageSeo } from "../common/usePageSeo";
 // const arrowUpIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/accordion-arrow-up.png";
 // const arrowDownIcon =
@@ -296,22 +296,24 @@ const WhoShouldAttend = () => {
     pauseOnHover: true,
     arrows: false,
   };
-  const seoTitle = `Bitcoin Innovation & Market Evolution 2026 | Who Attends`;
-  const seoDesc = "Discover who should attend Bitcoin Innovation & Market Evolution 2026 and the key benefits for exchanges, institutions, miners, fintechs and regulators.";
+  const pageSeo = usePageSeo("who-should-attend");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDescription = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
       <Helmet>
         <title>{seoTitle}</title>
-        <meta name="description" content={seoDesc} />
+        <meta name="description" content={seoDescription} />
         <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDesc} />
+        <meta property="og:description" content={seoDescription} />
         {/* <meta property="og:image" content={bgImage} /> */}
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
-        <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/who-should-attend" />
+        <meta name="twitter:description" content={seoDescription} />
+        <link rel="canonical" href="http://localhost:3001/who-should-attend" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>
