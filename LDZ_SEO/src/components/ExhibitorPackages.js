@@ -88,7 +88,7 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/homepagecompanieslogo`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/homepagecompanieslogo`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -172,7 +172,7 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/mediapagehelpers`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/mediapagehelpers`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -199,7 +199,7 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/sponsorpackages`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/sponsorpackages`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -226,7 +226,7 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/getsponsorpagedata`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/getsponsorpagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {

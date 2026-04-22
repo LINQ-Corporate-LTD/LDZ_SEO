@@ -71,7 +71,7 @@ const Attandees = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/pastAttandeelist`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/pastAttandeelist`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -106,7 +106,7 @@ const Attandees = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/eventleaderlist`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventleaderlist`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (

@@ -36,7 +36,7 @@ const EditRolePermissions = () => {
     }, [id]);
 
     const fetchRoleData = () => {
-        fetch(`https://api.linq-staging-site.com/admin1/rolepermissions?id=${id}`)
+        fetch(`http://127.0.0.1:8000/admin1/rolepermissions?id=${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.status) {
@@ -47,7 +47,7 @@ const EditRolePermissions = () => {
     };
 
     const fetchPermissionList = () => {
-        fetch("https://api.linq-staging-site.com/admin1/permissionlist")
+        fetch("http://127.0.0.1:8000/admin1/permissionlist")
             .then((res) => res.json())
             .then((data) => {
                 if (data.status) {
@@ -85,7 +85,7 @@ const EditRolePermissions = () => {
     };
 
     const handleSave = () => {
-        fetch("https://api.linq-staging-site.com/admin1/updaterolepermissions", {
+        fetch("http://127.0.0.1:8000/admin1/updaterolepermissions", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

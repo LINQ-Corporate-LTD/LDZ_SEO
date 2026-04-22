@@ -61,7 +61,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://api.linq-staging-site.com/admin1/contactushelpers`,
+      `http://127.0.0.1:8000/admin1/contactushelpers`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -91,7 +91,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://api.linq-staging-site.com/admin1/contactusstaticdata`,
+      `http://127.0.0.1:8000/admin1/contactusstaticdata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -650,7 +650,7 @@ const ContactUs = () => {
         body: finalData,
       };
       fetch(
-        "https://api.linq-staging-site.com/admin1/addcontactusrequest",
+        "http://127.0.0.1:8000/admin1/addcontactusrequest",
         requestOptions,
       )
         .then((response) => response.json())

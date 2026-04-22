@@ -24,7 +24,7 @@ import cardLabel from '../assets/WebCommonImages/card-labels.png'
 import lockIcon from '../assets/WebCommonImages/lock.png'
 
 // const logo =
-//   "https://api.linq-staging-site.com/media/mediabitcoin_logo_white.png";
+//   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
 // const plusIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
 // const closeBtn =
@@ -235,7 +235,7 @@ const AddSponsorDelegateForm = () => {
       let invoiceNumber;
       try {
         const invoiceRes = await fetch(
-          "https://api.linq-staging-site.com/admin1/generate-invoice-no"
+          "http://127.0.0.1:8000/admin1/generate-invoice-no"
         );
         const invoiceData = await invoiceRes.json();
         invoiceNumber = invoiceData.invoiceNo;
@@ -332,7 +332,7 @@ const AddSponsorDelegateForm = () => {
         };
         try {
           const emailResponse = await fetch(
-            "https://api.linq-staging-site.com/admin1/sendmail",
+            "http://127.0.0.1:8000/admin1/sendmail",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -494,7 +494,7 @@ const AddSponsorDelegateForm = () => {
       };
       console.log("📧 Sending Step 2 email with payload:", emailPayload);
       try {
-        const emailResponse = await fetch("https://api.linq-staging-site.com/admin1/sendmail", {
+        const emailResponse = await fetch("http://127.0.0.1:8000/admin1/sendmail", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(emailPayload),
@@ -623,7 +623,7 @@ const AddSponsorDelegateForm = () => {
       };
       console.log("📧 Sending Step 3 email with payload:", emailPayload);
       try {
-        const emailResponse = await fetch("https://api.linq-staging-site.com/admin1/sendmail", {
+        const emailResponse = await fetch("http://127.0.0.1:8000/admin1/sendmail", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(emailPayload),
@@ -667,7 +667,7 @@ const AddSponsorDelegateForm = () => {
       finalData.append("totalPaidAmount", prices.finalTotal);
       finalData.append("transectionId", stripeResponse.paymentIntentId);
 
-      fetch("https://api.linq-staging-site.com/admin1/addnewsponsor", {
+      fetch("http://127.0.0.1:8000/admin1/addnewsponsor", {
         method: "POST",
         body: finalData
       })
@@ -696,7 +696,7 @@ const AddSponsorDelegateForm = () => {
   };
 
   const callSponsorAddOnsApi = () => {
-    fetch(`https://api.linq-staging-site.com/admin1/sponsoraddons`)
+    fetch(`http://127.0.0.1:8000/admin1/sponsoraddons`)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -740,7 +740,7 @@ const AddSponsorDelegateForm = () => {
   };
 
   const callGetActiveDelPackageApi = () => {
-    fetch(`https://api.linq-staging-site.com/admin1/getactivedelegatepackage`)
+    fetch(`http://127.0.0.1:8000/admin1/getactivedelegatepackage`)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -766,7 +766,7 @@ const AddSponsorDelegateForm = () => {
     }
     let formData = new FormData();
     formData.append("couponCode", code);
-    fetch(`https://api.linq-staging-site.com/admin1/sponsoroffercouponbycode`, {
+    fetch(`http://127.0.0.1:8000/admin1/sponsoroffercouponbycode`, {
       method: "POST",
       body: formData
     })

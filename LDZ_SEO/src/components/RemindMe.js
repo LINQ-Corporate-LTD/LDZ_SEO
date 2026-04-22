@@ -15,7 +15,7 @@ import { Helmet } from "react-helmet-async";
 import { useApiData } from "../common/ApiContext";
 import { usePageSeo } from "../common/usePageSeo";
 // const logo =
-//   "https://api.linq-staging-site.com/media/mediabitcoin_logo_white.png";
+//   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
 // const plusIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
 // const closeBtn =

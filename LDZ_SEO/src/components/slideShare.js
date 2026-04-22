@@ -26,7 +26,7 @@
 //         const requestOptions = {
 //             method: "GET",
 //         };
-//         fetch(`https://api.linq-staging-site.com/admin1/getslideShare`, requestOptions)
+//         fetch(`http://127.0.0.1:8000/admin1/getslideShare`, requestOptions)
 //             .then((response) => response.json())
 //             .then((data) => {
 //                 if (
@@ -61,7 +61,7 @@
 //         const requestOptions = {
 //             method: "GET",
 //         };
-//         fetch(`https://api.linq-staging-site.com/admin1/getslideShareAttandee`, requestOptions)
+//         fetch(`http://127.0.0.1:8000/admin1/getslideShareAttandee`, requestOptions)
 //             .then((response) => response.json())
 //             .then((data) => {
 //                 if (
@@ -595,7 +595,7 @@ const SlideShare = () => {
     // ─── API calls ───────────────────────────────────────────────────────────────
 
     const callSlideShareListApi = () => {
-        fetch(`https://api.linq-staging-site.com/admin1/getslideShare`)
+        fetch(`http://127.0.0.1:8000/admin1/getslideShare`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.detail === "The Token is expired" || data?.message === "Invalid token") {
@@ -617,7 +617,7 @@ const SlideShare = () => {
     };
 
     const callSlideShareAttandeeListApi = () => {
-        fetch(`https://api.linq-staging-site.com/admin1/getslideShareAttandee`)
+        fetch(`http://127.0.0.1:8000/admin1/getslideShareAttandee`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.detail === "The Token is expired" || data?.message === "Invalid token") {
@@ -644,7 +644,7 @@ const SlideShare = () => {
         setIsLoggingIn(true);
         try {
             const response = await fetch(
-                `https://api.linq-staging-site.com/admin1/securelogin`,
+                `http://127.0.0.1:8000/admin1/securelogin`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

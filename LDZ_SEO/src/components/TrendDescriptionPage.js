@@ -82,7 +82,7 @@
 //     const requestOptions = {
 //       method: "GET",
 //     };
-//     fetch(`https://api.linq-staging-site.com/admin1/eventsponsors`, requestOptions)
+//     fetch(`http://127.0.0.1:8000/admin1/eventsponsors`, requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (
@@ -117,7 +117,7 @@
 //     const requestOptions = {
 //       method: "GET",
 //     };
-//     fetch(`https://api.linq-staging-site.com/admin1/eventindustrytrends`, requestOptions)
+//     fetch(`http://127.0.0.1:8000/admin1/eventindustrytrends`, requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (
@@ -209,7 +209,7 @@
 //     let formData = new FormData();
 //     formData.append("trendId", id);
 
-//     fetch(`https://api.linq-staging-site.com/admin1/trendbyid`, {
+//     fetch(`http://127.0.0.1:8000/admin1/trendbyid`, {
 //       method: "POST",
 //       body: formData,
 //     })
@@ -231,7 +231,7 @@
 //   const fetchTrendBySlug = async (slugFromUrl) => {
 //     try {
 //       const res = await fetch(
-//         `https://api.linq-staging-site.com/admin1/eventindustrytrends`
+//         `http://127.0.0.1:8000/admin1/eventindustrytrends`
 //       );
 //       const data = await res.json();
 
@@ -730,7 +730,7 @@ const TrendDescriptionPage = () => {
   const fetchTrendDetailClient = (id) => {
     const formData = new FormData();
     formData.append("trendId", id);
-    fetch(`https://api.linq-staging-site.com/admin1/trendbyid`, {
+    fetch(`http://127.0.0.1:8000/admin1/trendbyid`, {
       method: "POST",
       body: formData,
     })

@@ -31,7 +31,7 @@ const PastAttandessSection = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/expertspeakers`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/expertspeakers`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -58,7 +58,7 @@ const PastAttandessSection = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://api.linq-staging-site.com/admin1/homepastattandees`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/homepastattandees`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -125,7 +125,7 @@ const PastAttandessSection = () => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://api.linq-staging-site.com/admin1/addsubscriber", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/addsubscriber", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (data.status) {
