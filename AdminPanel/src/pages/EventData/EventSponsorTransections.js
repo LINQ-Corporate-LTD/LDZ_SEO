@@ -67,7 +67,7 @@ const EventSponsorTransections = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/sponsorcompanytransections`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/sponsorcompanytransections`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -203,7 +203,7 @@ const EventSponsorTransections = () => {
         method: "POST",
         body: finalData,
       };
-      fetch("http://127.0.0.1:8000/admin1/deletefaq", requestOptions)
+      fetch("https://api.linq-staging-site.com/admin1/deletefaq", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

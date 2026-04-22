@@ -46,7 +46,7 @@ const AddNewsCategory = (props) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addnewscategory",
+        "https://api.linq-staging-site.com/admin1/addnewscategory",
         requestOptions
       )
         .then((response) => response.json())

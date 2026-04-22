@@ -49,7 +49,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/whoshouldattendpagedata`,
+      `https://api.linq-staging-site.com/admin1/whoshouldattendpagedata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -79,7 +79,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/eventtestimonials`,
+      `https://api.linq-staging-site.com/admin1/eventtestimonials`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -108,7 +108,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/eventcoreattandees`,
+      `https://api.linq-staging-site.com/admin1/eventcoreattandees`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -137,7 +137,7 @@ const WhoShouldAttend = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/eventparticipatedindustries`,
+      `https://api.linq-staging-site.com/admin1/eventparticipatedindustries`,
       requestOptions,
     )
       .then((response) => response.json())

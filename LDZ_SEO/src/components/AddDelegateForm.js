@@ -14,7 +14,7 @@ import { useSSRData } from "../common/useSSRData";
 import plusIcon from '../assets/WebCommonImages/plus.png'
 import closeBtn from '../assets/WebCommonImages/del-cross.png'
 // const logo =
-//   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
+//   "https://api.linq-staging-site.com/media/mediabitcoin_logo_white.png";
 // const plusIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
 // const closeBtn =
@@ -257,7 +257,7 @@ const CompanyRegistrationForm = () => {
       let invoiceNumber;
       try {
         const invoiceRes = await fetch(
-          "http://127.0.0.1:8000/admin1/generate-invoice-no"
+          "https://api.linq-staging-site.com/admin1/generate-invoice-no"
         );
         const invoiceData = await invoiceRes.json();
         invoiceNumber = invoiceData.invoiceNo;
@@ -369,7 +369,7 @@ const CompanyRegistrationForm = () => {
 
         try {
           const emailResponse = await fetch(
-            "http://127.0.0.1:8000/admin1/sendmail",
+            "https://api.linq-staging-site.com/admin1/sendmail",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -444,7 +444,7 @@ const CompanyRegistrationForm = () => {
 
         try {
           const zohoResponse = await fetch(
-            "http://127.0.0.1:8000/admin1/sendtozoho",
+            "https://api.linq-staging-site.com/admin1/sendtozoho",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

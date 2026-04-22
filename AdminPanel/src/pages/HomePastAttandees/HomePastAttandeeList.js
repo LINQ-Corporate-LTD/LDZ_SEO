@@ -71,7 +71,7 @@ const HomePastAttandeeList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/homepastattandees`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/homepastattandees`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -171,7 +171,7 @@ const HomePastAttandeeList = () => {
         body: finalData,
       };
       fetch(
-        'http://127.0.0.1:8000/admin1/deletehomepastattandee',
+        'https://api.linq-staging-site.com/admin1/deletehomepastattandee',
         requestOptions
       )
         .then((response) => response.json())

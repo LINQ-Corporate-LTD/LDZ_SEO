@@ -63,7 +63,7 @@ const EditSponsorAddOns = ({
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/sponsorpackageaddontypes`,
+      `https://api.linq-staging-site.com/admin1/sponsorpackageaddontypes`,
       requestOptions
     )
       .then((response) => response.json())
@@ -162,7 +162,7 @@ const EditSponsorAddOns = ({
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/editsponsoraddons",
+        "https://api.linq-staging-site.com/admin1/editsponsoraddons",
         requestOptions
       )
         .then((response) => response.json())

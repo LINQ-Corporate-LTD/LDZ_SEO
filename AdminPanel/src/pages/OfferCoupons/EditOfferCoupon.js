@@ -77,7 +77,7 @@ const EditOfferCoupon = ({
         method: "POST",
         body: finalData,
       };
-      fetch("http://127.0.0.1:8000/admin1/editoffercoupon", requestOptions)
+      fetch("https://api.linq-staging-site.com/admin1/editoffercoupon", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

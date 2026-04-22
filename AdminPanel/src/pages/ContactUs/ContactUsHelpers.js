@@ -71,7 +71,7 @@ const ContactUsHelpers = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/contactushelpers`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/contactushelpers`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -189,7 +189,7 @@ const ContactUsHelpers = () => {
         body: finalData,
       };
       fetch(
-        'http://127.0.0.1:8000/admin1/deletecontactuspagehelper',
+        'https://api.linq-staging-site.com/admin1/deletecontactuspagehelper',
         requestOptions
       )
         .then((response) => response.json())

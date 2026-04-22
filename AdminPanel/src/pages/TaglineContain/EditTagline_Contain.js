@@ -37,7 +37,7 @@ const EditTagline_Contain = (props) => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/taglinedata`, requestOptions)
+    fetch(`https://api.linq-staging-site.com/admin1/taglinedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -90,7 +90,7 @@ const EditTagline_Contain = (props) => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/admin1/upload",
+        "https://api.linq-staging-site.com/admin1/upload",
         requestOptions
       );
       const data = await response.json();
@@ -159,7 +159,7 @@ const EditTagline_Contain = (props) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addhomethirdsectiondata",
+        "https://api.linq-staging-site.com/admin1/addhomethirdsectiondata",
         requestOptions
       )
         .then((response) => response.json())

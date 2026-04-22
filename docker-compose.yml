@@ -1,0 +1,54 @@
+services:
+
+  db:
+    image: postgres:15
+    container_name: ldz_db
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ldz_network
+
+  backend:
+    build: ./Backend
+    container_name: ldz_backend
+    restart: always
+    env_file: .env
+    volumes:
+      - ./Backend/media:/app/media
+      - ./Backend/static:/app/staticfiles
+    depends_on:
+      - db
+    networks:
+      - ldz_network
+    ports:
+      - "8001:8000"
+
+  adminpanel:
+    build: ./AdminPanel
+    container_name: ldz_admin
+    restart: always
+    networks:
+      - ldz_network
+    ports:
+      - "3001:80"
+
+  frontend:
+    build: ./LDZ_SEO
+    container_name: ldz_frontend
+    restart: always
+    networks:
+      - ldz_network
+    ports:
+      - "3002:80"
+
+volumes:
+  postgres_data:
+
+networks:
+  ldz_network:
+    driver: bridge

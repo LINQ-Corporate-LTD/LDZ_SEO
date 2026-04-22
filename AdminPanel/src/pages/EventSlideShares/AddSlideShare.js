@@ -59,7 +59,7 @@ const AddSlideShare = (props) => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/eventprojects`,
+      `https://api.linq-staging-site.com/admin1/eventprojects`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -117,7 +117,7 @@ const AddSlideShare = (props) => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/admin1/upload",
+        "https://api.linq-staging-site.com/admin1/upload",
         requestOptions,
       );
       const data = await response.json();
@@ -283,7 +283,7 @@ const AddSlideShare = (props) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addslideShare",
+        "https://api.linq-staging-site.com/admin1/addslideShare",
         requestOptions,
       )
         .then((response) => response.json())

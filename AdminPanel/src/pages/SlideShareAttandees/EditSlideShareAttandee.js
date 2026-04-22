@@ -64,7 +64,7 @@ const EditSlideShareAttandee = ({
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/eventprojects`,
+      `https://api.linq-staging-site.com/admin1/eventprojects`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -163,7 +163,7 @@ const EditSlideShareAttandee = ({
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/editslideShareAttandee",
+        "https://api.linq-staging-site.com/admin1/editslideShareAttandee",
         requestOptions,
       )
         .then((response) => response.json())
