@@ -4,10 +4,10 @@ import "../../src/assets/css/relatedevent.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Slider from "react-slick";
-import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
-import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
-import calenderIcon from '../assets/WebCommonImages/icon-calendar.png'
-import locationIcon from '../assets/WebCommonImages/icon-location.png'
+import leftArrowIcon from "../assets/WebCommonImages/icon-arrow-left.png";
+import rightArrowIcon from "../assets/WebCommonImages/icon-arrow-right.png";
+import calenderIcon from "../assets/WebCommonImages/icon-calendar.png";
+import locationIcon from "../assets/WebCommonImages/icon-location.png";
 
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
@@ -22,7 +22,7 @@ const RelatedEventsSection = () => {
   const [relatedEventList, setRelatedEventList] = useState([]);
   const [hoveredIndex, setIsHovered] = useState(null);
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1920
+    typeof window !== "undefined" ? window.innerWidth : 1920,
   );
   const sliderRef = useRef(null);
 
@@ -123,6 +123,7 @@ const RelatedEventsSection = () => {
           <Slider ref={sliderRef} {...settings}>
             {relatedEventList.map((event, index) => (
               <a
+                target="_blank"
                 href={event?.eventWebsiteLink}
                 style={{ pointerEvents: "auto" }}
               >
@@ -140,27 +141,32 @@ const RelatedEventsSection = () => {
                         : null
                     }
                   >
-                    {event?.eventImage && event?.eventImage !== "" && event?.eventImage !== "null" && event?.eventImage !== null && (
-                      <img
-                        src={event?.eventImage}
-                        alt={event?.eventImage}
-                        loading="lazy"
-                        className={`${hoveredIndex === index
-                          ? "EventCard_hidden__YqegG"
-                          : ""
+                    {event?.eventImage &&
+                      event?.eventImage !== "" &&
+                      event?.eventImage !== "null" &&
+                      event?.eventImage !== null && (
+                        <img
+                          src={event?.eventImage}
+                          alt={event?.eventImage}
+                          loading="lazy"
+                          className={`${
+                            hoveredIndex === index
+                              ? "EventCard_hidden__YqegG"
+                              : ""
                           }`}
-                      />
-                    )}
+                        />
+                      )}
                     <img
                       src={event?.eventHoverImage}
                       alt={event?.eventName}
                       loading="lazy"
-                      className={`${hoveredIndex === index &&
+                      className={`${
+                        hoveredIndex === index &&
                         event?.eventImage &&
                         event?.eventImage !== ""
-                        ? "EventCard_visible__BLL1D"
-                        : ""
-                        }`}
+                          ? "EventCard_visible__BLL1D"
+                          : ""
+                      }`}
                     />
                     <h3>
                       <span>{event?.eventName}</span>

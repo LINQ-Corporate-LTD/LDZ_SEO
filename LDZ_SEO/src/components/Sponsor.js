@@ -13,10 +13,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TestimonialCarousel from "./TestimonialCarousel";
 import { useSSRData } from "../common/useSSRData";
-import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
-import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
-import emailIcon from '../assets/WebCommonImages/msg.png'
-import phoneIcon from '../assets/WebCommonImages/phone-call.png'
+import leftArrowIcon from "../assets/WebCommonImages/icon-arrow-left.png";
+import rightArrowIcon from "../assets/WebCommonImages/icon-arrow-right.png";
+import emailIcon from "../assets/WebCommonImages/msg.png";
+import phoneIcon from "../assets/WebCommonImages/phone-call.png";
 import { usePageSeo } from "../common/usePageSeo";
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
@@ -38,7 +38,8 @@ const Sponsors = () => {
   const mediaPageHelpersList = ssrMediaPartners || [];
   const ssrSponsorPageData = useSSRData("sponsorPageData");
   const sponsorPageData = ssrSponsorPageData || [];
-  const paraDes = sponsorPageData[0]?.introParaDescription?.replace(/^"(.*)"$/, "$1") || "";
+  const paraDes =
+    sponsorPageData[0]?.introParaDescription?.replace(/^"(.*)"$/, "$1") || "";
 
   const [isMobileScreen, setIsMobile] = useState(false);
   const [fullName, setFullName] = useState("");
@@ -85,10 +86,7 @@ const Sponsors = () => {
         method: "POST",
         body: finalData,
       };
-      fetch(
-        "http://127.0.0.1:8000/admin1/addcrowdformrequest",
-        requestOptions,
-      )
+      fetch("http://127.0.0.1:8000/admin1/addcrowdformrequest", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (data.status) {
@@ -338,10 +336,11 @@ const Sponsors = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const sponsorLogoBlack = "https://www.direct-lithium-extraction-show.com/api/images/sponsor/1757675931045-678212680.png"
+  const sponsorLogoBlack =
+    "https://www.direct-lithium-extraction-show.com/api/images/sponsor/1757675931045-678212680.png";
 
   const pageSeo = usePageSeo("sponsors");
-  console.log('pageSeo sponsors: ', pageSeo);
+  console.log("pageSeo sponsors: ", pageSeo);
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDesc = pageSeo.pageMetaDescription;
   const seoImage = pageSeo.pageOgImage || null;
@@ -393,22 +392,25 @@ const Sponsors = () => {
                   </div>
                 </div>
               </div>
-              {
-                sponsorList.map((group) => (
+              {sponsorList.map(
+                (group) =>
                   group?.sponsorType === "Lead" && (
                     <div className="SponsorBanner_container__19tBD">
                       <div className="SponsorBanner_PartnerSponsorContainer__zdVCD">
                         <h2>Lead Sponsor</h2>
                         <div className="SponsorBanner_imageContainer__xHm3Z">
                           <a href="/">
-                            <img src={sponsorLogoBlack} loading="lazy" alt="Halliburton"></img>
+                            <img
+                              src={sponsorLogoBlack}
+                              loading="lazy"
+                              alt="Halliburton"
+                            ></img>
                           </a>
                         </div>
                       </div>
                     </div>
-                  )
-                ))
-              }
+                  ),
+              )}
               {/* {item?.sponsorType === "Partner" && (
                 <div className="SponsorBanner_container__19tBD">
                   <div className="SponsorBanner_PartnerSponsorContainer__zdVCD">
@@ -503,42 +505,111 @@ const Sponsors = () => {
                                 //     });
                                 //   }
                                 // };
-
-                                return (
-                                  <a
-                                    key={i}
-                                    href={(() => {
-                                      if (item?.sponsorType === "Dummy" || !item?.sponsorComapnyName) return "#";
-                                      const slug = item.sponsorComapnyName
-                                        .toLowerCase()
-                                        .replace(/[^a-z0-9\s-]/g, "")
-                                        .replace(/\s+/g, "-")
-                                        .replace(/-+/g, "-");
-                                      return `/sponsor/${slug}`;
-                                    })()}
-                                    className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
-                                      ? "clickable"
-                                      : ""
-                                      }`}
-                                    style={{
-                                      cursor:
+                                if (item?.sponsorType === "Dummy") {
+                                  return (
+                                    <a
+                                      key={i}
+                                      className={`SponsorCards_card__8eNkT ${
                                         item?.sponsorType !== "Dummy"
-                                          ? "pointer"
-                                          : "default",
-                                    }}
-                                  >
-                                    <img
-                                      src={item?.sponsorComapnyLogo}
-                                      alt={`Sponsor ${i + 1}`}
-                                    />
-                                    {item?.sponsorType !== "Dummy" && (
-                                      <a className="SponsorCards_overlay__7MT16">
-                                        <h4>{item?.sponsorComapnyName}</h4>
-                                        <h4>{item?.sponsorType} Sponsor</h4>
-                                      </a>
-                                    )}
-                                  </a>
-                                );
+                                          ? "clickable"
+                                          : ""
+                                      }`}
+                                      style={{
+                                        cursor:
+                                          item?.sponsorType !== "Dummy"
+                                            ? "pointer"
+                                            : "default",
+                                      }}
+                                    >
+                                      <img
+                                        src={item?.sponsorComapnyLogo}
+                                        alt={`Sponsor ${i + 1}`}
+                                      />
+                                      {item?.sponsorType !== "Dummy" && (
+                                        <a className="SponsorCards_overlay__7MT16">
+                                          <h4>{item?.sponsorComapnyName}</h4>
+                                          <h4>{item?.sponsorType} Sponsor</h4>
+                                        </a>
+                                      )}
+                                    </a>
+                                  );
+                                } else {
+                                  return (
+                                    <a
+                                      key={i}
+                                      href={(() => {
+                                        const slug = item.sponsorComapnyName
+                                          .toLowerCase()
+                                          .replace(/[^a-z0-9\s-]/g, "")
+                                          .replace(/\s+/g, "-")
+                                          .replace(/-+/g, "-");
+                                        return `/sponsor/${slug}`;
+                                      })()}
+                                      className={`SponsorCards_card__8eNkT ${
+                                        item?.sponsorType !== "Dummy"
+                                          ? "clickable"
+                                          : ""
+                                      }`}
+                                      style={{
+                                        cursor:
+                                          item?.sponsorType !== "Dummy"
+                                            ? "pointer"
+                                            : "default",
+                                      }}
+                                    >
+                                      <img
+                                        src={item?.sponsorComapnyLogo}
+                                        alt={`Sponsor ${i + 1}`}
+                                      />
+                                      {item?.sponsorType !== "Dummy" && (
+                                        <a className="SponsorCards_overlay__7MT16">
+                                          <h4>{item?.sponsorComapnyName}</h4>
+                                          <h4>{item?.sponsorType} Sponsor</h4>
+                                        </a>
+                                      )}
+                                    </a>
+                                  );
+                                }
+                                // return (
+                                //   <a
+                                //     key={i}
+                                //     href={(() => {
+                                //       if (
+                                //         item?.sponsorType === "Dummy" ||
+                                //         !item?.sponsorComapnyName
+                                //       )
+                                //         return "#";
+                                //       const slug = item.sponsorComapnyName
+                                //         .toLowerCase()
+                                //         .replace(/[^a-z0-9\s-]/g, "")
+                                //         .replace(/\s+/g, "-")
+                                //         .replace(/-+/g, "-");
+                                //       return `/sponsor/${slug}`;
+                                //     })()}
+                                //     className={`SponsorCards_card__8eNkT ${
+                                //       item?.sponsorType !== "Dummy"
+                                //         ? "clickable"
+                                //         : ""
+                                //     }`}
+                                //     style={{
+                                //       cursor:
+                                //         item?.sponsorType !== "Dummy"
+                                //           ? "pointer"
+                                //           : "default",
+                                //     }}
+                                //   >
+                                //     <img
+                                //       src={item?.sponsorComapnyLogo}
+                                //       alt={`Sponsor ${i + 1}`}
+                                //     />
+                                //     {item?.sponsorType !== "Dummy" && (
+                                //       <a className="SponsorCards_overlay__7MT16">
+                                //         <h4>{item?.sponsorComapnyName}</h4>
+                                //         <h4>{item?.sponsorType} Sponsor</h4>
+                                //       </a>
+                                //     )}
+                                //   </a>
+                                // );
                               })}
                             </div>
                             // </div>

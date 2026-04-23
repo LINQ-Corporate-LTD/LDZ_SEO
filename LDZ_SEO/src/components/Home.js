@@ -20,8 +20,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useApiData } from "../common/ApiContext";
 import { useSSRData } from "../common/useSSRData";
-import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
-import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
+import leftArrowIcon from "../assets/WebCommonImages/icon-arrow-left.png";
+import rightArrowIcon from "../assets/WebCommonImages/icon-arrow-right.png";
 import { usePageSeo } from "../common/usePageSeo";
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
@@ -30,7 +30,7 @@ import { usePageSeo } from "../common/usePageSeo";
 
 function chunkArray(array, size) {
   return Array.from({ length: Math.ceil(array.length / size) }, (_, i) =>
-    array.slice(i * size, i * size + size)
+    array.slice(i * size, i * size + size),
   );
 }
 
@@ -52,7 +52,9 @@ const Home = () => {
   const ssrSponsorList = useSSRData("sponsors");
   const sponsorList = ssrSponsorList || [];
   const { eventGeneralSettings } = useApiData();
-  const eventName = eventGeneralSettings?.eventName || "Bitcoin Innovation & Market Evolution 2026";
+  const eventName =
+    eventGeneralSettings?.eventName ||
+    "Bitcoin Innovation & Market Evolution 2026";
 
   const [settings, setSettings] = useState({});
   const [chunkedSponsors, setChunkedSponsors] = useState([]);
@@ -66,9 +68,13 @@ const Home = () => {
       let gridRows = 2;
 
       if (width <= 640) {
-        itemsPerSlide = 2; gridColumns = 2; gridRows = 1;
+        itemsPerSlide = 2;
+        gridColumns = 2;
+        gridRows = 1;
       } else if (width <= 1230) {
-        itemsPerSlide = 4; gridColumns = 2; gridRows = 2;
+        itemsPerSlide = 4;
+        gridColumns = 2;
+        gridRows = 2;
       }
 
       const autoplayOn = width <= 1230;
@@ -84,13 +90,23 @@ const Home = () => {
       if (width <= 850) arrowDisplay = "none";
 
       setSettings({
-        dots: false, arrows: false, speed: 500, slidesToShow: 1,
-        slidesToScroll: 1, autoplay: autoplayOn, autoplaySpeed: 3000,
+        dots: false,
+        arrows: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: autoplayOn,
+        autoplaySpeed: 3000,
         infinite: autoplayOn && hasEnoughSlides,
       });
 
       setChunkedSponsors(
-        chunked.map((group, idx) => ({ id: idx, items: group, gridColumns, gridRows }))
+        chunked.map((group, idx) => ({
+          id: idx,
+          items: group,
+          gridColumns,
+          gridRows,
+        })),
       );
     };
 
@@ -103,7 +119,6 @@ const Home = () => {
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDesc = pageSeo.pageMetaDescription;
   const seoImage = pageSeo.pageOgImage || null;
-
 
   return (
     <>
@@ -134,13 +149,22 @@ const Home = () => {
           <div className="SponsorCards_AttendeesContainer__PLZ7L">
             <h2>OUR SPONSORS</h2>
             <div>
-              <img src={leftArrowIcon} alt="left arrow icon" loading="lazy" width="16"
-                onClick={() => sliderRef.current.slickPrev()} style={{ display: arrowDisplay }} />
+              <img
+                src={leftArrowIcon}
+                alt="left arrow icon"
+                loading="lazy"
+                width="16"
+                onClick={() => sliderRef.current.slickPrev()}
+                style={{ display: arrowDisplay }}
+              />
               <div className="SponsorCards_cardContainerOuter__yj9ca operatorSlider">
                 <div>
                   <Slider ref={sliderRef} {...settings}>
                     {chunkedSponsors.map((group) => (
-                      <div key={group.id} className="SponsorCards_cardContainerInner__BPPEL">
+                      <div
+                        key={group.id}
+                        className="SponsorCards_cardContainerInner__BPPEL"
+                      >
                         {/* {group.items.map((item, i) => {
                           const handleClick = () => {
                             if (item?.sponsorType !== "Dummy") {
@@ -180,50 +204,120 @@ const Home = () => {
                           //     });
                           //   }
                           // };
-
-                          return (
-                            <a
-                              key={i}
-                              href={(() => {
-                                if (item?.sponsorType === "Dummy" || !item?.sponsorComapnyName) return "#";
-                                const slug = item.sponsorComapnyName
-                                  .toLowerCase()
-                                  .replace(/[^a-z0-9\s-]/g, "")
-                                  .replace(/\s+/g, "-")
-                                  .replace(/-+/g, "-");
-                                return `/sponsor/${slug}`;
-                              })()}
-                              className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
-                                ? "clickable"
-                                : ""
-                                }`}
-                              style={{
-                                cursor:
+                          if (item?.sponsorType === "Dummy") {
+                            return (
+                              <a
+                                key={i}
+                                className={`SponsorCards_card__8eNkT ${
                                   item?.sponsorType !== "Dummy"
-                                    ? "pointer"
-                                    : "default",
-                              }}
-                            >
-                              <img
-                                src={item?.sponsorComapnyLogo}
-                                alt={`Sponsor ${i + 1}`}
-                              />
-                              {item?.sponsorType !== "Dummy" && (
-                                <div className="SponsorCards_overlay__7MT16">
-                                  <h4>{item?.sponsorComapnyName}</h4>
-                                  <h4>{item?.sponsorType} Sponsor</h4>
-                                </div>
-                              )}
-                            </a>
-                          );
+                                    ? "clickable"
+                                    : ""
+                                }`}
+                                style={{
+                                  cursor:
+                                    item?.sponsorType !== "Dummy"
+                                      ? "pointer"
+                                      : "default",
+                                }}
+                              >
+                                <img
+                                  src={item?.sponsorComapnyLogo}
+                                  alt={`Sponsor ${i + 1}`}
+                                />
+                                {item?.sponsorType !== "Dummy" && (
+                                  <a className="SponsorCards_overlay__7MT16">
+                                    <h4>{item?.sponsorComapnyName}</h4>
+                                    <h4>{item?.sponsorType} Sponsor</h4>
+                                  </a>
+                                )}
+                              </a>
+                            );
+                          } else {
+                            return (
+                              <a
+                                key={i}
+                                href={(() => {
+                                  const slug = item.sponsorComapnyName
+                                    .toLowerCase()
+                                    .replace(/[^a-z0-9\s-]/g, "")
+                                    .replace(/\s+/g, "-")
+                                    .replace(/-+/g, "-");
+                                  return `/sponsor/${slug}`;
+                                })()}
+                                className={`SponsorCards_card__8eNkT ${
+                                  item?.sponsorType !== "Dummy"
+                                    ? "clickable"
+                                    : ""
+                                }`}
+                                style={{
+                                  cursor:
+                                    item?.sponsorType !== "Dummy"
+                                      ? "pointer"
+                                      : "default",
+                                }}
+                              >
+                                <img
+                                  src={item?.sponsorComapnyLogo}
+                                  alt={`Sponsor ${i + 1}`}
+                                />
+                                {item?.sponsorType !== "Dummy" && (
+                                  <a className="SponsorCards_overlay__7MT16">
+                                    <h4>{item?.sponsorComapnyName}</h4>
+                                    <h4>{item?.sponsorType} Sponsor</h4>
+                                  </a>
+                                )}
+                              </a>
+                            );
+                          }
+                          // return (
+                          //   <a
+                          //     key={i}
+                          //     href={(() => {
+                          //       if (item?.sponsorType === "Dummy" || !item?.sponsorComapnyName) return "#";
+                          //       const slug = item.sponsorComapnyName
+                          //         .toLowerCase()
+                          //         .replace(/[^a-z0-9\s-]/g, "")
+                          //         .replace(/\s+/g, "-")
+                          //         .replace(/-+/g, "-");
+                          //       return `/sponsor/${slug}`;
+                          //     })()}
+                          //     className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                          //       ? "clickable"
+                          //       : ""
+                          //       }`}
+                          //     style={{
+                          //       cursor:
+                          //         item?.sponsorType !== "Dummy"
+                          //           ? "pointer"
+                          //           : "default",
+                          //     }}
+                          //   >
+                          //     <img
+                          //       src={item?.sponsorComapnyLogo}
+                          //       alt={`Sponsor ${i + 1}`}
+                          //     />
+                          //     {item?.sponsorType !== "Dummy" && (
+                          //       <div className="SponsorCards_overlay__7MT16">
+                          //         <h4>{item?.sponsorComapnyName}</h4>
+                          //         <h4>{item?.sponsorType} Sponsor</h4>
+                          //       </div>
+                          //     )}
+                          //   </a>
+                          // );
                         })}
                       </div>
                     ))}
                   </Slider>
                 </div>
               </div>
-              <img src={rightArrowIcon} alt="right arrow icon" loading="lazy" width="16"
-                onClick={() => sliderRef.current.slickNext()} style={{ display: arrowDisplay }} />
+              <img
+                src={rightArrowIcon}
+                alt="right arrow icon"
+                loading="lazy"
+                width="16"
+                onClick={() => sliderRef.current.slickNext()}
+                style={{ display: arrowDisplay }}
+              />
             </div>
           </div>
         </div>

@@ -184,7 +184,7 @@ def homePageCompaniesListFun(request):
 @permission_classes((AllowAny,))
 @api_view(['GET'])
 def navMainCategoriesFun(request):
-    mainCategory_list = homePageNavMainCategories.objects.all().filter(isDelete='No')
+    mainCategory_list = homePageNavMainCategories.objects.all().filter(isDelete='No').order_by('id')
     dataMainCategory = []
     for mainCat in mainCategory_list:
         x={
@@ -4882,7 +4882,7 @@ def getNewsDataById(request):
 @permission_classes((AllowAny,))
 @api_view(['GET'])
 def navItemsFun(request):
-    mainCategoriesList = homePageNavMainCategories.objects.all().filter(isDelete='No')
+    mainCategoriesList = homePageNavMainCategories.objects.all().filter(isDelete='No').order_by('id')
     nav_items = []
     for main in mainCategoriesList:
         nav_item = {
@@ -6510,7 +6510,7 @@ def delete_footerOption(request):
 @permission_classes((AllowAny,))
 @api_view(['GET'])
 def footerOptionsFun(request):
-    footerOption_list = footerOptions.objects.all().filter(isDelete='No')
+    footerOption_list = footerOptions.objects.all().filter(isDelete='No').order_by('id')
     footerOptionsArr = []
     for op in footerOption_list:
         x={

@@ -382,7 +382,7 @@
 //   }
 
 //  const seoTitle = `Bitcoin Market Dynamics | Bitcoin Conference 2026`;
-//   const seoDesc = "Explore Bitcoin market dynamics, institutional flows, volatility, and global macro trends shaping digital asset markets ahead of Bitcoin Innovation 2026."; 
+//   const seoDesc = "Explore Bitcoin market dynamics, institutional flows, volatility, and global macro trends shaping digital asset markets ahead of Bitcoin Innovation 2026.";
 //   return (
 //     <>
 //     <Helmet>
@@ -637,8 +637,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
-import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
-import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
+import leftArrowIcon from "../assets/WebCommonImages/icon-arrow-left.png";
+import rightArrowIcon from "../assets/WebCommonImages/icon-arrow-right.png";
 
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
@@ -648,7 +648,8 @@ import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
 const allTopics = [
   {
     id: 1,
-    title: "DECENTRALISING FINANCE: BITCOIN'S ROLE IN THE EVOLUTION OF GLOBAL MONEY",
+    title:
+      "DECENTRALISING FINANCE: BITCOIN'S ROLE IN THE EVOLUTION OF GLOBAL MONEY",
     day: "Day 1",
     date: "WEDNESDAY, 1 JULY, 2026",
     time: "11:30 - 11:55",
@@ -657,7 +658,8 @@ const allTopics = [
   },
   {
     id: 2,
-    title: "FROM CODE TO CAPITAL: HOW BITCOIN INNOVATION IS RESHAPING FINANCIAL MARKETS",
+    title:
+      "FROM CODE TO CAPITAL: HOW BITCOIN INNOVATION IS RESHAPING FINANCIAL MARKETS",
     day: "Day 1",
     date: "WEDNESDAY, 1 JULY, 2026",
     time: "13:30 - 13:55",
@@ -666,7 +668,8 @@ const allTopics = [
   },
   {
     id: 3,
-    title: "BITCOIN BEYOND CURRENCY: DRIVING INNOVATION ACROSS GLOBAL FINANCIAL SYSTEMS",
+    title:
+      "BITCOIN BEYOND CURRENCY: DRIVING INNOVATION ACROSS GLOBAL FINANCIAL SYSTEMS",
     day: "Day 1",
     date: "WEDNESDAY, 1 JULY, 2026",
     time: "14:00 - 14:25",
@@ -691,22 +694,20 @@ const TrendDescriptionPage = () => {
 
   // Resolve which trend is active from slug
   const matchedTrend = trendList.find(
-    (t) => t.trendTitle.replace(/\s+/g, "-") === slug
+    (t) => t.trendTitle.replace(/\s+/g, "-") === slug,
   );
 
   const [currentTrendId, setCurrentTrendId] = useState(
-    location.state?.id || matchedTrend?.id || null
+    location.state?.id || matchedTrend?.id || null,
   );
   const [trendData, setTrendData] = useState(trendDetailData);
-  const [activeTab, setActiveTab] = useState(
-    trendDetailData?.[0]?.slug || ""
-  );
+  const [activeTab, setActiveTab] = useState(trendDetailData?.[0]?.slug || "");
   const [isExpanded, setIsExpanded] = useState(false);
   const [sponsorList, setSponsorList] = useState(initialSponsors);
   const [settings, setSettings] = useState({});
   const [chunkedSponsors, setChunkedSponsors] = useState([]);
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
+    typeof window !== "undefined" ? window.innerWidth : 1200,
   );
   const [loading, setLoading] = useState(false); // ✅ SSR pre-renders, no loading needed
   const [validSlug, setValidSlug] = useState(!!matchedTrend);
@@ -716,7 +717,7 @@ const TrendDescriptionPage = () => {
   // Everything else (trendList, sponsors) is already in SSR data
   useEffect(() => {
     const resolved = trendList.find(
-      (t) => t.trendTitle.replace(/\s+/g, "-") === slug
+      (t) => t.trendTitle.replace(/\s+/g, "-") === slug,
     );
     if (!resolved) {
       setValidSlug(false);
@@ -756,7 +757,7 @@ const TrendDescriptionPage = () => {
 
   function chunkArray(array, size) {
     return Array.from({ length: Math.ceil(array.length / size) }, (_, i) =>
-      array.slice(i * size, i * size + size)
+      array.slice(i * size, i * size + size),
     );
   }
 
@@ -817,7 +818,7 @@ const TrendDescriptionPage = () => {
           items: group,
           gridColumns,
           gridRows,
-        }))
+        })),
       );
     };
 
@@ -850,7 +851,9 @@ const TrendDescriptionPage = () => {
   }, []);
 
   if (loading) {
-    return <div style={{ textAlign: "center", padding: "100px" }}>Loading...</div>;
+    return (
+      <div style={{ textAlign: "center", padding: "100px" }}>Loading...</div>
+    );
   }
 
   if (!validSlug) {
@@ -859,7 +862,10 @@ const TrendDescriptionPage = () => {
 
   // ✅ Dynamic SEO from backend data — works for SSR (Helmet injects into <head> server-side)
   const activeTrend = trendList.find((t) => t.id === currentTrendId);
-  const seoTitle = activeTrend?.trendMetaTitle || activeTrend?.trendTitle || "Bitcoin Conference 2026";
+  const seoTitle =
+    activeTrend?.trendMetaTitle ||
+    activeTrend?.trendTitle ||
+    "Bitcoin Conference 2026";
   const seoDesc = activeTrend?.trendMetaDescription || "";
   const canonicalUrl = `https://www.bitcoin-innovation-market-evolution.online/trenddescription/${slug}`;
 
@@ -901,15 +907,21 @@ const TrendDescriptionPage = () => {
                 // >
                 //   {tab.trendTitle}
                 // </button>
-                <a href={`/trenddescription/${tab.trendTitle.replace(/\s+/g, "-")}`} key={tab.id} style={{
-                  backgroundColor:
-                    currentTrendId === tab.id ? "var(--secondary-color)" : "",
-                  color: currentTrendId === tab.id ? "#fff" : "",
-                  boxShadow:
-                    currentTrendId === tab.id
-                      ? "rgba(0, 0, 0, 0.2) 0px 9px 10px -5px"
-                      : "",
-                }}>{tab.trendTitle}</a>
+                <a
+                  href={`/trenddescription/${tab.trendTitle.replace(/\s+/g, "-")}`}
+                  key={tab.id}
+                  style={{
+                    backgroundColor:
+                      currentTrendId === tab.id ? "var(--secondary-color)" : "",
+                    color: currentTrendId === tab.id ? "#fff" : "",
+                    boxShadow:
+                      currentTrendId === tab.id
+                        ? "rgba(0, 0, 0, 0.2) 0px 9px 10px -5px"
+                        : "",
+                  }}
+                >
+                  {tab.trendTitle}
+                </a>
               ))}
             </div>
           </div>
@@ -919,9 +931,13 @@ const TrendDescriptionPage = () => {
             style={{
               paddingBottom:
                 windowWidth > 961
-                  ? isExpanded ? "58px" : ""
+                  ? isExpanded
+                    ? "58px"
+                    : ""
                   : "" || windowWidth < 639
-                    ? isExpanded ? "1px" : ""
+                    ? isExpanded
+                      ? "1px"
+                      : ""
                     : "",
             }}
           >
@@ -940,7 +956,13 @@ const TrendDescriptionPage = () => {
                   >
                     {isExpanded ? "SHOW LESS" : "SHOW MORE"}
                     {!isExpanded && (
-                      <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        width="24"
+                        height="16"
+                        viewBox="0 0 24 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
                           d="M23.2071 8.70711C23.5976 8.31658 23.5976 7.68342 23.2071 7.29289L16.8431 0.928932C16.4526 0.538408 15.8195 0.538408 15.4289 0.928932C15.0384 1.31946 15.0384 1.95262 15.4289 2.34315L21.0858 8L15.4289 13.6569C15.0384 14.0474 15.0384 14.6805 15.4289 15.0711C15.8195 15.4616 16.4526 15.4616 16.8431 15.0711L23.2071 8.70711ZM0 9H22.5V7H0V9Z"
                           style={{ fill: "var(--primary-color)" }}
@@ -977,7 +999,10 @@ const TrendDescriptionPage = () => {
                   <div>
                     <Slider ref={sliderRef} {...settings}>
                       {chunkedSponsors.map((group) => (
-                        <div key={group.id} className="SponsorCards_cardContainerInner__BPPEL">
+                        <div
+                          key={group.id}
+                          className="SponsorCards_cardContainerInner__BPPEL"
+                        >
                           {/* {group.items.map((item, i) => {
                             const handleClick = () => {
                               if (item?.sponsorType !== "Dummy") {
@@ -1014,48 +1039,111 @@ const TrendDescriptionPage = () => {
                             //       .replace(/[^a-z0-9\s-]/g, "") // remove special characters
                             //       .replace(/\s+/g, "-") // replace spaces with hyphens
                             //       .replace(/-+/g, "-"); // collapse multiple hyphens
-
                             //     navigate(`/sponsor/${sponsorName}`, {
                             //       state: item, // pass full sponsor data to description page
                             //     });
                             //   }
                             // };
-
-                            return (
-                              <a
-                                key={i}
-                                href={(() => {
-                                  if (item?.sponsorType === "Dummy" || !item?.sponsorComapnyName) return "#";
-                                  const slug = item.sponsorComapnyName
-                                    .toLowerCase()
-                                    .replace(/[^a-z0-9\s-]/g, "")
-                                    .replace(/\s+/g, "-")
-                                    .replace(/-+/g, "-");
-                                  return `/sponsor/${slug}`;
-                                })()}
-                                className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
-                                  ? "clickable"
-                                  : ""
-                                  }`}
-                                style={{
-                                  cursor:
+                            if (item?.sponsorType === "Dummy") {
+                              return (
+                                <a
+                                  key={i}
+                                  className={`SponsorCards_card__8eNkT ${
                                     item?.sponsorType !== "Dummy"
-                                      ? "pointer"
-                                      : "default",
-                                }}
-                              >
-                                <img
-                                  src={item?.sponsorComapnyLogo}
-                                  alt={`Sponsor ${i + 1}`}
-                                />
-                                {item?.sponsorType !== "Dummy" && (
-                                  <a className="SponsorCards_overlay__7MT16">
-                                    <h4>{item?.sponsorComapnyName}</h4>
-                                    <h4>{item?.sponsorType} Sponsor</h4>
-                                  </a>
-                                )}
-                              </a>
-                            );
+                                      ? "clickable"
+                                      : ""
+                                  }`}
+                                  style={{
+                                    cursor:
+                                      item?.sponsorType !== "Dummy"
+                                        ? "pointer"
+                                        : "default",
+                                  }}
+                                >
+                                  <img
+                                    src={item?.sponsorComapnyLogo}
+                                    alt={`Sponsor ${i + 1}`}
+                                  />
+                                  {item?.sponsorType !== "Dummy" && (
+                                    <a className="SponsorCards_overlay__7MT16">
+                                      <h4>{item?.sponsorComapnyName}</h4>
+                                      <h4>{item?.sponsorType} Sponsor</h4>
+                                    </a>
+                                  )}
+                                </a>
+                              );
+                            } else {
+                              return (
+                                <a
+                                  key={i}
+                                  href={(() => {
+                                    const slug = item.sponsorComapnyName
+                                      .toLowerCase()
+                                      .replace(/[^a-z0-9\s-]/g, "")
+                                      .replace(/\s+/g, "-")
+                                      .replace(/-+/g, "-");
+                                    return `/sponsor/${slug}`;
+                                  })()}
+                                  className={`SponsorCards_card__8eNkT ${
+                                    item?.sponsorType !== "Dummy"
+                                      ? "clickable"
+                                      : ""
+                                  }`}
+                                  style={{
+                                    cursor:
+                                      item?.sponsorType !== "Dummy"
+                                        ? "pointer"
+                                        : "default",
+                                  }}
+                                >
+                                  <img
+                                    src={item?.sponsorComapnyLogo}
+                                    alt={`Sponsor ${i + 1}`}
+                                  />
+                                  {item?.sponsorType !== "Dummy" && (
+                                    <a className="SponsorCards_overlay__7MT16">
+                                      <h4>{item?.sponsorComapnyName}</h4>
+                                      <h4>{item?.sponsorType} Sponsor</h4>
+                                    </a>
+                                  )}
+                                </a>
+                              );
+                            }
+                            // return (
+                            //   <a
+                            //     key={i}
+                            //     href={(() => {
+                            //       if (item?.sponsorType === "Dummy" || !item?.sponsorComapnyName) return "#";
+                            //       const slug = item.sponsorComapnyName
+                            //         .toLowerCase()
+                            //         .replace(/[^a-z0-9\s-]/g, "")
+                            //         .replace(/\s+/g, "-")
+                            //         .replace(/-+/g, "-");
+                            //       return `/sponsor/${slug}`;
+                            //     })()}
+                            //     className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                            //       ? "clickable"
+                            //       : ""
+                            //       }`}
+                            //     style={{
+                            //       cursor:
+                            //         item?.sponsorType !== "Dummy"
+                            //           ? "pointer"
+                            //           : "default",
+                            //     }}
+                            //   >
+                            //     <img
+                            //       src={item?.sponsorComapnyLogo}
+                            //       alt={`Sponsor ${i + 1}`}
+                            //     />
+                            //     {item?.sponsorType !== "Dummy" && (
+                            //       <a className="SponsorCards_overlay__7MT16">
+                            //         <h4>{item?.sponsorComapnyName}</h4>
+                            //         <h4>{item?.sponsorType} Sponsor</h4>
+                            //       </a>
+                            //     )}
+                            //   </a>
+                            // );
                           })}
                         </div>
                       ))}
@@ -1084,13 +1172,17 @@ const TrendDescriptionPage = () => {
                     <div key={topic.id} className="TopicsOnAgenda_card__pUjOu">
                       <p>{topic.title}</p>
                       <div>
-                        <p>{topic.day}: {topic.date}</p>
+                        <p>
+                          {topic.day}: {topic.date}
+                        </p>
                         <p>{topic.time}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <button onClick={() => navigate("/agenda")}>view more topics</button>
+                <button onClick={() => navigate("/agenda")}>
+                  view more topics
+                </button>
               </div>
             </div>
           </div>

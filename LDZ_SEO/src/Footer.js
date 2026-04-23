@@ -26,8 +26,8 @@ const Footer = () => {
   const trends = useSSRData("trends") || [];
   const [footerNavOptions, setFooterNavOptions] = useState([]);
   const { eventDetails, eventGeneralSettings, navLogos } = useApiData();
-  console.log('footereventDetails: ', eventDetails);
-  console.log('footereventDetails2: ', navLogos);
+  console.log("footereventDetails: ", eventDetails);
+  console.log("footereventDetails2: ", navLogos);
 
   const toSlug = (str) => {
     if (!str) return ""; // 🚨 Prevent 'null' stringification
@@ -446,28 +446,17 @@ const Footer = () => {
             </div>
             <div className="Footer_footerQuickLinks__dTpfQ">
               <h5>QUICK LINKS</h5>
-              <a target="_blank" href="/booking">
-                Register
-              </a>
-              <a target="_blank" href="/who-should-attend">
-                Benefits
-              </a>
-              <a target="_blank" href="/remind-me-later">
-                Remind Me
-              </a>
+              <a href="/booking">Register</a>
+              <a href="/who-should-attend">Benefits</a>
+              <a href="/remind-me-later">Remind Me</a>
             </div>
             <div className="Footer_footerQuickLinks__dTpfQ">
               <h5>CONTACT US</h5>
-              <a
-                target="_blank"
-                href="mailto:delegates@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026"
-              >
+              <a href="mailto:delegates@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026">
                 Email
               </a>
               <a href="/pay-online">Pay Online</a>
-              <a target="_blank" href="/terms-and-conditions">
-                Terms and Conditions
-              </a>
+              <a href="/terms-and-conditions">Terms and Conditions</a>
             </div>
           </div>
         </div>

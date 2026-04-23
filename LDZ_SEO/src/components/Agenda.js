@@ -408,15 +408,15 @@ const Agenda = () => {
     e.preventDefault();
 
     if (emailVerification === "") {
-      toast.error("Email Address is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      // toast.error("Email Address is Required", {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
       setEmailVerificationError(true);
       return;
     }
@@ -448,15 +448,15 @@ const Agenda = () => {
       if (!data.status) {
         setIsVerify(false);
         setBlockedDomainError(true);
-        toast.error(data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        // toast.error(data.message, {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
         setEmailVerificationError(true);
         return;
       }
