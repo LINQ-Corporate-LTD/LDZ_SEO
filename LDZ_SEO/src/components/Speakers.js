@@ -48,7 +48,7 @@ const Speakers = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/eventspeakers`, requestOptions)
+    fetch(`https://linq-staging-site.com/admin1/eventspeakers`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -120,7 +120,7 @@ const Speakers = () => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addbecomespeakerrequest",
+        "https://linq-staging-site.com/admin1/addbecomespeakerrequest",
         requestOptions
       )
         .then((response) => response.json())

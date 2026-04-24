@@ -45,7 +45,7 @@ const AddNavSubCategory = (props) => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/navmaincategories`,
+      `https://linq-staging-site.com/admin1/navmaincategories`,
       requestOptions
     )
       .then((response) => response.json())
@@ -143,7 +143,7 @@ const AddNavSubCategory = (props) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addnavsubcategory",
+        "https://linq-staging-site.com/admin1/addnavsubcategory",
         requestOptions
       )
         .then((response) => response.json())

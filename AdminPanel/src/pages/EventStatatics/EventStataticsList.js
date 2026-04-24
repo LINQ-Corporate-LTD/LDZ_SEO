@@ -71,7 +71,7 @@ const EventStataticsList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/eventstatatics`, requestOptions)
+    fetch(`https://linq-staging-site.com/admin1/eventstatatics`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -183,7 +183,7 @@ const EventStataticsList = () => {
         body: finalData,
       };
       fetch(
-        'http://127.0.0.1:8000/admin1/deletehomecountpoints',
+        'https://linq-staging-site.com/admin1/deletehomecountpoints',
         requestOptions
       )
         .then((response) => response.json())

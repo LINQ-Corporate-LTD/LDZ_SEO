@@ -73,7 +73,7 @@ const EditAddOns = ({ row, editModal, onCloseModal, onModalSubmitBtnClk }) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/editdelegatepackageaddons",
+        "https://linq-staging-site.com/admin1/editdelegatepackageaddons",
         requestOptions
       )
         .then((response) => response.json())

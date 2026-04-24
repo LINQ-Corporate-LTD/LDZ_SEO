@@ -45,7 +45,7 @@ const AddSponsorAddOns = (props) => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/sponsorpackageaddontypes`,
+      `https://linq-staging-site.com/admin1/sponsorpackageaddontypes`,
       requestOptions
     )
       .then((response) => response.json())
@@ -143,7 +143,7 @@ const AddSponsorAddOns = (props) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addsponsoraddons",
+        "https://linq-staging-site.com/admin1/addsponsoraddons",
         requestOptions
       )
         .then((response) => response.json())

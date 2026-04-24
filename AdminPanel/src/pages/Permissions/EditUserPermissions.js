@@ -36,7 +36,7 @@ const EditUserPermissions = () => {
     }, [id]);
 
     const fetchUserData = () => {
-        fetch("http://127.0.0.1:8000/admin1/userlist")
+        fetch("https://linq-staging-site.com/admin1/userlist")
             .then((res) => res.json())
             .then((data) => {
                 if (data.status) {
@@ -50,7 +50,7 @@ const EditUserPermissions = () => {
     };
 
     const fetchPermissionList = () => {
-        fetch("http://127.0.0.1:8000/admin1/permissionlist")
+        fetch("https://linq-staging-site.com/admin1/permissionlist")
             .then((res) => res.json())
             .then((data) => {
                 if (data.status) {
@@ -88,7 +88,7 @@ const EditUserPermissions = () => {
     };
 
     const handleSave = () => {
-        fetch("http://127.0.0.1:8000/admin1/updateuserpermissions", {
+        fetch("https://linq-staging-site.com/admin1/updateuserpermissions", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

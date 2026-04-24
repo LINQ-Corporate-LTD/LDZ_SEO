@@ -68,7 +68,7 @@
 //     const requestOptions = {
 //       method: "GET",
 //     };
-//     fetch(`http://127.0.0.1:8000/admin1/deligatepackageslist`, requestOptions)
+//     fetch(`https://linq-staging-site.com/admin1/deligatepackageslist`, requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (data && data.status) {
@@ -195,7 +195,7 @@
 //       body: finalData,
 //     };
 
-//     fetch("http://127.0.0.1:8000/admin1/adduserpassrequest", requestOptions)
+//     fetch("https://linq-staging-site.com/admin1/adduserpassrequest", requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (data.status) {
@@ -708,7 +708,7 @@ const Register = () => {
   // (window.__INITIAL_DATA__ is not updated on React Router client-side navigation)
   useEffect(() => {
     if (delegatePackageList.length > 0) return; // already populated from SSR
-    fetch("http://127.0.0.1:8000/admin1/deligatepackageslist")
+    fetch("https://linq-staging-site.com/admin1/deligatepackageslist")
       .then((r) => r.json())
       .then((data) => {
         if (data?.status && data.delegatePackages) {
@@ -796,7 +796,7 @@ const Register = () => {
       finalData.append("userMessage", JSON.stringify(formData.message));
     }
 
-    fetch("http://127.0.0.1:8000/admin1/adduserpassrequest", {
+    fetch("https://linq-staging-site.com/admin1/adduserpassrequest", {
       method: "POST",
       body: finalData,
     })

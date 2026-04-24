@@ -46,7 +46,7 @@ const AddSponsorAddOnType = (props) => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addsponsoraddontype",
+        "https://linq-staging-site.com/admin1/addsponsoraddontype",
         requestOptions
       )
         .then((response) => response.json())

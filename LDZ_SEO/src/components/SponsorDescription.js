@@ -85,7 +85,7 @@ const SponsorDescription = () => {
       const formData = new FormData();
       formData.append("sponsorId", sponsorId);
 
-      const response = await fetch(`http://127.0.0.1:8000/admin1/sponsorbyid`, {
+      const response = await fetch(`https://linq-staging-site.com/admin1/sponsorbyid`, {
         method: "POST",
         body: formData,
       });
@@ -104,7 +104,7 @@ const SponsorDescription = () => {
   const fetchSponsorBySlug = async (slug) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/admin1/eventsponsors`
+        `https://linq-staging-site.com/admin1/eventsponsors`
       );
       const data = await response.json();
 
@@ -169,7 +169,7 @@ const SponsorDescription = () => {
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/addquickproposalrequest",
+        "https://linq-staging-site.com/admin1/addquickproposalrequest",
         requestOptions
       )
         .then((response) => response.json())

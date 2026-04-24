@@ -55,7 +55,7 @@ const EditLogo = ({
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/admin1/upload",
+        "https://linq-staging-site.com/admin1/upload",
         requestOptions
       );
       const data = await response.json();
@@ -107,7 +107,7 @@ const EditLogo = ({
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/edithomepagecompanies",
+        "https://linq-staging-site.com/admin1/edithomepagecompanies",
         requestOptions
       )
         .then((response) => response.json())

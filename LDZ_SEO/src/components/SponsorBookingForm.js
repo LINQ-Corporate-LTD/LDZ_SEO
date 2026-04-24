@@ -15,7 +15,7 @@ import { usePageSeo } from "../common/usePageSeo";
 // const ticket =
 //   "https://www.desalination-resource-recovery.com/images/ticket.svg";
 // const logo =
-//   "http://127.0.0.1:8000/media/mediabitcoin_logo_white.png";
+//   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
 // const toggle =
 //   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
 // const cardLabel =
@@ -171,7 +171,7 @@ const SponsorBookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "http://127.0.0.1:8000/admin1/sendmail",
+          "https://linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -460,7 +460,7 @@ const SponsorBookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "http://127.0.0.1:8000/admin1/sendmail",
+          "https://linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -516,7 +516,7 @@ const SponsorBookingForm = () => {
       };
 
       fetch(
-        "http://127.0.0.1:8000/admin1/addnewsponsor",
+        "https://linq-staging-site.com/admin1/addnewsponsor",
         requestOptions,
       )
         .then((response) => response.json())
@@ -585,7 +585,7 @@ const SponsorBookingForm = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/sponsoraddons`,
+      `https://linq-staging-site.com/admin1/sponsoraddons`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -650,7 +650,7 @@ const SponsorBookingForm = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/getactivedelegatepackage`,
+      `https://linq-staging-site.com/admin1/getactivedelegatepackage`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -679,7 +679,7 @@ const SponsorBookingForm = () => {
   //       body: formData,
   //     };
   //     fetch(
-  //       `http://127.0.0.1:8000/admin1/sponsoroffercouponbycode`,
+  //       `https://linq-staging-site.com/admin1/sponsoroffercouponbycode`,
   //       requestOptions,
   //     )
   //       .then((response) => response.json())
@@ -719,7 +719,7 @@ const SponsorBookingForm = () => {
     let formData = new FormData();
     formData.append("couponCode", code);
 
-    fetch(`http://127.0.0.1:8000/admin1/sponsoroffercouponbycode`, {
+    fetch(`https://linq-staging-site.com/admin1/sponsoroffercouponbycode`, {
       method: "POST",
       body: formData,
     })

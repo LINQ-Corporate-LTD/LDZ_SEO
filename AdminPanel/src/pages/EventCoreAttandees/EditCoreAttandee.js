@@ -74,7 +74,7 @@ const EditCoreAttandee = ({
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/editeventcoreattandee",
+        "https://linq-staging-site.com/admin1/editeventcoreattandee",
         requestOptions
       )
         .then((response) => response.json())

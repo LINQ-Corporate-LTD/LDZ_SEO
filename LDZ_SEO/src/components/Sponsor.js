@@ -86,7 +86,7 @@ const Sponsors = () => {
         method: "POST",
         body: finalData,
       };
-      fetch("http://127.0.0.1:8000/admin1/addcrowdformrequest", requestOptions)
+      fetch("https://linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (data.status) {

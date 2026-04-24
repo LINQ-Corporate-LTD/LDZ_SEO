@@ -27,13 +27,14 @@ SECRET_KEY = 'django-insecure-6wah=7zu&)w61o5eul1s8!926*&t&g+)2h$^we2jzy3^tmdodt
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000','http://localhost:3000',"https://nolan123.pythonanywhere.com","http://nolan123.pythonanywhere.com","https://wdrm-linq.onrender.com","http://127.0.0.1:3000",]
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000','http://localhost:3000',"https://nolan123.pythonanywhere.com","http://nolan123.pythonanywhere.com","https://wdrm-linq.onrender.com","http://127.0.0.1:3000","https://linq-staging-site.com"]
 CORS_ORIGIN_ALLOW_ALL = True
 SESSION_COOKIE_SECURE = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React dev server
     "http://127.0.0.1:8000",
+    "https://linq-staging-site.com"
 ]
 
 # JWT SETTINGS
@@ -128,7 +129,7 @@ DATABASES = {
         'NAME': 'ldz_event',
         'USER': 'postgres',
         'PASSWORD': '1902',
-        'HOST': 'localhost',
+        'HOST': '87.99.135.169',
         'PORT': '5432',
     }
 }

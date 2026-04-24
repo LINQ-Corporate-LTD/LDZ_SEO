@@ -30,6 +30,7 @@ import { ToastContainer } from "react-toastify";
 // import SponsorBookingForm from "./components/SponsorBookingForm";
 import { ApiDataProvider } from "./common/ApiContext";
 import PrivacyPolicy from "./components/privacyPolicy";
+import CookiePolicy from "./components/CookiePolicy";
 import ThankYouPage from "./components/thankyouPage";
 import TermsAndConditions from "./components/TermsAndConditions";
 import Error404 from "./components/Error404";
@@ -63,7 +64,8 @@ function App({ ssrData }) {
   };
 
   useEffect(() => {
-    const faviconUrl = initialData?.home?.homeVideoSctionEventDetails?.[0]?.favicon;
+    const faviconUrl =
+      initialData?.home?.homeVideoSctionEventDetails?.[0]?.favicon;
     if (faviconUrl) {
       setFavicon(faviconUrl);
     }
@@ -114,10 +116,7 @@ function App({ ssrData }) {
               element={<TrendDescriptionPage />}
             />
             <Route path="sponsor-packages" element={<ExhibitorPackages />} />
-            <Route
-              path="newsdescription/:slug"
-              element={<NewsDescription />}
-            />
+            <Route path="newsdescription/:slug" element={<NewsDescription />} />
             <Route path="speakerprofile/:slug" element={<SpeakerProfile />} />
             <Route path="attandees" element={<Attandees />} />
             <Route path="adddelegate" element={<AddDelegateForm />} />
@@ -130,7 +129,11 @@ function App({ ssrData }) {
             <Route path="remind-me-later" element={<RemindMeLater />} />
             {/* <Route path="sponsor-booking" element={<SponsorBookingForm />} /> */}
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="cookie-policy" element={<CookiePolicy />} />
+            <Route
+              path="terms-and-conditions"
+              element={<TermsAndConditions />}
+            />
             <Route path="thank-you" element={<ThankYouPage />} />
             <Route path="securelogin" element={<SlideShare />} />
             <Route path="pay-online" element={<PayOnline />} />

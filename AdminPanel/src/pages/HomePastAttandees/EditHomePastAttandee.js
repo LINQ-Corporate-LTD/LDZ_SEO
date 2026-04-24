@@ -61,7 +61,7 @@ const EditHomePastAttandee = ({
         method: "POST",
         body: finalData,
       };
-      fetch("http://127.0.0.1:8000/admin1/edithomepastattandee", requestOptions)
+      fetch("https://linq-staging-site.com/admin1/edithomepastattandee", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

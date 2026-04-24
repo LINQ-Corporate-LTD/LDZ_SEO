@@ -82,7 +82,7 @@ const SlideShareList = () => {
         const requestOptions = {
             method: "GET",
         };
-        fetch(`http://127.0.0.1:8000/admin1/getslideShare`, requestOptions)
+        fetch(`https://linq-staging-site.com/admin1/getslideShare`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (
@@ -214,7 +214,7 @@ const SlideShareList = () => {
                 body: finalData,
             };
             fetch(
-                'http://127.0.0.1:8000/admin1/deleteslideShare',
+                'https://linq-staging-site.com/admin1/deleteslideShare',
                 requestOptions
             )
                 .then((response) => response.json())

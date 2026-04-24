@@ -19,7 +19,7 @@ const Faq = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/eventfaqs`, requestOptions)
+    fetch(`https://linq-staging-site.com/admin1/eventfaqs`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {

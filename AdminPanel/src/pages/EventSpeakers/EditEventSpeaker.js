@@ -89,7 +89,7 @@ const EditEventSpeaker = ({
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/admin1/upload",
+        "https://linq-staging-site.com/admin1/upload",
         requestOptions
       );
       const data = await response.json();
@@ -279,7 +279,7 @@ const EditEventSpeaker = ({
         body: finalData,
       };
       fetch(
-        "http://127.0.0.1:8000/admin1/editeventspeakers",
+        "https://linq-staging-site.com/admin1/editeventspeakers",
         requestOptions
       )
         .then((response) => response.json())

@@ -10,6 +10,7 @@ import homePageIqHubVideoPoster from "../assets/WebImages/home-video-poster.jpg"
 
 const ForumSection = () => {
   const [taglineData, setTaglineData] = useState([]);
+  const [isClickPlay, setClickPlay] = useState(false);
   useEffect(() => {
     callTaglineListApi();
     // eslint-disable-next-line
@@ -18,7 +19,7 @@ const ForumSection = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`http://127.0.0.1:8000/admin1/taglinedata`, requestOptions)
+    fetch(`https://linq-staging-site.com/admin1/taglinedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -62,7 +63,7 @@ const ForumSection = () => {
               dangerouslySetInnerHTML={{
                 __html: taglineData[0]?.thirdSectionDescription?.replace(
                   /^"(.*)"$/,
-                  "$1"
+                  "$1",
                 ),
               }}
             ></div>
@@ -70,13 +71,35 @@ const ForumSection = () => {
         </div>
         <div className="ForumSction_forumRight__f3wIx">
           <div className="lazyload-wrapper">
-            <iframe
+            {!isClickPlay && (
+              <svg
+                onClick={() => setClickPlay(true)}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <rect width="512" height="512" rx="64" fill="#000"></rect>
+                <polygon
+                  points="200,150 380,256 200,362"
+                  fill="#FFFFFF"
+                ></polygon>
+              </svg>
+            )}
+            <video
+              width="100%"
+              height="100%"
+              poster={homePageIqHubVideoPoster}
+              playsinline
+              controls={isClickPlay}
+            >
+              <source src={homePageIqHubVideo} type="video/mp4" />
+            </video>
+            {/* <iframe
               src={speakerVideo}
               frameborder="0"
               webkitallowfullscreen
               mozallowfullscreen
               className="ForumSction_iFrame__q2G3W"
-            ></iframe>
+            ></iframe> */}
           </div>
         </div>
       </div>

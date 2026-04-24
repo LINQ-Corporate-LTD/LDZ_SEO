@@ -5,7 +5,6 @@
   background-color: #f5f5f5;
 }
 
-
 .venue-image {
   height: 800px;
   object-fit: cover;
@@ -43,7 +42,6 @@
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
   z-index: 2;
-
 }
 
 .venue-subtitle {
@@ -89,7 +87,6 @@
 .more-info-btn:hover {
   background-color: #e6e6e6;
   color: #000;
-
 }
 
 .venue-cta {
@@ -102,13 +99,10 @@
     height: auto;
   }
 
-
-
   .venue-title {
     font-size: 28px;
     font-weight: 800;
     z-index: 2;
-
   }
 
   .venue-image {
@@ -133,14 +127,6 @@
     padding: 30px 20px;
   }
 }
-
-
-
-
-
-
-
-
 
 .venue-gallery {
   background-color: #1a1a1a;
@@ -251,8 +237,6 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-
-
   /* .gallery-item{
               display: block;
             } */
@@ -299,9 +283,6 @@
   }
 }
 
-
-
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -309,7 +290,7 @@ body {
 
 .venue-contact {
   position: relative;
-  background-image: url("https://www.frac-sand-conference.com/static/media/venue-image.ad9c328038bb8cdfb219.png");
+  background-image: url("../WebImages/venue-contact-the-venue.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -421,9 +402,7 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-
   .venue-contact {
-
     height: 990px;
   }
 
@@ -431,7 +410,6 @@ body {
     font-size: 24px;
     text-align: left;
     font-weight: 800;
-
   }
 
   .venue-content h2 {
@@ -485,7 +463,6 @@ body {
   }
 }
 
-
 /* new css */
 
 .Venue_container__Lol8U {
@@ -504,7 +481,9 @@ body {
   max-width: 1920px;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_imageContainer__ncJwH {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_imageContainer__ncJwH {
   background-color: rgb(229, 229, 229);
   background-position: 50% center;
   background-repeat: no-repeat;
@@ -514,7 +493,9 @@ body {
   width: 50%;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -522,7 +503,10 @@ body {
   width: 50%;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF h1 {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  h1 {
   color: rgb(24, 24, 24);
   font-size: 36px;
   font-weight: 800;
@@ -530,16 +514,27 @@ body {
   text-transform: uppercase;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  .DetailsContainer_innerContent__6NQGR {
   margin: 35px 0px 45px;
   padding: 0px;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR h4 {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  .DetailsContainer_innerContent__6NQGR
+  h4 {
   margin-bottom: 50px !important;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR h4 {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  .DetailsContainer_innerContent__6NQGR
+  h4 {
   color: rgb(24, 24, 24);
   font-size: 20px;
   font-weight: 800;
@@ -550,7 +545,11 @@ body {
   margin-bottom: 37px !important;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR p {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  .DetailsContainer_innerContent__6NQGR
+  p {
   color: rgb(24, 24, 24);
   font-size: 16px;
   font-weight: 600;
@@ -559,7 +558,11 @@ body {
   padding: 0px;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR a {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  .DetailsContainer_innerContent__6NQGR
+  a {
   color: #181818;
   display: block;
   font-size: 16px;
@@ -567,7 +570,10 @@ body {
   text-decoration: underline !important;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF button {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  button {
   background-color: var(--secondary-color);
   border: none;
   border-radius: 2px;
@@ -580,7 +586,10 @@ body {
   transition: 0.3s;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF button:hover {
+.DetailsContainer_wholeContainer__385Iv
+  .DetailsContainer_container__JrWjX
+  .DetailsContainer_textVenueContainer__XnUJF
+  button:hover {
   background-color: #e4e4e4;
   color: var(--secondary-color);
   border: 1px solid rgba(0, 0, 0, 0);
@@ -613,53 +622,90 @@ body {
   text-transform: uppercase;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242>div {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  > div {
   display: flex;
   justify-content: space-between;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242>div img {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  > div
+  img {
   border-radius: 2px;
   cursor: pointer;
   height: 275px;
   object-fit: cover;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_top__L68\+7 {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_top__L68\+7 {
   padding-bottom: 20px;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_top__L68\+7 img {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_top__L68\+7
+  img {
   width: 68%;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_top__L68\+7 img:nth-child(2) {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_top__L68\+7
+  img:nth-child(2) {
   width: 30%;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_middle__k7r70 {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_middle__k7r70 {
   padding-bottom: 20px;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_middle__k7r70 img:first-child {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_middle__k7r70
+  img:first-child {
   width: 30%;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_middle__k7r70 img {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_middle__k7r70
+  img {
   width: 68%;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_bottom__x1J0A img {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_bottom__x1J0A
+  img {
   width: 68%;
 }
 
-.LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_bottom__x1J0A img:nth-child(2) {
+.LightBox_fluid__uvDPj
+  .LightBox_container__pMpod
+  .LightBox_images__L7242
+  .LightBox_bottom__x1J0A
+  img:nth-child(2) {
   width: 30%;
 }
 
 .Venue_container__Lol8U .Venue_contact__jdZNn {
   align-items: center;
-  background-image: url("https://www.frac-sand-conference.com/static/media/venue-map.80be872b7b97e3143370.png");
+  background-image: url("../WebImages/venue-contact-the-venue.webp");
   background-position: 50% center;
   background-size: cover;
   display: flex;
@@ -686,7 +732,10 @@ body {
   width: 100%;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div {
+.Venue_container__Lol8U
+  .Venue_contact__jdZNn
+  .Venue_cardsContainer__U8T\+R
+  > div {
   background-color: rgb(255, 255, 255);
   border-radius: 2px;
   display: flex;
@@ -697,11 +746,18 @@ body {
   width: 500px;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div:first-child {
+.Venue_container__Lol8U
+  .Venue_contact__jdZNn
+  .Venue_cardsContainer__U8T\+R
+  > div:first-child {
   margin-left: 0px;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div h5 {
+.Venue_container__Lol8U
+  .Venue_contact__jdZNn
+  .Venue_cardsContainer__U8T\+R
+  > div
+  h5 {
   color: var(--secondary-color);
   font-size: 24px;
   font-weight: 800;
@@ -709,7 +765,11 @@ body {
   text-transform: uppercase;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div p {
+.Venue_container__Lol8U
+  .Venue_contact__jdZNn
+  .Venue_cardsContainer__U8T\+R
+  > div
+  p {
   align-items: flex-start;
   color: var(--secondary-color);
   display: flex;
@@ -721,21 +781,34 @@ body {
   white-space: nowrap;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div p a {
+.Venue_container__Lol8U
+  .Venue_contact__jdZNn
+  .Venue_cardsContainer__U8T\+R
+  > div
+  p
+  a {
   color: var(--secondary-color);
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div p img {
+.Venue_container__Lol8U
+  .Venue_contact__jdZNn
+  .Venue_cardsContainer__U8T\+R
+  > div
+  p
+  img {
   margin: 5px 10px 0px 0px;
   padding: 0px;
   width: 18px;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div:last-child {
+.Venue_container__Lol8U
+  .Venue_contact__jdZNn
+  .Venue_cardsContainer__U8T\+R
+  > div:last-child {
   margin-right: 0px;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn>a {
+.Venue_container__Lol8U .Venue_contact__jdZNn > a {
   align-items: center;
   background-color: var(--secondary-color);
   border: 1px solid #0000;
@@ -749,18 +822,20 @@ body {
   justify-content: center;
   text-decoration: none;
   text-transform: uppercase;
-  transition: .3s;
+  transition: 0.3s;
   width: 280px;
 }
 
-.Venue_container__Lol8U .Venue_contact__jdZNn>a:hover {
+.Venue_container__Lol8U .Venue_contact__jdZNn > a:hover {
   background-color: #e4e4e4;
   border: 1px solid #0000;
   color: var(--secondary-color);
 }
 
 @media only screen and (max-width: 1619px) {
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF {
     padding: 60px 100px;
   }
 
@@ -770,11 +845,16 @@ body {
 }
 
 @media only screen and (max-width: 1419px) {
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF {
     padding: 40px 70px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF h1 {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    h1 {
     font-size: 28px;
   }
 
@@ -796,15 +876,22 @@ body {
 }
 
 @media only screen and (max-width: 1339px) {
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF {
     padding: 40px 50px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF {
     padding: 40px 50px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF button {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    button {
     height: 77px;
   }
 }
@@ -821,13 +908,19 @@ body {
 }
 
 @media only screen and (max-width: 1179px) {
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF button {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    button {
     height: 65px;
   }
 }
 
 @media only screen and (max-width: 991px) {
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF h1 {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    h1 {
     font-size: 28px;
   }
 
@@ -850,15 +943,24 @@ body {
     padding: 0px;
   }
 
-  .Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div {
+  .Venue_container__Lol8U
+    .Venue_contact__jdZNn
+    .Venue_cardsContainer__U8T\+R
+    > div {
     width: 100%;
   }
 
-  .Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div:first-child {
+  .Venue_container__Lol8U
+    .Venue_contact__jdZNn
+    .Venue_cardsContainer__U8T\+R
+    > div:first-child {
     margin: auto auto 20px;
   }
 
-  .Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div:last-child {
+  .Venue_container__Lol8U
+    .Venue_contact__jdZNn
+    .Venue_cardsContainer__U8T\+R
+    > div:last-child {
     margin: auto;
   }
 }
@@ -868,30 +970,43 @@ body {
     flex-direction: column;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_imageContainer__ncJwH {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_imageContainer__ncJwH {
     height: 65vh;
     max-height: 550px;
     min-height: 400px;
     width: 100%;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF {
     padding: 40px 20px;
     width: 100%;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF button {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    button {
     font-size: 16.5px;
     height: 52px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF h1 {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    h1 {
     font-size: 24px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    .DetailsContainer_innerContent__6NQGR {
     margin: 36px 0px;
   }
 
@@ -906,30 +1021,50 @@ body {
 }
 
 @media only screen and (max-width: 639px) {
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_imageContainer__ncJwH {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_imageContainer__ncJwH {
     max-height: 400px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF h1 {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    h1 {
     font-size: 22px;
     line-height: 25px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    .DetailsContainer_innerContent__6NQGR {
     margin: 10px 0px 20px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR h4 {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    .DetailsContainer_innerContent__6NQGR
+    h4 {
     line-height: 25px;
     margin-bottom: 10px !important;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR h4 {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    .DetailsContainer_innerContent__6NQGR
+    h4 {
     font-size: 18px;
     margin-bottom: 5px !important;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textVenueContainer__XnUJF .DetailsContainer_innerContent__6NQGR p {
+  .DetailsContainer_wholeContainer__385Iv
+    .DetailsContainer_container__JrWjX
+    .DetailsContainer_textVenueContainer__XnUJF
+    .DetailsContainer_innerContent__6NQGR
+    p {
     font-size: 16px;
     margin-bottom: 20px;
   }
@@ -948,37 +1083,66 @@ body {
     margin-bottom: 25px;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242>div {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    > div {
     flex-direction: column;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242>div img {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    > div
+    img {
     object-fit: cover;
     padding-bottom: 22px;
     width: 100% !important;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_top__L68\+7 {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    .LightBox_top__L68\+7 {
     padding-bottom: 0px;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_top__L68\+7 img:first-child {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    .LightBox_top__L68\+7
+    img:first-child {
     padding-right: 0px;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_middle__k7r70 {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    .LightBox_middle__k7r70 {
     padding-bottom: 0px;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_middle__k7r70 img:first-child {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    .LightBox_middle__k7r70
+    img:first-child {
     padding-right: 0px;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_bottom__x1J0A img:first-child {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    .LightBox_bottom__x1J0A
+    img:first-child {
     padding-right: 0px;
   }
 
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_bottom__x1J0A img:nth-child(2) {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    .LightBox_bottom__x1J0A
+    img:nth-child(2) {
     padding-bottom: 0px;
   }
 
@@ -995,22 +1159,33 @@ body {
     margin: 13px 0px 20px;
   }
 
-  .Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div h5 {
+  .Venue_container__Lol8U
+    .Venue_contact__jdZNn
+    .Venue_cardsContainer__U8T\+R
+    > div
+    h5 {
     margin-bottom: 20px;
   }
 
-  .Venue_container__Lol8U .Venue_contact__jdZNn>a {
+  .Venue_container__Lol8U .Venue_contact__jdZNn > a {
     font-size: 16.5px;
     width: calc(100% - 40px);
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .LightBox_fluid__uvDPj .LightBox_container__pMpod .LightBox_images__L7242 .LightBox_bottom__x1J0A img:first-child {
+  .LightBox_fluid__uvDPj
+    .LightBox_container__pMpod
+    .LightBox_images__L7242
+    .LightBox_bottom__x1J0A
+    img:first-child {
     padding-bottom: 20px;
   }
 
-  .Venue_container__Lol8U .Venue_contact__jdZNn .Venue_cardsContainer__U8T\+R>div {
+  .Venue_container__Lol8U
+    .Venue_contact__jdZNn
+    .Venue_cardsContainer__U8T\+R
+    > div {
     padding: 32px 20px;
   }
 }

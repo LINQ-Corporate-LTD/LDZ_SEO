@@ -65,7 +65,7 @@ const WhoShouldAttendContent = () => {
       method: "GET",
     };
     fetch(
-      `http://127.0.0.1:8000/admin1/whoshouldattendpagedata`,
+      `https://linq-staging-site.com/admin1/whoshouldattendpagedata`,
       requestOptions
     )
       .then((response) => response.json())

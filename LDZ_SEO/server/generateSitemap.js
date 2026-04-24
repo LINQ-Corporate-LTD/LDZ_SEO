@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 const fs = require("fs");
 const path = require("path");
 
-const BASE_URL = "http://127.0.0.1:8000/admin1";
+const BASE_URL = "https://linq-staging-site.com/admin1";
 const DOMAIN = "https://www.bitcoin-innovation-market-evolution.online";
 
 /* -------- helpers -------- */
