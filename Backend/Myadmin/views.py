@@ -6041,9 +6041,10 @@ def getNavbarDataFun(request):
                 'parentId': m.name.lower()
             })
         navbarData.append({
-            'id': m.name.lower(),
+            'id': m.id_attr or m.name.lower(),
             'label': m.name,
             'icon': m.icon,
+            'link': m.link if not sub_list else None,  # only for standalone modules
             'subItems': sub_list
         })
     return JsonResponse({'status': True, 'navbarData': navbarData})

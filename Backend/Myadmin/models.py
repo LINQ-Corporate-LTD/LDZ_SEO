@@ -531,6 +531,7 @@ class SidebarModule(models.Model):
     icon = models.CharField(max_length=100, null=True, blank=True)
     id_attr = models.CharField(max_length=100, null=True, blank=True)  # ADD THIS
     order = models.IntegerField(default=0)
+    link = models.CharField(max_length=200, null=True, blank=True) 
     isDelete = models.CharField(default="No", max_length=10)
 
 class SidebarSubModule(models.Model):

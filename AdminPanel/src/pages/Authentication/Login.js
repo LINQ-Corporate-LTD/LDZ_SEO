@@ -31,7 +31,7 @@ const Login = () => {
 
         // Fetch and store navbar data
         try {
-          const navResponse = await axios.get("https://linq-staging-site.com" + "/admin1/getnavbardata");
+          const navResponse = await axios.get("http://127.0.0.1:8000" + "/admin1/getnavbardata");
           if (navResponse.status) {
             localStorage.setItem("navbarData", JSON.stringify(navResponse.navbarData));
           }
