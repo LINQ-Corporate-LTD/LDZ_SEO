@@ -5936,6 +5936,42 @@ def updateRolePermissionsFun(request):
 #     except AdminUser.DoesNotExist:
 #         return JsonResponse({'status': False, 'message': 'User not found'}, status=404)
 
+# @api_view(['POST'])
+# @permission_classes((AllowAny,))
+# def customLoginFun(request):
+#     email = request.data.get('email')
+#     password = request.data.get('password')
+#     try:
+#         user = AdminUser.objects.get(email=email, isDelete="No")
+#         if check_password(password, user.password):
+#             # Start with role permissions as base
+#             detailed = {}
+#             if user.role:
+#                 detailed = user.role.detailed_permissions.copy()
+
+#             # User-level permissions override/extend role permissions
+#             for k, v in user.detailed_permissions.items():
+#                 if k in detailed:
+#                     detailed[k] = list(set(detailed[k] + v))
+#                 else:
+#                     detailed[k] = v
+
+#             return JsonResponse({
+#                 'status': True,
+#                 'user': {
+#                     'id': user.id,
+#                     'name': user.name,
+#                     'username': user.username,
+#                     'email': user.email,
+#                     'role': user.role.name if user.role else "No Role"
+#                 },
+#                 'detailed_permissions': detailed
+#             })
+#         else:
+#             return JsonResponse({'status': False, 'message': 'Invalid password'}, status=401)
+#     except AdminUser.DoesNotExist:
+#         return JsonResponse({'status': False, 'message': 'User not found'}, status=404)
+
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def customLoginFun(request):
@@ -5944,17 +5980,34 @@ def customLoginFun(request):
     try:
         user = AdminUser.objects.get(email=email, isDelete="No")
         if check_password(password, user.password):
-            # Start with role permissions as base
+            # Step 1: Start with role permissions as base
             detailed = {}
             if user.role:
                 detailed = user.role.detailed_permissions.copy()
 
-            # User-level permissions override/extend role permissions
+            # Step 2: User-level permissions override/extend role permissions
             for k, v in user.detailed_permissions.items():
                 if k in detailed:
                     detailed[k] = list(set(detailed[k] + v))
                 else:
                     detailed[k] = v
+
+            # Step 3: Fill in any system permissions missing from role/user
+            # These are new keys added after the role was last saved
+            all_submodules = SidebarSubModule.objects.filter(isDelete="No")
+            all_modules = SidebarModule.objects.filter(isDelete="No")
+
+            system_keys = set()
+            for sm in all_submodules:
+                if sm.id_attr:
+                    system_keys.add(sm.id_attr)
+            for m in all_modules:
+                if m.id_attr and not m.submodules.filter(isDelete="No").exists():
+                    system_keys.add(m.id_attr)
+
+            for key in system_keys:
+                if key not in detailed:
+                    detailed[key] = []  # No access by default for missing keys
 
             return JsonResponse({
                 'status': True,

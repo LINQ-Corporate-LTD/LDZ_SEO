@@ -25,37 +25,59 @@ const Navdata = () => {
   }, [iscurrentState]);
 
   const navbarDataRaw = JSON.parse(localStorage.getItem("navbarData") || "[]");
-  const detailedPermissions = JSON.parse(localStorage.getItem("detailed_permissions") || "{}");
+  const detailedPermissions = JSON.parse(
+    localStorage.getItem("detailed_permissions") || "{}",
+  );
+  console.log('LayoutdetailedPermissions: ', detailedPermissions);
 
   // const permissions = JSON.parse(localStorage.getItem("permissions") || "[]");
 
-  const navData = navbarDataRaw.map(module => ({
-    ...module,
-    subItems: module.subItems ? module.subItems.filter(sub => {
-      const subPerms = detailedPermissions[sub.id] || [];
-      return subPerms.includes("view");
-    }) : []
-  })).filter(module => module.subItems.length > 0 || module.id === 'dashboard');
+  // const navData = navbarDataRaw.map(module => ({
+  //   ...module,
+  //   subItems: module.subItems ? module.subItems.filter(sub => {
+  //     const subPerms = detailedPermissions[sub.id] || [];
+  //     return subPerms.includes("view");
+  //   }) : []
+  // })).filter(module => module.subItems.length > 0 || module.id === 'dashboard');
+
+  const navData = navbarDataRaw
+    .map((module) => ({
+      ...module,
+      subItems: module.subItems
+        ? module.subItems.filter((sub) => {
+            const subPerms = detailedPermissions[sub.id] || [];
+            return subPerms.includes("view");
+          })
+        : [],
+    }))
+    .filter((module) => {
+      // Keep module if:
+      // 1. It has visible subItems after permission filter
+      // 2. OR it has no subItems but user has direct "view" permission on the module itself
+      if (module.subItems && module.subItems.length > 0) return true;
+      const modulePerms = detailedPermissions[module.id] || [];
+      return modulePerms.includes("view");
+    });
 
   const menuItems = [
     {
       label: "Menu",
       isHeader: true,
     },
-    ...navData.map(item => ({
+    ...navData.map((item) => ({
       ...item,
       stateVariables: toggleState[item.id] || false,
       click: function (e) {
         e.preventDefault();
-        setToggleState(prev => {
+        setToggleState((prev) => {
           const newState = {};
           newState[item.id] = !prev[item.id];
           return newState;
         });
         setIscurrentState(item.id);
         updateIconSidebar(e);
-      }
-    }))
+      },
+    })),
   ];
 
   return <React.Fragment>{menuItems}</React.Fragment>;
