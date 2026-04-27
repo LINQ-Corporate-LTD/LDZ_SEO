@@ -568,7 +568,16 @@ const Navbar = ({ disableScrollEffect = false, forceScrolled = false }) => {
                       <React.Fragment key={index}>
                         <li>
                           <a
+                            aria-current="page"
+                            class="active"
                             href="/"
+                            style={{
+                              width: '60px',
+                              marginRight: '10px',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center'
+                            }}
                             onClick={(e) => {
                               e.preventDefault();
                               setIsDropdownOpen(false);
@@ -645,7 +654,8 @@ const Navbar = ({ disableScrollEffect = false, forceScrolled = false }) => {
                 );
               })}
             </ul>
-            <button onClick={() => navigate("/booking")}>Register</button>
+            {!isDropdownOpen && (<button onClick={() => navigate("/booking")}>Register</button>)}
+            {/* <button onClick={() => navigate("/booking")}>Register</button> */}
           </div>
         </div>
 
@@ -659,13 +669,19 @@ const Navbar = ({ disableScrollEffect = false, forceScrolled = false }) => {
 
           <button onClick={() => navigate("/booking")}>Register</button>
 
-          {less1024 && (
+          {less1024 && isMobileMenuOpen ? (
             <img
-              src={isMobileMenuOpen ? closeBtn : hamburger}
+              src={closeBtn}
               alt="menu"
-              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              onClick={() => setIsMobileMenuOpen(false)}
               style={{ width: 22, cursor: "pointer" }}
             />
+          ) : (
+            <svg width="33" height="28" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => setIsMobileMenuOpen(true)}>
+              <rect width="33" height="6"></rect>
+              <rect y="11" width="33" height="6"></rect>
+              <rect y="22" width="33" height="6"></rect>
+            </svg>
           )}
         </div>
       </div>

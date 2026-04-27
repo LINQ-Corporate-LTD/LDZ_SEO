@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "../Footer";
-import "../assets/css/cookiePolicy.css";
+import "../assets/css/CookiePolicy.css";
 import { Helmet } from "react-helmet-async";
 import { usePageSeo } from "../common/usePageSeo";
 // import CookieBanner from "./cookieBanner";

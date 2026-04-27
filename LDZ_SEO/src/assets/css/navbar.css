@@ -1015,6 +1015,11 @@
         gap: 0;
     }
 
+    .NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_register__UET28>svg {
+        height: 24px;
+        width: 29px;
+    }
+
     .NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_navLinksContainer__s15t3 .NewNavbar_linksContainer__tbm-r ul li>a {
         font-size: 14px;
         height: 40px;
@@ -1059,6 +1064,13 @@
 @media only screen and (max-width: 480px) and (max-width: 639px) {
     .NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_sponsorBar__\+QUFr .NewNavbar_imageContainer__wGvkD img {
         max-width: 130px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_register__UET28>svg {
+        height: 23px;
+        width: 26px;
     }
 }
 

@@ -197,6 +197,13 @@ const Agenda = () => {
   console.log("personProposedTitle: ", personProposedTitle);
   const [personProposedTitleError, setPersonProposedTitleError] = useState("");
   const [briefoutline, setBriefOutline] = useState("");
+
+  const [personNameErrorMessage, setPersonNameErrorMessage] = useState("");
+  const [personCompanyErrorMessage, setPersonCompanyErrorMessage] = useState("");
+  const [personProposedTitleErrorMessage, setPersonProposedTitleErrorMessage] = useState("");
+  const [personEmailErrorMessage, setPersonEmailErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
   console.log("briefoutline: ", briefoutline);
   const {
     eventDetails,
@@ -237,113 +244,257 @@ const Agenda = () => {
     }
   };
 
+  const checkOnChange = () => {
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setPersonNameError(false);
+    setPersonCompanyError(false);
+    setPersonEmailError(false);
+    setPersonProposedTitleError(false);
+
+    if (!personName || personName.trim() === "") {
+      setPersonNameErrorMessage(<p>Full name is required</p>)
+      setPersonNameError(true);
+      hasError = true;
+    } else {
+      setPersonNameErrorMessage("")
+    }
+
+    if (!personCompany || personCompany.trim() === "") {
+      setPersonCompanyErrorMessage(<p>Company name is required</p>)
+      setPersonCompanyError(true);
+      hasError = true;
+    } else {
+      setPersonCompanyErrorMessage("")
+    }
+
+    if (!personEmail || personEmail.trim() === "") {
+      setPersonEmailErrorMessage(<p>Email address is required</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    } else if (!emailRegex.test(personEmail)) {
+      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    } else {
+      setPersonEmailErrorMessage("")
+    }
+
+    if (!personProposedTitle || personProposedTitle.trim() === "") {
+      setPersonProposedTitleErrorMessage(<p>Proposed title is required</p>)
+      setPersonProposedTitleError(true);
+      hasError = true;
+    } else {
+      setPersonProposedTitleErrorMessage("")
+    }
+
+    if (hasError) return;
+  };
+
   const submitBtnClk = (e) => {
     e.preventDefault();
-    if (personName === "") {
-      toast.error("Full Name is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonNameError(true);
-    } else if (personName?.length < 3) {
-      toast.error("minimum 3 characters is Required!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonNameError(true);
-    } else if (personCompany === "") {
-      toast.error("Company Name is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonCompanyError(true);
-    } else if (personEmail === "") {
-      toast.error("Email Address is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonEmailError(true);
-    } else if (personProposedTitle === "") {
-      toast.error("Proposed Title is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonProposedTitleError(true);
-    } else {
-      const finalData = new FormData();
-      finalData.append("contactPersonName", personName);
-      finalData.append("contactPersonCompanyName", personCompany);
-      finalData.append("contactPersonEmail", personEmail);
-      finalData.append("contactProposedTitle", personProposedTitle);
-      finalData.append("contactPersonBriefOutline", briefoutline);
 
-      const requestOptions = {
-        method: "POST",
-        body: finalData,
-      };
-      fetch(
-        "https://linq-staging-site.com/admin1/addcontactusrequest",
-        requestOptions,
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.status) {
-            toast.success("Record Added Successfully.", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-            setPersonName("");
-            setPersonCompany("");
-            setPersonEmail("");
-            setPersonProposedTitle("");
-            setBriefOutline("");
-          } else {
-            toast.error(data?.briefoutline);
-          }
-        })
-        .catch((error) => {
-          console.log("error: ", error);
-          toast.error("There was an error, Please try again later.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        });
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setPersonNameError(false);
+    setPersonCompanyError(false);
+    setPersonEmailError(false);
+    setPersonProposedTitleError(false);
+
+    if (!personName || personName.trim() === "") {
+      setPersonNameErrorMessage(<p>Full name is required</p>)
+      setPersonNameError(true);
+      hasError = true;
     }
+
+    if (!personCompany || personCompany.trim() === "") {
+      setPersonCompanyErrorMessage(<p>Company name is required</p>)
+      setPersonCompanyError(true);
+      hasError = true;
+    }
+
+    if (!personEmail || personEmail.trim() === "") {
+      setPersonEmailErrorMessage(<p>Email address is required</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    } else if (!emailRegex.test(personEmail)) {
+      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    }
+
+    if (!personProposedTitle || personProposedTitle.trim() === "") {
+      setPersonProposedTitleErrorMessage(<p>Proposed title is required</p>)
+      setPersonProposedTitleError(true);
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    setSuccessMessage(<p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Submitted Successfully</p>)
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000);
+
+    const finalData = new FormData();
+    finalData.append("contactPersonName", personName);
+    finalData.append("contactPersonCompanyName", personCompany);
+    finalData.append("contactPersonEmail", personEmail);
+    finalData.append("contactProposedTitle", personProposedTitle);
+    finalData.append("contactPersonBriefOutline", briefoutline);
+
+    const requestOptions = {
+      method: "POST",
+      body: finalData,
+    };
+    fetch(
+      "https://linq-staging-site.com/admin1/addcontactusrequest",
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          // toast.success("Record Added Successfully.", {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
+          setPersonName("");
+          setPersonCompany("");
+          setPersonEmail("");
+          setPersonProposedTitle("");
+          setBriefOutline("");
+        } else {
+          // toast.error(data?.briefoutline);
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+        // toast.error("There was an error, Please try again later.", {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
+      });
+
+    // if (personName === "") {
+    //   // toast.error("Full Name is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonNameError(true);
+    // } else if (personName?.length < 3) {
+    //   toast.error("minimum 3 characters is Required!", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    //   setPersonNameError(true);
+    // } else if (personCompany === "") {
+    //   // toast.error("Company Name is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonCompanyError(true);
+    // } else if (personEmail === "") {
+    //   // toast.error("Email Address is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonEmailError(true);
+    // } else if (personProposedTitle === "") {
+    //   // toast.error("Proposed Title is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonProposedTitleError(true);
+    // } else {
+    //   const finalData = new FormData();
+    //   finalData.append("contactPersonName", personName);
+    //   finalData.append("contactPersonCompanyName", personCompany);
+    //   finalData.append("contactPersonEmail", personEmail);
+    //   finalData.append("contactProposedTitle", personProposedTitle);
+    //   finalData.append("contactPersonBriefOutline", briefoutline);
+
+    //   const requestOptions = {
+    //     method: "POST",
+    //     body: finalData,
+    //   };
+    //   fetch(
+    //     "https://linq-staging-site.com/admin1/addcontactusrequest",
+    //     requestOptions,
+    //   )
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       if (data.status) {
+    //         toast.success("Record Added Successfully.", {
+    //           position: "top-right",
+    //           autoClose: 5000,
+    //           hideProgressBar: false,
+    //           closeOnClick: true,
+    //           pauseOnHover: true,
+    //           draggable: true,
+    //           progress: undefined,
+    //         });
+    //         setPersonName("");
+    //         setPersonCompany("");
+    //         setPersonEmail("");
+    //         setPersonProposedTitle("");
+    //         setBriefOutline("");
+    //       } else {
+    //         toast.error(data?.briefoutline);
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.log("error: ", error);
+    //       toast.error("There was an error, Please try again later.", {
+    //         position: "top-right",
+    //         autoClose: 5000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //       });
+    //     });
+    // }
   };
 
   // const emailSubmitBtnClk = async (e) => {
@@ -2226,26 +2377,30 @@ const Agenda = () => {
                           name="fullname"
                           type="text"
                           placeholder="Full name *"
-                          required
+                          // required
                           value={personName}
                           onChange={(e) => {
                             setPersonName(e.target.value);
+                            if (personNameErrorMessage) checkOnChange();
                             setPersonNameError(false);
                           }}
                         ></input>
+                        {personNameErrorMessage}
                       </div>
                       <div>
                         <input
                           name="companyname"
                           type="text"
                           placeholder="Company name *"
-                          required
+                          // required
                           value={personCompany}
                           onChange={(e) => {
                             setPersonCompany(e.target.value);
+                            if (personCompanyErrorMessage) checkOnChange();
                             setPersonCompanyError(false);
                           }}
                         ></input>
+                        {personCompanyErrorMessage}
                       </div>
                     </div>
                     <div>
@@ -2254,26 +2409,30 @@ const Agenda = () => {
                           name="proposed"
                           type="text"
                           placeholder="Proposed title *"
-                          required
+                          // required
                           value={personProposedTitle}
                           onChange={(e) => {
                             setPersonProposedTitle(e.target.value);
+                            if (personProposedTitleErrorMessage) checkOnChange();
                             setPersonProposedTitleError(false);
                           }}
                         ></input>
+                        {personProposedTitleErrorMessage}
                       </div>
                       <div>
                         <input
                           name="email"
-                          type="email"
+                          // type="email"
                           placeholder="Email address *"
-                          required
+                          // required
                           value={personEmail}
                           onChange={(e) => {
                             setPersonEmail(e.target.value);
+                            if (personEmailErrorMessage) checkOnChange();
                             setPersonEmailError(false);
                           }}
                         ></input>
+                        {personEmailErrorMessage}
                       </div>
                     </div>
                     <div className="Form_textArea__tsfub">
@@ -2297,6 +2456,7 @@ const Agenda = () => {
                       get back to me
                     </button>
                   </form>
+                  {successMessage}
                 </div>
               </div>
             </div>
