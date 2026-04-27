@@ -1045,7 +1045,7 @@ const ContactUs = () => {
                   <h5>Delegate Registrations:</h5>
                   <h6>Delegates Support Team</h6>
                   <p style={{ visibility: "hidden" }}>Hidden</p>
-                  <a href="mailto:delegates@abcd.com?subject=Bitcoin &amp; Innovation & Market Evolution 2026">
+                  <a href="mailto:delegates@iq-hub.com?subject=Lithium &amp; Downstream Summit 2026">
                     <img
                       src={emailIcon}
                       alt="Email Icon"
@@ -1059,7 +1059,7 @@ const ContactUs = () => {
                   <h5>Group Sales Team:</h5>
                   <h6>Ethan Mitchell</h6>
                   <p style={{ visibility: "visible" }}>Group Sales Director</p>
-                  <a href="mailto:salesperson1@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026">
+                  <a href="mailto:salesperson1@iq-hub.com?subject=Lithium Downstream Summit 2026">
                     <img
                       src={emailIcon}
                       alt="Email Icon"
@@ -1075,7 +1075,7 @@ const ContactUs = () => {
                   <p style={{ visibility: "visible" }}>
                     Event & Marketing Manager
                   </p>
-                  <a href="mailto:person1@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026">
+                  <a href="mailto:person1@iq-hub.com?subject=Lithium Downstream Summit 2026">
                     <img
                       src={emailIcon}
                       alt="Email Icon"
@@ -1089,7 +1089,7 @@ const ContactUs = () => {
                   <h5>Conference Content & Speaking:</h5>
                   <h6>Sean Collins</h6>
                   <p style={{ visibility: "visible" }}>Conference Producer</p>
-                  <a href="mailto:person2@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026">
+                  <a href="mailto:person2@iq-hub.com?subject=Lithium Downstream Summit 2026">
                     <img
                       src={emailIcon}
                       alt="Email Icon"

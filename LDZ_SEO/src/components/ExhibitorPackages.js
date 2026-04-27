@@ -296,69 +296,69 @@ const ExhibitorPackages = () => {
   const sponsorPackages = [
     {
       title: "Lanyard Sponsor",
-      price: "USD 1750",
+      price: "AU$ 1750",
       description:
         "Your logo on every lanyard creating constant brand presence all around the venue.",
     },
     {
       title: "Name Badge Sponsor",
-      price: "USD 1450",
+      price: "AU$ 1450",
       description:
         "Place your brand front and center on every attendee badge for high visibility.",
     },
     {
       title: "Exclusive Email Blast",
-      price: "USD 1750",
+      price: "AU$ 1750",
       description:
         "Send your message directly to delegates with exclusive exposure.",
     },
     {
       title: "Pull-up Banner Placement",
-      price: "USD 750",
+      price: "AU$ 750",
       description:
         "Get seen in high-traffic zones with bold, upright branding.",
     },
     {
       title: "Drinks Reception Sponsor",
-      price: "USD 1450",
+      price: "AU$ 1450",
       description:
         "Toast to your brand during the most social part of the event.",
     },
     {
       title: "Luncheon Sponsor",
-      price: "USD 1250",
+      price: "AU$ 1250",
       description:
         "Feature your brand alongside the buffet everyone looks forward to.",
     },
     {
       title: "Break Sponsor",
-      price: "USD 500",
+      price: "AU$ 500",
       description: "Be the name they see when they grab coffee or snack.",
     },
     {
       title: "Raffle Draw Sponsor",
-      price: "USD 950",
+      price: "AU$ 950",
       description: "Create buzz and get noticed while attendees win prizes.",
     },
     {
       title: "Delegate Pack Sponsor",
-      price: "USD 1250",
+      price: "AU$ 1250",
       description:
         "Stay top of mind with your logo on materials everyone receives.",
     },
     {
       title: "Insertion in Delegate Packs",
-      price: "USD 750",
+      price: "AU$ 750",
       description: "Put your flyer, promo or gift directly into every hands.",
     },
     {
       title: "Placement on Seats",
-      price: "USD 950",
+      price: "AU$ 950",
       description: "Your brand gets noticed before the session even begins.",
     },
     {
       title: "Larger Logo on Website",
-      price: "USD 500",
+      price: "AU$ 500",
       description:
         "Stand out online with a bigger, more prominent logo placement.",
     },
@@ -1268,7 +1268,7 @@ const ExhibitorPackages = () => {
                     </div>
                     <div className="SponsorshipCard_button-wrapper__68ouN">
                       <a
-                        href="mailto:person1@abcd.com?subject=I'm%20interested%20in%20Sponsorship%20%E2%80%93%20NAME%20BADGE%20SPONSOR%20%E2%80%93%20WDRM"
+                        href="mailto:person1@iq-hub.com?subject=I'm%20interested%20in%20Sponsorship%20%E2%80%93%20NAME%20BADGE%20SPONSOR%20%E2%80%93%20LDZ"
                         class="SponsorshipCard_button__3kvwB"
                       >
                         I'M INTERESTED

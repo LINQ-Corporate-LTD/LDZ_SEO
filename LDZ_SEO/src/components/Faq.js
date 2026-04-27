@@ -115,11 +115,11 @@ const Faq = () => {
                 assistance, our dedicated delegate services team is always here
                 to help. Feel free to reach out to us at
                 <a
-                  href="mailto:delegates@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026"
+                  href="mailto:delegates@iq-hub.com?subject=Lithium Downstream Summit 2026"
                   style={{ color: "black" }}
                 >
                   {" "}
-                  delegates@abcd.com
+                  delegates@iq-hub.com
                   {" "}
                 </a>
                 for support.

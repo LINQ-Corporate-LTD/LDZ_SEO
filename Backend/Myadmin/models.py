@@ -529,7 +529,9 @@ class pastAttandeeHomeData(models.Model):
 class SidebarModule(models.Model):
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=100, null=True, blank=True)
+    id_attr = models.CharField(max_length=100, null=True, blank=True)  # ADD THIS
     order = models.IntegerField(default=0)
+    link = models.CharField(max_length=200, null=True, blank=True) 
     isDelete = models.CharField(default="No", max_length=10)
 
 class SidebarSubModule(models.Model):
@@ -603,6 +605,16 @@ class agendaSubscriber(models.Model):
 
 class calenderSubscriber(models.Model):
     calenderSubscriber = models.CharField(null=False,max_length=50,default='No')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.CharField(null=False,max_length=50,default='No')
+    updated_by = models.CharField(null=False,max_length=50,default='No')
+    isDelete = models.CharField(default="No",max_length=10)
+
+class sponsorCards(models.Model):
+    title = models.CharField(default="",max_length=150,null=True, blank=True)
+    price = models.CharField(default="",max_length=150,null=True, blank=True)
+    description = models.TextField(null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.CharField(null=False,max_length=50,default='No')

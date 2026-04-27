@@ -452,7 +452,7 @@ const Footer = () => {
             </div>
             <div className="Footer_footerQuickLinks__dTpfQ">
               <h5>CONTACT US</h5>
-              <a href="mailto:delegates@abcd.com?subject=Bitcoin Innovation & Market Evolution 2026">
+              <a href="mailto:delegates@iq-hub.com?subject=Lithium Downstream Summit 2026">
                 Email
               </a>
               <a href="/pay-online">Pay Online</a>

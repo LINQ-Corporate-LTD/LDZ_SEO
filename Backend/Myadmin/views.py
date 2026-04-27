@@ -19,11 +19,12 @@ from django.db.models import F
 from Myadmin.serializers import eventAgendaSerializer, eventIndustryTrendsSerializer
 from rest_framework.throttling import AnonRateThrottle
 # Create your views here.
-from .models import homePageNavLogoData,homePageNavMainCategories,homePageNavSubCategories,themeColorSettings,homePageVideoSectionInput,videoSectionUserOptions,speakerSection,homePageThirdSection,keyPointsSection,keyPointsSectionPoints,countSection,countSectionTopic,testimonialSection,pastAttandeesSection,sponsorSection, footerFirstSectionOptions, footerSocialMediaOptions,companiesLogoSection,registerPageSettings,whoShouldAttendPageData,speakerPageData,speakerPageSectionThreePoints,sponsorPageData,sponsorPageBulletData,venuePageData,venuePageGallery,newsCategory,generalNewsPoint,latestNews,topNews,subscribers,contactUsData,contactUsPageData,contactUsHelpData,pressMediaPageData,pressMediaPageBoxData,mediaPageHelpers,standOutCrowdRequestData,becomeSpeakerRequestData,quickProposalRequestData,endUserPassRegistrationRequestData,pastAttandeeHomeData,footerOptions,toEmails,agendaSubscriber,calenderSubscriber
+from .models import homePageNavLogoData,homePageNavMainCategories,homePageNavSubCategories,themeColorSettings,homePageVideoSectionInput,videoSectionUserOptions,speakerSection,homePageThirdSection,keyPointsSection,keyPointsSectionPoints,countSection,countSectionTopic,testimonialSection,pastAttandeesSection,sponsorSection, footerFirstSectionOptions, footerSocialMediaOptions,companiesLogoSection,registerPageSettings,whoShouldAttendPageData,speakerPageData,speakerPageSectionThreePoints,sponsorPageData,sponsorPageBulletData,venuePageData,venuePageGallery,newsCategory,generalNewsPoint,latestNews,topNews,subscribers,contactUsData,contactUsPageData,contactUsHelpData,pressMediaPageData,pressMediaPageBoxData,mediaPageHelpers,standOutCrowdRequestData,becomeSpeakerRequestData,quickProposalRequestData,endUserPassRegistrationRequestData,pastAttandeeHomeData,footerOptions,toEmails,agendaSubscriber,calenderSubscriber,SidebarModule, SidebarSubModule, AdminUser, AdminRole, sponsorCards
 from Event.models import eventDetails,eventPastAttandees,eventExpertSpeakers,eventSpeakers,eventTestimonials,eventSponsors,eventIndustryTrends,relatedEvents,eventDeligatePackages,deligatePackageInclusionPoints,eventAgenda,eventCoreAttandees,eventParticipatedIndustries,eventFaqs,groupPassRegistrationRequestData,registeredCompanyDetails,registeredDelegates,delegatesAddOns,paymentOptionImage,offerCoupon,delegateTransectionData,eventGeneralSettings,offerCouponHistory,addOnsHistory,sponsorPackageTypes,sponsorPackageAddOnTypes,sponsorPackageAddOns,sponseredCompanyDetails,registeredSponseredDelegates,sponsoredCompanyAddOnsDetails,sponsorCompanyTransectionData,sponsorOfferCouponHistory,eventLeaders,eventSlideShares,eventSlideSharesAttandees,slideSharesAccessPersons,payOnlineTransectionData,blockedEmailDomains,sponsorOfferCoupon,eventProject,pageSeoSettings
 import requests
 import jwt
 from django.conf import settings
+from django.contrib.auth.hashers import make_password, check_password
 #---------------------------- Api For Upload Media ----------------------------#
 @api_view(['POST'])
 def upload_media(request):
@@ -5759,6 +5760,23 @@ def deleteUserFun(request):
     except AdminUser.DoesNotExist:
         return JsonResponse({'status': False, 'message': 'User not found'}, status=404)
 
+# @api_view(['GET'])
+# @permission_classes((AllowAny,))
+# def permissionListFun(request):
+#     modules = SidebarModule.objects.filter(isDelete="No").order_by('order')
+#     grouped_perms = {}
+#     for m in modules:
+#         submodules = SidebarSubModule.objects.filter(module=m, isDelete="No").order_by('order')
+#         if submodules.exists():
+#             grouped_perms[m.name] = []
+#             for sm in submodules:
+#                 grouped_perms[m.name].append({
+#                     'id': sm.id,
+#                     'name': sm.name,
+#                     'codename': sm.id_attr # Using id_attr as codename for frontend compat
+#                 })
+#     return JsonResponse({'status': True, 'permissionModules': grouped_perms})
+
 @api_view(['GET'])
 @permission_classes((AllowAny,))
 def permissionListFun(request):
@@ -5772,8 +5790,15 @@ def permissionListFun(request):
                 grouped_perms[m.name].append({
                     'id': sm.id,
                     'name': sm.name,
-                    'codename': sm.id_attr # Using id_attr as codename for frontend compat
+                    'codename': sm.id_attr
                 })
+        else:
+            # Return module itself as single item so frontend can use real codename
+            grouped_perms[m.name] = [{
+                'id': m.id,
+                'name': m.name,
+                'codename': m.id_attr  # e.g. "dashboards", "general_details"
+            }]
     return JsonResponse({'status': True, 'permissionModules': grouped_perms})
 
 
@@ -5814,6 +5839,21 @@ def deleteRoleFun(request):
     except AdminRole.DoesNotExist:
         return JsonResponse({'status': False, 'message': 'Role not found'}, status=404)
 
+# @api_view(['GET'])
+# @permission_classes((AllowAny,))
+# def getRolePermissionsFun(request):
+#     role_id = request.query_params.get('id')
+#     try:
+#         role = AdminRole.objects.get(id=role_id)
+#         return JsonResponse({
+#             'status': True, 
+#             'role_name': role.name, 
+#             'detailed_permissions': role.detailed_permissions,
+#             'permissions': [p.id_attr for p in role.permissions.all()] # For compat
+#         })
+#     except AdminRole.DoesNotExist:
+#         return JsonResponse({'status': False, 'message': 'Role not found'}, status=404)
+
 @api_view(['GET'])
 @permission_classes((AllowAny,))
 def getRolePermissionsFun(request):
@@ -5821,13 +5861,29 @@ def getRolePermissionsFun(request):
     try:
         role = AdminRole.objects.get(id=role_id)
         return JsonResponse({
-            'status': True, 
-            'role_name': role.name, 
-            'detailed_permissions': role.detailed_permissions,
-            'permissions': [p.id_attr for p in role.permissions.all()] # For compat
+            'status': True,
+            'role_name': role.name,
+            'detailed_permissions': role.detailed_permissions
         })
     except AdminRole.DoesNotExist:
         return JsonResponse({'status': False, 'message': 'Role not found'}, status=404)
+
+# @api_view(['POST'])
+# @permission_classes((AllowAny,))
+# def updateRolePermissionsFun(request):
+#     role_id = request.data.get('id')
+#     detailed_permissions = request.data.get('detailed_permissions', {})
+#     try:
+#         role = AdminRole.objects.get(id=role_id)
+#         role.detailed_permissions = detailed_permissions
+#         # Sync ManyToMany
+#         permission_ids = list(detailed_permissions.keys())
+#         permissions = SidebarSubModule.objects.filter(id_attr__in=permission_ids)
+#         role.permissions.set(permissions)
+#         role.save()
+#         return JsonResponse({'status': True, 'message': 'Role permissions updated successfully'})
+#     except AdminRole.DoesNotExist:
+#         return JsonResponse({'status': False, 'message': 'Role not found'}, status=404)
 
 @api_view(['POST'])
 @permission_classes((AllowAny,))
@@ -5837,18 +5893,84 @@ def updateRolePermissionsFun(request):
     try:
         role = AdminRole.objects.get(id=role_id)
         role.detailed_permissions = detailed_permissions
-        # Sync ManyToMany
-        permission_ids = list(detailed_permissions.keys())
-        permissions = SidebarSubModule.objects.filter(id_attr__in=permission_ids)
-        role.permissions.set(permissions)
         role.save()
         return JsonResponse({'status': True, 'message': 'Role permissions updated successfully'})
     except AdminRole.DoesNotExist:
         return JsonResponse({'status': False, 'message': 'Role not found'}, status=404)
 
 
-from django.contrib.auth.hashers import make_password, check_password
-from Myadmin.models import SidebarModule, SidebarSubModule, AdminUser, AdminRole
+# from django.contrib.auth.hashers import make_password, check_password
+# from Myadmin.models import SidebarModule, SidebarSubModule, AdminUser, AdminRole
+
+# @api_view(['POST'])
+# @permission_classes((AllowAny,))
+# def customLoginFun(request):
+#     email = request.data.get('email')
+#     password = request.data.get('password')
+#     try:
+#         user = AdminUser.objects.get(email=email, isDelete="No")
+#         if check_password(password, user.password):
+#             # Merge detailed permissions
+#             detailed = user.detailed_permissions.copy()
+#             if user.role:
+#                 for k, v in user.role.detailed_permissions.items():
+#                     if k in detailed:
+#                         detailed[k] = list(set(detailed[k] + v))
+#                     else:
+#                         detailed[k] = v
+            
+#             return JsonResponse({
+#                 'status': True,
+#                 'user': {
+#                     'id': user.id,
+#                     'name': user.name,
+#                     'username': user.username,
+#                     'email': user.email,
+#                     'role': user.role.name if user.role else "No Role"
+#                 },
+#                 'detailed_permissions': detailed,
+#                 'permissions': list(detailed.keys()) # Array of keys for legacy check
+#             })
+#         else:
+#             return JsonResponse({'status': False, 'message': 'Invalid password'}, status=401)
+#     except AdminUser.DoesNotExist:
+#         return JsonResponse({'status': False, 'message': 'User not found'}, status=404)
+
+# @api_view(['POST'])
+# @permission_classes((AllowAny,))
+# def customLoginFun(request):
+#     email = request.data.get('email')
+#     password = request.data.get('password')
+#     try:
+#         user = AdminUser.objects.get(email=email, isDelete="No")
+#         if check_password(password, user.password):
+#             # Start with role permissions as base
+#             detailed = {}
+#             if user.role:
+#                 detailed = user.role.detailed_permissions.copy()
+
+#             # User-level permissions override/extend role permissions
+#             for k, v in user.detailed_permissions.items():
+#                 if k in detailed:
+#                     detailed[k] = list(set(detailed[k] + v))
+#                 else:
+#                     detailed[k] = v
+
+#             return JsonResponse({
+#                 'status': True,
+#                 'user': {
+#                     'id': user.id,
+#                     'name': user.name,
+#                     'username': user.username,
+#                     'email': user.email,
+#                     'role': user.role.name if user.role else "No Role"
+#                 },
+#                 'detailed_permissions': detailed
+#             })
+#         else:
+#             return JsonResponse({'status': False, 'message': 'Invalid password'}, status=401)
+#     except AdminUser.DoesNotExist:
+#         return JsonResponse({'status': False, 'message': 'User not found'}, status=404)
 
 @api_view(['POST'])
 @permission_classes((AllowAny,))
@@ -5858,15 +5980,35 @@ def customLoginFun(request):
     try:
         user = AdminUser.objects.get(email=email, isDelete="No")
         if check_password(password, user.password):
-            # Merge detailed permissions
-            detailed = user.detailed_permissions.copy()
+            # Step 1: Start with role permissions as base
+            detailed = {}
             if user.role:
-                for k, v in user.role.detailed_permissions.items():
-                    if k in detailed:
-                        detailed[k] = list(set(detailed[k] + v))
-                    else:
-                        detailed[k] = v
-            
+                detailed = user.role.detailed_permissions.copy()
+
+            # Step 2: User-level permissions override/extend role permissions
+            for k, v in user.detailed_permissions.items():
+                if k in detailed:
+                    detailed[k] = list(set(detailed[k] + v))
+                else:
+                    detailed[k] = v
+
+            # Step 3: Fill in any system permissions missing from role/user
+            # These are new keys added after the role was last saved
+            all_submodules = SidebarSubModule.objects.filter(isDelete="No")
+            all_modules = SidebarModule.objects.filter(isDelete="No")
+
+            system_keys = set()
+            for sm in all_submodules:
+                if sm.id_attr:
+                    system_keys.add(sm.id_attr)
+            for m in all_modules:
+                if m.id_attr and not m.submodules.filter(isDelete="No").exists():
+                    system_keys.add(m.id_attr)
+
+            for key in system_keys:
+                if key not in detailed:
+                    detailed[key] = []  # No access by default for missing keys
+
             return JsonResponse({
                 'status': True,
                 'user': {
@@ -5876,8 +6018,7 @@ def customLoginFun(request):
                     'email': user.email,
                     'role': user.role.name if user.role else "No Role"
                 },
-                'detailed_permissions': detailed,
-                'permissions': list(detailed.keys()) # Array of keys for legacy check
+                'detailed_permissions': detailed
             })
         else:
             return JsonResponse({'status': False, 'message': 'Invalid password'}, status=401)
@@ -5900,9 +6041,10 @@ def getNavbarDataFun(request):
                 'parentId': m.name.lower()
             })
         navbarData.append({
-            'id': m.name.lower(),
+            'id': m.id_attr or m.name.lower(),
             'label': m.name,
             'icon': m.icon,
+            'link': m.link if not sub_list else None,  # only for standalone modules
             'subItems': sub_list
         })
     return JsonResponse({'status': True, 'navbarData': navbarData})
