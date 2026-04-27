@@ -1268,7 +1268,7 @@ const ExhibitorPackages = () => {
                     </div>
                     <div className="SponsorshipCard_button-wrapper__68ouN">
                       <a
-                        href="mailto:person1@abcd.com?subject=I'm%20interested%20in%20Sponsorship%20%E2%80%93%20NAME%20BADGE%20SPONSOR%20%E2%80%93%20WDRM"
+                        href="mailto:person1@iq-hub.com?subject=I'm%20interested%20in%20Sponsorship%20%E2%80%93%20NAME%20BADGE%20SPONSOR%20%E2%80%93%20LDZ"
                         class="SponsorshipCard_button__3kvwB"
                       >
                         I'M INTERESTED
