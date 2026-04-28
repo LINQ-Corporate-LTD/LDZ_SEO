@@ -38,6 +38,13 @@ const ContactUs = () => {
   console.log("reason: ", reason);
   const [contactUsPageData, setContactUsPageData] = useState([]);
   const [emailDes, setEmailDes] = useState("");
+
+  const [personNameErrorMessage, setPersonNameErrorMessage] = useState("");
+  const [personCompanyErrorMessage, setPersonCompanyErrorMessage] = useState("");
+  const [personEmailErrorMessage, setPersonEmailErrorMessage] = useState("");
+  const [personMobileErrorMessage, setPersonMobileErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
   const subject = encodeURIComponent(
     "Bitcoin Innovation & Market Evolution 2026",
   );
@@ -573,121 +580,270 @@ const ContactUs = () => {
     }
   };
 
+  const checkOnChange = (e) => {
+    e.preventDefault();
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    setPersonNameError(false);
+    setPersonCompanyError(false);
+    setPersonEmailError(false);
+    setPersonMobileError(false);
+
+
+    if (!personName || personName.trim() === "") {
+      setPersonNameErrorMessage(<p>Full name is required</p>)
+      setPersonNameError(true);
+      hasError = true;
+    } else {
+      setPersonNameErrorMessage("")
+    }
+
+    if (!personCompany || personCompany.trim() === "") {
+      setPersonCompanyErrorMessage(<p>Company name is required</p>)
+      setPersonCompanyError(true);
+      hasError = true;
+    } else {
+      setPersonCompanyErrorMessage("")
+    }
+
+    if (!personEmail || personEmail.trim() === "") {
+      setPersonEmailErrorMessage(<p>Email address is required</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    } else if (!emailRegex.test(personEmail)) {
+      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    } else {
+      setPersonEmailErrorMessage("")
+    }
+
+    if (!personMobile || personMobile.trim() === "") {
+      setPersonMobileErrorMessage(<p>Mobile number is required</p>)
+      setPersonMobileError(true);
+      hasError = true;
+    } else {
+      setPersonMobileErrorMessage("")
+    }
+
+    if (hasError) return;
+  };
+
   const submitBtnClk = (e) => {
     e.preventDefault();
-    if (personName === "") {
-      toast.error("Full Name is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonNameError(true);
-    } else if (personName?.length < 3) {
-      toast.error("minimum 3 characters is Required!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonNameError(true);
-    } else if (personCompany === "") {
-      toast.error("Company Name is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonCompanyError(true);
-    } else if (personEmail === "") {
-      toast.error("Email Address is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonEmailError(true);
-      setEmailErrMsg("Email is required");
-    } else if (!validateEmail(personEmail)) {
-      setPersonEmailError(true);
-      setEmailErrMsg("Please enter a valid email address");
-    } else if (personMobile === "") {
-      toast.error("Mobile Number is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setPersonMobileError(true);
-    } else {
-      const finalData = new FormData();
-      finalData.append("contactPersonName", personName);
-      finalData.append("contactPersonCompanyName", personCompany);
-      finalData.append("contactPersonEmail", personEmail);
-      finalData.append("contactPersonMobile", personMobile);
-      finalData.append("contactPersonMessage", message);
-      if (reason?.length > 0) {
-        finalData.append("contactUsReason", JSON.stringify(reason));
-      }
 
-      const requestOptions = {
-        method: "POST",
-        body: finalData,
-      };
-      fetch(
-        "https://linq-staging-site.com/admin1/addcontactusrequest",
-        requestOptions,
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.status) {
-            toast.success("Record Added Successfully.", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-            setPersonName("");
-            setPersonCompany("");
-            setPersonEmail("");
-            setPersonMobile("");
-            setMessage("");
-            setReason([]);
-          } else {
-            toast.error(data?.message);
-          }
-        })
-        .catch((error) => {
-          console.log("error: ", error);
-          toast.error("There was an error, Please try again later.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        });
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    setPersonNameError(false);
+    setPersonCompanyError(false);
+    setPersonEmailError(false);
+    setPersonMobileError(false);
+
+
+    if (!personName || personName.trim() === "") {
+      setPersonNameErrorMessage(<p>Full name is required</p>)
+      setPersonNameError(true);
+      hasError = true;
     }
+
+    if (!personCompany || personCompany.trim() === "") {
+      setPersonCompanyErrorMessage(<p>Company name is required</p>)
+      setPersonCompanyError(true);
+      hasError = true;
+    }
+
+    if (!personEmail || personEmail.trim() === "") {
+      setPersonEmailErrorMessage(<p>Email address is required</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    } else if (!emailRegex.test(personEmail)) {
+      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setPersonEmailError(true);
+      hasError = true;
+    }
+
+    if (!personMobile || personMobile.trim() === "") {
+      setPersonMobileErrorMessage(<p>Mobile number is required</p>)
+      setPersonMobileError(true);
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    setSuccessMessage(<p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Submitted Successfully</p>)
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000);
+
+    const finalData = new FormData();
+    finalData.append("contactPersonName", personName);
+    finalData.append("contactPersonCompanyName", personCompany);
+    finalData.append("contactPersonEmail", personEmail);
+    finalData.append("contactPersonMobile", personMobile);
+    finalData.append("contactPersonMessage", message);
+    if (reason?.length > 0) {
+      finalData.append("contactUsReason", JSON.stringify(reason));
+    }
+
+    const requestOptions = {
+      method: "POST",
+      body: finalData,
+    };
+    fetch(
+      "https://linq-staging-site.com/admin1/addcontactusrequest",
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          // toast.success("Record Added Successfully.", {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
+          setPersonName("");
+          setPersonCompany("");
+          setPersonEmail("");
+          setPersonMobile("");
+          setMessage("");
+          setReason([]);
+        } else {
+          // toast.error(data?.message);
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+        // toast.error("There was an error, Please try again later.", {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
+      });
+
+    // if (personName === "") {
+    //   // toast.error("Full Name is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonNameError(true);
+    // } else if (personName?.length < 3) {
+    //   // toast.error("minimum 3 characters is Required!", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonNameError(true);
+    // } else if (personCompany === "") {
+    //   // toast.error("Company Name is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonCompanyError(true);
+    // } else if (personEmail === "") {
+    //   // toast.error("Email Address is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonEmailError(true);
+    //   setEmailErrMsg("Email is required");
+    // } else if (!validateEmail(personEmail)) {
+    //   setPersonEmailError(true);
+    //   setEmailErrMsg("Please enter a valid email address");
+    // } else if (personMobile === "") {
+    //   // toast.error("Mobile Number is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setPersonMobileError(true);
+    // } else {
+    //   const finalData = new FormData();
+    //   finalData.append("contactPersonName", personName);
+    //   finalData.append("contactPersonCompanyName", personCompany);
+    //   finalData.append("contactPersonEmail", personEmail);
+    //   finalData.append("contactPersonMobile", personMobile);
+    //   finalData.append("contactPersonMessage", message);
+    //   if (reason?.length > 0) {
+    //     finalData.append("contactUsReason", JSON.stringify(reason));
+    //   }
+
+    //   const requestOptions = {
+    //     method: "POST",
+    //     body: finalData,
+    //   };
+    //   fetch(
+    //     "https://linq-staging-site.com/admin1/addcontactusrequest",
+    //     requestOptions,
+    //   )
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       if (data.status) {
+    //         toast.success("Record Added Successfully.", {
+    //           position: "top-right",
+    //           autoClose: 5000,
+    //           hideProgressBar: false,
+    //           closeOnClick: true,
+    //           pauseOnHover: true,
+    //           draggable: true,
+    //           progress: undefined,
+    //         });
+    //         setPersonName("");
+    //         setPersonCompany("");
+    //         setPersonEmail("");
+    //         setPersonMobile("");
+    //         setMessage("");
+    //         setReason([]);
+    //       } else {
+    //         toast.error(data?.message);
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.log("error: ", error);
+    //       toast.error("There was an error, Please try again later.", {
+    //         position: "top-right",
+    //         autoClose: 5000,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //       });
+    //     });
+    // }
   };
 
   const handleCheckboxChange = (e) => {
@@ -743,10 +899,11 @@ const ContactUs = () => {
                           value={personName}
                           onChange={(e) => {
                             setPersonName(e.target.value);
+                            if (personNameErrorMessage) checkOnChange();
                             setPersonNameError(false);
                           }}
                         ></input>
-                        {personNameError && <p>Full Name is required</p>}
+                        {personNameErrorMessage}
                       </div>
                       <div>
                         <input
@@ -756,10 +913,11 @@ const ContactUs = () => {
                           value={personCompany}
                           onChange={(e) => {
                             setPersonCompany(e.target.value);
+                            if (personCompanyErrorMessage) checkOnChange();
                             setPersonCompanyError(false);
                           }}
                         ></input>
-                        {personCompanyError && <p>Company Name is required</p>}
+                        {personCompanyErrorMessage}
                       </div>
                     </div>
                     <div>
@@ -771,11 +929,12 @@ const ContactUs = () => {
                           value={personEmail}
                           onChange={(e) => {
                             setPersonEmail(e.target.value);
+                            if (personEmailErrorMessage) checkOnChange();
                             setPersonEmailError(false);
                             setEmailErrMsg("");
                           }}
                         ></input>
-                        {personEmailError && <p>{emailErrMsg}</p>}
+                        {personEmailErrorMessage}
                       </div>
                       <div>
                         <input
@@ -796,10 +955,11 @@ const ContactUs = () => {
 
                             setPersonMobile(value);
                             setPersonMobileError(false);
+                            if (personMobileErrorMessage) checkOnChange();
                           }}
                           maxLength={16}
                         ></input>
-                        {personMobileError && <p>Mobile number is required</p>}
+                        {personMobileErrorMessage}
                       </div>
                     </div>
                     <div

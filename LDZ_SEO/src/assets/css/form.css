@@ -3,12 +3,12 @@
     padding: 93px 0 100px;
 }
 
-.Form_container__jwPCR input {
+.Form_container__jwPCR input::placeholder {
     font-weight: 700;
     font-size: 15px;
 }
 
-.Form_container__jwPCR textarea {
+.Form_container__jwPCR textarea::placeholder {
     font-weight: 700;
     font-size: 15px;
 }
@@ -84,6 +84,14 @@
     height: 48px;
     outline: none;
     padding: 0 23px;
+    width: 100%;
+}
+
+.Form_container__jwPCR>div>div .Form_form__nhNBc>div>div p {
+    color: red;
+    margin: 10px 0 0;
+    padding: 0;
+    text-align: left;
     width: 100%;
 }
 
@@ -245,7 +253,7 @@
         font-weight: 500;
         font-size: 15px;
     }
-    
+
     .Form_container__jwPCR>div {
         max-width: 650px;
         width: 90%;
