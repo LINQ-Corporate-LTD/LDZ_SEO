@@ -1,5 +1,4 @@
-import React, { useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import "../../src/assets/css/video.css";
 import { useApiData } from "../../src/common/ApiContext";
 import arrowIcon from '../assets/WebCommonImages/up-arrow-white.png'
@@ -8,13 +7,14 @@ import arrowIcon from '../assets/WebCommonImages/up-arrow-white.png'
 //   "https://www.desalination-resource-recovery.com/images/icons/up-arrow.png";
 
 const VideoSection = () => {
-  const navigate = useNavigate();
   const isClient = typeof window !== "undefined";
 
-  // Create a memoized client-only navigation handler
+  // Use full page navigation so each page gets its own SSR data from the server.
+  // React Router's navigate() does client-side SPA routing which skips the server,
+  // leaving window.__INITIAL_DATA__ stale with the home page payload.
   const goTo = (path) => {
     if (isClient && path) {
-      navigate(path);
+      window.location.href = path;
     }
   };
 
