@@ -32,6 +32,16 @@
     width: 100%;
 }
 
+.SubscribeforUpdates_updatesContainer__DD3wT>div>div .SubscribeforUpdates_error__kzSBx {
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 3px 0 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
 .SubscribeforUpdates_updatesContainer__DD3wT>div>div h2 {
     color: #1a1a1a;
     font-size: 27px;
@@ -248,13 +258,8 @@
     }
 }
 
-.SubscribeforUpdates_updatesContainer__DD3wT
-  > div
-  > div
-  form
-  .SubscribeforUpdates_from__REPoW
-  input:focus {
-  outline: none;
-  border: none;
-  box-shadow: none;
+.SubscribeforUpdates_updatesContainer__DD3wT>div>div form .SubscribeforUpdates_from__REPoW input:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }

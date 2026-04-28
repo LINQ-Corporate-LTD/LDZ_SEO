@@ -471,7 +471,7 @@ const PastAttandessSection = () => {
             >
               <input
                 name="name"
-                type="text"
+                // type="text"
                 placeholder="Name"
                 value={subscriberName}
                 onChange={(e) => {

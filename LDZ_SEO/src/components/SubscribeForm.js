@@ -9,6 +9,10 @@ const SubscribeForm = () => {
   const [subscriberNameError, setSubscriberNameError] = useState("");
   const [subscriberEmail, setSubscriberEmail] = useState("");
   const [subscriberEmailError, setSubscriberEmailError] = useState("");
+
+  const [subscriberErrorMessage, setSubscriberErrorMessage] = useState("");
+  const [subscriberSuccessMessage, setSubscriberSuccessMessage] = useState("");
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -128,83 +132,128 @@ const SubscribeForm = () => {
     fontFamily: 'inherit'
   };
 
-  const submitBtnClk = (e) => {
-    e.preventDefault();
-    if (subscriberName === "") {
-      toast.error("Name is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setSubscriberNameError(true);
-    } else if (subscriberName?.length < 3) {
-      toast.error("minimum 3 characters is Required!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setSubscriberNameError(true);
-    } else if (subscriberEmail === "") {
-      toast.error("Email is Required", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setSubscriberEmailError(true);;
+  const checkOnChange = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email.trim()) {
+      setSubscriberErrorMessage(
+        <p className="SubscribeforUpdates_error__kzSBx">Email address is required</p>
+      );
+      setSubscriberEmailError(true);
+    }
+    else if (!emailRegex.test(email)) {
+      setSubscriberErrorMessage(
+        <p className="SubscribeforUpdates_error__kzSBx">Invalid email address</p>
+      );
+      setSubscriberEmailError(true);
     }
     else {
-      const finalData = new FormData();
-      finalData.append("subscriberName", subscriberName);
-      finalData.append("subscriberEmail", subscriberEmail);
-
-      const requestOptions = {
-        method: "POST",
-        body: finalData,
-      };
-      fetch("https://linq-staging-site.com/admin1/addsubscriber", requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.status) {
-            toast.success("Record Added Successfully.", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-            setSubscriberEmail("");
-            setSubscriberName("");
-          } else {
-            toast.error(data?.message);
-          }
-        })
-        .catch((error) => {
-          console.log("error: ", error);
-          toast.error("There was an error, Please try again later.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        });
+      // VALID EMAIL → CLEAR ERROR
+      setSubscriberErrorMessage("");
+      setSubscriberEmailError(false);
     }
+  };
+
+  const submitBtnClk = (e) => {
+    e.preventDefault();
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setSubscriberEmailError(false);
+    setSubscriberNameError(false);
+    setSubscriberErrorMessage("");
+    // if (subscriberName === "") {
+    //   setSubscriberErrorMessage("Name is Required")
+    //   // toast.error("Name is Required", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setSubscriberNameError('minimum 3 characters is Required!');
+    // } else if (subscriberName?.length < 3) {
+    //   setSubscriberErrorMessage(<p style={{ color: 'red', fontSize: '14px', fontWeight: 500, textAlign: 'left', marginTop: '2px', position: 'absolute' }}>minimum 3 characters is Required!</p>)
+    //   // toast.error("minimum 3 characters is Required!", {
+    //   //   position: "top-right",
+    //   //   autoClose: 5000,
+    //   //   hideProgressBar: false,
+    //   //   closeOnClick: true,
+    //   //   pauseOnHover: true,
+    //   //   draggable: true,
+    //   //   progress: undefined,
+    //   // });
+    //   setSubscriberNameError(true);
+    // } else 
+    if (!subscriberEmail || subscriberEmail.trim() === "") {
+      setSubscriberErrorMessage(<p className="SubscribeforUpdates_error__kzSBx">Email address is required</p>)
+      // toast.error("Email is Required", {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+      setSubscriberEmailError(true);
+      hasError = true;
+    } else if (!emailRegex.test(subscriberEmail)) {
+      setSubscriberErrorMessage(<p className="SubscribeforUpdates_error__kzSBx">Email address is required</p>)
+      setSubscriberEmailError(true);
+      hasError = true;
+    } else {
+      setSubscriberErrorMessage("");
+    }
+
+    if (hasError) return;
+
+    setSubscriberSuccessMessage(<p style={{ color: 'green' }}>Subscribed Successfully</p>)
+    setTimeout(() => {
+      setSubscriberSuccessMessage("");
+    }, 5000);
+
+    const finalData = new FormData();
+    finalData.append("subscriberName", subscriberName);
+    finalData.append("subscriberEmail", subscriberEmail);
+
+    const requestOptions = {
+      method: "POST",
+      body: finalData,
+    };
+    fetch("https://linq-staging-site.com/admin1/addsubscriber", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          // toast.success("Record Added Successfully.", {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
+          setSubscriberEmail("");
+          setSubscriberName("");
+        } else {
+          // toast.error(data?.message);
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+        // toast.error("There was an error, Please try again later.", {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
+      });
   };
 
   const handleButtonHover = (e, isHovering) => {
@@ -227,19 +276,23 @@ const SubscribeForm = () => {
           <p>By submitting, you agree to receive email communications from the event organizers, including upcoming promotions and discounted tickets, new, and access to related events.</p>
           <form className="WDRM_2025_subscribe_form row g-3 needs-validation subForm form_WDRM" encType="multipart/form-data" method="POST" data-hs-cf-bound="true" onSubmit={submitBtnClk}>
             <div className="SubscribeforUpdates_from__REPoW">
-              <input name="name" type="text" placeholder="Name" required value={subscriberName} onChange={(e) => {
+              <input name="name" placeholder="Name" value={subscriberName} onChange={(e) => {
                 setSubscriberName(e.target.value);
                 setSubscriberNameError(false);
               }}></input>
               <div>
-                <input name="email" type="email" placeholder="Email address" required value={subscriberEmail} onChange={(e) => {
+                <input name="email" placeholder="Email address" value={subscriberEmail} onChange={(e) => {
                   setSubscriberEmail(e.target.value);
+                  if (subscriberErrorMessage) checkOnChange(e.target.value);
                   setSubscriberEmailError(false);
+                  setSubscriberErrorMessage("");
                 }}></input>
+                {subscriberErrorMessage}
               </div>
               <button type="submit">Join</button>
             </div>
           </form>
+          {subscriberSuccessMessage}
         </div>
       </div>
     </div>

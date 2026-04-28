@@ -27,6 +27,12 @@ const Speakers = () => {
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [message, setMessage] = useState("");
 
+  const [fullNameErrorMessage, setFullNameErrorMessage] = useState("");
+  const [companyErrorMessage, setCompanyNameErrorMessage] = useState("");
+  const [proposedTitleErrorMessage, setProposedTitleErrorMessage] = useState("");
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -91,78 +97,240 @@ const Speakers = () => {
     return `/speakerprofile/${slug}`;
   };
 
+  const checkOnChange = () => {
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setFullNameErr(false);
+    setCompanyNameErr(false);
+    setEmailErr(false);
+    setProposedTitleErr(false);
+
+    if (!fullName || fullName.trim() === "") {
+      setFullNameErrorMessage(<p>Full name is required</p>)
+      setFullNameErr(true);
+      hasError = true;
+    } else {
+      setFullNameErrorMessage("")
+    }
+
+    if (!companyName || companyName.trim() === "") {
+      setCompanyNameErrorMessage(<p>Company name is required</p>)
+      setCompanyNameErr(true);
+      hasError = true;
+    } else {
+      setCompanyNameErrorMessage("")
+    }
+
+    if (!email || email.trim() === "") {
+      setEmailErrorMessage(<p>Email address is required</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else if (!emailRegex.test(email)) {
+      setEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else {
+      setEmailErrorMessage("")
+    }
+
+    if (!proposedTitle || proposedTitle.trim() === "") {
+      setProposedTitleErrorMessage(<p>Proposed title is required</p>)
+      setProposedTitleErr(true);
+      hasError = true;
+    } else {
+      setProposedTitleErrorMessage("")
+    }
+
+    if (hasError) return;
+  };
+
   const submitBtnClk = (e) => {
     e.preventDefault();
-    if (fullName === "") {
-      setFullNameErr(true);
-    } else if (companyName === "") {
-      setCompanyNameErr(true);
-    } else if (proposedTitle === "") {
-      setProposedTitleErr(true);
-    } else if (email === "") {
-      setEmailErr(true);
-      setEmailErrMsg("Email is required");
-    } else if (!validateEmail(email)) {
-      setEmailErr(true);
-      setEmailErrMsg("Please enter a valid email address");
-    } else {
-      const finalData = new FormData();
-      finalData.append("requesterName", fullName);
-      finalData.append("requesterCompanyName", companyName);
-      finalData.append("proposedTitle", proposedTitle);
-      finalData.append("requesterEmail", email);
-      if (message?.length > 0) {
-        finalData.append("requesterMessage", JSON.stringify(message));
-      }
 
-      const requestOptions = {
-        method: "POST",
-        body: finalData,
-      };
-      fetch(
-        "https://linq-staging-site.com/admin1/addbecomespeakerrequest",
-        requestOptions
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.status) {
-            toast.success("Record Added Successfully.", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-            setFullName("");
-            setFullNameErr(false);
-            setCompanyName("");
-            setCompanyNameErr(false);
-            setProposedTitle("");
-            setProposedTitleErr(false);
-            setEmail("");
-            setEmailErr(false);
-            setEmailErrMsg("");
-            setMessage("");
-          } else {
-            toast.error(data?.message);
-          }
-        })
-        .catch((error) => {
-          console.log("error: ", error);
-          toast.error("There was an error, Please try again later.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        });
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setFullNameErr(false);
+    setCompanyNameErr(false);
+    setEmailErr(false);
+    setProposedTitleErr(false);
+
+    if (!fullName || fullName.trim() === "") {
+      setFullNameErrorMessage(<p>Full name is required</p>)
+      setFullNameErr(true);
+      hasError = true;
+    } else {
+      setFullNameErrorMessage("")
     }
+
+    if (!companyName || companyName.trim() === "") {
+      setCompanyNameErrorMessage(<p>Company name is required</p>)
+      setCompanyNameErr(true);
+      hasError = true;
+    } else {
+      setCompanyNameErrorMessage("")
+    }
+
+    if (!email || email.trim() === "") {
+      setEmailErrorMessage(<p>Email address is required</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else if (!emailRegex.test(email)) {
+      setEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else {
+      setEmailErrorMessage("")
+    }
+
+    if (!proposedTitle || proposedTitle.trim() === "") {
+      setProposedTitleErrorMessage(<p>Proposed title is required</p>)
+      setProposedTitleErr(true);
+      hasError = true;
+    } else {
+      setProposedTitleErrorMessage("")
+    }
+
+    if (hasError) return;
+
+    setSuccessMessage(<p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Submitted Successfully</p>)
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000);
+
+    const finalData = new FormData();
+    finalData.append("requesterName", fullName);
+    finalData.append("requesterCompanyName", companyName);
+    finalData.append("proposedTitle", proposedTitle);
+    finalData.append("requesterEmail", email);
+    if (message?.length > 0) {
+      finalData.append("requesterMessage", JSON.stringify(message));
+    }
+
+    const requestOptions = {
+      method: "POST",
+      body: finalData,
+    };
+    fetch(
+      "https://linq-staging-site.com/admin1/addquickproposalrequest",
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          // toast.success("Record Added Successfully.", {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
+          setFullName("");
+          setFullNameErr(false);
+          setCompanyName("");
+          setCompanyNameErr(false);
+          setProposedTitle("");
+          setProposedTitleErr(false);
+          setEmail("");
+          setEmailErr(false);
+          setEmailErrMsg("");
+          setMessage("");
+        } else {
+          // toast.error(data?.message);
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+        // toast.error("There was an error, Please try again later.", {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
+      });
   };
+
+  // const submitBtnClk = (e) => {
+  //   e.preventDefault();
+  //   if (fullName === "") {
+  //     setFullNameErr(true);
+  //   } else if (companyName === "") {
+  //     setCompanyNameErr(true);
+  //   } else if (proposedTitle === "") {
+  //     setProposedTitleErr(true);
+  //   } else if (email === "") {
+  //     setEmailErr(true);
+  //     setEmailErrMsg("Email is required");
+  //   } else if (!validateEmail(email)) {
+  //     setEmailErr(true);
+  //     setEmailErrMsg("Please enter a valid email address");
+  //   } else {
+  //     const finalData = new FormData();
+  //     finalData.append("requesterName", fullName);
+  //     finalData.append("requesterCompanyName", companyName);
+  //     finalData.append("proposedTitle", proposedTitle);
+  //     finalData.append("requesterEmail", email);
+  //     if (message?.length > 0) {
+  //       finalData.append("requesterMessage", JSON.stringify(message));
+  //     }
+
+  //     const requestOptions = {
+  //       method: "POST",
+  //       body: finalData,
+  //     };
+  //     fetch(
+  //       "https://linq-staging-site.com/admin1/addbecomespeakerrequest",
+  //       requestOptions
+  //     )
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         if (data.status) {
+  //           toast.success("Record Added Successfully.", {
+  //             position: "top-right",
+  //             autoClose: 5000,
+  //             hideProgressBar: false,
+  //             closeOnClick: true,
+  //             pauseOnHover: true,
+  //             draggable: true,
+  //             progress: undefined,
+  //           });
+  //           setFullName("");
+  //           setFullNameErr(false);
+  //           setCompanyName("");
+  //           setCompanyNameErr(false);
+  //           setProposedTitle("");
+  //           setProposedTitleErr(false);
+  //           setEmail("");
+  //           setEmailErr(false);
+  //           setEmailErrMsg("");
+  //           setMessage("");
+  //         } else {
+  //           toast.error(data?.message);
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.log("error: ", error);
+  //         toast.error("There was an error, Please try again later.", {
+  //           position: "top-right",
+  //           autoClose: 5000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //         });
+  //       });
+  //   }
+  // };
   const pageSeo = usePageSeo("featured-speakers");
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDescription = pageSeo.pageMetaDescription;
@@ -236,10 +404,11 @@ const Speakers = () => {
                     value={fullName}
                     onChange={(e) => {
                       setFullName(e.target.value);
+                      if (fullNameErrorMessage) checkOnChange();
                       setFullNameErr(false);
                     }}
                   ></input>
-                  {fullNameErr && <p>Full Name is required</p>}
+                  {fullNameErrorMessage}
                 </div>
                 <div>
                   <input
@@ -249,10 +418,11 @@ const Speakers = () => {
                     value={companyName}
                     onChange={(e) => {
                       setCompanyName(e.target.value);
+                      if (companyErrorMessage) checkOnChange();
                       setCompanyNameErr(false);
                     }}
                   ></input>
-                  {companyNameErr && <p>Company Name is required</p>}
+                  {companyErrorMessage}
                 </div>
               </div>
               <div>
@@ -264,10 +434,11 @@ const Speakers = () => {
                     value={proposedTitle}
                     onChange={(e) => {
                       setProposedTitle(e.target.value);
+                      if (proposedTitleErrorMessage) checkOnChange();
                       setProposedTitleErr(false);
                     }}
                   ></input>
-                  {proposedTitleErr && <p>Proposed title is required</p>}
+                  {proposedTitleErrorMessage}
                 </div>
                 <div>
                   <input
@@ -277,11 +448,12 @@ const Speakers = () => {
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
+                      if (emailErrorMessage) checkOnChange();
                       setEmailErr(false);
                       setEmailErrMsg("");
                     }}
                   ></input>
-                  {emailErr && <p>{emailErrMsg}</p>}
+                  {emailErrorMessage}
                 </div>
               </div>
               <div className="Form_textArea__tsfub">
@@ -298,6 +470,7 @@ const Speakers = () => {
               </div>
               <button type="submit">get back to me</button>
             </form>
+            {successMessage}
           </div>
         </div>
       </div>
