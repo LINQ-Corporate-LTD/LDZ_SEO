@@ -84,7 +84,7 @@ const VideoSection = () => {
         <div className="lower">
           <div className="lowerContainer">
             <div className="buttonContainer">
-              <div className="button" onClick={() => goTo("/agenda")}>
+              <div className="button" onClick={() => goTo("/agenda-page")}>
                 <h4>
                   view program
                   <img

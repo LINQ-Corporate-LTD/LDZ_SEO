@@ -403,7 +403,7 @@ async function fetchSSRData(pathname) {
   }
 
   // ---- AGENDA (uses homepagedata + custom agenda endpoint) ----
-  if (pathname === "/agenda") {
+  if (pathname === "/agenda-page") {
     const speakers = await fetchSpeakers();
     return { ...base, speakers };
   }

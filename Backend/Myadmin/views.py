@@ -205,7 +205,7 @@ def navMainCategoriesFun(request):
 @permission_classes((AllowAny,))
 @api_view(['GET'])
 def navSubCategoriesFun(request):
-    subCategory_list = homePageNavSubCategories.objects.all().filter(isDelete='No')
+    subCategory_list = homePageNavSubCategories.objects.all().filter(isDelete='No').order_by('id')
     dataSubCategory = []
     for subCat in subCategory_list:
         mainCatDetais = {}
@@ -4895,7 +4895,7 @@ def navItemsFun(request):
         subcategories = homePageNavSubCategories.objects.filter(
             navMainCategoryId=main,
             isDelete='No'
-            )
+            ).order_by('id')
         if subcategories.exists():
                 dropdown = []
                 for subcategory in subcategories:

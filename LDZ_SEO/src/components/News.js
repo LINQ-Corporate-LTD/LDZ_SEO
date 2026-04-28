@@ -421,7 +421,7 @@ const News = () => {
                     </div>
                   ))}
                 </div>
-                <button onClick={() => navigate("/agenda")}>
+                <button onClick={() => navigate("/agenda-page")}>
                   view more topics
                 </button>
               </div>
