@@ -6976,3 +6976,73 @@ def delete_eventProject(request):
     check_db.isDelete = response['isDelete']
     check_db.save()
     return JsonResponse({'status': True, "message": "Record Updated Successfully"})
+
+#---------------------------- Api For List Sponser Cards ----------------------------#
+@permission_classes((AllowAny,))
+@api_view(['GET'])
+def sponsorCardsListFun(request):
+    cards_list = sponsorCards.objects.all().filter(isDelete='No')
+    cardsData = []
+    for card in cards_list:
+        x={
+            'id':card.id,
+            'title':card.title,
+            'price':card.price,
+            'description':card.description,
+            'created_at': card.created_at,
+            'updated_at': card.updated_at,
+            'created_by': card.created_by,
+            'updated_by': card.updated_by,
+        }
+        cardsData.append(x)
+    return JsonResponse({'sponsorCardsList': cardsData, 'status': True})
+
+#------------------- Api For Add Sponsor Card-------------------#
+@api_view(['POST'])
+def add_sponsorCard(request):
+    response = request.data
+    check_db = sponsorCards()
+
+    if 'title' in request.POST:
+        check_db.title = response['title']
+
+    if 'price' in request.POST:
+        check_db.price = response['price']
+
+    if 'description' in request.POST:
+        check_db.description = response['description']
+
+    check_db.created_by = "Admin"
+    check_db.updated_by = "Admin"
+    check_db.save()
+
+    return JsonResponse({'status': True, "message": "Record Updated Successfully"})
+
+#------------------- Api For Edit Sponsor Cards-------------------#
+@api_view(['POST'])
+def edit_sponsorCard(request):
+    response = request.data
+    check_db = sponsorCards.objects.get(id=response['id'])
+
+    if 'title' in request.POST:
+        check_db.title = response['title']
+
+    if 'price' in request.POST:
+        check_db.price = response['price']
+
+    if 'description' in request.POST:
+        check_db.description = response['description']
+
+    check_db.updated_by = "Admin"
+    check_db.save()
+
+    return JsonResponse({'status': True, "message": "Record Updated Successfully"})
+
+#------------------- Api For Delete Sponsor Cards -------------------#
+@api_view(['POST'])
+def delete_sponsorCard(request):
+    response = request.data
+    check_db = sponsorCards.objects.get(id=response['id'])
+    check_db.isDelete = response['isDelete']
+    check_db.save()
+    return JsonResponse({'status': True, "message": "Record Updated Successfully"})

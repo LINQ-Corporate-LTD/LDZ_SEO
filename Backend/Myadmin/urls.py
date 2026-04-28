@@ -395,4 +395,9 @@ urlpatterns = [
     path('editpageseo', views.edit_pageSeo),
     path('deletepageseo', views.delete_pageSeo),
 
+    path('sponsorcards', views.sponsorCardsListFun),
+    path('addsponsorcard', views.add_sponsorCard),
+    path('editsponsorcard', views.edit_sponsorCard),
+    path('deletesponsorcard', views.delete_sponsorCard),
+
 ]
