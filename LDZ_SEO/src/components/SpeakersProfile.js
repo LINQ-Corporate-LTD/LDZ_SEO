@@ -27,6 +27,23 @@ const SpeakerProfile = () => {
   const [speakerData, setSpeakerData] = useState(ssrSpeakerProfile || []);
   const [isNotFound, setIsNotFound] = useState(false);
 
+  const [fullName, setFullName] = useState("");
+  const [fullNameErr, setFullNameErr] = useState(false);
+  const [companyName, setCompanyName] = useState("");
+  const [companyNameErr, setCompanyNameErr] = useState(false);
+  const [proposedTitle, setProposedTitle] = useState("");
+  const [proposedTitleErr, setProposedTitleErr] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailErr, setEmailErr] = useState(false);
+  const [emailErrMsg, setEmailErrMsg] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [fullNameErrorMessage, setFullNameErrorMessage] = useState("");
+  const [companyErrorMessage, setCompanyNameErrorMessage] = useState("");
+  const [proposedTitleErrorMessage, setProposedTitleErrorMessage] = useState("");
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
   useEffect(() => {
     // Skip initial fetch if SSR already resolved this speaker
     if (ssrSpeakerProfile && ssrSpeakerProfile.length > 0) return;
@@ -119,6 +136,168 @@ const SpeakerProfile = () => {
     return <Error404 />;
   }
 
+  const checkOnChange = () => {
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setFullNameErr(false);
+    setCompanyNameErr(false);
+    setEmailErr(false);
+    setProposedTitleErr(false);
+
+    if (!fullName || fullName.trim() === "") {
+      setFullNameErrorMessage(<p>Full name is required</p>)
+      setFullNameErr(true);
+      hasError = true;
+    } else {
+      setFullNameErrorMessage("")
+    }
+
+    if (!companyName || companyName.trim() === "") {
+      setCompanyNameErrorMessage(<p>Company name is required</p>)
+      setCompanyNameErr(true);
+      hasError = true;
+    } else {
+      setCompanyNameErrorMessage("")
+    }
+
+    if (!email || email.trim() === "") {
+      setEmailErrorMessage(<p>Email address is required</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else if (!emailRegex.test(email)) {
+      setEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else {
+      setEmailErrorMessage("")
+    }
+
+    if (!proposedTitle || proposedTitle.trim() === "") {
+      setProposedTitleErrorMessage(<p>Proposed title is required</p>)
+      setProposedTitleErr(true);
+      hasError = true;
+    } else {
+      setProposedTitleErrorMessage("")
+    }
+
+    if (hasError) return;
+  };
+
+  const submitBtnClk = (e) => {
+    e.preventDefault();
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setFullNameErr(false);
+    setCompanyNameErr(false);
+    setEmailErr(false);
+    setProposedTitleErr(false);
+
+    if (!fullName || fullName.trim() === "") {
+      setFullNameErrorMessage(<p>Full name is required</p>)
+      setFullNameErr(true);
+      hasError = true;
+    } else {
+      setFullNameErrorMessage("")
+    }
+
+    if (!companyName || companyName.trim() === "") {
+      setCompanyNameErrorMessage(<p>Company name is required</p>)
+      setCompanyNameErr(true);
+      hasError = true;
+    } else {
+      setCompanyNameErrorMessage("")
+    }
+
+    if (!email || email.trim() === "") {
+      setEmailErrorMessage(<p>Email address is required</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else if (!emailRegex.test(email)) {
+      setEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else {
+      setEmailErrorMessage("")
+    }
+
+    if (!proposedTitle || proposedTitle.trim() === "") {
+      setProposedTitleErrorMessage(<p>Proposed title is required</p>)
+      setProposedTitleErr(true);
+      hasError = true;
+    } else {
+      setProposedTitleErrorMessage("")
+    }
+
+    if (hasError) return;
+
+    setSuccessMessage(<p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Submitted Successfully</p>)
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000);
+
+    const finalData = new FormData();
+    finalData.append("requesterName", fullName);
+    finalData.append("requesterCompanyName", companyName);
+    finalData.append("proposedTitle", proposedTitle);
+    finalData.append("requesterEmail", email);
+    if (message?.length > 0) {
+      finalData.append("requesterMessage", JSON.stringify(message));
+    }
+
+    const requestOptions = {
+      method: "POST",
+      body: finalData,
+    };
+    fetch(
+      "https://linq-staging-site.com/admin1/addquickproposalrequest",
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          // toast.success("Record Added Successfully.", {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
+          setFullName("");
+          setFullNameErr(false);
+          setCompanyName("");
+          setCompanyNameErr(false);
+          setProposedTitle("");
+          setProposedTitleErr(false);
+          setEmail("");
+          setEmailErr(false);
+          setEmailErrMsg("");
+          setMessage("");
+        } else {
+          // toast.error(data?.message);
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+        // toast.error("There was an error, Please try again later.", {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
+      });
+  };
+
   const speaker = speakerData[0];
 
   // ✅ STRICT: derive SEO fields ONLY from backend data — no fallbacks
@@ -201,6 +380,7 @@ const SpeakerProfile = () => {
                     className="WDRM_2025_quick_proposal Form_form__nhNBc form_WDRM"
                     method="POST"
                     data-hs-cf-bound="true"
+                    onSubmit={submitBtnClk}
                   >
                     <div>
                       <div>
@@ -208,16 +388,28 @@ const SpeakerProfile = () => {
                           name="fullname"
                           type="text"
                           placeholder="Full name *"
-                          required
+                          value={fullName}
+                          onChange={(e) => {
+                            setFullName(e.target.value);
+                            if (fullNameErrorMessage) checkOnChange();
+                            setFullNameErr(false);
+                          }}
                         ></input>
+                        {fullNameErrorMessage}
                       </div>
                       <div>
                         <input
                           name="companyname"
                           type="text"
                           placeholder="Company name *"
-                          required
+                          value={companyName}
+                          onChange={(e) => {
+                            setCompanyName(e.target.value);
+                            if (companyErrorMessage) checkOnChange();
+                            setCompanyNameErr(false);
+                          }}
                         ></input>
+                        {companyErrorMessage}
                       </div>
                     </div>
                     <div>
@@ -226,16 +418,29 @@ const SpeakerProfile = () => {
                           name="proposed"
                           type="text"
                           placeholder="Proposed title *"
-                          required
+                          value={proposedTitle}
+                          onChange={(e) => {
+                            setProposedTitle(e.target.value);
+                            if (proposedTitleErrorMessage) checkOnChange();
+                            setProposedTitleErr(false);
+                          }}
                         ></input>
+                        {proposedTitleErrorMessage}
                       </div>
                       <div>
                         <input
                           name="email"
                           type="email"
                           placeholder="Email address *"
-                          required
+                          value={email}
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                            if (emailErrorMessage) checkOnChange();
+                            setEmailErr(false);
+                            setEmailErrMsg("");
+                          }}
                         ></input>
+                        {emailErrorMessage}
                       </div>
                     </div>
                     <div className="Form_textArea__tsfub">
@@ -244,10 +449,15 @@ const SpeakerProfile = () => {
                         cols={30}
                         rows={6}
                         placeholder="Brief outline"
+                        value={message}
+                        onChange={(e) => {
+                          setMessage(e.target.value);
+                        }}
                       ></textarea>
                     </div>
                     <button type="submit">get back to me</button>
                   </form>
+                  {successMessage}
                 </div>
               </div>
             </div>

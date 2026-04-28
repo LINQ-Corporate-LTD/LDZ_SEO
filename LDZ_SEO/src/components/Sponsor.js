@@ -54,6 +54,11 @@ const Sponsors = () => {
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [message, setMessage] = useState("");
 
+  const [fullNameErrorMessage, setFullNameErrorMessage] = useState("");
+  const [companyErrorMessage, setCompanyNameErrorMessage] = useState("");
+  const [mobileErrorMessage, setMobileErrorMessage] = useState("");
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const {
       homeVideoSettings,
       eventDetails,
@@ -66,75 +71,234 @@ const Sponsors = () => {
     return emailRegex.test(email);
   };
 
+  const checkOnChange = () => {
+
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setFullNameErr(false);
+    setCompanyNameErr(false);
+    setEmailErr(false);
+    setMobileErr(false);
+
+    if (!fullName || fullName.trim() === "") {
+      setFullNameErrorMessage(<p>Full name is required</p>)
+      setFullNameErr(true);
+      hasError = true;
+    } else {
+      setFullNameErrorMessage("")
+    }
+
+    if (!companyName || companyName.trim() === "") {
+      setCompanyNameErrorMessage(<p>Company name is required</p>)
+      setCompanyNameErr(true);
+      hasError = true;
+    } else {
+      setCompanyNameErrorMessage("")
+    }
+
+    if (!email || email.trim() === "") {
+      setEmailErrorMessage(<p>Email address is required</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else if (!emailRegex.test(email)) {
+      setEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else {
+      setEmailErrorMessage("")
+    }
+
+    if (!mobile || mobile.trim() === "") {
+      setMobileErrorMessage(<p>Mobile number is required</p>)
+      setMobileErr(true);
+      hasError = true;
+    } else {
+      setMobileErrorMessage("")
+    }
+
+    if (hasError) return;
+  };
+
   const submitBtnClk = (e) => {
     e.preventDefault();
-    if (fullName === "") {
-      setFullNameErr(true);
-    } else if (companyName === "") {
-      setCompanyNameErr(true);
-    } else if (mobile === "") {
-      setMobileErr(true);
-    } else if (email === "") {
-      setEmailErr(true);
-      setEmailErrMsg("Email is required");
-    } else if (!validateEmail(email)) {
-      setEmailErr(true);
-      setEmailErrMsg("Please enter a valid email address");
-    } else {
-      const finalData = new FormData();
-      finalData.append("requesterName", fullName);
-      finalData.append("requesterCompanyName", companyName);
-      finalData.append("requesterMobile", mobile);
-      finalData.append("requesterEmail", email);
-      if (message?.length > 0) {
-        finalData.append("requesterMessage", JSON.stringify(message));
-      }
 
-      const requestOptions = {
-        method: "POST",
-        body: finalData,
-      };
-      fetch("https://linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.status) {
-            toast.success("Record Added Successfully.", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-            setFullName("");
-            setFullNameErr(false);
-            setCompanyName("");
-            setCompanyNameErr(false);
-            setMobile("");
-            setMobileErr(false);
-            setEmail("");
-            setEmailErr(false);
-            setEmailErrMsg("");
-            setMessage("");
-          } else {
-            toast.error(data?.message);
-          }
-        })
-        .catch((error) => {
-          console.log("error: ", error);
-          toast.error("There was an error, Please try again later.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        });
+    let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    setFullNameErr(false);
+    setCompanyNameErr(false);
+    setEmailErr(false);
+    setMobileErr(false);
+
+    if (!fullName || fullName.trim() === "") {
+      setFullNameErrorMessage(<p>Full name is required</p>)
+      setFullNameErr(true);
+      hasError = true;
+    } else {
+      setFullNameErrorMessage("")
     }
+
+    if (!companyName || companyName.trim() === "") {
+      setCompanyNameErrorMessage(<p>Company name is required</p>)
+      setCompanyNameErr(true);
+      hasError = true;
+    } else {
+      setCompanyNameErrorMessage("")
+    }
+
+    if (!email || email.trim() === "") {
+      setEmailErrorMessage(<p>Email address is required</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else if (!emailRegex.test(email)) {
+      setEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setEmailErr(true);
+      hasError = true;
+    } else {
+      setEmailErrorMessage("")
+    }
+
+    if (!mobile || mobile.trim() === "") {
+      setMobileErrorMessage(<p>Mobile number is required</p>)
+      setMobileErr(true);
+      hasError = true;
+    } else {
+      setMobileErrorMessage("")
+    }
+
+    if (hasError) return;
+
+    setSuccessMessage(<p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Submitted Successfully</p>)
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000);
+
+    const finalData = new FormData();
+    finalData.append("requesterName", fullName);
+    finalData.append("requesterCompanyName", companyName);
+    finalData.append("requesterMobile", mobile);
+    finalData.append("requesterEmail", email);
+    if (message?.length > 0) {
+      finalData.append("requesterMessage", JSON.stringify(message));
+    }
+
+    const requestOptions = {
+      method: "POST",
+      body: finalData,
+    };
+    fetch("https://linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          // toast.success("Record Added Successfully.", {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
+          setFullName("");
+          setFullNameErr(false);
+          setCompanyName("");
+          setCompanyNameErr(false);
+          setMobile("");
+          setMobileErr(false);
+          setEmail("");
+          setEmailErr(false);
+          setEmailErrMsg("");
+          setMessage("");
+        } else {
+          // toast.error(data?.message);
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+        // toast.error("There was an error, Please try again later.", {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
+      });
   };
+
+  // const submitBtnClk = (e) => {
+  //   e.preventDefault();
+  //   if (fullName === "") {
+  //     setFullNameErr(true);
+  //   } else if (companyName === "") {
+  //     setCompanyNameErr(true);
+  //   } else if (mobile === "") {
+  //     setMobileErr(true);
+  //   } else if (email === "") {
+  //     setEmailErr(true);
+  //     setEmailErrMsg("Email is required");
+  //   } else if (!validateEmail(email)) {
+  //     setEmailErr(true);
+  //     setEmailErrMsg("Please enter a valid email address");
+  //   } else {
+  //     const finalData = new FormData();
+  //     finalData.append("requesterName", fullName);
+  //     finalData.append("requesterCompanyName", companyName);
+  //     finalData.append("requesterMobile", mobile);
+  //     finalData.append("requesterEmail", email);
+  //     if (message?.length > 0) {
+  //       finalData.append("requesterMessage", JSON.stringify(message));
+  //     }
+
+  //     const requestOptions = {
+  //       method: "POST",
+  //       body: finalData,
+  //     };
+  //     fetch("https://linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         if (data.status) {
+  //           toast.success("Record Added Successfully.", {
+  //             position: "top-right",
+  //             autoClose: 5000,
+  //             hideProgressBar: false,
+  //             closeOnClick: true,
+  //             pauseOnHover: true,
+  //             draggable: true,
+  //             progress: undefined,
+  //           });
+  //           setFullName("");
+  //           setFullNameErr(false);
+  //           setCompanyName("");
+  //           setCompanyNameErr(false);
+  //           setMobile("");
+  //           setMobileErr(false);
+  //           setEmail("");
+  //           setEmailErr(false);
+  //           setEmailErrMsg("");
+  //           setMessage("");
+  //         } else {
+  //           toast.error(data?.message);
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.log("error: ", error);
+  //         toast.error("There was an error, Please try again later.", {
+  //           position: "top-right",
+  //           autoClose: 5000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //         });
+  //       });
+  //   }
+  // };
 
   const handleResize = () => {
     setIsMobile(window.innerWidth < 991);
@@ -517,11 +681,10 @@ const Sponsors = () => {
                                   return (
                                     <a
                                       key={i}
-                                      className={`SponsorCards_card__8eNkT ${
-                                        item?.sponsorType !== "Dummy"
-                                          ? "clickable"
-                                          : ""
-                                      }`}
+                                      className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                                        ? "clickable"
+                                        : ""
+                                        }`}
                                       style={{
                                         cursor:
                                           item?.sponsorType !== "Dummy"
@@ -553,11 +716,10 @@ const Sponsors = () => {
                                           .replace(/-+/g, "-");
                                         return `/sponsor/${slug}`;
                                       })()}
-                                      className={`SponsorCards_card__8eNkT ${
-                                        item?.sponsorType !== "Dummy"
-                                          ? "clickable"
-                                          : ""
-                                      }`}
+                                      className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                                        ? "clickable"
+                                        : ""
+                                        }`}
                                       style={{
                                         cursor:
                                           item?.sponsorType !== "Dummy"
@@ -832,10 +994,11 @@ const Sponsors = () => {
                             value={fullName}
                             onChange={(e) => {
                               setFullName(e.target.value);
+                              if (fullNameErrorMessage) checkOnChange();
                               setFullNameErr(false);
                             }}
                           ></input>
-                          {fullNameErr && <p>Full Name is required</p>}
+                          {fullNameErrorMessage}
                         </div>
                         <div>
                           <input
@@ -845,10 +1008,11 @@ const Sponsors = () => {
                             value={companyName}
                             onChange={(e) => {
                               setCompanyName(e.target.value);
+                              if (companyErrorMessage) checkOnChange();
                               setCompanyNameErr(false);
                             }}
                           ></input>
-                          {companyNameErr && <p>Company Name is required</p>}
+                          {companyErrorMessage}
                         </div>
                       </div>
                       <div>
@@ -869,9 +1033,10 @@ const Sponsors = () => {
                               }
                               setMobile(value);
                               setMobileErr(false);
+                              if (mobileErrorMessage) checkOnChange();
                             }}
                           ></input>
-                          {mobileErr && <p>Mobile Number is required</p>}
+                          {mobileErrorMessage}
                         </div>
                         <div>
                           <input
@@ -883,9 +1048,10 @@ const Sponsors = () => {
                               setEmail(e.target.value);
                               setEmailErr(false);
                               setEmailErrMsg("");
+                              if (emailErrorMessage) checkOnChange();
                             }}
                           ></input>
-                          {emailErr && <p>{emailErrMsg}</p>}
+                          {emailErrorMessage}
                         </div>
                       </div>
                       <div className="Form_textArea__tsfub">
@@ -902,6 +1068,7 @@ const Sponsors = () => {
                       </div>
                       <button type="submit">submit</button>
                     </form>
+                    {successMessage}
                   </div>
                 </div>
               </div>

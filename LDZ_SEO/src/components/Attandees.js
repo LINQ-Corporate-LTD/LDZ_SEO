@@ -279,9 +279,9 @@ const Attandees = () => {
   }, [isDataLoaded, chunkedLeaders]);
 
   const pageSeo = usePageSeo("attandees");
-    const seoTitle = pageSeo.pageMetaTitle;
-    const seoDesc = pageSeo.pageMetaDescription
-    const seoImage = pageSeo.pageOgImage || null;
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription
+  const seoImage = pageSeo.pageOgImage || null;
 
   return (
     <>
