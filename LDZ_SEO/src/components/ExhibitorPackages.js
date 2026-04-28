@@ -74,6 +74,7 @@ const ExhibitorPackages = () => {
   const [platinumActiveTab, setPlatinumActiveTab] = useState(false);
 
   const [sponsorPackageList, setSponsorPackageList] = useState([]);
+  const [sponsorCardsList, setSponsorCardsList] = useState([]);
   const [sponsorPageData, setSponsorPageData] = useState([]);
   const [mediaPageHelpersList, setMediaPageHelpersList] = useState([]);
   const [paraDes, setParaDes] = useState("");
@@ -81,6 +82,7 @@ const ExhibitorPackages = () => {
 
   useEffect(() => {
     callLogoListApi();
+    callSponsorCardsListApi();
     // eslint-disable-next-line
   }, []);
 
@@ -93,6 +95,33 @@ const ExhibitorPackages = () => {
       .then((data) => {
         if (data && data.status) {
           setLogoList(data["homePageCompaniesList"]);
+          // setTotalCount(data?.paginationDetails?.count);
+        }
+      })
+      .catch((error) => {
+        setTimeout(() => {
+          toast.error("There was an error, Please try again later.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }, 1000);
+      });
+  };
+
+  const callSponsorCardsListApi = () => {
+    const requestOptions = {
+      method: "GET",
+    };
+    fetch(`https://linq-staging-site.com/admin1/sponsorcards`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.status) {
+          setSponsorCardsList(data["sponsorCardsList"]);
           // setTotalCount(data?.paginationDetails?.count);
         }
       })
@@ -474,6 +503,8 @@ const ExhibitorPackages = () => {
     eventGeneralSettings,
     themeSettings,
   } = useApiData();
+  console.log('exeventDetails: ', eventDetails);
+  console.log('exeventGeneralSettings: ', eventGeneralSettings);
 
   useEffect(() => {
     const handleResize = () => {
@@ -576,8 +607,7 @@ const ExhibitorPackages = () => {
                 ></div>
                 <div className="DetailsContainer_textContainer__D8Ukb">
                   <h1>
-                    Exhibit your services at Bitcoin Innovation & Market Evolution
-                    2026
+                    Exhibit your services at {eventDetails?.eventName}
                   </h1>
                   <div className="DetailsContainer_innerContent__6NQGR">
                     <div>
@@ -914,11 +944,11 @@ const ExhibitorPackages = () => {
                       <div className="SponsorLanding_body__rHcET">
                         <div className="SponsorLanding_pricing__l1LD7">
                           <h2>
-                            <sup>USD</sup>
+                            <sup>{eventGeneralSettings?.currencySymbol}</sup>
                             {sponsorPackageList[0]?.sponsorPackagePrice}
                           </h2>
                           <h3>
-                            <sup>USD</sup>
+                            <sup>{eventGeneralSettings?.currencySymbol}</sup>
                             {sponsorPackageList[0]?.sponsorPackageCuttingPrice}
                           </h3>
                         </div>
@@ -1007,11 +1037,11 @@ const ExhibitorPackages = () => {
                       <div className="SponsorLanding_body__rHcET">
                         <div className="SponsorLanding_pricing__l1LD7">
                           <h2>
-                            <sup>USD</sup>
+                            <sup>{eventGeneralSettings?.currencySymbol}</sup>
                             {sponsorPackageList[1]?.sponsorPackagePrice}
                           </h2>
                           <h3>
-                            <sup>USD</sup>
+                            <sup>{eventGeneralSettings?.currencySymbol}</sup>
                             {sponsorPackageList[1]?.sponsorPackageCuttingPrice}
                           </h3>
                         </div>
@@ -1100,11 +1130,11 @@ const ExhibitorPackages = () => {
                       <div className="SponsorLanding_body__rHcET">
                         <div className="SponsorLanding_pricing__l1LD7">
                           <h2>
-                            <sup>USD</sup>
+                            <sup>{eventGeneralSettings?.currencySymbol}</sup>
                             {sponsorPackageList[2]?.sponsorPackagePrice}
                           </h2>
                           <h3>
-                            <sup>USD</sup>
+                            <sup>{eventGeneralSettings?.currencySymbol}</sup>
                             {sponsorPackageList[2]?.sponsorPackageCuttingPrice}
                           </h3>
                         </div>
@@ -1249,7 +1279,7 @@ const ExhibitorPackages = () => {
                 exhibitors, attendees, and partners.
               </p>
               <div>
-                {sponsorPackages.map((pkg, index) => (
+                {sponsorCardsList.map((pkg, index) => (
                   <div className="SponsorshipCard_container__ORwTn">
                     <div className="SponsorshipCard_col__PW1v-">
                       <h3 className="SponsorshipCard_title__wzsXt">
@@ -1258,7 +1288,7 @@ const ExhibitorPackages = () => {
                     </div>
                     <div className="SponsorshipCard_col__PW1v-">
                       <p className="SponsorshipCard_price__T0xxu">
-                        {pkg.price}
+                        {eventGeneralSettings?.currencySymbol || ""} {pkg.price}
                       </p>
                     </div>
                     <div className="SponsorshipCard_col__PW1v-">

@@ -18,6 +18,7 @@ import rightArrowIcon from "../assets/WebCommonImages/icon-arrow-right.png";
 import emailIcon from "../assets/WebCommonImages/msg.png";
 import phoneIcon from "../assets/WebCommonImages/phone-call.png";
 import { usePageSeo } from "../common/usePageSeo";
+import { useApiData } from "../common/ApiContext";
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
 // const rightArrowIcon =
@@ -52,6 +53,13 @@ const Sponsors = () => {
   const [emailErr, setEmailErr] = useState(false);
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [message, setMessage] = useState("");
+
+  const {
+      homeVideoSettings,
+      eventDetails,
+      eventGeneralSettings,
+      themeSettings,
+    } = useApiData();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -375,7 +383,7 @@ const Sponsors = () => {
                   ></div>
                   <div className="DetailsContainer_textContainer__D8Ukb">
                     <h1>
-                      EXHIBIT YOUR SERVICES AT LITHIUM DOWNSTREAM SUMMIT 2026
+                      EXHIBIT YOUR SERVICES AT {eventDetails?.eventName}
                     </h1>
                     <div className="DetailsContainer_innerContent__6NQGR">
                       <div>
