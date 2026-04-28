@@ -366,7 +366,7 @@ const SpeakerProfile = () => {
                       ></div>
                     </div>
                   </div>
-                  <button onClick={() => navigate("/agenda")}>
+                  <button onClick={() => navigate("/agenda-page")}>
                     view program
                   </button>
                 </div>

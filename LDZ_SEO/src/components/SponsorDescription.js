@@ -433,7 +433,7 @@ const SponsorDescription = () => {
                     ?.replace(/<p>(\s|&nbsp;)*<\/p>/g, ""),
                 }}
               ></div>
-              <button onClick={() => navigate("/agenda")}>view program</button>
+              <button onClick={() => navigate("/agenda-page")}>view program</button>
             </div>
           </div>
           <div className="Form_container__jwPCR">

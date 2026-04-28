@@ -311,6 +311,7 @@ import CalenderSubscribers from "../pages/CalenderSubscribers";
 import SponsorOfferCoupons from "../pages/OfferCoupons/SponsorOfferCoupons";
 import EventProjects from "../pages/SlideShareAttandees/EventProject";
 import PageSeoSettings from "../pages/PageSeoSettings/PageSeoSettings";
+import SponsorCards from "../pages/SponsorCards/SponsorCards";
 
 
 
@@ -596,10 +597,7 @@ const authProtectedRoutes = [
   { path: "/sponsoroffercoupons", component: <SponsorOfferCoupons /> },
   { path: "/eventprojects", component: <EventProjects /> },
   { path: "/pageseo", component: <PageSeoSettings /> },
-
-
-
-
+  { path: "/sponsorcards", component: <SponsorCards /> },
 
   // this route should be at the end of all other routes
   // eslint-disable-next-line react/display-name

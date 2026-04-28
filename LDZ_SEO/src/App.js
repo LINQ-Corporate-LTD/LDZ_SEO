@@ -106,7 +106,7 @@ function App({ ssrData }) {
             <Route path="sponsors" element={<Sponsor />} />
             <Route path="sponsor/:slug" element={<SponsorDescription />} />
             <Route path="media-partners" element={<MediaPartners />} />
-            <Route path="agenda" element={<Agenda />} />
+            <Route path="agenda-page" element={<Agenda />} />
             <Route path="who-should-attend" element={<WhoShouldAttend />} />
             <Route path="faq" element={<Faq />} />
             <Route path="speakers" element={<CallForPresentation />} />

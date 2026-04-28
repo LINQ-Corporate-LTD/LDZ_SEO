@@ -348,7 +348,7 @@ const Attandees = () => {
                       </div>
                     ))}
                   </div>
-                  <button onClick={() => navigate("/agenda")}>view more topics</button>
+                  <button onClick={() => navigate("/agenda-page")}>view more topics</button>
                 </div>
               </div>
             </div>
