@@ -282,8 +282,8 @@ Read the full article: ${currentUrl}`);
   const seoImage = activeNews?.newsImage;
 
   const canonicalUrl = slug
-    ? `https://www.bitcoin-innovation-market-evolution.online/newsdescription/${slug}`
-    : "https://www.bitcoin-innovation-market-evolution.online/news";
+    ? `https://www.linq-staging-site.com/newsdescription/${slug}`
+    : "https://www.linq-staging-site.com/news";
 
   return (
     <>

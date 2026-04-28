@@ -39,7 +39,7 @@ import lockIcon from '../assets/WebCommonImages/lock.png'
 const countries = getNames();
 const metaSeoTitle = "Sponsor Booking | Bitcoin Innovation & Market Evolution 2026";
 const metaSeoDesc = "Book your sponsorship package for Bitcoin Innovation & Market Evolution 2026.";
-const metaCanonicalUrl = "https://www.bitcoin-innovation-market-evolution.online/sponsor-booking";
+const metaCanonicalUrl = "https://www.linq-staging-site.com/sponsor-booking";
 
 
 const AddSponsorDelegateForm = () => {
@@ -1022,7 +1022,7 @@ const AddSponsorDelegateForm = () => {
     // const seoDesc =
     //   "Book your sponsorship package for Bitcoin Innovation & Market Evolution 2026.";
     // const canonicalUrl =
-    //   "https://www.bitcoin-innovation-market-evolution.online/sponsor-booking";
+    //   "https://www.linq-staging-site.com/sponsor-booking";
 
     return (
       <>

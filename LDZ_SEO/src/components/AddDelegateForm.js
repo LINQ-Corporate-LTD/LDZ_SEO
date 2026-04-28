@@ -435,7 +435,7 @@ const CompanyRegistrationForm = () => {
               TotalAmountFormatted: { totalAmount },
               InvoiceNumber: invoiceNumber,
               FormName: "Booking Form",
-              FormURL: "https://www.bitcoin-innovation-market-evolution.online/adddelegate",
+              FormURL: "https://www.linq-staging-site.com/adddelegate",
               AddOnsTotalAmount: "0",
               Eventcode: `${eventDetails?.eventShortCode}`,
             },

@@ -37,8 +37,8 @@ const SponsorDescription = () => {
   const metaDesc = activeSponsor?.eventSponsorMetaDescription?.trim();
 
   const canonicalUrl = slug
-    ? `https://www.bitcoin-innovation-market-evolution.online/sponsor/${slug}`
-    : "https://www.bitcoin-innovation-market-evolution.online/sponsors";
+    ? `https://www.linq-staging-site.com/sponsor/${slug}`
+    : "https://www.linq-staging-site.com/sponsors";
   const [fullName, setFullName] = useState("");
   const [fullNameErr, setFullNameErr] = useState(false);
   const [companyName, setCompanyName] = useState("");

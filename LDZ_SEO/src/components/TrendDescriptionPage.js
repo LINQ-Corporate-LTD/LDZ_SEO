@@ -867,7 +867,7 @@ const TrendDescriptionPage = () => {
     activeTrend?.trendTitle ||
     "Bitcoin Conference 2026";
   const seoDesc = activeTrend?.trendMetaDescription || "";
-  const canonicalUrl = `https://www.bitcoin-innovation-market-evolution.online/trenddescription/${slug}`;
+  const canonicalUrl = `https://www.linq-staging-site.com/trenddescription/${slug}`;
 
   return (
     <>
