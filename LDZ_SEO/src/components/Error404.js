@@ -23,8 +23,8 @@ const Error404 = () => {
   const seoTitle = '404 - Page Not Found';
   const seoDesc = 'The page you are looking for does not exist.';
   const canonicalUrl = slug
-    ? `https://www.bitcoin-innovation-market-evolution.online/${slug}`
-    : "https://www.bitcoin-innovation-market-evolution.online/404";
+    ? `https://www.linq-staging-site.com/${slug}`
+    : "https://www.linq-staging-site.com/404";
 
 
   return (

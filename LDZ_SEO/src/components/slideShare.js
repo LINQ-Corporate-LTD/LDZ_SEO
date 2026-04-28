@@ -292,7 +292,7 @@
 //                     <meta property="og:type" content="website" />
 //                     <meta name="twitter:card" content="summary" />
 //                     <meta name="twitter:title" content={seoTitle} />
-//                     <link rel="canonical" href="https://www.bitcoin-innovation-market-evolution.online/sponsors" />
+//                     <link rel="canonical" href="https://www.linq-staging-site.com/sponsors" />
 //                 </Helmet>
 //                 <div style={{ opacity: 1 }}>
 //                     <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>
@@ -719,7 +719,7 @@ const SlideShare = () => {
                 <meta name="twitter:title" content={seoTitle} />
                 <link
                     rel="canonical"
-                    href="https://www.bitcoin-innovation-market-evolution.online/sponsors"
+                    href="https://www.linq-staging-site.com/sponsors"
                 />
             </Helmet> */}
 

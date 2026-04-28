@@ -7,7 +7,7 @@ const fs = require("fs");
 const path = require("path");
 
 const BASE_URL = "https://linq-staging-site.com/admin1";
-const DOMAIN = "https://www.bitcoin-innovation-market-evolution.online";
+const DOMAIN = "https://www.linq-staging-site.com";
 
 /* -------- helpers -------- */
 async function get(endpoint) {

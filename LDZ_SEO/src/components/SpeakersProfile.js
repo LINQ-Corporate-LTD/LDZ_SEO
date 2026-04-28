@@ -125,8 +125,8 @@ const SpeakerProfile = () => {
   const seoTitle = speaker?.eventSpeakerMetaTitle;
   const seoDesc = speaker?.eventSpeakerMetaDescription;
   const canonicalUrl = slug
-    ? `https://www.bitcoin-innovation-market-evolution.online/speakerprofile/${slug}`
-    : "https://www.bitcoin-innovation-market-evolution.online/featured-speakers";
+    ? `https://www.linq-staging-site.com/speakerprofile/${slug}`
+    : "https://www.linq-staging-site.com/featured-speakers";
 
   return (
     <>
