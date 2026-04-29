@@ -11,8 +11,8 @@ import Button from "@mui/material/Button";
 import { FormControl, FormHelperText } from "@mui/material";
 import { useApiData } from "../../src/common/ApiContext";
 import { useSSRData } from "../common/useSSRData";
-import plusIcon from '../assets/WebCommonImages/plus.png'
-import closeBtn from '../assets/WebCommonImages/del-cross.png'
+import plusIcon from "../assets/WebCommonImages/plus.png";
+import closeBtn from "../assets/WebCommonImages/del-cross.png";
 // const logo =
 //   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
 // const plusIcon =
@@ -30,12 +30,9 @@ const CompanyRegistrationForm = () => {
   console.log("selectedPackage: ", selectedPackage);
   const phoneInputRef = useRef(null);
   const toEmails = useSSRData("toEmails") || "benny.scott@iq-hub.com";
-  console.log('toEmailsAddDelegateForm: ', toEmails);
-  const {
-    eventDetails,
-    eventGeneralSettings,
-    navLogos
-  } = useApiData();
+  console.log("toEmailsAddDelegateForm: ", toEmails);
+  const { eventDetails, eventGeneralSettings, navLogos } = useApiData();
+  console.log("eventDetails: ", eventDetails);
   const createDelegate = (id) => ({
     id,
     firstName: "",
@@ -257,7 +254,7 @@ const CompanyRegistrationForm = () => {
       let invoiceNumber;
       try {
         const invoiceRes = await fetch(
-          "https://linq-staging-site.com/admin1/generate-invoice-no"
+          "https://linq-staging-site.com/admin1/generate-invoice-no",
         );
         const invoiceData = await invoiceRes.json();
         invoiceNumber = invoiceData.invoiceNo;
@@ -270,7 +267,7 @@ const CompanyRegistrationForm = () => {
       const disposition = "Confirmed";
       const emailStatus = "Confirmed Old";
 
-      setSubmitBtnCheck(true)
+      setSubmitBtnCheck(true);
       // Function to submit to HubSpot (no delay)
       async function submitCompanyDelegatesToHubSpot(formData) {
         const submissions = formData.delegates.map(async (delegate) => {
@@ -397,9 +394,9 @@ const CompanyRegistrationForm = () => {
           day: "2-digit",
           year: "numeric",
         });
-        const pacPrice = selectedPackage?.deligatePackagePrice
-        const numDelegates = delegates?.length
-        const preTaxAmount = pacPrice * numDelegates
+        const pacPrice = selectedPackage?.deligatePackagePrice;
+        const numDelegates = delegates?.length;
+        const preTaxAmount = pacPrice * numDelegates;
         const taxPercent = parseFloat(
           eventGeneralSettings?.purchaseTaxPercent || 0,
         );
@@ -476,7 +473,7 @@ const CompanyRegistrationForm = () => {
           },
         });
       } catch (error) {
-        setSubmitBtnCheck(false)
+        setSubmitBtnCheck(false);
         console.error("❌ Error in submission process:", error);
         // Optionally show error message to user
         alert("There was an error submitting your booking. Please try again.");
@@ -525,7 +522,11 @@ const CompanyRegistrationForm = () => {
             className="PageForm_headerInner__sdlhn"
             style={{ maxWidth: "1070px" }}
           >
-            <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="site logo"></img>
+            <img
+              onClick={() => navigate("/")}
+              src={navLogos?.whiteLogo}
+              alt="site logo"
+            ></img>
           </div>
         </div>
         <div className="BookingFormV2_container__XPZAc">
@@ -1313,7 +1314,7 @@ const CompanyRegistrationForm = () => {
                     type="submit"
                     className="BookingFormV2_submitBtn__nFF03"
                     value={submitBtnCheck ? "Please Wait" : "Submit"}
-                  // onClick={() => navigate("/booking-form")}
+                    // onClick={() => navigate("/booking-form")}
                   ></input>
                 </div>
               </form>
@@ -1326,13 +1327,13 @@ const CompanyRegistrationForm = () => {
             style={{ maxWidth: "1070px" }}
           >
             <p>
-              <span onClick={() => navigate("/privacy-policy")}>
-                Privacy Policy
-              </span>
-              <span className="PageForm_divide__vwhn0">|</span>
-              ABCD Company
-            </p>
-            <p>©2026 Bitcoin Innovation & Market Evolution 2026</p>
+                <span onClick={() => window.open("/privacy-policy", "_blank")}>Privacy Policy</span>
+                <span class="PageForm_divide__vwhn0">|</span>
+                <span onClick={() => window.open("/cookie-policy", "_blank")}>Cookie Policy</span>
+                <span class="PageForm_divide__vwhn0">|</span>IQ International PTe.
+                LTD
+              </p>
+            <p>©2026 Lithium Downstream Summit 2026</p>
           </div>
         </div>
       </div>

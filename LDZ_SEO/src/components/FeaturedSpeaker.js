@@ -53,7 +53,7 @@ const FeaturedSpeaker = ({ title }) => {
 
   const handleClick = (member) => {
     const speakerName = member.eventSpeakerName.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/speakerprofile/${speakerName}`, { state: member });
+    navigate(`/speaker/${speakerName}`, { state: member });
   };
 
   return (

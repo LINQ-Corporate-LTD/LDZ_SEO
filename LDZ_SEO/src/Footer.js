@@ -509,7 +509,7 @@ const Footer = () => {
           {speakers.map((s, i) => (
             <a
               key={`seosk-${i}`}
-              href={`/speakerprofile/${(s.eventSpeakerName || "").toLowerCase().replace(/\s+/g, "-")}`}
+              href={`/speaker/${(s.eventSpeakerName || "").toLowerCase().replace(/\s+/g, "-")}`}
             >
               {s.eventSpeakerName}
             </a>

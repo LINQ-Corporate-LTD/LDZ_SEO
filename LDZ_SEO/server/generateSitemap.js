@@ -74,7 +74,7 @@ async function fetchSpeakerSlugs() {
     const d = await get("eventspeakers");
     const list = d?.status ? d.eventSpeakersList : [];
     return list.map((s) => ({
-        url: `/speakerprofile/${toSpeakerSlug(s.eventSpeakerName)}`,
+        url: `/speaker/${toSpeakerSlug(s.eventSpeakerName)}`,
         changefreq: "weekly",
         priority: "0.7",
     }));
