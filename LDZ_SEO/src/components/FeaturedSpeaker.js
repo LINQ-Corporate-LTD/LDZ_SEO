@@ -65,7 +65,8 @@ const FeaturedSpeaker = ({ title }) => {
         paddingBottom: windowWidth < 940 ? "22px" : "",
       }}
     >
-      <h1>{!title ? "MEET OUR FEATURED SPEAKERS" : title}</h1>
+      {/* <h1>{!title ? "MEET OUR FEATURED SPEAKERS" : title}</h1> */}
+      <h1>{!title ? "HIGHLIGHTS FROM OUR LAST SHOW" : title}</h1>
       <div className="SpeakersSection_speakersSliderContainer__sW0Qj speaker-slick">
         <button onClick={() => sliderRef.current.slickPrev()}>
           <img src={leftArrowIcon} alt="left arrow icon" loading="lazy" width="20" height="20" />
