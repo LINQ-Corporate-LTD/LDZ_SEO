@@ -334,7 +334,8 @@ const WhoShouldAttend = () => {
             MEET OUR FEATURED SPEAKERS
           </h1>
         </div> */}
-            <FeaturedSpeaker title={"MEET OUR FEATURED SPEAKERS"} />
+            {/* <FeaturedSpeaker title={"MEET OUR FEATURED SPEAKERS"} /> */}
+            <FeaturedSpeaker title={"HIGHLIGHTS FROM OUR LAST SHOW"} />
             <div className="BenefitScreen_addToCakendar__LRN4C">
               <div>
                 <div

@@ -813,7 +813,8 @@ const CallForPresentation = () => {
             MEET OUR FEATURED SPEAKERS
           </h1>
         </div> */}
-        <FeaturedSpeaker title={"MEET OUR FEATURED SPEAKERS"} />
+        {/* <FeaturedSpeaker title={"MEET OUR FEATURED SPEAKERS"} /> */}
+        <FeaturedSpeaker title={"HIGHLIGHTS FROM OUR LAST SHOW"} />
 
         <div className="Speakers_addToCakendar__foKTF">
           <div>

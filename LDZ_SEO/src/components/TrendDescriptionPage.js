@@ -947,7 +947,8 @@ const TrendDescriptionPage = () => {
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>
         <article className="IndustryTrends_container__TcST0">
-          <FeaturedSpeaker title={"MEET OUR FEATURED SPEAKERS"} />
+          {/* <FeaturedSpeaker title={"MEET OUR FEATURED SPEAKERS"} /> */}
+          <FeaturedSpeaker title={"HIGHLIGHTS FROM OUR LAST SHOW"} />
           <div
             className="IndustryTrends_tabsContainer__akAHa trend-scroll-anchor"
             ref={contentRef}
