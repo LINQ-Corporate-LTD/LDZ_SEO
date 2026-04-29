@@ -1229,13 +1229,17 @@ const AddSponsorDelegateForm = () => {
                 style={{ maxWidth: "1280px" }}
               >
                 <p>
-                  <span onClick={() => navigate("/privacy-policy")}>
+                  <span onClick={() => window.open("/privacy-policy", "_blank")}>
                     Privacy Policy
                   </span>
-                  <span className="PageForm_divide__vwhn0">|</span>
-                  ABCD Company
+                  <span class="PageForm_divide__vwhn0">|</span>
+                  <span onClick={() => window.open("/cookie-policy", "_blank")}>
+                    Cookie Policy
+                  </span>
+                  <span class="PageForm_divide__vwhn0">|</span>IQ International PTe.
+                  LTD
                 </p>
-                <p>©2026 Bitcoin Innovation & Market Evolution 2026</p>
+                <p>©2026 Lithium Downstream Summit 2026</p>
               </div>
             </div>
           </div>
