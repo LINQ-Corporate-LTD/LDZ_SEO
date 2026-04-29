@@ -273,7 +273,7 @@ async function fetchDelegatePackages() {
 
 /* -------- main export -------- */
 /**
- * @param {string} pathname  - req.path e.g. "/", "/venue", "/speakerprofile/john-doe"
+ * @param {string} pathname  - req.path e.g. "/", "/venue", "/speaker/john-doe"
  * @returns {Promise<object>} - Structured initial data object keyed by domain
  */
 async function fetchSSRData(pathname) {
@@ -328,8 +328,8 @@ async function fetchSSRData(pathname) {
   }
 
   // ---- SPEAKER PROFILE (dynamic) ----
-  if (pathname.startsWith("/speakerprofile/")) {
-    const slug = pathname.replace("/speakerprofile/", "");
+  if (pathname.startsWith("/speaker/")) {
+    const slug = pathname.replace("/speaker/", "");
     const [speakers, news, sponsors, trends] = await Promise.all([
       fetchSpeakers(),
       fetchNews(),
@@ -420,8 +420,8 @@ async function fetchSSRData(pathname) {
   }
 
   // ---- NEWS DESCRIPTION (dynamic) ----
-  if (pathname.startsWith("/newsdescription/")) {
-    const slug = pathname.replace("/newsdescription/", "");
+  if (pathname.startsWith("/news/")) {
+    const slug = pathname.replace("/news/", "");
     const [news, sponsors, speakers, trends] = await Promise.all([
       fetchNews(),
       fetchSponsors(),

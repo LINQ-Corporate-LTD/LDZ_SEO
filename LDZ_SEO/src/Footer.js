@@ -501,7 +501,7 @@ const Footer = () => {
           {news.map((n, i) => (
             <a
               key={`seonw-${i}`}
-              href={`/newsdescription/${toSlug(n.newsTitle)}`}
+              href={`/news/${toSlug(n.newsTitle)}`}
             >
               {n.newsTitle}
             </a>
@@ -509,7 +509,7 @@ const Footer = () => {
           {speakers.map((s, i) => (
             <a
               key={`seosk-${i}`}
-              href={`/speakerprofile/${(s.eventSpeakerName || "").toLowerCase().replace(/\s+/g, "-")}`}
+              href={`/speaker/${(s.eventSpeakerName || "").toLowerCase().replace(/\s+/g, "-")}`}
             >
               {s.eventSpeakerName}
             </a>

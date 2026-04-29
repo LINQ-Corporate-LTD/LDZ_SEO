@@ -116,8 +116,8 @@ function App({ ssrData }) {
               element={<TrendDescriptionPage />}
             />
             <Route path="sponsor-packages" element={<ExhibitorPackages />} />
-            <Route path="newsdescription/:slug" element={<NewsDescription />} />
-            <Route path="speakerprofile/:slug" element={<SpeakerProfile />} />
+            <Route path="news/:slug" element={<NewsDescription />} />
+            <Route path="speaker/:slug" element={<SpeakerProfile />} />
             <Route path="attandees" element={<Attandees />} />
             <Route path="adddelegate" element={<AddDelegateForm />} />
             <Route path="booking-form" element={<BookingForm />} />

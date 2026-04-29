@@ -89,12 +89,12 @@ const Speakers = () => {
     const speakerName = member.eventSpeakerName
       .toLowerCase()
       .replace(/\s+/g, "-");
-    navigate(`/speakerprofile/${speakerName}`, { state: member }); // ✅ Pass member object in route state
+    navigate(`/speaker/${speakerName}`, { state: member }); // ✅ Pass member object in route state
   };
 
   const getSpeakerUrl = (speaker) => {
     const slug = speaker.eventSpeakerName.toLowerCase().replace(/\s+/g, "-");
-    return `/speakerprofile/${slug}`;
+    return `/speaker/${slug}`;
   };
 
   const checkOnChange = () => {
