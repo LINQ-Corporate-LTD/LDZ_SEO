@@ -639,6 +639,7 @@ import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
 import leftArrowIcon from "../assets/WebCommonImages/icon-arrow-left.png";
 import rightArrowIcon from "../assets/WebCommonImages/icon-arrow-right.png";
+import { useApiData } from "../common/ApiContext";
 
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
@@ -712,6 +713,67 @@ const TrendDescriptionPage = () => {
   const [loading, setLoading] = useState(false); // ✅ SSR pre-renders, no loading needed
   const [validSlug, setValidSlug] = useState(!!matchedTrend);
   const contentRef = useRef(null);
+
+  const [agendaList, setAgendaList] = useState(null);
+
+  const {
+    eventDetails,
+  } = useApiData();
+  const agendaVersion = eventDetails?.agendaVersion;
+  console.log("----------------agendaVersion: ", agendaVersion);
+
+  useEffect(() => {
+    callAgendaListApi();
+  }, []);
+
+  const callAgendaListApi = () => {
+    const requestOptions = {
+      method: "GET",
+    };
+    fetch(
+      `https://linq-staging-site.com/admin1/getagenda`,
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (
+          data &&
+          (data.detail === "The Token is expired" ||
+            data.message === "Invalid token")
+        ) {
+          localStorage.clear();
+          navigate("/logout");
+        } else if (data && data.status !== false) {
+          // DRF response might be direct array or status wrapped
+          setAgendaList(data.agendaList || data);
+          // setTotalCount(data?.paginationDetails?.count);
+        }
+      })
+      .catch((error) => {
+        setTimeout(() => {
+          toast.error("There was an error, Please try again later.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }, 1000);
+      });
+  };
+
+  const dayItem = Array.isArray(agendaList)
+    ? agendaList.find((item) => item.status === "Day")
+    : null;
+
+  const updatedAgendaList = Array.isArray(agendaList)
+    ? agendaList.filter((item) => item.status === "Speaker").slice(0, 3)
+    : [];
+  console.log('agendaList', agendaList);
+  console.log('dayItem', dayItem);
+  console.log('updatedAgendaList', updatedAgendaList);
 
   // ✅ On slug change (client navigation), fetch only trendDetail client-side
   // Everything else (trendList, sponsors) is already in SSR data
@@ -1048,11 +1110,10 @@ const TrendDescriptionPage = () => {
                               return (
                                 <a
                                   key={i}
-                                  className={`SponsorCards_card__8eNkT ${
-                                    item?.sponsorType !== "Dummy"
-                                      ? "clickable"
-                                      : ""
-                                  }`}
+                                  className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                                    ? "clickable"
+                                    : ""
+                                    }`}
                                   style={{
                                     cursor:
                                       item?.sponsorType !== "Dummy"
@@ -1084,11 +1145,10 @@ const TrendDescriptionPage = () => {
                                       .replace(/-+/g, "-");
                                     return `/sponsor/${slug}`;
                                   })()}
-                                  className={`SponsorCards_card__8eNkT ${
-                                    item?.sponsorType !== "Dummy"
-                                      ? "clickable"
-                                      : ""
-                                  }`}
+                                  className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                                    ? "clickable"
+                                    : ""
+                                    }`}
                                   style={{
                                     cursor:
                                       item?.sponsorType !== "Dummy"
@@ -1163,29 +1223,29 @@ const TrendDescriptionPage = () => {
           </div>
 
           {/* TOPICS */}
-          <div className="TopicsOnAgenda_container__86lkR">
-            <div className="TopicsOnAgenda_agendaContainer__TBsgc">
-              <div>
-                <h2>topics on the agenda</h2>
-                <div className="TopicsOnAgenda_cardContainer__r-nhg">
-                  {allTopics.map((topic) => (
-                    <div key={topic.id} className="TopicsOnAgenda_card__pUjOu">
-                      <p>{topic.title}</p>
-                      <div>
-                        <p>
-                          {topic.day}: {topic.date}
-                        </p>
-                        <p>{topic.time}</p>
+          {agendaVersion !== 'ReleasedSoon' && agendaVersion !== 'RollingOutSoon' ? (
+            <div className="TopicsOnAgenda_container__86lkR">
+              <div className="TopicsOnAgenda_agendaContainer__TBsgc">
+                <div>
+                  <h2>topics on the agenda</h2>
+                  <div className="TopicsOnAgenda_cardContainer__r-nhg">
+                    {updatedAgendaList.map((topic, index) => (
+                      <div key={index} className="TopicsOnAgenda_card__pUjOu">
+                        <p>{topic.heading}</p>
+                        <div>
+                          <p>
+                            {topic?.day}: {dayItem?.heading}
+                          </p>
+                          <p>{topic.startTime} - {topic.endTime}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <button onClick={() => navigate("/agenda-page")}>view more topics</button>
                 </div>
-                <button onClick={() => navigate("/agenda-page")}>
-                  view more topics
-                </button>
               </div>
             </div>
-          </div>
+          ) : null}
         </article>
       </div>
       <SubscribeForm />

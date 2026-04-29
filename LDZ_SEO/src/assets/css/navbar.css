@@ -726,6 +726,10 @@
 }
 
 @media only screen and (max-width: 1231px) {
+    .NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_navLinksContainer__s15t3 .NewNavbar_linksContainer__tbm-r ul li {
+        margin-right: 2%;
+    }
+
     .NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_navLinksContainer__s15t3 .NewNavbar_linksContainer__tbm-r ul li>a {
         padding: 0 3px;
     }

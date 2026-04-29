@@ -553,7 +553,7 @@ const Navbar = ({ disableScrollEffect = false, forceScrolled = false }) => {
             )
           ))}
 
-          <div className="NewNavbar_linksContainer__tbm-r" style={{ marginTop: '10px' }}>
+          <div className="NewNavbar_linksContainer__tbm-r">
             <ul>
               {navItems.map((item, index) => {
                 const hasDropdown = item.dropdown?.length;

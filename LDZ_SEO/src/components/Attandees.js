@@ -15,6 +15,8 @@ import "swiper/css/navigation";
 import Slider from "react-slick";
 import { Helmet } from "react-helmet-async";
 import { usePageSeo } from "../common/usePageSeo";
+import { useApiData } from "../common/ApiContext";
+
 const allTopics = [
   {
     id: 1,
@@ -50,14 +52,74 @@ const Attandees = () => {
   const sliderRef = useRef(null);
 
   const navigate = useNavigate();
+  const [agendaList, setAgendaList] = useState(null);
   const [pastAttandeeList, setPastAttandeeList] = useState([]);
   const [leadersList, setLeadersList] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
 
+  const {
+    eventDetails,
+  } = useApiData();
+  const agendaVersion = eventDetails?.agendaVersion;
+  console.log("----------------agendaVersion: ", agendaVersion);
+
   useEffect(() => {
     callPastAttandeeListApi();
     callLeadersListApi();
+    callAgendaListApi();
   }, []);
+
+  const callAgendaListApi = () => {
+    const requestOptions = {
+      method: "GET",
+    };
+    fetch(
+      `https://linq-staging-site.com/admin1/getagenda`,
+      requestOptions,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (
+          data &&
+          (data.detail === "The Token is expired" ||
+            data.message === "Invalid token")
+        ) {
+          localStorage.clear();
+          navigate("/logout");
+        } else if (data && data.status !== false) {
+          // DRF response might be direct array or status wrapped
+          setAgendaList(data.agendaList || data);
+          // setTotalCount(data?.paginationDetails?.count);
+        }
+      })
+      .catch((error) => {
+        setTimeout(() => {
+          toast.error("There was an error, Please try again later.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }, 1000);
+      });
+  };
+
+  // const updatedAgendaList = agendaList.filter((item) => item.status === "Speaker").slice(0, 3);
+  // Replace the broken line with this:
+  const dayItem = Array.isArray(agendaList)
+    ? agendaList.find((item) => item.status === "Day")
+    : null;
+
+  const updatedAgendaList = Array.isArray(agendaList)
+    ? agendaList.filter((item) => item.status === "Speaker").slice(0, 3)
+    : [];
+  console.log('agendaList', agendaList);
+  console.log('dayItem', dayItem);
+  console.log('updatedAgendaList', updatedAgendaList);
+
 
   const chunkArray = (array, size) => {
     const result = [];
@@ -331,27 +393,29 @@ const Attandees = () => {
                 </div>
               </div>
             </div>
-            <div className="TopicsOnAgenda_container__86lkR">
-              <div className="TopicsOnAgenda_agendaContainer__TBsgc">
-                <div>
-                  <h2>topics on the agenda</h2>
-                  <div className="TopicsOnAgenda_cardContainer__r-nhg">
-                    {allTopics.map((topic, index) => (
-                      <div key={index} className="TopicsOnAgenda_card__pUjOu">
-                        <p>{topic.title}</p>
-                        <div>
-                          <p>
-                            {topic.day}: {topic.date}
-                          </p>
-                          <p>{topic.time}</p>
+            {agendaVersion !== 'ReleasedSoon' && agendaVersion !== 'RollingOutSoon' ? (
+              <div className="TopicsOnAgenda_container__86lkR">
+                <div className="TopicsOnAgenda_agendaContainer__TBsgc">
+                  <div>
+                    <h2>topics on the agenda</h2>
+                    <div className="TopicsOnAgenda_cardContainer__r-nhg">
+                      {updatedAgendaList.map((topic, index) => (
+                        <div key={index} className="TopicsOnAgenda_card__pUjOu">
+                          <p>{topic.heading}</p>
+                          <div>
+                            <p>
+                              {topic?.day}: {dayItem?.heading}
+                            </p>
+                            <p>{topic.startTime} - {topic.endTime}</p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                    <button onClick={() => navigate("/agenda-page")}>view more topics</button>
                   </div>
-                  <button onClick={() => navigate("/agenda-page")}>view more topics</button>
                 </div>
               </div>
-            </div>
+            ) : null}
             <div className="Operators_container__Pn2Qp">
               <div className="Operators_AttendeesContainer__ZP8rw">
                 <h2>Meet The Leaders</h2>
