@@ -666,6 +666,8 @@ const Register = () => {
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingMessage, setIsSubmittingMessage] = useState(false);
+  const [isSubmittedMessage, setIsSubmittedMessage] = useState(false);
   // ✅ Initialize from SSR data (direct URL load) or fetch client-side (button navigation)
   const [delegatePackageList, setDelegatePackageList] = useState(
     () => (typeof window !== "undefined" && window.__INITIAL_DATA__?.delegatePackages) || []
@@ -784,33 +786,40 @@ const Register = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+    setIsSubmittingMessage(true);
 
     const finalData = new FormData();
-    finalData.append("userName", formData.name);
-    finalData.append("userCompany", formData.company);
-    finalData.append("userEmail", formData.email);
-    finalData.append("userMobile", `${formData.countryCode}${formData.phone}`);
-    finalData.append("userInterest", formData.interest);
-    finalData.append("noOfAttandees", formData.attendees);
-    if (formData.message.length > 0) {
-      finalData.append("userMessage", JSON.stringify(formData.message));
-    }
+    setInterval(() => {
+      finalData.append("userName", formData.name);
+      finalData.append("userCompany", formData.company);
+      finalData.append("userEmail", formData.email);
+      finalData.append("userMobile", `${formData.countryCode}${formData.phone}`);
+      finalData.append("userInterest", formData.interest);
+      finalData.append("noOfAttandees", formData.attendees);
+      if (formData.message.length > 0) {
+        finalData.append("userMessage", JSON.stringify(formData.message));
+      }
+      setIsSubmittingMessage(false);
+    }, 2000);
 
-    fetch("https://linq-staging-site.com/admin1/adduserpassrequest", {
-      method: "POST",
-      body: finalData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status) {
-          toast.success("Record Added Successfully!");
-          closePopup();
-        } else {
-          toast.error(data.message || "Submission failed.");
-        }
+    setInterval(() => {
+      setIsSubmittedMessage(true);
+      fetch("https://linq-staging-site.com/admin1/adduserpassrequest", {
+        method: "POST",
+        body: finalData,
       })
-      .catch(() => toast.error("Error occurred. Try again later."))
-      .finally(() => setIsSubmitting(false));
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status) {
+            // toast.success("Record Added Successfully!");
+            closePopup();
+          } else {
+            // toast.error(data.message || "Submission failed.");
+          }
+        })
+        .catch(() => console.log('Error'))
+        .finally(() => { setIsSubmitting(false); setIsSubmittingMessage(false); setIsSubmittedMessage(false); });
+    }, 2000)
   };
 
   // ESC key to close popup
@@ -1180,6 +1189,10 @@ const Register = () => {
                             countryCode: `+${country.dialCode}`,
                             phone: value,
                           }));
+                          setErrors((prev) => ({
+                            ...prev,
+                            phone: "",
+                          }));
                         }}
                         containerClass="flagInput"
                       />
@@ -1264,10 +1277,16 @@ const Register = () => {
                       type="submit"
                       className="BookingLanding_button__YtJxy"
                     >
-                      {isSubmitting ? "Submitting..." : "Submit"}
+                      Submit
                     </button>
                   </div>
                 </form>
+                {isSubmittingMessage && (
+                  <p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Submitting...</p>
+                )}
+                {isSubmittedMessage && (
+                  <p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Form Submitted Successfully</p>
+                )}
               </div>
             </div>
           </div>
