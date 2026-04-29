@@ -186,7 +186,7 @@ const NewsDescription = () => {
 
   const handleClick = (member) => {
     const newsSlug = toSlug(member.newsTitle);
-    navigate(`/newsdescription/${newsSlug}`, { state: member }); // ✅ Pass member object in route state
+    navigate(`/news/${newsSlug}`, { state: member }); // ✅ Pass member object in route state
   };
 
   const handleLinkedInShare = () => {
@@ -282,7 +282,7 @@ Read the full article: ${currentUrl}`);
   const seoImage = activeNews?.newsImage;
 
   const canonicalUrl = slug
-    ? `https://www.linq-staging-site.com/newsdescription/${slug}`
+    ? `https://www.linq-staging-site.com/news/${slug}`
     : "https://www.linq-staging-site.com/news";
 
   return (
@@ -469,7 +469,7 @@ Read the full article: ${currentUrl}`);
                             // </li>
                             <li key={index}>
                               <Link
-                                to={`/newsdescription/${toSlug(item.newsTitle)}`}
+                                to={`/news/${toSlug(item.newsTitle)}`}
                                 state={item}
                                 style={{ textDecoration: "none", color: "inherit" }} // keeps original look
                               >

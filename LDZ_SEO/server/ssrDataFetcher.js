@@ -420,8 +420,8 @@ async function fetchSSRData(pathname) {
   }
 
   // ---- NEWS DESCRIPTION (dynamic) ----
-  if (pathname.startsWith("/newsdescription/")) {
-    const slug = pathname.replace("/newsdescription/", "");
+  if (pathname.startsWith("/news/")) {
+    const slug = pathname.replace("/news/", "");
     const [news, sponsors, speakers, trends] = await Promise.all([
       fetchNews(),
       fetchSponsors(),

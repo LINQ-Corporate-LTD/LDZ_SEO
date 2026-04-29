@@ -227,7 +227,7 @@ const News = () => {
       .replace(/[^a-z0-9\s-]/g, "")
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-");
-    return `/newsdescription/${slug}`;
+    return `/news/${slug}`;
   };
 
   const pageSeo = usePageSeo("news");

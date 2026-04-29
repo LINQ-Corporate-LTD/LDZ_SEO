@@ -17,7 +17,7 @@ const LatestNews = () => {
       .replace(/[^a-z0-9\s-]/g, "")
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-");
-    return `/newsdescription/${slug}`;
+    return `/news/${slug}`;
   };
 
   let featuredLatestArticle = null;

@@ -501,7 +501,7 @@ const Footer = () => {
           {news.map((n, i) => (
             <a
               key={`seonw-${i}`}
-              href={`/newsdescription/${toSlug(n.newsTitle)}`}
+              href={`/news/${toSlug(n.newsTitle)}`}
             >
               {n.newsTitle}
             </a>

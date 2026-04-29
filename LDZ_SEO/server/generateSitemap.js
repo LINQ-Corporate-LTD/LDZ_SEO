@@ -84,7 +84,7 @@ async function fetchNewsSlugs() {
     const d = await get("generalnews");
     const list = d?.status ? d.generalNews : [];
     return list.map((n) => ({
-        url: `/newsdescription/${toNewsSlug(n.newsTitle)}`,
+        url: `/news/${toNewsSlug(n.newsTitle)}`,
         changefreq: "weekly",
         priority: "0.6",
     }));
