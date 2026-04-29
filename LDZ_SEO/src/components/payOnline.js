@@ -169,7 +169,7 @@ const PayOnline = () => {
       const target = document.getElementById("payOnlineHeading");
       if (target) {
         const top = target.getBoundingClientRect().top + window.pageYOffset;
-        const offset = 120; // height of your navbar
+        const offset = 150; // height of your navbar
 
         window.scrollTo({
           top: top - offset,
@@ -247,9 +247,9 @@ const PayOnline = () => {
               </div>
             </div>
           </section>
-          <div className="PayOnline_paymentContainer__wFbAP" id="payOnlineHeading">
+          <div className="PayOnline_paymentContainer__wFbAP">
             {!showStripeForm ? (
-              <div>
+              <div id="payOnlineHeading">
                 <h2>pay online</h2>
                 <p>We accept all major credit and debit cards.</p>
                 <div className="SPE_2026_payonline_form PayOnline_form__O6V2c form_SPE">
