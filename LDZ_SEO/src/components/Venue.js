@@ -162,7 +162,7 @@ const Venue = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
-        <link rel="canonical" href="http://localhost:3001/venue" />
+        <link rel="canonical" href="https://linq-staging-site.com/venue" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>

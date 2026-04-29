@@ -478,7 +478,7 @@ const RemindMeLater = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="http://localhost:3001/remind-me-later" />
+        <link rel="canonical" href="https://linq-staging-site.com/remind-me-later" />
       </Helmet>
       <div className="PageForm_container__NA5Wr">
         <div className="PageForm_header__7W2Cz">

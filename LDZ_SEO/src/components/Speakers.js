@@ -346,7 +346,7 @@ const Speakers = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
-        <link rel="canonical" href="http://localhost:3001/featured-speakers" />
+        <link rel="canonical" href="https://linq-staging-site.com/featured-speakers" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

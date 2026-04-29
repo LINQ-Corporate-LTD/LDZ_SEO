@@ -483,7 +483,7 @@ const Footer = () => {
           <a href="/news">News Hub</a>
           <a href="/featured-speakers">Featured Speakers Hub</a>
           <a href="/sponsor-packages">Sponsorship Packages Hub</a>
-          <a href="/attandees">Attendees Hub</a>
+          <a href="/attendees">Attendees Hub</a>
           <a href="/sponsor-booking">Sponsor Booking Hub</a>
 
           {/* Dynamic Slugs Harvested from SSR Data */}

@@ -562,6 +562,9 @@ const CompanyRegistrationForm = () => {
                           "& .MuiInput-underline:after": {
                             borderBottomColor: "#9d9d9d",
                           },
+                          "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                         }}
                         id="companyName"
                         value={companyData.companyName}
@@ -628,6 +631,9 @@ const CompanyRegistrationForm = () => {
                             },
                             "& .MuiInput-underline:after": {
                               borderBottomColor: "#9d9d9d",
+                            },
+                            "& .MuiInputLabel-root.Mui-error": {
+                              color: "#d32f2f !important",
                             },
                           }}
                           id="address"
@@ -770,6 +776,10 @@ const CompanyRegistrationForm = () => {
                                   fontWeight: 600,
                                   color: "#5e5e5e !important",
                                 },
+                                "& .MuiInputLabel-root.Mui-error": {
+                                  color: "#d32f2f !important",
+                                },
+
                                 "& .MuiInput-underline:after": {
                                   borderBottomColor: "#9d9d9d",
                                 },
@@ -825,6 +835,9 @@ const CompanyRegistrationForm = () => {
                             },
                             "& .MuiInput-underline:after": {
                               borderBottomColor: "#9d9d9d",
+                            },
+                            "& .MuiInputLabel-root.Mui-error": {
+                              color: "#d32f2f !important",
                             },
                           }}
                           id="city"
@@ -900,6 +913,9 @@ const CompanyRegistrationForm = () => {
                           "& .MuiInput-underline:after": {
                             borderBottomColor: "#9d9d9d",
                           },
+                          "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                         }}
                         id="postalCode"
                         value={companyData.postalCode}
@@ -967,6 +983,9 @@ const CompanyRegistrationForm = () => {
                                     "& .MuiInput-underline:after": {
                                       borderBottomColor: "#9d9d9d",
                                     },
+                                    "& .MuiInputLabel-root.Mui-error": {
+                                      color: "#d32f2f !important",
+                                    },
                                   }}
                                   value={delegate.firstName}
                                   onChange={(e) =>
@@ -1011,6 +1030,9 @@ const CompanyRegistrationForm = () => {
                                     },
                                     "& .MuiInput-underline:after": {
                                       borderBottomColor: "#9d9d9d",
+                                    },
+                                    "& .MuiInputLabel-root.Mui-error": {
+                                      color: "#d32f2f !important",
                                     },
                                   }}
                                   value={delegate.lastName}
@@ -1075,6 +1097,9 @@ const CompanyRegistrationForm = () => {
                                     },
                                     "& .MuiInput-underline:after": {
                                       borderBottomColor: "#9d9d9d",
+                                    },
+                                    "& .MuiInputLabel-root.Mui-error": {
+                                      color: "#d32f2f !important",
                                     },
                                   }}
                                   value={delegate.mobile}
@@ -1179,6 +1204,9 @@ const CompanyRegistrationForm = () => {
                                   "& .MuiInput-underline:after": {
                                     borderBottomColor: "#9d9d9d",
                                   },
+                                  "& .MuiInputLabel-root.Mui-error": {
+                                    color: "#d32f2f !important",
+                                  },
                                 }}
                                 value={delegate.position}
                                 onChange={(e) =>
@@ -1222,6 +1250,9 @@ const CompanyRegistrationForm = () => {
                                   "& .MuiInput-underline:after": {
                                     borderBottomColor: "#9d9d9d",
                                   },
+                                  "& .MuiInputLabel-root.Mui-error": {
+                                    color: "#d32f2f !important",
+                                  },
                                 }}
                                 value={delegate.email}
                                 onChange={(e) =>
@@ -1264,7 +1295,7 @@ const CompanyRegistrationForm = () => {
                     className="BookingFormV2_delBtn__3MPla"
                     onClick={addDelegate}
                   >
-                    <img src={plusIcon} alt="plusIcon"></img>
+                    <img src={plusIcon?.default || plusIcon} alt="plusIcon" />
                     Add Delegate
                   </Button>
                 </div>
@@ -1327,12 +1358,16 @@ const CompanyRegistrationForm = () => {
             style={{ maxWidth: "1070px" }}
           >
             <p>
-                <span onClick={() => window.open("/privacy-policy", "_blank")}>Privacy Policy</span>
-                <span class="PageForm_divide__vwhn0">|</span>
-                <span onClick={() => window.open("/cookie-policy", "_blank")}>Cookie Policy</span>
-                <span class="PageForm_divide__vwhn0">|</span>IQ International PTe.
-                LTD
-              </p>
+              <span onClick={() => window.open("/privacy-policy", "_blank")}>
+                Privacy Policy
+              </span>
+              <span class="PageForm_divide__vwhn0">|</span>
+              <span onClick={() => window.open("/cookie-policy", "_blank")}>
+                Cookie Policy
+              </span>
+              <span class="PageForm_divide__vwhn0">|</span>IQ International PTe.
+              LTD
+            </p>
             <p>©2026 Lithium Downstream Summit 2026</p>
           </div>
         </div>

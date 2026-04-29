@@ -874,7 +874,7 @@ const ContactUs = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="http://localhost:3001/contact-us" />
+        <link rel="canonical" href="https://linq-staging-site.com/contact-us" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>

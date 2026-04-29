@@ -798,7 +798,7 @@ const CallForPresentation = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="http://localhost:3001/speakers" />
+        <link rel="canonical" href="https://linq-staging-site.com/speakers" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

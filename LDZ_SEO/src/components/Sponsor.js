@@ -527,7 +527,7 @@ const Sponsors = () => {
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content={seoTitle} />
-          <link rel="canonical" href="http://localhost:3001/sponsors" />
+          <link rel="canonical" href="https://linq-staging-site.com/sponsors" />
         </Helmet>
         <Navbar forceScrolled />
         <div style={{ opacity: 1 }}>

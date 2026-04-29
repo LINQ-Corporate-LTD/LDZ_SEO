@@ -474,7 +474,7 @@ async function fetchSSRData(pathname) {
   }
 
   // ---- ATTENDEES ----
-  if (pathname === "/attandees") {
+  if (pathname === "/attendees") {
     const attendees = await fetchAttendees();
     return { ...base, attendees };
   }

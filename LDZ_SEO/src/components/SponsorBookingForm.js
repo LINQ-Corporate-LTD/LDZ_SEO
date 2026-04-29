@@ -71,7 +71,7 @@ const SponsorBookingForm = () => {
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDesc = pageSeo.pageMetaDescription;
   const seoImage = pageSeo.pageOgImage || null;
-  const canonicalUrl = "http://localhost:3001/sponsor-booking";
+  const canonicalUrl = "https://linq-staging-site.com/sponsor-booking";
 
   const numDelegates = delegates?.length;
   const sponsorPackageDelegateQty = parseInt(selectedPackage?.delegatePassQty);

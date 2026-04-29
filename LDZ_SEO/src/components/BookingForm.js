@@ -6,9 +6,9 @@ import { useApiData } from "../../src/common/ApiContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSSRData } from "../common/useSSRData";
-import toggle from '../assets/WebCommonImages/toggle.png'
-import cardLabel from '../assets/WebCommonImages/card-labels.png'
-import lockIcon from '../assets/WebCommonImages/lock.png'
+import toggle from "../assets/WebCommonImages/toggle.png";
+import cardLabel from "../assets/WebCommonImages/card-labels.png";
+import lockIcon from "../assets/WebCommonImages/lock.png";
 // const logo =
 //   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
 
@@ -51,7 +51,7 @@ const BookingForm = () => {
     eventDetails,
     eventGeneralSettings,
     themeSettings,
-    navLogos
+    navLogos,
   } = useApiData();
 
   useEffect(() => {
@@ -90,15 +90,20 @@ const BookingForm = () => {
   const handlePaymentClick = async () => {
     // Validate amount
     if (!prices.finalTotal || parseFloat(prices.finalTotal) <= 0) {
-      toast.error("Invalid payment amount.");
+      // toast.error("Invalid payment amount.");
+      console.log("Invalid payment amount.");
       return;
     }
 
     // Validate delegates
     if (!delegates || delegates.length === 0) {
-      toast.error(
+      // toast.error(
+      //   "No delegates found. Please go back and add delegate information.",
+      // );
+      console.log(
         "No delegates found. Please go back and add delegate information.",
       );
+
       return;
     }
 
@@ -182,28 +187,28 @@ const BookingForm = () => {
         if (emailResult.status === "success") {
           console.log("✅ Step 2 Email sent successfully");
         } else {
-          console.error("❌ Step 2 Email sending failed:", emailResult.message);
+          console.log("❌ Step 2 Email sending failed:", emailResult.message);
         }
       } catch (error) {
-        console.error("❌ Error sending Step 2 email:", error);
+        console.log("❌ Error sending Step 2 email:", error);
         // Don't block payment even if email fails
       }
     }
 
     try {
       // Send Step 2 email (don't await - let it run in background)
-      sendStep2Email().catch((err) => console.error("Email error:", err));
+      sendStep2Email().catch((err) => console.log("Email error:", err));
 
       // Check if payment form is ready
       if (paymentFormRef.current) {
         // Trigger payment submission
         await paymentFormRef.current.submitPayment();
       } else {
-        toast.error("Payment form is not ready. Please try again.");
+        // toast.error("Payment form is not ready. Please try again.");
+        console.log("❌ Error in payment process:");
       }
     } catch (error) {
-      console.error("❌ Error in payment process:", error);
-      toast.error("An error occurred during payment. Please try again.");
+      console.log("❌ Error in payment process:");
     }
   };
 
@@ -581,11 +586,11 @@ const BookingForm = () => {
           console.log("✅ Step 3 Confirmation Email sent successfully");
           return { success: true };
         } else {
-          console.error("❌ Step 3 Email sending failed:", emailResult.message);
+          console.log("❌ Step 3 Email sending failed:", emailResult.message);
           return { success: false, error: emailResult.message };
         }
       } catch (error) {
-        console.error("❌ Error sending Step 3 email:", error);
+        console.log("❌ Error sending Step 3 email:", error);
         return { success: false, error: error.message };
       }
     }
@@ -635,47 +640,49 @@ const BookingForm = () => {
             if (emailResult.success) {
               console.log("✅ Confirmation email sent successfully");
             } else {
-              console.error(
+              console.log(
                 "⚠️ Email sending failed, but payment was successful:",
                 emailResult.error,
               );
             }
 
-            toast.success("Payment completed successfully!", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
+            // toast.success("Payment completed successfully!", {
+            //   position: "top-right",
+            //   autoClose: 5000,
+            //   hideProgressBar: false,
+            //   closeOnClick: true,
+            //   pauseOnHover: true,
+            //   draggable: true,
+            //   progress: undefined,
+            // });
 
             navigate("/thank-you", { state: { authorized: true } });
           } else {
-            toast.error(data?.message);
+            // toast.error(data?.message);
+
+            console.log(data?.message);
           }
         })
         .catch((error) => {
           console.log("error: ", error);
-          toast.error("There was an error, Please try again later.", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          // toast.error("There was an error, Please try again later.", {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
         });
     } catch (err) {
-      console.error("Error saving booking:", err);
+      console.log("Error saving booking:", err);
     }
   };
   // ADD THIS: Error handler
   const handlePaymentError = (error) => {
-    console.error("Payment failed:", error);
-    toast.error(`Payment failed: ${error}`);
+    console.log("Payment failed:", error);
+    // toast.error(`Payment failed: ${error}`);
   };
 
   useEffect(() => {
@@ -786,16 +793,17 @@ const BookingForm = () => {
         }
       })
       .catch(() => {
-        toast.error("There was an error, Please try again later.", {
-          position: "top-right",
-          autoClose: 5000,
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        // toast.error("There was an error, Please try again later.", {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        // });
+        console.log("There was an error, Please try again later.");
       });
   };
 
@@ -940,7 +948,11 @@ const BookingForm = () => {
             className="PageForm_headerInner__sdlhn"
             style={{ maxWidth: "1070px" }}
           >
-            <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="site logo"></img>
+            <img
+              onClick={() => navigate("/")}
+              src={navLogos?.whiteLogo}
+              alt="site logo"
+            ></img>
           </div>
         </div>
         <div className="BookingFormV2_container__XPZAc">
@@ -1119,10 +1131,12 @@ const BookingForm = () => {
                           ""
                         }
                         companyName={companyDetails?.companyName || ""}
-                        orderDescription={`Payment for ${delegates?.length || 1
-                          } delegate pass(es) - ${selectedPackage?.deligatePackageName ||
+                        orderDescription={`Payment for ${
+                          delegates?.length || 1
+                        } delegate pass(es) - ${
+                          selectedPackage?.deligatePackageName ||
                           "Delegate Package"
-                          } - Event: ${eventDetails?.eventName || ""}`}
+                        } - Event: ${eventDetails?.eventName || ""}`}
                         onPaymentSuccess={handlePaymentSuccess}
                         onPaymentError={handlePaymentError}
                       />

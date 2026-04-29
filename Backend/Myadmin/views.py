@@ -6380,7 +6380,7 @@ def secure_login_slideShare(request):
 def generate_invoice_number(request):
     while True:
         number = random.randint(1000, 9999)
-        invoice_no = f"BIME26ABC-{number}"
+        invoice_no = f"LDZ26AUS-{number}"
         
         delegate_exists = delegateTransectionData.objects.filter(invoiceNo=invoice_no).exists()
         sponsor_exists = sponsorCompanyTransectionData.objects.filter(invoiceNo=invoice_no).exists()

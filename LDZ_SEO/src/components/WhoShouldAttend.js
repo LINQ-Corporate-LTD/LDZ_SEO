@@ -34,6 +34,7 @@ const WhoShouldAttend = () => {
   const [coreAttandeeList, setCoreAttandeeList] = useState([]);
   const [industriesList, setIndustriesList] = useState([]);
   const [open, setOpen] = useState(false);
+  const [calendarEmail, setCalendarEmail] = useState("");
 
   useEffect(() => {
     callWhoShouldAttendDataApi();
@@ -313,7 +314,10 @@ const WhoShouldAttend = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
-        <link rel="canonical" href="http://localhost:3001/who-should-attend" />
+        <link
+          rel="canonical"
+          href="https://linq-staging-site.com/who-should-attend"
+        />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>
@@ -336,8 +340,7 @@ const WhoShouldAttend = () => {
                 <div
                   className="BenefitScreen_imageContainer__dQ2Lk"
                   style={{
-                    backgroundImage:
-                      `url(${benefitsBg})`,
+                    backgroundImage: `url(${benefitsBg})`,
                   }}
                 ></div>
                 <div className="BenefitScreen_textContainer__-wzXh">
@@ -425,10 +428,28 @@ const WhoShouldAttend = () => {
                     <div>
                       <form
                         className="row g-3 needs-validation"
-                        onSubmit={(e) => {
-                          e.preventDefault(); // stop page reload
-                          // 👉 do your submit logic here (API / validation)
-                          setOpen(false); // ✅ close popup ONLY on submit
+                        onSubmit={async (e) => {
+                          e.preventDefault();
+
+                          try {
+                            await fetch(
+                              "https://linq-staging-site.com/admin1/addcalendersubscriber",
+                              {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({
+                                  calenderSubscriber: calendarEmail,
+                                }),
+                              },
+                            );
+                          } catch (error) {
+                            console.error(
+                              "Failed to save calendar subscriber:",
+                              error,
+                            );
+                          }
+
+                          setOpen(false);
                         }}
                         enctype="multipart/form-data"
                         method="POST"
@@ -438,7 +459,9 @@ const WhoShouldAttend = () => {
                           type="email"
                           placeholder="Email address"
                           required
-                        ></input>
+                          value={calendarEmail}
+                          onChange={(e) => setCalendarEmail(e.target.value)}
+                        />
                         <input
                           type="submit"
                           placeholder="Submit"
@@ -451,8 +474,7 @@ const WhoShouldAttend = () => {
                 <div
                   className="BenefitScreen_imageContainer__dQ2Lk"
                   style={{
-                    backgroundImage:
-                      `url(${ketTakewaysBg})`,
+                    backgroundImage: `url(${ketTakewaysBg})`,
                   }}
                 ></div>
               </div>

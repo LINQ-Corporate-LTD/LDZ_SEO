@@ -199,7 +199,7 @@ const PayOnline = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="http://localhost:3001/pay-online" />
+        <link rel="canonical" href="https://linq-staging-site.com/pay-online" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

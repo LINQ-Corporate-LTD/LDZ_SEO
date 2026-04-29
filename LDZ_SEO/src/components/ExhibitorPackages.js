@@ -590,7 +590,7 @@ const ExhibitorPackages = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="http://localhost:3001/sponsor-packages" />
+        <link rel="canonical" href="https://linq-staging-site.com/sponsor-packages" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>

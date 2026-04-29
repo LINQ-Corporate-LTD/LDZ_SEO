@@ -61,7 +61,7 @@ const STATIC_ROUTES = [
     { url: "/featured-Speakers", changefreq: "weekly", priority: "0.8" },
     { url: "/sponsor-packages", changefreq: "monthly", priority: "0.7" },
     { url: "/news", changefreq: "daily", priority: "0.8" },
-    { url: "/attandees", changefreq: "monthly", priority: "0.6" },
+    { url: "/attendees", changefreq: "monthly", priority: "0.6" },
     { url: "/booking", changefreq: "monthly", priority: "0.7" },
     { url: "/contact-us", changefreq: "monthly", priority: "0.6" },
     { url: "/sponsor-booking", changefreq: "monthly", priority: "0.6" },
