@@ -245,20 +245,22 @@ Read the full article: ${currentUrl}`);
     navigator.clipboard
       .writeText(currentUrl)
       .then(() => {
-        toast.success("Link copied to clipboard!", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        // toast.success("Link copied to clipboard!", {
+        //   position: "top-right",
+        //   autoClose: 2000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        // });
+        console.log("Link copied to clipboard: ", currentUrl);
       })
       .catch(() => {
-        toast.error("Failed to copy link", {
-          position: "top-right",
-          autoClose: 2000,
-        });
+        // toast.error("Failed to copy link", {
+        //   position: "top-right",
+        //   autoClose: 2000,
+        // });
+        console.log("Failed to copy link");
       });
   };
 

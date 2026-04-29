@@ -45,14 +45,14 @@ const PrivacyPolicy = () => {
             <h1>Privacy policy</h1>
             <div className="PrivacyPolicy_section__HSTzJ">
               <p>
-                This Privacy Policy explains how ABCD Company (referred to as "the Company") and its trading name ‘ABCD’ collect, use, and protect personal information. References to “ABCD,” "we," "us," or "our" refer to the relevant data controller within the Company responsible for processing your personal information.
+                This Privacy Policy explains how IQ International Pte. Ltd Company (referred to as "the Company") and its trading name 'IQ Hub' collect, use, and protect personal information. References to “IQ Hub,” "we," "us," or "our" refer to the relevant data controller within the Company responsible for processing your personal information.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
-                <span>ABCD Company,</span>
-                as the legal entity and data controller, is responsible for personal data in accordance with this Privacy Policy. This entity is identified on booking, web, and contract forms, or invoices. By using ABCD’s services, you consent to the practices described in this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not use our services. We are committed to safeguarding your privacy and ensuring the security of your personal information.
+                <span>IQ International Pte. Ltd,</span>
+                as the legal entity and data controller, is responsible for personal data in accordance with this Privacy Policy. This entity is identified on booking, web, and contract forms, or invoices. By using IQ Hub’s services, you consent to the practices described in this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not use our services. We are committed to safeguarding your privacy and ensuring the security of your personal information.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
                 To update your personal information or marketing preferences, you can contact us at
-                <a href="mailto:info@abcd.com"> info@abcd.com</a>
-                . For any data privacy queries, address them to the ABCD Privacy Team.
+                <a href="mailto:info@iq-hub.com"> info@iq-hub.com</a>
+                . For any data privacy queries, address them to the IQ Hub Privacy Team.
               </p>
             </div>
             <div className="PrivacyPolicy_section__HSTzJ">
@@ -135,7 +135,7 @@ const PrivacyPolicy = () => {
                 Additionally, the information you provide in your inquiries may be included in our marketing or customer prospect databases. This inclusion allows us to tailor our communications with you, ensuring that we provide you with relevant updates, promotions, and offerings that align with your interests and preferences.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
                 Rest assured that we handle your personal information responsibly and in line with our commitment to safeguarding your privacy and ensuring the security of your data. If you ever wish to modify how we use your information or if you have questions about our data practices, please don't hesitate to contact us at
-                <a href="mailto:info@abcd.com"> info@abcd.com</a>
+                <a href="mailto:info@iq-hub.com"> info@iq-hub.com</a>
                 . Your satisfaction and data privacy are of utmost importance to us.
               </p>
             </div>
@@ -143,7 +143,7 @@ const PrivacyPolicy = () => {
               <h4>6. Updating Your Information and Preferences</h4>
               <p>
                 We are committed to helping you maintain control over your personal information. Our goal is to ensure that the personal information we hold about you is accurate and up-to-date. We always provide the opportunity for you to unsubscribe or opt out of future marketing communications. While information on how to unsubscribe or opt out may not be included in every email we send, you can easily update, correct, or opt out of future communications at any time. Simply send an email to
-                <a href="mailto:info@abcd.com"> info@abcd.com </a>
+                <a href="mailto:info@iq-hub.com"> info@iq-hub.com </a>
                 with your request, and we will promptly address your preferences.
               </p>
             </div>
@@ -158,7 +158,7 @@ const PrivacyPolicy = () => {
             <div className="PrivacyPolicy_section__HSTzJ">
               <h4>8. Data Protection Measures</h4>
               <p>
-                At ABCD, we hold a strong commitment to data protection. We handle your personal information with the utmost care and security. Our robust security measures are designed to safeguard your data and control access. We have established comprehensive security and data protection policies to ensure the highest standards of information security. Electronic data and databases are securely stored on protected computer systems with stringent access controls in place.
+                At IQ Hub, we hold a strong commitment to data protection. We handle your personal information with the utmost care and security. Our robust security measures are designed to safeguard your data and control access. We have established comprehensive security and data protection policies to ensure the highest standards of information security. Electronic data and databases are securely stored on protected computer systems with stringent access controls in place.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
                 While we diligently take all reasonable precautions to maintain the security of your personal information, it's important to note that we cannot guarantee its security during transmission to external websites or services, as we do not have control over those transmissions.
               </p>
@@ -174,8 +174,8 @@ const PrivacyPolicy = () => {
             <div className="PrivacyPolicy_section__HSTzJ">
               <h4>10. Data Subject Rights</h4>
               <p>
-                At ABCD, we respect your rights regarding your personal information. You have the right to access, rectify, delete, or restrict the processing of your personal information. To exercise these rights or for privacy-related inquiries, please contact us at
-                <a href="mailto:info@abcd.com"> info@abcd.com</a>
+                At IQ Hub, we respect your rights regarding your personal information. You have the right to access, rectify, delete, or restrict the processing of your personal information. To exercise these rights or for privacy-related inquiries, please contact us at
+                <a href="mailto:info@iq-hub.com"> info@iq-hub.com</a>
                 . You can also manage your marketing and email communication preferences at any time, either by contacting us or using the options provided in our communications.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
                 We are committed to assisting you in safeguarding your data protection rights and ensuring your information is accurate and secure.
@@ -260,14 +260,14 @@ const PrivacyPolicy = () => {
               </ul>
               <p style={{ marginTop: "20px" }}>
                 To exercise these rights, please email your request to
-                <a href="mailto:info@abcd.com"> info@abcd.com</a>
-                . For your protection, any request sent to ABCD will be subject to a verification procedure requiring you to provide sufficient information that allows us to reasonably identify you as the person about whom we collected personal information, including details of products/services you have previously taken with us. We may also ask for evidence that you are a California resident (e.g., utility bill). We reserve the right to deny your request if we cannot verify your identity. If we deny your request, we will inform you of the denial, provide an explanation, and state the reasons for the denial.
+                <a href="mailto:info@iq-hub.com"> info@iq-hub.com</a>
+                . For your protection, any request sent to IQ Hub will be subject to a verification procedure requiring you to provide sufficient information that allows us to reasonably identify you as the person about whom we collected personal information, including details of products/services you have previously taken with us. We may also ask for evidence that you are a California resident (e.g., utility bill). We reserve the right to deny your request if we cannot verify your identity. If we deny your request, we will inform you of the denial, provide an explanation, and state the reasons for the denial.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
-                You also have the right to direct ABCD to not sell your information. To exercise this right to opt-out of the sale of personal information, please email
-                <a href="mailto:info@abcd.com"> info@abcd.com</a>
+                You also have the right to direct IQ Hub to not sell your information. To exercise this right to opt-out of the sale of personal information, please email
+                <a href="mailto:info@iq-hub.com"> info@iq-hub.com</a>
                 .
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
-                ABCD shall not discriminate against you for exercising any of your above rights. Please note that we will continue to communicate with you directly and send you information about your product/service and promotional materials that may be relevant to you. You may designate an authorized agent to make a request to exercise your rights on your behalf. Your authorized agent must be able to provide proof that you have authorized them to act on your behalf. For your protection, we reserve the right to deny any request from an agent who does not submit proof of authorization.
+                IQ Hub shall not discriminate against you for exercising any of your above rights. Please note that we will continue to communicate with you directly and send you information about your product/service and promotional materials that may be relevant to you. You may designate an authorized agent to make a request to exercise your rights on your behalf. Your authorized agent must be able to provide proof that you have authorized them to act on your behalf. For your protection, we reserve the right to deny any request from an agent who does not submit proof of authorization.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
                 We endeavor to respond to a verifiable consumer request within ninty (90) days of its receipt. We do not charge a fee to process or respond to your verifiable consumer request unless it is excessive, repetitive, or manifestly unfounded. If we determine that the request warrants a fee, we will explain why and provide a cost estimate before completing your request.
               </p>
@@ -276,7 +276,7 @@ const PrivacyPolicy = () => {
               <h5>17. Contact Information</h5>
               <p>
                 For privacy-related questions or concerns, contact our Group Data Protection Officer at
-                <a href="mailto:info@abcd.com"> info@abcd.com</a>
+                <a href="mailto:info@iq-hub.com"> info@iq-hub.com</a>
                 .
               </p>
             </div>
@@ -287,9 +287,9 @@ const PrivacyPolicy = () => {
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
                 Thank you for entrusting us with your personal information. Your privacy is important to us, and we are committed to protecting it.
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
-                <i>Privacy Officer at ABCD Company, State-Country-City.</i>
+                <i>Privacy Officer at IQ International Pte. Ltd, 8 Marina View, #43-01 Asia Square Tower 1, Singapore, 018960.</i>
                 <div className="PrivacyPolicy_divider__7q4hL"></div>
-                <i>This Privacy Policy was last updated on 01/01/2026</i>
+                <i>This Privacy Policy was last updated on 01/01/2024</i>
               </p>
             </div>
           </div>
