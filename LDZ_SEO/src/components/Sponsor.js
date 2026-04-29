@@ -1083,7 +1083,7 @@ const Sponsors = () => {
                       <p>
                         <img src={emailIcon} alt="emil icon"></img>
                         <a
-                          href={`mailto:${item?.companyPersonEmail}?subject=Desalination &amp; Resource Recovery 2025`}
+                          href={`mailto:${item?.companyPersonEmail}?subject=Lithium &amp; Downstream Summit 2026`}
                         >
                           {" "}
                           {item?.companyPersonEmail}
