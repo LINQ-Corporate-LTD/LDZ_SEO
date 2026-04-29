@@ -35,6 +35,7 @@ const WhoShouldAttend = () => {
   const [industriesList, setIndustriesList] = useState([]);
   const [open, setOpen] = useState(false);
   const [calendarEmail, setCalendarEmail] = useState("");
+  const [addToCalendarSuccessMessage, setAddToCalendarSuccessMessage] = useState("");
 
   useEffect(() => {
     callWhoShouldAttendDataApi();
@@ -433,6 +434,10 @@ const WhoShouldAttend = () => {
                           e.preventDefault();
 
                           try {
+                            setAddToCalendarSuccessMessage(<p style={{ color: 'green' }}>Thank You for Subscribing</p>)
+                            setTimeout(() => {
+                              setAddToCalendarSuccessMessage("");
+                            }, 5000);
                             await fetch(
                               "https://linq-staging-site.com/admin1/addcalendersubscriber",
                               {
@@ -468,6 +473,7 @@ const WhoShouldAttend = () => {
                           placeholder="Submit"
                           style={{ backgroundColor: "var(--secondary-color)" }}
                         ></input>
+                        {addToCalendarSuccessMessage}
                       </form>
                     </div>
                   </Popup>
