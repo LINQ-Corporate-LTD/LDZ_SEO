@@ -431,11 +431,13 @@ const AddSponsorDelegateForm = () => {
   const handlePaymentClick = async () => {
     const prices = calculatePrices();
     if (!prices.finalTotal || parseFloat(prices.finalTotal) <= 0) {
-      toast.error("Invalid payment amount.");
+      console.log("Invalid payment amount.");
       return;
     }
     if (!delegates || delegates.length === 0) {
-      toast.error("No delegates found. Please go back and add delegate information.");
+      console.log(
+        "No delegates found. Please go back and add delegate information.",
+      );
       return;
     }
 
@@ -516,11 +518,11 @@ const AddSponsorDelegateForm = () => {
       if (paymentFormRef.current) {
         await paymentFormRef.current.submitPayment();
       } else {
-        toast.error("Payment form is not ready. Please try again.");
+        console.log("Payment form is not ready. Please try again.");
       }
     } catch (error) {
       console.error("❌ Error in payment process:", error);
-      toast.error("An error occurred during payment. Please try again.");
+      // toast.error("An error occurred during payment. Please try again.");
     }
   };
 
@@ -675,15 +677,16 @@ const AddSponsorDelegateForm = () => {
         .then(async (data) => {
           if (data.status) {
             await sendStep3Email();
-            toast.success("Payment completed successfully!");
+            // toast.success("Payment completed successfully!");
             navigate("/thank-you", { state: { authorized: true } });
           } else {
-            toast.error(data?.message);
+            // toast.error(data?.message);
+            console.log(data?.message)
           }
         })
         .catch((error) => {
           console.error("error: ", error);
-          toast.error("There was an error saving booking.");
+          // toast.error("There was an error saving booking.");
         });
     } catch (err) {
       console.error("Error saving booking:", err);
@@ -692,7 +695,7 @@ const AddSponsorDelegateForm = () => {
 
   const handlePaymentError = (error) => {
     console.error("Payment failed:", error);
-    toast.error(`Payment failed: ${error}`);
+    // toast.error(`Payment failed: ${error}`);
   };
 
   const callSponsorAddOnsApi = () => {
@@ -787,7 +790,7 @@ const AddSponsorDelegateForm = () => {
         }
       })
       .catch(() => {
-        toast.error("There was an error, Please try again later.");
+        console.log("There was an error, Please try again later.");
       });
   };
 
@@ -1298,6 +1301,9 @@ const AddSponsorDelegateForm = () => {
                             "& .MuiInput-underline:after": {
                               borderBottomColor: "#9d9d9d",
                             },
+                            "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                           }}
                           id="companyName"
                           value={companyData.companyName}
@@ -1363,6 +1369,9 @@ const AddSponsorDelegateForm = () => {
                             "& .MuiInput-underline:after": {
                               borderBottomColor: "#9d9d9d",
                             },
+                            "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                           }}
                           id="address"
                           value={companyData.address}
@@ -1408,6 +1417,9 @@ const AddSponsorDelegateForm = () => {
                                     fontWeight: 600,
                                     color: "#5e5e5e !important",
                                   },
+                                  "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                                   "& .MuiInput-underline:after": {
                                     borderBottomColor: "#9d9d9d",
                                   },
@@ -1464,6 +1476,9 @@ const AddSponsorDelegateForm = () => {
                               "& .MuiInput-underline:after": {
                                 borderBottomColor: "#9d9d9d",
                               },
+                              "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                             }}
                             id="city"
                             value={companyData.city}
@@ -1538,6 +1553,9 @@ const AddSponsorDelegateForm = () => {
                             "& .MuiInput-underline:after": {
                               borderBottomColor: "#9d9d9d",
                             },
+                            "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                           }}
                           id="postalCode"
                           value={companyData.postalCode}
@@ -1605,6 +1623,9 @@ const AddSponsorDelegateForm = () => {
                                       "& .MuiInput-underline:after": {
                                         borderBottomColor: "#9d9d9d",
                                       },
+                                      "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                                     }}
                                     value={delegate.firstName}
                                     onChange={(e) =>
@@ -1650,6 +1671,9 @@ const AddSponsorDelegateForm = () => {
                                       "& .MuiInput-underline:after": {
                                         borderBottomColor: "#9d9d9d",
                                       },
+                                      "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                                     }}
                                     value={delegate.lastName}
                                     onChange={(e) =>
@@ -1714,6 +1738,9 @@ const AddSponsorDelegateForm = () => {
                                       "& .MuiInput-underline:after": {
                                         borderBottomColor: "#9d9d9d",
                                       },
+                                      "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                                     }}
                                     value={delegate.mobile}
                                     onChange={(value, info) => {
@@ -1814,6 +1841,9 @@ const AddSponsorDelegateForm = () => {
                                     "& .MuiInput-underline:after": {
                                       borderBottomColor: "#9d9d9d",
                                     },
+                                    "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                                   }}
                                   value={delegate.position}
                                   onChange={(e) =>
@@ -1857,6 +1887,9 @@ const AddSponsorDelegateForm = () => {
                                     "& .MuiInput-underline:after": {
                                       borderBottomColor: "#9d9d9d",
                                     },
+                                    "& .MuiInputLabel-root.Mui-error": {
+                            color: "#d32f2f !important",
+                          },
                                   }}
                                   value={delegate.email}
                                   onChange={(e) =>
@@ -1899,7 +1932,7 @@ const AddSponsorDelegateForm = () => {
                       className="SponsorFormV2_delBtn__tsq7H"
                       onClick={addDelegate}
                     >
-                      <img src={plusIcon} alt="plusIcon"></img>
+                      <img src={plusIcon?.default || plusIcon} alt="plusIcon" />
                       Add Delegate
                     </Button>
                   </div>

@@ -29,13 +29,13 @@ import "react-toastify/dist/ReactToastify.css";
 import TestimonialCarousel from "./TestimonialCarousel";
 import { Helmet } from "react-helmet-async";
 import { useApiData } from "../common/ApiContext";
-import leftArrowIcon from '../assets/WebCommonImages/icon-arrow-left.png'
-import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
-import emailIcon from '../assets/WebCommonImages/msg.png'
-import phoneIcon from '../assets/WebCommonImages/phone-call.png'
-import tickImg from '../assets/WebCommonImages/tick.png'
-import arrowUp from '../assets/WebCommonImages/accordion-arrow-up-white.png'
-import arrowDown from '../assets/WebCommonImages/accordion-arrow-down-white.png'
+import leftArrowIcon from "../assets/WebCommonImages/icon-arrow-left.png";
+import rightArrowIcon from "../assets/WebCommonImages/icon-arrow-right.png";
+import emailIcon from "../assets/WebCommonImages/msg.png";
+import phoneIcon from "../assets/WebCommonImages/phone-call.png";
+import tickImg from "../assets/WebCommonImages/tick.png";
+import arrowUp from "../assets/WebCommonImages/accordion-arrow-up-white.png";
+import arrowDown from "../assets/WebCommonImages/accordion-arrow-down-white.png";
 import { usePageSeo } from "../common/usePageSeo";
 // const leftArrowIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
@@ -90,7 +90,10 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/homepagecompanieslogo`, requestOptions)
+    fetch(
+      `https://linq-staging-site.com/admin1/homepagecompanieslogo`,
+      requestOptions,
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -191,7 +194,7 @@ const ExhibitorPackages = () => {
           return `<a href="${url}" target="_blank" rel="noopener noreferrer">`;
         }
         return match;
-      }
+      },
     );
 
     return cleaned;
@@ -201,7 +204,10 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/mediapagehelpers`, requestOptions)
+    fetch(
+      `https://linq-staging-site.com/admin1/mediapagehelpers`,
+      requestOptions,
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -228,7 +234,10 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/sponsorpackages`, requestOptions)
+    fetch(
+      `https://linq-staging-site.com/admin1/sponsorpackages`,
+      requestOptions,
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -255,7 +264,10 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/getsponsorpagedata`, requestOptions)
+    fetch(
+      `https://linq-staging-site.com/admin1/getsponsorpagedata`,
+      requestOptions,
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -281,7 +293,7 @@ const ExhibitorPackages = () => {
   useEffect(() => {
     if (sponsorPageData?.length > 0) {
       setParaDes(
-        sponsorPageData[0]?.introParaDescription?.replace(/^"(.*)"$/, "$1")
+        sponsorPageData[0]?.introParaDescription?.replace(/^"(.*)"$/, "$1"),
       );
     }
     // eslint-disable-next-line
@@ -494,7 +506,7 @@ const ExhibitorPackages = () => {
   const row3Image = testimonialImage[row3Index];
 
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
+    typeof window !== "undefined" ? window.innerWidth : 1200,
   );
 
   const {
@@ -503,8 +515,8 @@ const ExhibitorPackages = () => {
     eventGeneralSettings,
     themeSettings,
   } = useApiData();
-  console.log('exeventDetails: ', eventDetails);
-  console.log('exeventGeneralSettings: ', eventGeneralSettings);
+  console.log("exeventDetails: ", eventDetails);
+  console.log("exeventGeneralSettings: ", eventGeneralSettings);
 
   useEffect(() => {
     const handleResize = () => {
@@ -548,7 +560,9 @@ const ExhibitorPackages = () => {
     if (position === "Bottom-Left") {
       return (
         <>
-          <sup style={{ verticalAlign: "sub", marginTop: "18px" }}>{symbol}</sup>
+          <sup style={{ verticalAlign: "sub", marginTop: "18px" }}>
+            {symbol}
+          </sup>
           {price}
         </>
       );
@@ -558,7 +572,9 @@ const ExhibitorPackages = () => {
       return (
         <>
           {price}
-          <sup style={{ verticalAlign: "sub", marginTop: "18px" }}>{symbol}</sup>
+          <sup style={{ verticalAlign: "sub", marginTop: "18px" }}>
+            {symbol}
+          </sup>
         </>
       );
     }
@@ -590,7 +606,10 @@ const ExhibitorPackages = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://linq-staging-site.com/sponsor-packages" />
+        <link
+          rel="canonical"
+          href="https://linq-staging-site.com/sponsor-packages"
+        />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>
@@ -606,9 +625,7 @@ const ExhibitorPackages = () => {
                   }}
                 ></div>
                 <div className="DetailsContainer_textContainer__D8Ukb">
-                  <h1>
-                    Exhibit your services at {eventDetails?.eventName}
-                  </h1>
+                  <h1>Exhibit your services at {eventDetails?.eventName}</h1>
                   <div className="DetailsContainer_innerContent__6NQGR">
                     <div>
                       <p
@@ -622,9 +639,13 @@ const ExhibitorPackages = () => {
                 </div>
               </div>
             </div>
-            <div className="SponsorLanding_packagesCotainer__QBljc" ref={exhibitorPackageSectionRef} style={{
-              transition: 'margin-top 0.3s ease'
-            }}>
+            <div
+              className="SponsorLanding_packagesCotainer__QBljc"
+              ref={exhibitorPackageSectionRef}
+              style={{
+                transition: "margin-top 0.3s ease",
+              }}
+            >
               <div>
                 <h2>exhibitor packages</h2>
                 <p>
@@ -646,36 +667,48 @@ const ExhibitorPackages = () => {
                           <h2>
                             {/* <sup>USD</sup>
                             {sponsorPackageList[0]?.sponsorPackagePrice} */}
-                            {renderPrice(sponsorPackageList[0]?.sponsorPackagePrice)}
+                            {renderPrice(
+                              sponsorPackageList[0]?.sponsorPackagePrice,
+                            )}
                           </h2>
                           <h3>
                             {/* <sup>USD</sup>
                             {sponsorPackageList[0]?.sponsorPackageCuttingPrice} */}
-                            {renderPrice(sponsorPackageList[0]?.sponsorPackageCuttingPrice)}
+                            {renderPrice(
+                              sponsorPackageList[0]?.sponsorPackageCuttingPrice,
+                            )}
                           </h3>
                         </th>
                         <th>
                           <h2>
                             {/* <sup>USD</sup>
                             {sponsorPackageList[1]?.sponsorPackagePrice} */}
-                            {renderPrice(sponsorPackageList[1]?.sponsorPackagePrice)}
+                            {renderPrice(
+                              sponsorPackageList[1]?.sponsorPackagePrice,
+                            )}
                           </h2>
                           <h3>
                             {/* <sup>USD</sup>
                             {sponsorPackageList[1]?.sponsorPackageCuttingPrice} */}
-                            {renderPrice(sponsorPackageList[1]?.sponsorPackageCuttingPrice)}
+                            {renderPrice(
+                              sponsorPackageList[1]?.sponsorPackageCuttingPrice,
+                            )}
                           </h3>
                         </th>
                         <th>
                           <h2>
                             {/* <sup>USD</sup>
                             {sponsorPackageList[2]?.sponsorPackagePrice} */}
-                            {renderPrice(sponsorPackageList[2]?.sponsorPackagePrice)}
+                            {renderPrice(
+                              sponsorPackageList[2]?.sponsorPackagePrice,
+                            )}
                           </h2>
                           <h3>
                             {/* <sup>USD</sup>
                             {sponsorPackageList[2]?.sponsorPackageCuttingPrice} */}
-                            {renderPrice(sponsorPackageList[2]?.sponsorPackageCuttingPrice)}
+                            {renderPrice(
+                              sponsorPackageList[2]?.sponsorPackageCuttingPrice,
+                            )}
                           </h3>
                         </th>
                       </tr>
@@ -699,7 +732,10 @@ const ExhibitorPackages = () => {
                         <td>
                           <span>
                             Full access to all conference activities
-                            <i>Including drinks reception, post-event presentations viewer</i>
+                            <i>
+                              Including drinks reception, post-event
+                              presentations viewer
+                            </i>
                           </span>
                         </td>
                         <td>
@@ -866,7 +902,8 @@ const ExhibitorPackages = () => {
                       <tr>
                         <td>
                           <span>
-                            Conference Chair: Opportunity to Chair the Conference
+                            Conference Chair: Opportunity to Chair the
+                            Conference
                             <i>(full scripts will be provided to assist)</i>
                           </span>
                         </td>
@@ -888,7 +925,9 @@ const ExhibitorPackages = () => {
                       </tr>
                       <tr>
                         <td>
-                          <span>Press Release Email Blast Announcement as Sponsor</span>
+                          <span>
+                            Press Release Email Blast Announcement as Sponsor
+                          </span>
                         </td>
                         <td>
                           <div>
@@ -910,33 +949,59 @@ const ExhibitorPackages = () => {
                       <tr>
                         <td></td>
                         <td>
-                          <button onClick={() =>
-                            navigate("/sponsor-booking", {
-                              state: { selectedPackage: sponsorPackageList[0] },
-                            })
-                          }>Book your booth</button>
+                          <button
+                            onClick={() =>
+                              navigate("/sponsor-booking", {
+                                state: {
+                                  selectedPackage: sponsorPackageList[0],
+                                },
+                              })
+                            }
+                          >
+                            Book your booth
+                          </button>
                         </td>
                         <td>
-                          <button onClick={() =>
-                            navigate("/sponsor-booking", {
-                              state: { selectedPackage: sponsorPackageList[1] },
-                            })
-                          }>Book your booth</button>
+                          <button
+                            onClick={() =>
+                              navigate("/sponsor-booking", {
+                                state: {
+                                  selectedPackage: sponsorPackageList[1],
+                                },
+                              })
+                            }
+                          >
+                            Book your booth
+                          </button>
                         </td>
                         <td>
-                          <button onClick={() =>
-                            navigate("/sponsor-booking", {
-                              state: { selectedPackage: sponsorPackageList[2] },
-                            })
-                          }>Book your booth</button>
+                          <button
+                            onClick={() =>
+                              navigate("/sponsor-booking", {
+                                state: {
+                                  selectedPackage: sponsorPackageList[2],
+                                },
+                              })
+                            }
+                          >
+                            Book your booth
+                          </button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <div className="SponsorLanding_packageCardContainer__m+YQm">
-                  <div className="SponsorLanding_card__HxPS8" onClick={silverToggleBox}>
-                    <h4 style={{ borderBottomLeftRadius: silverActiveTab ? "0px" : "", borderBottomRightRadius: silverActiveTab ? "0px" : "" }}>
+                  <div
+                    className="SponsorLanding_card__HxPS8"
+                    onClick={silverToggleBox}
+                  >
+                    <h4
+                      style={{
+                        borderBottomLeftRadius: silverActiveTab ? "0px" : "",
+                        borderBottomRightRadius: silverActiveTab ? "0px" : "",
+                      }}
+                    >
                       {sponsorPackageList[0]?.sponsorPackageType}
                       <img src={silverActiveTab ? arrowUp : arrowDown}></img>
                     </h4>
@@ -960,21 +1025,28 @@ const ExhibitorPackages = () => {
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Full access to all conference activities
-                            <span>Including drinks reception, post-event presentations viewer</span>
+                            <span>
+                              Including drinks reception, post-event
+                              presentations viewer
+                            </span>
                           </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Your Logo on Conference Website
-                            <span>which attracts thousands of unique visitors</span>
+                            <span>
+                              which attracts thousands of unique visitors
+                            </span>
                           </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Exhibit Space
-                            <span>Includes draped table (approx. 6ft), 2 chairs</span>
+                            <span>
+                              Includes draped table (approx. 6ft), 2 chairs
+                            </span>
                           </p>
                           <span>{sponsorPackageList[0]?.exhibitSpace}</span>
                         </div>
@@ -1009,27 +1081,47 @@ const ExhibitorPackages = () => {
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
-                            Conference Chair: Opportunity to Chair the Conference
-                            <span>(full scripts will be provided to assist)</span>
+                            Conference Chair: Opportunity to Chair the
+                            Conference
+                            <span>
+                              (full scripts will be provided to assist)
+                            </span>
                           </p>
                           <span>–</span>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
-                          <p>Press Release Email Blast Announcement as Sponsor</p>
+                          <p>
+                            Press Release Email Blast Announcement as Sponsor
+                          </p>
                           <span>–</span>
                         </div>
                         <div className="SponsorLanding_btn__QNo2m">
-                          <button onClick={() =>
-                            navigate("/sponsor-booking", {
-                              state: { selectedPackage: sponsorPackageList[0] },
-                            })
-                          }>book your booth</button>
+                          <button
+                            onClick={() =>
+                              navigate("/sponsor-booking", {
+                                state: {
+                                  selectedPackage: sponsorPackageList[0],
+                                },
+                              })
+                            }
+                          >
+                            book your booth
+                          </button>
                         </div>
                       </div>
                     )}
                   </div>
-                  <div className="SponsorLanding_card__HxPS8" onClick={goldToggleBox}>
-                    <h4 style={{ backgroundColor: "#f5ae32", borderBottomLeftRadius: silverActiveTab ? "0px" : "", borderBottomRightRadius: silverActiveTab ? "0px" : "" }}>
+                  <div
+                    className="SponsorLanding_card__HxPS8"
+                    onClick={goldToggleBox}
+                  >
+                    <h4
+                      style={{
+                        backgroundColor: "#f5ae32",
+                        borderBottomLeftRadius: silverActiveTab ? "0px" : "",
+                        borderBottomRightRadius: silverActiveTab ? "0px" : "",
+                      }}
+                    >
                       {sponsorPackageList[1]?.sponsorPackageType}
                       <img src={goldActiveTab ? arrowUp : arrowDown}></img>
                     </h4>
@@ -1053,21 +1145,28 @@ const ExhibitorPackages = () => {
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Full access to all conference activities
-                            <span>Including drinks reception, post-event presentations viewer</span>
+                            <span>
+                              Including drinks reception, post-event
+                              presentations viewer
+                            </span>
                           </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Your Logo on Conference Website
-                            <span>which attracts thousands of unique visitors</span>
+                            <span>
+                              which attracts thousands of unique visitors
+                            </span>
                           </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Exhibit Space
-                            <span>Includes draped table (approx. 6ft), 2 chairs</span>
+                            <span>
+                              Includes draped table (approx. 6ft), 2 chairs
+                            </span>
                           </p>
                           <span>{sponsorPackageList[1]?.exhibitSpace}</span>
                         </div>
@@ -1102,27 +1201,47 @@ const ExhibitorPackages = () => {
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
-                            Conference Chair: Opportunity to Chair the Conference
-                            <span>(full scripts will be provided to assist)</span>
+                            Conference Chair: Opportunity to Chair the
+                            Conference
+                            <span>
+                              (full scripts will be provided to assist)
+                            </span>
                           </p>
                           <span>–</span>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
-                          <p>Press Release Email Blast Announcement as Sponsor</p>
+                          <p>
+                            Press Release Email Blast Announcement as Sponsor
+                          </p>
                           <span>–</span>
                         </div>
                         <div className="SponsorLanding_btn__QNo2m">
-                          <button onClick={() =>
-                            navigate("/sponsor-booking", {
-                              state: { selectedPackage: sponsorPackageList[1] },
-                            })
-                          }>book your booth</button>
+                          <button
+                            onClick={() =>
+                              navigate("/sponsor-booking", {
+                                state: {
+                                  selectedPackage: sponsorPackageList[1],
+                                },
+                              })
+                            }
+                          >
+                            book your booth
+                          </button>
                         </div>
                       </div>
                     )}
                   </div>
-                  <div className="SponsorLanding_card__HxPS8" onClick={platinumToggleBox}>
-                    <h4 style={{ backgroundColor: "#4e4e4e", borderBottomLeftRadius: silverActiveTab ? "0px" : "", borderBottomRightRadius: silverActiveTab ? "0px" : "" }}>
+                  <div
+                    className="SponsorLanding_card__HxPS8"
+                    onClick={platinumToggleBox}
+                  >
+                    <h4
+                      style={{
+                        backgroundColor: "#4e4e4e",
+                        borderBottomLeftRadius: silverActiveTab ? "0px" : "",
+                        borderBottomRightRadius: silverActiveTab ? "0px" : "",
+                      }}
+                    >
                       {sponsorPackageList[2]?.sponsorPackageType}
                       <img src={platinumActiveTab ? arrowUp : arrowDown}></img>
                     </h4>
@@ -1146,21 +1265,28 @@ const ExhibitorPackages = () => {
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Full access to all conference activities
-                            <span>Including drinks reception, post-event presentations viewer</span>
+                            <span>
+                              Including drinks reception, post-event
+                              presentations viewer
+                            </span>
                           </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Your Logo on Conference Website
-                            <span>which attracts thousands of unique visitors</span>
+                            <span>
+                              which attracts thousands of unique visitors
+                            </span>
                           </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
                             Exhibit Space
-                            <span>Includes draped table (approx. 6ft), 2 chairs</span>
+                            <span>
+                              Includes draped table (approx. 6ft), 2 chairs
+                            </span>
                           </p>
                           <span>{sponsorPackageList[2]?.exhibitSpace}</span>
                         </div>
@@ -1195,21 +1321,32 @@ const ExhibitorPackages = () => {
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
                           <p>
-                            Conference Chair: Opportunity to Chair the Conference
-                            <span>(full scripts will be provided to assist)</span>
+                            Conference Chair: Opportunity to Chair the
+                            Conference
+                            <span>
+                              (full scripts will be provided to assist)
+                            </span>
                           </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_detail__xSebI">
-                          <p>Press Release Email Blast Announcement as Sponsor</p>
+                          <p>
+                            Press Release Email Blast Announcement as Sponsor
+                          </p>
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_btn__QNo2m">
-                          <button onClick={() =>
-                            navigate("/sponsor-booking", {
-                              state: { selectedPackage: sponsorPackageList[2] },
-                            })
-                          }>book your booth</button>
+                          <button
+                            onClick={() =>
+                              navigate("/sponsor-booking", {
+                                state: {
+                                  selectedPackage: sponsorPackageList[2],
+                                },
+                              })
+                            }
+                          >
+                            book your booth
+                          </button>
                         </div>
                       </div>
                     )}
@@ -1279,33 +1416,46 @@ const ExhibitorPackages = () => {
                 exhibitors, attendees, and partners.
               </p>
               <div>
-                {sponsorCardsList.map((pkg, index) => (
-                  <div className="SponsorshipCard_container__ORwTn">
-                    <div className="SponsorshipCard_col__PW1v-">
-                      <h3 className="SponsorshipCard_title__wzsXt">
-                        {pkg.title}
-                      </h3>
+                {sponsorCardsList.map((pkg, index) => {
+                  const subject = encodeURIComponent(
+                    `I'm interested in Sponsorship – ${pkg.title} – LDZ`,
+                  );
+
+                  return (
+                    <div
+                      className="SponsorshipCard_container__ORwTn"
+                      key={index}
+                    >
+                      <div className="SponsorshipCard_col__PW1v-">
+                        <h3 className="SponsorshipCard_title__wzsXt">
+                          {pkg.title}
+                        </h3>
+                      </div>
+
+                      <div className="SponsorshipCard_col__PW1v-">
+                        <p className="SponsorshipCard_price__T0xxu">
+                          {eventGeneralSettings?.currencySymbol || ""}{" "}
+                          {pkg.price}
+                        </p>
+                      </div>
+
+                      <div className="SponsorshipCard_col__PW1v-">
+                        <p className="SponsorshipCard_description__0NABR">
+                          {pkg.description}
+                        </p>
+                      </div>
+
+                      <div className="SponsorshipCard_button-wrapper__68ouN">
+                        <a
+                          href={`mailto:vince.rojas@iq-hub.com?subject=${subject}`}
+                          className="SponsorshipCard_button__3kvwB"
+                        >
+                          I'M INTERESTED
+                        </a>
+                      </div>
                     </div>
-                    <div className="SponsorshipCard_col__PW1v-">
-                      <p className="SponsorshipCard_price__T0xxu">
-                        {eventGeneralSettings?.currencySymbol || ""} {pkg.price}
-                      </p>
-                    </div>
-                    <div className="SponsorshipCard_col__PW1v-">
-                      <p className="SponsorshipCard_description__0NABR">
-                        {pkg.description}
-                      </p>
-                    </div>
-                    <div className="SponsorshipCard_button-wrapper__68ouN">
-                      <a
-                        href="mailto:person1@iq-hub.com?subject=I'm%20interested%20in%20Sponsorship%20%E2%80%93%20NAME%20BADGE%20SPONSOR%20%E2%80%93%20LDZ"
-                        class="SponsorshipCard_button__3kvwB"
-                      >
-                        I'M INTERESTED
-                      </a>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
             <div>
@@ -1392,7 +1542,7 @@ const ExhibitorPackages = () => {
                     <p>
                       <img src={emailIcon} alt="emil icon"></img>
                       <a
-                        href={`mailto:${item?.companyPersonEmail}?subject=Desalination &amp; Resource Recovery 2025`}
+                        href={`mailto:${item?.companyPersonEmail}?subject=Lithium &amp; Downstream Summit 2026`}
                         className="MediaScreen_email__vpDbe"
                       >
                         {item?.companyPersonEmail}
