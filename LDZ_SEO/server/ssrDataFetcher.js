@@ -139,7 +139,7 @@ function toSlug(str = "") {
 }
 
 function toTrendSlug(str = "") {
-  return str.replace(/\s+/g, "-");
+  return str.toLowerCase().replace(/\s+/g, "-");
 }
 
 /* -------- individual fetchers -------- */
@@ -444,8 +444,8 @@ async function fetchSSRData(pathname) {
   }
 
   // ---- TREND DESCRIPTION (dynamic) ----
-  if (pathname.startsWith("/trenddescription/")) {
-    const slug = pathname.replace("/trenddescription/", "");
+  if (pathname.startsWith("/trend/")) {
+    const slug = pathname.replace("/trend/", "");
     const [trends, sponsors, speakers, news] = await Promise.all([
       fetchTrends(),
       fetchSponsors(),

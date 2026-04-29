@@ -12,8 +12,8 @@ const IndustryTrend = () => {
   const indutryTrendList = ssrTrends || [];
 
   const handleClick = (trend) => {
-    const trendTitle = trend?.trendTitle.replace(/\s+/g, "-");
-    navigate(`/trenddescription/${trendTitle}`, { state: trend });
+    const trendTitle = trend?.trendTitle.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/trend/${trendTitle}`, { state: trend });
   };
 
   return (
@@ -28,7 +28,7 @@ const IndustryTrend = () => {
                   // <p key={index} onClick={() => handleClick(trend)}>
                   //   {trend?.trendTitle}
                   // </p>
-                  <a href={`/trenddescription/${trend?.trendTitle.replace(/\s+/g, "-")}`}>{trend?.trendTitle}</a>
+                  <a href={`/trend/${trend?.trendTitle.replace(/\s+/g, "-").toLowerCase()}`}>{trend?.trendTitle}</a>
                 ) : null
               )}
             </div>
@@ -38,7 +38,7 @@ const IndustryTrend = () => {
                   // <p key={index} onClick={() => handleClick(trend)}>
                   //   {trend?.trendTitle}
                   // </p>
-                  <a href={`/trenddescription/${trend?.trendTitle.replace(/\s+/g, "-")}`}>{trend?.trendTitle}</a>
+                  <a href={`/trend/${trend?.trendTitle.replace(/\s+/g, "-").toLowerCase()}`}>{trend?.trendTitle}</a>
                 ) : null
               )}
             </div>

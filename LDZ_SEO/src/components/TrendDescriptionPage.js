@@ -695,7 +695,7 @@ const TrendDescriptionPage = () => {
 
   // Resolve which trend is active from slug
   const matchedTrend = trendList.find(
-    (t) => t.trendTitle.replace(/\s+/g, "-") === slug,
+    (t) => t.trendTitle.replace(/\s+/g, "-").toLowerCase() === slug,
   );
 
   const [currentTrendId, setCurrentTrendId] = useState(
@@ -779,7 +779,7 @@ const TrendDescriptionPage = () => {
   // Everything else (trendList, sponsors) is already in SSR data
   useEffect(() => {
     const resolved = trendList.find(
-      (t) => t.trendTitle.replace(/\s+/g, "-") === slug,
+      (t) => t.trendTitle.replace(/\s+/g, "-").toLowerCase() === slug,
     );
     if (!resolved) {
       setValidSlug(false);
@@ -890,8 +890,8 @@ const TrendDescriptionPage = () => {
   }, [ssrSponsors]);
 
   const handleTrendListClick = (trend) => {
-    const trendSlug = trend.trendTitle.replace(/\s+/g, "-");
-    navigate(`/trenddescription/${trendSlug}`, {
+    const trendSlug = trend.trendTitle.replace(/\s+/g, "-").toLowerCase();
+    navigate(`/trend/${trendSlug}`, {
       state: trend,
       replace: false,
     });
@@ -929,7 +929,7 @@ const TrendDescriptionPage = () => {
     activeTrend?.trendTitle ||
     "Bitcoin Conference 2026";
   const seoDesc = activeTrend?.trendMetaDescription || "";
-  const canonicalUrl = `https://www.linq-staging-site.com/trenddescription/${slug}`;
+  const canonicalUrl = `https://www.linq-staging-site.com/trend/${slug}`;
 
   return (
     <>
@@ -970,7 +970,7 @@ const TrendDescriptionPage = () => {
                 //   {tab.trendTitle}
                 // </button>
                 <a
-                  href={`/trenddescription/${tab.trendTitle.replace(/\s+/g, "-")}`}
+                  href={`/trend/${tab.trendTitle.replace(/\s+/g, "-").toLowerCase()}`}
                   key={tab.id}
                   style={{
                     backgroundColor:

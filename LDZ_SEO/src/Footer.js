@@ -517,7 +517,7 @@ const Footer = () => {
           {trends.map((t, i) => (
             <a
               key={`seotr-${i}`}
-              href={`/trenddescription/${(t.trendTitle || "").replace(/\s+/g, "-")}`}
+              href={`/trend/${(t.trendTitle || "").toLowerCase().replace(/\s+/g, "-")}`}
             >
               {t.trendTitle}
             </a>

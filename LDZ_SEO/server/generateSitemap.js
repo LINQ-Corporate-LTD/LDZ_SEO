@@ -33,7 +33,7 @@ function toSlug(str = "") {
 }
 
 function toTrendSlug(str = "") {
-    return str.replace(/\s+/g, "-");
+    return str.toLowerCase().replace(/\s+/g, "-");
 }
 
 function toSpeakerSlug(name = "") {
@@ -94,7 +94,7 @@ async function fetchTrendSlugs() {
     const d = await get("eventindustrytrends");
     const list = d?.status ? d.eventIndustryTrends : [];
     return list.map((t) => ({
-        url: `/trenddescription/${toTrendSlug(t.trendTitle)}`,
+        url: `/trend/${toTrendSlug(t.trendTitle)}`,
         changefreq: "monthly",
         priority: "0.6",
     }));
