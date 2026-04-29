@@ -789,7 +789,7 @@ const Register = () => {
     setIsSubmittingMessage(true);
 
     const finalData = new FormData();
-    setInterval(() => {
+    setTimeout(() => {
       finalData.append("userName", formData.name);
       finalData.append("userCompany", formData.company);
       finalData.append("userEmail", formData.email);
@@ -802,7 +802,7 @@ const Register = () => {
       setIsSubmittingMessage(false);
     }, 2000);
 
-    setInterval(() => {
+    setTimeout(() => {
       setIsSubmittedMessage(true);
       fetch("https://linq-staging-site.com/admin1/adduserpassrequest", {
         method: "POST",
