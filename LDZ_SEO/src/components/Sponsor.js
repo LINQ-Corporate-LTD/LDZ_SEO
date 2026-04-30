@@ -60,11 +60,11 @@ const Sponsors = () => {
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const {
-      homeVideoSettings,
-      eventDetails,
-      eventGeneralSettings,
-      themeSettings,
-    } = useApiData();
+    homeVideoSettings,
+    eventDetails,
+    eventGeneralSettings,
+    themeSettings,
+  } = useApiData();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -1075,7 +1075,8 @@ const Sponsors = () => {
               <TestimonialCarousel />
               <LogoCarousel />
               <div className="SponsorsScreen_contactContainer__c6iss">
-                <h2>Get in touch to Book Your Trade Show Booth</h2>
+                {/* <h2>Get in touch to Book Your Trade Show Booth</h2> */}
+                <h2>be visible in the room with the decision makers</h2>
                 <div>
                   {mediaPageHelpersList.map((item, index) => (
                     <div className="SponsorsScreen_contactCard__q2HNX">

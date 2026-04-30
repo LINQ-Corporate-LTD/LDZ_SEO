@@ -1004,8 +1004,8 @@
     background-color: var(--secondary-color);
     border-radius: 2px;
     color: #fff;
-    max-width: 500px;
-    padding: 46px 40px 50px;
+    max-width: 540px;
+    padding: 46px 60px 50px;
     width: calc(50% - 35px);
 }
 

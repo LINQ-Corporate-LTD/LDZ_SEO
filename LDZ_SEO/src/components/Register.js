@@ -412,7 +412,7 @@
 //                       onClick={() => {
 //                         if (card.deligatePackageStatus === "available") {
 //                           // Navigate with selected card
-//                           navigate("/adddelegate", {
+//                           navigate("/booking-form", {
 //                             state: {
 //                               selectedCard: card,
 //                               quantity: cardCounts[card.id || index] || 1,
@@ -1052,7 +1052,7 @@ const Register = () => {
                       onClick={() => {
                         if (card.deligatePackageStatus === "available") {
                           // Navigate with selected card
-                          navigate("/adddelegate", {
+                          navigate("/booking-form", {
                             state: {
                               selectedCard: card,
                               quantity: cardCounts[card.id || index] || 1,
