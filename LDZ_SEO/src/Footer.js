@@ -328,7 +328,7 @@ const Footer = () => {
               <a href="/" style={{ textDecoration: "none", color: "inherit" }}>
                 <img
                   src={navLogos?.whiteLogo}
-                  alt="Bitcoin Innovation & Market EvolutionLogo"
+                  alt="LDZ Logo"
                   height={64}
                 ></img>
               </a>
@@ -413,7 +413,7 @@ const Footer = () => {
           <div className="Footer_footerIconsContainer__CAONl">
             <a
               target="_blank"
-              href={`mailto:${email}?subject=Bitcoin Innovation & Market Evolution 2026`}
+              href={`mailto:${email}?subject=Litihium Downstream Summit 2026`}
             >
               <img
                 src={emailImage}

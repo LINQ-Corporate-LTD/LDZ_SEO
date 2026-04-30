@@ -420,7 +420,7 @@ const CompanyRegistrationForm = () => {
               TaxAmount: { taxAmount },
               Packages: selectedPackage?.deligatePackageName || "",
               Currency: "USD",
-              Eventname: "Bitcoin Innovation & Market Evolution",
+              Eventname: "Litihium Downstream Summit 2026",
               Country: formData.company.country || "",
               Delegates: formData.delegates.map((delegate) => ({
                 Email: delegate.email,

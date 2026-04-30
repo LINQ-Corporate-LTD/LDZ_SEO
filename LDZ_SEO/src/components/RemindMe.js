@@ -576,8 +576,7 @@ const RemindMeLater = () => {
               <span class="PageForm_divide__vwhn0">|</span>IQ International PTe.
               LTD
             </p>
-            <p>©2026 Bitcoin Innovation & Market
-              Evolution 2026</p>
+            <p>©2026 Litihium Downstream Summit 2026</p>
           </div>
         </div>
       </div>
