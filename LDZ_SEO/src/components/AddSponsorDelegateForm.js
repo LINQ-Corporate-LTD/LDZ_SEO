@@ -22,7 +22,7 @@ import closeBtn from "../assets/WebCommonImages/del-cross.png";
 import toggle from "../assets/WebCommonImages/toggle.png";
 import cardLabel from "../assets/WebCommonImages/card-labels.png";
 import lockIcon from "../assets/WebCommonImages/lock.png";
-
+import { usePageSeo } from "../common/usePageSeo";
 // const logo =
 //   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
 // const plusIcon =
@@ -37,12 +37,6 @@ import lockIcon from "../assets/WebCommonImages/lock.png";
 //   "https://www.desalination-resource-recovery.com/images/icons/lock.png";
 
 const countries = getNames();
-const metaSeoTitle =
-  "Sponsor Booking | Bitcoin Innovation & Market Evolution 2026";
-const metaSeoDesc =
-  "Book your sponsorship package for Bitcoin Innovation & Market Evolution 2026.";
-const metaCanonicalUrl = "https://www.linq-staging-site.com/sponsor-booking";
-
 const AddSponsorDelegateForm = () => {
   const location = useLocation();
   console.log("location: ", location);
@@ -1319,13 +1313,17 @@ const AddSponsorDelegateForm = () => {
   return (
     <>
       <Helmet>
-        <title>{metaSeoTitle}</title>
-        <meta name="debug-ssr" content="AddSponsorDelegateForm Step 1" />
-        <meta property="og:title" content={metaSeoTitle} />
-        <meta property="og:description" content={metaSeoDesc} />
-        <meta property="og:image" content={navLogos?.whiteLogo} />
-        <link rel="canonical" href={metaCanonicalUrl} />
-        <meta name="description" content={metaSeoDesc} />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDesc} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDesc} />
+        <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDesc} />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <div id="root">
         <div className="PageForm_container__NA5Wr">
