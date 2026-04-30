@@ -44,7 +44,7 @@ const TermsAndConditions = () => {
             <div className="TermsAndConditions_section__zAzp-">
               <h4>1. Scope of Agreement</h4>
               <p>
-                This legally binding Agreement ("Agreement") is hereby executed and effective between the Attendee and ABCD Company ("Organizer"), collectively referred to as the "Parties," and governs the comprehensive terms and conditions governing the provision and utilization of services, including, but not limited to, the Attendee's participation in the specific event (hereinafter referred to as the "Event") occurring on the agreed-upon date and venue. Any capitalized terms not explicitly defined herein shall be construed as per their definitions set forth during the registration process.
+                This legally binding Agreement ("Agreement") is hereby executed and effective between the Attendee and IQ International Pte. Ltd ("Organizer"), collectively referred to as the "Parties," and governs the comprehensive terms and conditions governing the provision and utilization of services, including, but not limited to, the Attendee's participation in the specific event (hereinafter referred to as the "Event") occurring on the agreed-upon date and venue. Any capitalized terms not explicitly defined herein shall be construed as per their definitions set forth during the registration process.
               </p>
             </div>
             <div className="TermsAndConditions_section__zAzp-">
@@ -163,6 +163,7 @@ const TermsAndConditions = () => {
                 c) Attendees are exclusively accountable for their accommodation, travel, and other personal expenses.
                 <div className="TermsAndConditions_divider__b7Fdc"></div>
                 d) Attendee bookings are transferable but irrevocably non-cancellable. Any substitute Attendee must be approved by the Organizer and must assent to these Terms.
+                <div className="TermsAndConditions_divider__b7Fdc"></div>
                 e)In cases where an Attendee is unable to attend due to a denied or delayed visa application, no monetary refund shall be issued. The Organizer shall, at its sole discretion, offer a credit toward a future event organised by the Organizer.
               </p>
             </div>

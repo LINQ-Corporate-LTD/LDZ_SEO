@@ -160,29 +160,11 @@ const CookiePolicy = () => {
               </i>
             </div>
             <div className="PrivacyPolicy_section__7mnwT">
-              <h4>Contact Us</h4>
               <i>
                 <p>This Privacy Policy was last updated on 01/02/2026</p>
               </i>
             </div>
             <div className="PrivacyPolicy_section__7mnwT">
-              <h5>
-                Take control of your privacy by customizing your{" "}
-                <button
-                  style={{
-                    background: "none",
-                    color: "inherit",
-                    cursor: "pointer",
-                    padding: "0px",
-                    fontSize: "16px",
-                    fontWeight: "800",
-                    border: "0px",
-                    textDecoration: "underline",
-                  }}
-                >
-                  Cookie preferences
-                </button>
-              </h5>
             </div>
           </div>
         </div>
