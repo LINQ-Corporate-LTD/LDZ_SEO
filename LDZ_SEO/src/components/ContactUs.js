@@ -46,7 +46,7 @@ const ContactUs = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const subject = encodeURIComponent(
-    "Bitcoin Innovation & Market Evolution 2026",
+    "Litihium Downstream Summit 2026",
   );
   useEffect(() => {
     const handleResize = () => {

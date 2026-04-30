@@ -281,7 +281,7 @@ const PayOnline = () => {
                     <div className="PayOnline_submit__GYabM">
                       <p>
                         Should you have any queries, please do not hesitate to contact our delegate support team at{' '}
-                        <a href="mailto:delegates@iq-hub.com?subject=Bitcoin Innovation & Market Evolution 2026">delegates@iq-hub.com</a>
+                        <a href="mailto:delegates@iq-hub.com?subject=Litihium Downstream Summit 2026">delegates@iq-hub.com</a>
                       </p>
                       <button type="button" onClick={handleInitialPayClick}>Pay Now</button>
                     </div>

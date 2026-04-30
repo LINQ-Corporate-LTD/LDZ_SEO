@@ -1,13 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  Label,
-  Input,
-} from "reactstrap";
+import { Container, Row, Col, Card, CardBody, Label, Input } from "reactstrap";
 import BreadCrumb from "../../Components/Common/BreadCrumb";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,47 +16,48 @@ const override = css`
 const BASE_URL = "https://linq-staging-site.com/admin1";
 
 const PAGES = [
-  { label: "Home",              key: "home" },
-  { label: "Speakers",          key: "speakers" },
+  { label: "Home", key: "home" },
+  { label: "Speakers", key: "speakers" },
   { label: "Featured Speakers", key: "featured-speakers" },
   { label: "Who Should Attend", key: "who-should-attend" },
-  { label: "FAQ",               key: "faq" },
-  { label: "Media Partners",    key: "media-partners" },
-  { label: "Contact Us",        key: "contact-us" },
-  { label: "Agenda",            key: "agenda" },
-  { label: "Venue",             key: "venue" },
-  { label: "Sponsors",          key: "sponsors" },
-  { label: "Booking",           key: "booking" },
-  { label: "Pay Online",        key: "pay-online" },
-  { label: "Sponsor Packages",  key: "sponsor-packages" },
-  { label: "Sponsor Booking",   key: "sponsor-booking" },
-  { label: "Attendees",         key: "attandees" },
-  { label: "Remind me Later",   key: "remind-me" },
-  { label: "Privacy Policy",    key: "privacy-policy" },
-  { label: "Terms & Conditions",key: "terms-conditions" },
-  { label: "News",              key: "news" },
+  { label: "FAQ", key: "faq" },
+  { label: "Media Partners", key: "media-partners" },
+  { label: "Contact Us", key: "contact-us" },
+  { label: "Agenda", key: "agenda" },
+  { label: "Venue", key: "venue" },
+  { label: "Sponsors", key: "sponsors" },
+  { label: "Booking", key: "booking" },
+  { label: "Booking Form", key: "booking-form" },
+  { label: "Pay Online", key: "pay-online" },
+  { label: "Sponsor Packages", key: "sponsor-packages" },
+  { label: "Sponsor Booking", key: "sponsor-booking" },
+  { label: "Attendees", key: "attandees" },
+  { label: "Remind me Later", key: "remind-me" },
+  { label: "Privacy Policy", key: "privacy-policy" },
+  { label: "Terms & Conditions", key: "terms-conditions" },
+  { label: "News", key: "news" },
   // { label: "Slide Share",       key: "slide-share" },
 ];
 
 const META_TITLE_MAX = 60;
-const META_DESC_MAX  = 160;
+const META_DESC_MAX = 160;
 
 const PageSeoSettings = () => {
-  const navigate   = useNavigate();
+  const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
-  const [activePage,     setActivePage]     = useState(PAGES[0].key);
-  const [allSeoData,     setAllSeoData]      = useState([]);
+  const [activePage, setActivePage] = useState(PAGES[0].key);
+  const [allSeoData, setAllSeoData] = useState([]);
 
-  const [metaTitle,      setMetaTitle]       = useState("");
-  const [metaDesc,       setMetaDesc]        = useState("");
-  const [ogImageUrl,     setOgImageUrl]      = useState("");
-  const [ogImagePreview, setOgImagePreview]  = useState("");
-  const [recordId,       setRecordId]        = useState(null);
+  const [metaTitle, setMetaTitle] = useState("");
+  const [metaDesc, setMetaDesc] = useState("");
+  const [ogImageUrl, setOgImageUrl] = useState("");
+  const [ogImagePreview, setOgImagePreview] = useState("");
+  const [recordId, setRecordId] = useState(null);
 
-  const [listLoading,   setListLoading]    = useState(true);
-  const [saveLoading,   setSaveLoading]    = useState(false);
-  const [uploadLoading, setUploadLoading]  = useState(false);
+  const [listLoading, setListLoading] = useState(true);
+  const [saveLoading, setSaveLoading] = useState(false);
+  const [uploadLoading, setUploadLoading] = useState(false);
 
   let color = "#405189";
 
@@ -109,10 +102,10 @@ const PageSeoSettings = () => {
   // ─── Populate form fields when active page changes ──────────────────────────
   const populateForm = (pageKey, dataList) => {
     const record = dataList.find((s) => s.pageName === pageKey);
-    setMetaTitle(record?.pageMetaTitle     || "");
+    setMetaTitle(record?.pageMetaTitle || "");
     setMetaDesc(record?.pageMetaDescription || "");
-    setOgImageUrl(record?.pageOgImage       || "");
-    setOgImagePreview(record?.pageOgImage   || "");
+    setOgImageUrl(record?.pageOgImage || "");
+    setOgImagePreview(record?.pageOgImage || "");
     setRecordId(record?.id || null);
   };
 
@@ -138,7 +131,10 @@ const PageSeoSettings = () => {
     formData.append("media", file);
 
     try {
-      const res  = await fetch(`${BASE_URL}/upload`, { method: "POST", body: formData });
+      const res = await fetch(`${BASE_URL}/upload`, {
+        method: "POST",
+        body: formData,
+      });
       const data = await res.json();
       if (checkAuth(data)) return;
 
@@ -171,20 +167,22 @@ const PageSeoSettings = () => {
       return;
     }
     if (metaDesc.trim().length > META_DESC_MAX) {
-      toast.error(`Meta Description cannot exceed ${META_DESC_MAX} characters.`);
+      toast.error(
+        `Meta Description cannot exceed ${META_DESC_MAX} characters.`,
+      );
       return;
     }
 
     setSaveLoading(true);
 
     const formData = new FormData();
-    formData.append("pageName",            activePage);
-    formData.append("pageMetaTitle",       metaTitle.trim());
+    formData.append("pageName", activePage);
+    formData.append("pageMetaTitle", metaTitle.trim());
     formData.append("pageMetaDescription", metaDesc.trim());
-    formData.append("pageOgImage",         ogImageUrl);
+    formData.append("pageOgImage", ogImageUrl);
 
-    const isEdit  = !!recordId;
-    const method  = isEdit ? "PATCH" : "POST";
+    const isEdit = !!recordId;
+    const method = isEdit ? "PATCH" : "POST";
     const endpoint = isEdit ? "editpageseo" : "addpageseo";
 
     if (isEdit) formData.append("id", recordId);
@@ -224,19 +222,31 @@ const PageSeoSettings = () => {
 
   // ─── Derived ─────────────────────────────────────────────────────────────────
   const activePageLabel = PAGES.find((p) => p.key === activePage)?.label || "";
-  const titleCount      = metaTitle.length;
-  const descCount       = metaDesc.length;
-  const titleOver       = titleCount > META_TITLE_MAX;
-  const descOver        = descCount  > META_DESC_MAX;
+  const titleCount = metaTitle.length;
+  const descCount = metaDesc.length;
+  const titleOver = titleCount > META_TITLE_MAX;
+  const descOver = descCount > META_DESC_MAX;
 
   return (
     <div className="page-content">
       <Container fluid>
-        <BreadCrumb title="Page SEO Settings" pageTitle="Dashboards" pageLink="/dashboard" />
+        <BreadCrumb
+          title="Page SEO Settings"
+          pageTitle="Dashboards"
+          pageLink="/dashboard"
+        />
 
         {listLoading ? (
-          <div className="d-flex justify-content-center align-items-center" style={{ minHeight: 200 }}>
-            <ClipLoader color={color} loading={listLoading} css={override} size={40} />
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ minHeight: 200 }}
+          >
+            <ClipLoader
+              color={color}
+              loading={listLoading}
+              css={override}
+              size={40}
+            />
           </div>
         ) : (
           <>
@@ -244,9 +254,9 @@ const PageSeoSettings = () => {
             <div className="page-seo-tabs-wrapper mb-3">
               <div className="page-seo-tabs d-flex flex-wrap gap-2">
                 {PAGES.map((page) => {
-                  const isActive   = activePage === page.key;
+                  const isActive = activePage === page.key;
                   const hasSavedData = allSeoData.some(
-                    (s) => s.pageName === page.key && s.pageMetaTitle
+                    (s) => s.pageName === page.key && s.pageMetaTitle,
                   );
                   return (
                     <button
@@ -256,13 +266,16 @@ const PageSeoSettings = () => {
                         isActive
                           ? "btn-primary"
                           : hasSavedData
-                          ? "btn-soft-success"
-                          : "btn-soft-secondary"
+                            ? "btn-soft-success"
+                            : "btn-soft-secondary"
                       }`}
                       style={{ whiteSpace: "nowrap" }}
                     >
                       {hasSavedData && !isActive && (
-                        <i className="ri-check-line me-1" style={{ fontSize: 11 }} />
+                        <i
+                          className="ri-check-line me-1"
+                          style={{ fontSize: 11 }}
+                        />
                       )}
                       {page.label}
                     </button>
@@ -273,9 +286,7 @@ const PageSeoSettings = () => {
 
             {/* ── Form Card ── */}
             <Card>
-              <div
-                className="px-4 pt-3 pb-2 border-bottom d-flex align-items-center justify-content-between"
-              >
+              <div className="px-4 pt-3 pb-2 border-bottom d-flex align-items-center justify-content-between">
                 <h5 className="mb-0 fw-semibold">
                   {activePageLabel} – Meta Settings
                 </h5>
@@ -289,7 +300,6 @@ const PageSeoSettings = () => {
 
               <CardBody>
                 <Row className="g-3">
-
                   {/* ── Meta Title ── */}
                   <Col xs={12}>
                     <div className="d-flex justify-content-between align-items-center mb-1">
@@ -341,7 +351,9 @@ const PageSeoSettings = () => {
 
                   {/* ── OG Image ── */}
                   <Col xs={12}>
-                    <Label className="form-label fw-medium">Upload OG Image</Label>
+                    <Label className="form-label fw-medium">
+                      Upload OG Image
+                    </Label>
                     <Row className="align-items-start g-3">
                       <Col xs={12} md={5}>
                         <div className="input-group">
@@ -356,7 +368,12 @@ const PageSeoSettings = () => {
                         </div>
                         {uploadLoading && (
                           <div className="d-flex align-items-center gap-2 mt-2 text-muted small">
-                            <ClipLoader color={color} loading size={14} css={override} />
+                            <ClipLoader
+                              color={color}
+                              loading
+                              size={14}
+                              css={override}
+                            />
                             Uploading…
                           </div>
                         )}
@@ -368,7 +385,8 @@ const PageSeoSettings = () => {
                               onClick={() => {
                                 setOgImageUrl("");
                                 setOgImagePreview("");
-                                if (fileInputRef.current) fileInputRef.current.value = "";
+                                if (fileInputRef.current)
+                                  fileInputRef.current.value = "";
                               }}
                             >
                               <i className="ri-delete-bin-line me-1" />
@@ -382,7 +400,9 @@ const PageSeoSettings = () => {
                       <Col xs={12} md={7}>
                         {ogImagePreview ? (
                           <div>
-                            <p className="text-muted small mb-1 fw-medium">OG Image Preview</p>
+                            <p className="text-muted small mb-1 fw-medium">
+                              OG Image Preview
+                            </p>
                             <div
                               style={{
                                 border: "1px solid #e9ebec",
@@ -402,10 +422,15 @@ const PageSeoSettings = () => {
                                   objectFit: "cover",
                                   display: "block",
                                 }}
-                                onError={(e) => { e.target.style.display = "none"; }}
+                                onError={(e) => {
+                                  e.target.style.display = "none";
+                                }}
                               />
                             </div>
-                            <p className="text-muted mt-1" style={{ fontSize: 11 }}>
+                            <p
+                              className="text-muted mt-1"
+                              style={{ fontSize: 11 }}
+                            >
                               Recommended: 1200 × 630 px
                             </p>
                           </div>
@@ -421,9 +446,13 @@ const PageSeoSettings = () => {
                               backgroundColor: "#f8f9fa",
                             }}
                           >
-                            <i className="ri-image-line" style={{ fontSize: 32, marginBottom: 6 }} />
+                            <i
+                              className="ri-image-line"
+                              style={{ fontSize: 32, marginBottom: 6 }}
+                            />
                             <span className="small text-center">
-                              No OG image uploaded yet.<br />
+                              No OG image uploaded yet.
+                              <br />
                               Recommended: 1200 × 630 px
                             </span>
                           </div>
@@ -431,7 +460,6 @@ const PageSeoSettings = () => {
                       </Col>
                     </Row>
                   </Col>
-
                 </Row>
 
                 {/* ── Save Button ── */}
@@ -440,11 +468,18 @@ const PageSeoSettings = () => {
                     type="button"
                     className="btn btn-primary px-4"
                     onClick={handleSave}
-                    disabled={saveLoading || uploadLoading || titleOver || descOver}
+                    disabled={
+                      saveLoading || uploadLoading || titleOver || descOver
+                    }
                   >
                     {saveLoading ? (
                       <>
-                        <ClipLoader color="#fff" loading size={14} css={override} />
+                        <ClipLoader
+                          color="#fff"
+                          loading
+                          size={14}
+                          css={override}
+                        />
                         <span className="ms-2">Saving…</span>
                       </>
                     ) : (

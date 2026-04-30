@@ -831,7 +831,7 @@ const SlideShare = () => {
                                     <p>
                                         The{" "}
                                         <span style={{ fontWeight: 800 }}>
-                                            Bitcoin Innovation & Market Evolution 2026{" "}
+                                            Litihium Downstream Summit 2026{" "}
                                         </span>
                                         is the only event delivering cutting-edge market intelligence
                                         and sector-specific insights into innovative water treatment

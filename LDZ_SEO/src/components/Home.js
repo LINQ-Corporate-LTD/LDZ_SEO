@@ -54,7 +54,7 @@ const Home = () => {
   const { eventGeneralSettings } = useApiData();
   const eventName =
     eventGeneralSettings?.eventName ||
-    "Bitcoin Innovation & Market Evolution 2026";
+    "Litihium Downstream Summit 2026";
 
   const [settings, setSettings] = useState({});
   const [chunkedSponsors, setChunkedSponsors] = useState([]);
@@ -331,11 +331,11 @@ const Home = () => {
             position: "absolute",
           }}
         >
-          <a href="/">Bitcoin Innovation &amp; Market Evolution 2026</a>
-          <a href="/">Bitcoin innovation trends</a>
+          <a href="/">Lithium &amp; Downstream Summit 2026</a>
+          <a href="/">Lithium Downstream trends</a>
           <a href="/">market evolution insights</a>
           <a href="/">crypto innovation analysis</a>
-          <a href="/">Bitcoin market conference 2026</a>
+          <a href="/">Litihium Downstream Summit 2026</a>
         </div>
         <RelatedEventsSection />
       </article>

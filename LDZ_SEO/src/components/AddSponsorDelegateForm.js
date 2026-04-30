@@ -17,12 +17,12 @@ import { useApiData } from "../common/ApiContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
-import plusIcon from '../assets/WebCommonImages/plus.png'
-import closeBtn from '../assets/WebCommonImages/del-cross.png'
-import toggle from '../assets/WebCommonImages/toggle.png'
-import cardLabel from '../assets/WebCommonImages/card-labels.png'
-import lockIcon from '../assets/WebCommonImages/lock.png'
-
+import plusIcon from "../assets/WebCommonImages/plus.png";
+import closeBtn from "../assets/WebCommonImages/del-cross.png";
+import toggle from "../assets/WebCommonImages/toggle.png";
+import cardLabel from "../assets/WebCommonImages/card-labels.png";
+import lockIcon from "../assets/WebCommonImages/lock.png";
+import { usePageSeo } from "../common/usePageSeo";
 // const logo =
 //   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
 // const plusIcon =
@@ -37,11 +37,6 @@ import lockIcon from '../assets/WebCommonImages/lock.png'
 //   "https://www.desalination-resource-recovery.com/images/icons/lock.png";
 
 const countries = getNames();
-const metaSeoTitle = "Sponsor Booking | Bitcoin Innovation & Market Evolution 2026";
-const metaSeoDesc = "Book your sponsorship package for Bitcoin Innovation & Market Evolution 2026.";
-const metaCanonicalUrl = "https://www.linq-staging-site.com/sponsor-booking";
-
-
 const AddSponsorDelegateForm = () => {
   const location = useLocation();
   console.log("location: ", location);
@@ -50,11 +45,7 @@ const AddSponsorDelegateForm = () => {
   const selectedPackage = location?.state?.selectedPackage;
   console.log("selectedPackage: ", selectedPackage);
 
-  const {
-    eventDetails,
-    eventGeneralSettings,
-    navLogos
-  } = useApiData();
+  const { eventDetails, eventGeneralSettings, navLogos } = useApiData();
 
   const [delegateCount, setDelegateCount] = useState(1);
   const [delegates, setDelegates] = useState([
@@ -110,13 +101,19 @@ const AddSponsorDelegateForm = () => {
   const [discountData, setDiscountData] = useState("");
   const [activeDelPackageData, setActiveDelPackageData] = useState([]);
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
+    typeof window !== "undefined" ? window.innerWidth : 1200,
   );
 
   const portalId = "4000965";
   const formGuid = "1e2e18e4-1877-4d07-9a22-6c2dbca5c2f8";
 
   const toEmails = useSSRData("toEmails") || "benny.scott@iq-hub.com";
+
+  const pageSeo = usePageSeo("sponsor-booking");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
+  const canonicalUrl = "https://linq-staging-site.com/sponsor-booking";
 
   const handleCompanyDataChange = (field, value) => {
     setCompanyData((prev) => ({ ...prev, [field]: value }));
@@ -128,8 +125,8 @@ const AddSponsorDelegateForm = () => {
   const handleDelegateChange = (delegateId, field, value) => {
     setDelegates((prev) =>
       prev.map((delegate) =>
-        delegate.id === delegateId ? { ...delegate, [field]: value } : delegate
-      )
+        delegate.id === delegateId ? { ...delegate, [field]: value } : delegate,
+      ),
     );
     if (submitAttempted) {
       const errorKey = `delegate_${delegateId}_${field}`;
@@ -155,7 +152,7 @@ const AddSponsorDelegateForm = () => {
 
   const removeDelegate = (delegateId) => {
     setDelegates((prev) =>
-      prev.filter((delegate) => delegate.id !== delegateId)
+      prev.filter((delegate) => delegate.id !== delegateId),
     );
   };
 
@@ -235,7 +232,7 @@ const AddSponsorDelegateForm = () => {
       let invoiceNumber;
       try {
         const invoiceRes = await fetch(
-          "https://linq-staging-site.com/admin1/generate-invoice-no"
+          "https://linq-staging-site.com/admin1/generate-invoice-no",
         );
         const invoiceData = await invoiceRes.json();
         invoiceNumber = invoiceData.invoiceNo;
@@ -282,12 +279,12 @@ const AddSponsorDelegateForm = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload),
-              }
+              },
             );
             const result = await response.json();
             console.log(
               `âœ… Submitted ${delegate.firstName} ${delegate.lastName}:`,
-              result
+              result,
             );
           } catch (error) {
             console.error(`âŒ Error submitting ${delegate.firstName}:`, error);
@@ -337,7 +334,7 @@ const AddSponsorDelegateForm = () => {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(emailPayload),
-            }
+            },
           );
           const emailResult = await emailResponse.json();
           if (emailResult.status === "success") {
@@ -355,11 +352,11 @@ const AddSponsorDelegateForm = () => {
           submitCompanyDelegatesToHubSpot(formData),
           sendBookingEmail(),
         ]);
-        console.log('selectedPackage', selectedPackage);
-        console.log('companyData', companyData);
-        console.log('delegates', delegates);
-        console.log('termsAgreement', termsAgreement);
-        console.log('invoiceNumber', invoiceNumber);
+        console.log("selectedPackage", selectedPackage);
+        console.log("companyData", companyData);
+        console.log("delegates", delegates);
+        console.log("termsAgreement", termsAgreement);
+        console.log("invoiceNumber", invoiceNumber);
 
         // â”€â”€ Instead of navigating, store the data and show Step 2 inline â”€â”€
         setStep2Data({
@@ -496,17 +493,23 @@ const AddSponsorDelegateForm = () => {
       };
       console.log("📧 Sending Step 2 email with payload:", emailPayload);
       try {
-        const emailResponse = await fetch("https://linq-staging-site.com/admin1/sendmail", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(emailPayload),
-        });
+        const emailResponse = await fetch(
+          "https://linq-staging-site.com/admin1/sendmail",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(emailPayload),
+          },
+        );
         if (emailResponse.ok) {
           const emailResult = await emailResponse.json();
           console.log("✅ Step 2 Email result:", emailResult);
         } else {
           const errorText = await emailResponse.text();
-          console.error(`❌ Email Step 2 failed with status ${emailResponse.status}:`, errorText);
+          console.error(
+            `❌ Email Step 2 failed with status ${emailResponse.status}:`,
+            errorText,
+          );
         }
       } catch (error) {
         console.error("❌ Error sending Step 2 email:", error);
@@ -625,18 +628,27 @@ const AddSponsorDelegateForm = () => {
       };
       console.log("📧 Sending Step 3 email with payload:", emailPayload);
       try {
-        const emailResponse = await fetch("https://linq-staging-site.com/admin1/sendmail", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(emailPayload),
-        });
+        const emailResponse = await fetch(
+          "https://linq-staging-site.com/admin1/sendmail",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(emailPayload),
+          },
+        );
         if (emailResponse.ok) {
           const emailResult = await emailResponse.json();
           return { success: emailResult.status === "success" };
         } else {
           const errorText = await emailResponse.text();
-          console.error(`❌ Email Step 3 failed with status ${emailResponse.status}:`, errorText);
-          return { success: false, error: `Server error ${emailResponse.status}` };
+          console.error(
+            `❌ Email Step 3 failed with status ${emailResponse.status}:`,
+            errorText,
+          );
+          return {
+            success: false,
+            error: `Server error ${emailResponse.status}`,
+          };
         }
       } catch (error) {
         console.error("❌ Error sending Step 3 email:", error);
@@ -662,7 +674,10 @@ const AddSponsorDelegateForm = () => {
         finalData.append("couponCode", discountCode);
       }
       finalData.append("totalPassAmount", prices.initialPrice);
-      finalData.append("additionalDelegateAmoount", prices.additionalDelegatePrice);
+      finalData.append(
+        "additionalDelegateAmoount",
+        prices.additionalDelegatePrice,
+      );
       finalData.append("discountAmount", prices.discountAmount);
       finalData.append("addOnsAmount", prices.addOnsTotal);
       finalData.append("taxableCharge", prices.taxAmount);
@@ -671,7 +686,7 @@ const AddSponsorDelegateForm = () => {
 
       fetch("https://linq-staging-site.com/admin1/addnewsponsor", {
         method: "POST",
-        body: finalData
+        body: finalData,
       })
         .then((response) => response.json())
         .then(async (data) => {
@@ -681,7 +696,7 @@ const AddSponsorDelegateForm = () => {
             navigate("/thank-you", { state: { authorized: true } });
           } else {
             // toast.error(data?.message);
-            console.log(data?.message)
+            console.log(data?.message);
           }
         })
         .catch((error) => {
@@ -728,13 +743,17 @@ const AddSponsorDelegateForm = () => {
 
           const marketingLiteratureAddOns = allAddOns.filter(
             (addon) =>
-              addon.addOnTypeDetails.addOnTypeName === "Pre-event Marketing Add-ons" ||
-              addon.addOnTypeDetails.addOnTypeName === "Literature Distribution Add-ons"
+              addon.addOnTypeDetails.addOnTypeName ===
+                "Pre-event Marketing Add-ons" ||
+              addon.addOnTypeDetails.addOnTypeName ===
+                "Literature Distribution Add-ons",
           );
           const sessionOnSiteAddOns = allAddOns.filter(
             (addon) =>
-              addon.addOnTypeDetails.addOnTypeName === "Session Branding Add-ons" ||
-              addon.addOnTypeDetails.addOnTypeName === "On Site Branding Add-ons"
+              addon.addOnTypeDetails.addOnTypeName ===
+                "Session Branding Add-ons" ||
+              addon.addOnTypeDetails.addOnTypeName ===
+                "On Site Branding Add-ons",
           );
           setMarketingAndLiterature(groupByType(marketingLiteratureAddOns));
           setSessionAndOnSite(groupByType(sessionOnSiteAddOns));
@@ -771,13 +790,16 @@ const AddSponsorDelegateForm = () => {
     formData.append("couponCode", code);
     fetch(`https://linq-staging-site.com/admin1/sponsoroffercouponbycode`, {
       method: "POST",
-      body: formData
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
           const returnedCoupon = data["offerCoupons"]?.[0];
-          if (returnedCoupon?.couponCode?.toUpperCase().trim() === code.toUpperCase().trim()) {
+          if (
+            returnedCoupon?.couponCode?.toUpperCase().trim() ===
+            code.toUpperCase().trim()
+          ) {
             setDiscountData(data["offerCoupons"]);
             setDiscountPercent(returnedCoupon?.discountAmount);
           } else {
@@ -796,25 +818,45 @@ const AddSponsorDelegateForm = () => {
 
   const calculatePrices = () => {
     const packagePrice = parseFloat(selectedPackage?.sponsorPackagePrice || 0);
-    const additionalDelegatePrice = additionalDelegates * parseFloat(activeDelPackageData[0]?.deligatePackagePrice || 0);
-    const taxPercent = parseFloat(eventGeneralSettings?.purchaseTaxPercantage || eventGeneralSettings?.purchaseTaxPercent || 0);
+    const additionalDelegatePrice =
+      additionalDelegates *
+      parseFloat(activeDelPackageData[0]?.deligatePackagePrice || 0);
+    const taxPercent = parseFloat(
+      eventGeneralSettings?.purchaseTaxPercantage ||
+        eventGeneralSettings?.purchaseTaxPercent ||
+        0,
+    );
     const sponsorPackagePrice = packagePrice;
-    const discountAmount = additionalDelegates > 0 ? (additionalDelegatePrice * discountPercent) / 100 : 0;
-    const additionalDelegatePriceAfterDiscount = additionalDelegatePrice - discountAmount;
-    const addOnsTotal = selectedAddOns.reduce((sum, addOn) => sum + parseFloat(addOn.sponsorAddOnPrice || 0), 0);
+    const discountAmount =
+      additionalDelegates > 0
+        ? (additionalDelegatePrice * discountPercent) / 100
+        : 0;
+    const additionalDelegatePriceAfterDiscount =
+      additionalDelegatePrice - discountAmount;
+    const addOnsTotal = selectedAddOns.reduce(
+      (sum, addOn) => sum + parseFloat(addOn.sponsorAddOnPrice || 0),
+      0,
+    );
     const taxOnSponsorPackage = (sponsorPackagePrice * taxPercent) / 100;
-    const taxOnAdditionalDelegates = (additionalDelegatePriceAfterDiscount * taxPercent) / 100;
+    const taxOnAdditionalDelegates =
+      (additionalDelegatePriceAfterDiscount * taxPercent) / 100;
     const taxOnAddOns = (addOnsTotal * taxPercent) / 100;
-    const taxAmount = taxOnSponsorPackage + taxOnAdditionalDelegates + taxOnAddOns;
+    const taxAmount =
+      taxOnSponsorPackage + taxOnAdditionalDelegates + taxOnAddOns;
     const initialPrice = sponsorPackagePrice + additionalDelegatePrice;
-    const finalTotal = sponsorPackagePrice + additionalDelegatePriceAfterDiscount + addOnsTotal + taxAmount;
+    const finalTotal =
+      sponsorPackagePrice +
+      additionalDelegatePriceAfterDiscount +
+      addOnsTotal +
+      taxAmount;
 
     return {
       initialPrice: initialPrice.toFixed(2),
       sponsorPackagePrice: sponsorPackagePrice.toFixed(2),
       additionalDelegatePrice: additionalDelegatePrice.toFixed(2),
       discountAmount: discountAmount.toFixed(2),
-      additionalDelegatePriceAfterDiscount: additionalDelegatePriceAfterDiscount.toFixed(2),
+      additionalDelegatePriceAfterDiscount:
+        additionalDelegatePriceAfterDiscount.toFixed(2),
       addOnsTotal: addOnsTotal.toFixed(2),
       taxAmount: taxAmount.toFixed(2),
       finalTotal: finalTotal.toFixed(2),
@@ -881,7 +923,8 @@ const AddSponsorDelegateForm = () => {
           <div>
             <p>Discount {discountPercent > 0 && `(${discountPercent}%)`}</p>
             <p>
-              {eventGeneralSettings?.currencySymbol || ""} {prices.discountAmount}
+              {eventGeneralSettings?.currencySymbol || ""}{" "}
+              {prices.discountAmount}
             </p>
           </div>
           {numDelegates > sponsorPackageDelegateQty && (
@@ -902,7 +945,9 @@ const AddSponsorDelegateForm = () => {
           <div>
             <p>
               Taxes and Service Charges (
-              {eventGeneralSettings?.purchaseTaxPercantage || eventGeneralSettings?.purchaseTaxPercent}%)
+              {eventGeneralSettings?.purchaseTaxPercantage ||
+                eventGeneralSettings?.purchaseTaxPercent}
+              %)
             </p>
             <p>
               {eventGeneralSettings?.currencySymbol || ""} {prices.taxAmount}
@@ -1030,14 +1075,18 @@ const AddSponsorDelegateForm = () => {
     return (
       <>
         <Helmet>
-          <title>{metaSeoTitle}</title>
-          <meta name="debug-ssr" content="AddSponsorDelegateForm Step 2" />
-          <meta property="og:title" content={metaSeoTitle} />
-          <meta property="og:description" content={metaSeoDesc} />
-          <meta property="og:image" content={navLogos?.whiteLogo} />
-          <link rel="canonical" href={metaCanonicalUrl} />
-          <meta name="description" content={metaSeoDesc} />
-        </Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDesc} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDesc} />
+        <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDesc} />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
         <div id="root">
           <div className="PageForm_container__NA5Wr">
             <div className="PageForm_header__7W2Cz">
@@ -1073,7 +1122,7 @@ const AddSponsorDelegateForm = () => {
                                     onChange={(e) =>
                                       handleAddOnChange(
                                         subItem,
-                                        e.target.checked
+                                        e.target.checked,
                                       )
                                     }
                                     id={`addon-${subItem.id}`}
@@ -1112,7 +1161,7 @@ const AddSponsorDelegateForm = () => {
                                     onChange={(e) =>
                                       handleAddOnChange(
                                         subItem,
-                                        e.target.checked
+                                        e.target.checked,
                                       )
                                     }
                                     id={`addon-${subItem.id}`}
@@ -1143,7 +1192,10 @@ const AddSponsorDelegateForm = () => {
                             <div>
                               <TicketSVG />
                               <div className="SponsorFormV2_ticketLogo__Nm2y4">
-                                <img src={navLogos?.whiteLogo} alt="logo img"></img>
+                                <img
+                                  src={navLogos?.whiteLogo}
+                                  alt="logo img"
+                                ></img>
                               </div>
                             </div>
                           </div>
@@ -1175,9 +1227,11 @@ const AddSponsorDelegateForm = () => {
                               ""
                             }
                             companyName={companyDetails?.companyName || ""}
-                            orderDescription={`Payment for Sponsor- ${companyDetails?.companyName
-                              } - Type: ${selectedPackage?.sponsorPackageType
-                              } - Event: ${eventDetails?.eventName || ""}`}
+                            orderDescription={`Payment for Sponsor- ${
+                              companyDetails?.companyName
+                            } - Type: ${
+                              selectedPackage?.sponsorPackageType
+                            } - Event: ${eventDetails?.eventName || ""}`}
                             onPaymentSuccess={handlePaymentSuccess}
                             onPaymentError={handlePaymentError}
                           />
@@ -1213,7 +1267,10 @@ const AddSponsorDelegateForm = () => {
                           <div>
                             <TicketSVG />
                             <div className="SponsorFormV2_ticketLogo__Nm2y4">
-                              <img src={navLogos?.whiteLogo} alt="logo img"></img>
+                              <img
+                                src={navLogos?.whiteLogo}
+                                alt="logo img"
+                              ></img>
                             </div>
                           </div>
                         </div>
@@ -1232,7 +1289,9 @@ const AddSponsorDelegateForm = () => {
                 style={{ maxWidth: "1280px" }}
               >
                 <p>
-                  <span onClick={() => window.open("/privacy-policy", "_blank")}>
+                  <span
+                    onClick={() => window.open("/privacy-policy", "_blank")}
+                  >
                     Privacy Policy
                   </span>
                   <span className="PageForm_divide__vwhn0">|</span>
@@ -1254,13 +1313,17 @@ const AddSponsorDelegateForm = () => {
   return (
     <>
       <Helmet>
-        <title>{metaSeoTitle}</title>
-        <meta name="debug-ssr" content="AddSponsorDelegateForm Step 1" />
-        <meta property="og:title" content={metaSeoTitle} />
-        <meta property="og:description" content={metaSeoDesc} />
-        <meta property="og:image" content={navLogos?.whiteLogo} />
-        <link rel="canonical" href={metaCanonicalUrl} />
-        <meta name="description" content={metaSeoDesc} />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDesc} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDesc} />
+        <meta property="og:type" content="website" />
+        {seoImage && <meta property="og:image" content={seoImage} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDesc} />
+        {seoImage && <meta name="twitter:image" content={seoImage} />}
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <div id="root">
         <div className="PageForm_container__NA5Wr">
@@ -1269,7 +1332,11 @@ const AddSponsorDelegateForm = () => {
               className="PageForm_headerInner__sdlhn"
               style={{ maxWidth: "1070px" }}
             >
-              <img onClick={() => navigate("/")} src={navLogos?.whiteLogo} alt="site logo"></img>
+              <img
+                onClick={() => navigate("/")}
+                src={navLogos?.whiteLogo}
+                alt="site logo"
+              ></img>
             </div>
           </div>
           <div className="SponsorFormV2_container__d5aHK">
@@ -1306,13 +1373,16 @@ const AddSponsorDelegateForm = () => {
                               borderBottomColor: "#9d9d9d",
                             },
                             "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                              color: "#d32f2f !important",
+                            },
                           }}
                           id="companyName"
                           value={companyData.companyName}
                           onChange={(e) =>
-                            handleCompanyDataChange("companyName", e.target.value)
+                            handleCompanyDataChange(
+                              "companyName",
+                              e.target.value,
+                            )
                           }
                           fullWidth
                           error={submitAttempted && companyErrors.companyName}
@@ -1350,7 +1420,10 @@ const AddSponsorDelegateForm = () => {
                           id="webAddress"
                           value={companyData.webAddress}
                           onChange={(e) =>
-                            handleCompanyDataChange("webAddress", e.target.value)
+                            handleCompanyDataChange(
+                              "webAddress",
+                              e.target.value,
+                            )
                           }
                           fullWidth
                         />
@@ -1374,8 +1447,8 @@ const AddSponsorDelegateForm = () => {
                               borderBottomColor: "#9d9d9d",
                             },
                             "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                              color: "#d32f2f !important",
+                            },
                           }}
                           id="address"
                           value={companyData.address}
@@ -1422,8 +1495,8 @@ const AddSponsorDelegateForm = () => {
                                     color: "#5e5e5e !important",
                                   },
                                   "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                                    color: "#d32f2f !important",
+                                  },
                                   "& .MuiInput-underline:after": {
                                     borderBottomColor: "#9d9d9d",
                                   },
@@ -1481,8 +1554,8 @@ const AddSponsorDelegateForm = () => {
                                 borderBottomColor: "#9d9d9d",
                               },
                               "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                                color: "#d32f2f !important",
+                              },
                             }}
                             id="city"
                             value={companyData.city}
@@ -1558,13 +1631,16 @@ const AddSponsorDelegateForm = () => {
                               borderBottomColor: "#9d9d9d",
                             },
                             "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                              color: "#d32f2f !important",
+                            },
                           }}
                           id="postalCode"
                           value={companyData.postalCode}
                           onChange={(e) =>
-                            handleCompanyDataChange("postalCode", e.target.value)
+                            handleCompanyDataChange(
+                              "postalCode",
+                              e.target.value,
+                            )
                           }
                           fullWidth
                           error={submitAttempted && companyErrors.postalCode}
@@ -1628,25 +1704,25 @@ const AddSponsorDelegateForm = () => {
                                         borderBottomColor: "#9d9d9d",
                                       },
                                       "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                                        color: "#d32f2f !important",
+                                      },
                                     }}
                                     value={delegate.firstName}
                                     onChange={(e) =>
                                       handleDelegateChange(
                                         delegate.id,
                                         "firstName",
-                                        e.target.value
+                                        e.target.value,
                                       )
                                     }
                                     fullWidth
                                     error={getDelegateFieldError(
                                       delegate.id,
-                                      "firstName"
+                                      "firstName",
                                     )}
                                     helperText={getDelegateFieldErrorMessage(
                                       delegate.id,
-                                      "firstName"
+                                      "firstName",
                                     )}
                                     slotProps={{
                                       formHelperText: {
@@ -1676,25 +1752,25 @@ const AddSponsorDelegateForm = () => {
                                         borderBottomColor: "#9d9d9d",
                                       },
                                       "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                                        color: "#d32f2f !important",
+                                      },
                                     }}
                                     value={delegate.lastName}
                                     onChange={(e) =>
                                       handleDelegateChange(
                                         delegate.id,
                                         "lastName",
-                                        e.target.value
+                                        e.target.value,
                                       )
                                     }
                                     fullWidth
                                     error={getDelegateFieldError(
                                       delegate.id,
-                                      "lastName"
+                                      "lastName",
                                     )}
                                     helperText={getDelegateFieldErrorMessage(
                                       delegate.id,
-                                      "lastName"
+                                      "lastName",
                                     )}
                                     slotProps={{
                                       formHelperText: {
@@ -1743,8 +1819,8 @@ const AddSponsorDelegateForm = () => {
                                         borderBottomColor: "#9d9d9d",
                                       },
                                       "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                                        color: "#d32f2f !important",
+                                      },
                                     }}
                                     value={delegate.mobile}
                                     onChange={(value, info) => {
@@ -1756,7 +1832,7 @@ const AddSponsorDelegateForm = () => {
                                         handleDelegateChange(
                                           delegate.id,
                                           "mobile",
-                                          minValue
+                                          minValue,
                                         );
                                         return;
                                       }
@@ -1764,13 +1840,13 @@ const AddSponsorDelegateForm = () => {
                                         info?.nationalNumber || "";
                                       const digitsOnly = nationalNumber.replace(
                                         /\D/g,
-                                        ""
+                                        "",
                                       );
                                       if (digitsOnly.length <= 10) {
                                         handleDelegateChange(
                                           delegate.id,
                                           "mobile",
-                                          value
+                                          value,
                                         );
                                       }
                                     }}
@@ -1796,7 +1872,7 @@ const AddSponsorDelegateForm = () => {
                                         }
                                         if (
                                           ["ArrowLeft", "Home"].includes(
-                                            event.key
+                                            event.key,
                                           ) &&
                                           cursorPosition <= 3
                                         ) {
@@ -1808,11 +1884,11 @@ const AddSponsorDelegateForm = () => {
                                     fullWidth
                                     error={getDelegateFieldError(
                                       delegate.id,
-                                      "mobile"
+                                      "mobile",
                                     )}
                                     helperText={getDelegateFieldErrorMessage(
                                       delegate.id,
-                                      "mobile"
+                                      "mobile",
                                     )}
                                     slotProps={{
                                       formHelperText: {
@@ -1846,25 +1922,25 @@ const AddSponsorDelegateForm = () => {
                                       borderBottomColor: "#9d9d9d",
                                     },
                                     "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                                      color: "#d32f2f !important",
+                                    },
                                   }}
                                   value={delegate.position}
                                   onChange={(e) =>
                                     handleDelegateChange(
                                       delegate.id,
                                       "position",
-                                      e.target.value
+                                      e.target.value,
                                     )
                                   }
                                   fullWidth
                                   error={getDelegateFieldError(
                                     delegate.id,
-                                    "position"
+                                    "position",
                                   )}
                                   helperText={getDelegateFieldErrorMessage(
                                     delegate.id,
-                                    "position"
+                                    "position",
                                   )}
                                   slotProps={{
                                     formHelperText: {
@@ -1892,25 +1968,25 @@ const AddSponsorDelegateForm = () => {
                                       borderBottomColor: "#9d9d9d",
                                     },
                                     "& .MuiInputLabel-root.Mui-error": {
-                            color: "#d32f2f !important",
-                          },
+                                      color: "#d32f2f !important",
+                                    },
                                   }}
                                   value={delegate.email}
                                   onChange={(e) =>
                                     handleDelegateChange(
                                       delegate.id,
                                       "email",
-                                      e.target.value
+                                      e.target.value,
                                     )
                                   }
                                   fullWidth
                                   error={getDelegateFieldError(
                                     delegate.id,
-                                    "email"
+                                    "email",
                                   )}
                                   helperText={getDelegateFieldErrorMessage(
                                     delegate.id,
-                                    "email"
+                                    "email",
                                   )}
                                   slotProps={{
                                     formHelperText: {
@@ -1961,7 +2037,8 @@ const AddSponsorDelegateForm = () => {
                         <a
                           href="/terms-and-conditions"
                           style={{
-                            color: submitAttempted && termsError ? "#b00020" : "",
+                            color:
+                              submitAttempted && termsError ? "#b00020" : "",
                             borderColor:
                               submitAttempted && termsError ? "#b00020" : "",
                           }}
