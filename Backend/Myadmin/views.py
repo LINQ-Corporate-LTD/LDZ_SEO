@@ -6444,7 +6444,7 @@ def verify_email_domain(request):
     domain = email.split('@')[-1].lower()
 
     # Check if domain is blocked
-    is_blocked = blockedEmailDomains.objects.filter(domainName__iexact=domain).exists()
+    is_blocked = blockedEmailDomains.objects.filter(domainName__iexact=domain).filter(isDelete='No').exists()
 
     if is_blocked:
         return JsonResponse({
