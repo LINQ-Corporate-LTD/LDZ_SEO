@@ -580,8 +580,7 @@ const ContactUs = () => {
     }
   };
 
-  const checkOnChange = (e) => {
-    e.preventDefault();
+  const checkOnChange = () => {
 
     let hasError = false;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -647,12 +646,16 @@ const ContactUs = () => {
       setPersonNameErrorMessage(<p>Full name is required</p>)
       setPersonNameError(true);
       hasError = true;
+    } else {
+      setPersonNameErrorMessage("")
     }
 
     if (!personCompany || personCompany.trim() === "") {
       setPersonCompanyErrorMessage(<p>Company name is required</p>)
       setPersonCompanyError(true);
       hasError = true;
+    } else {
+      setPersonCompanyErrorMessage("")
     }
 
     if (!personEmail || personEmail.trim() === "") {
@@ -663,12 +666,16 @@ const ContactUs = () => {
       setPersonEmailErrorMessage(<p>Please enter a valid email address</p>)
       setPersonEmailError(true);
       hasError = true;
+    } else {
+      setPersonEmailErrorMessage("")
     }
 
     if (!personMobile || personMobile.trim() === "") {
       setPersonMobileErrorMessage(<p>Mobile number is required</p>)
       setPersonMobileError(true);
       hasError = true;
+    } else {
+      setPersonMobileErrorMessage("")
     }
 
     if (hasError) return;
@@ -954,8 +961,8 @@ const ContactUs = () => {
                             }
 
                             setPersonMobile(value);
-                            setPersonMobileError(false);
                             if (personMobileErrorMessage) checkOnChange();
+                            setPersonMobileError(false);
                           }}
                           maxLength={16}
                         ></input>
@@ -1027,6 +1034,7 @@ const ContactUs = () => {
                       submit
                     </button>
                   </form>
+                  {successMessage}
                 </div>
               </div>
             </div>

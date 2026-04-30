@@ -24,6 +24,13 @@
     width: 100%;
 }
 
+.popup-content form p {
+    color: red;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
 .popup-content form input {
     margin: 0;
     padding: 0;

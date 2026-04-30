@@ -197,6 +197,8 @@ const Agenda = () => {
   console.log("personProposedTitle: ", personProposedTitle);
   const [personProposedTitleError, setPersonProposedTitleError] = useState("");
   const [briefoutline, setBriefOutline] = useState("");
+  const [isAgendaEmailMessage, setAgendaEmailMessage] = useState("");
+
 
   const [personNameErrorMessage, setPersonNameErrorMessage] = useState("");
   const [personCompanyErrorMessage, setPersonCompanyErrorMessage] = useState("");
@@ -555,10 +557,30 @@ const Agenda = () => {
   //   }
   // };
 
+  const checkOnChangeEmail = async () => {
+    if (emailVerification === "") {
+      setAgendaEmailMessage(<p className="Agenda_errorMsg__IIG4Q">Email Address is Required</p>)
+      // toast.error("Email Address is Required", {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+      setEmailVerificationError(true);
+      return;
+    } else {
+      setAgendaEmailMessage("")
+    }
+  };
+
   const emailSubmitBtnClk = async (e) => {
     e.preventDefault();
 
     if (emailVerification === "") {
+      setAgendaEmailMessage(<p className="Agenda_errorMsg__IIG4Q">Email Address is Required</p>)
       // toast.error("Email Address is Required", {
       //   position: "top-right",
       //   autoClose: 5000,
@@ -599,6 +621,7 @@ const Agenda = () => {
       if (!data.status) {
         setIsVerify(false);
         setBlockedDomainError(true);
+        setAgendaEmailMessage(<p className="Agenda_errorMsg__IIG4Q">{data.message}</p>)
         // toast.error(data.message, {
         //   position: "top-right",
         //   autoClose: 5000,
@@ -611,7 +634,7 @@ const Agenda = () => {
         setEmailVerificationError(true);
         return;
       }
-
+      setAgendaEmailMessage("")
       setBlockedDomainError(false);
       Cookies.set("agendaEmailVerify", emailVerification, { expires: 200 });
       setAgendaVerification(true);
@@ -3227,15 +3250,12 @@ const Agenda = () => {
                     value={emailVerification}
                     onChange={(e) => {
                       setEmailVerification(e.target.value);
+                      if (isAgendaEmailMessage) checkOnChangeEmail();
                       setEmailVerificationError(false);
                       setBlockedDomainError(false);
                     }}
                   ></input>
-                  {blockedDomainError && (
-                    <p className="Agenda_errorMsg__IIG4Q">
-                      Please use a company or institution email address.
-                    </p>
-                  )}
+                  {isAgendaEmailMessage}
                 </div>
                 <input
                   type="submit"

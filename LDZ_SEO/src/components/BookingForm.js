@@ -946,7 +946,7 @@ const BookingForm = () => {
         <div className="PageForm_header__7W2Cz">
           <div
             className="PageForm_headerInner__sdlhn"
-            style={{ maxWidth: "1070px" }}
+            style={{ maxWidth: "1280px" }}
           >
             <img
               onClick={() => navigate("/")}
@@ -1131,12 +1131,10 @@ const BookingForm = () => {
                           ""
                         }
                         companyName={companyDetails?.companyName || ""}
-                        orderDescription={`Payment for ${
-                          delegates?.length || 1
-                        } delegate pass(es) - ${
-                          selectedPackage?.deligatePackageName ||
+                        orderDescription={`Payment for ${delegates?.length || 1
+                          } delegate pass(es) - ${selectedPackage?.deligatePackageName ||
                           "Delegate Package"
-                        } - Event: ${eventDetails?.eventName || ""}`}
+                          } - Event: ${eventDetails?.eventName || ""}`}
                         onPaymentSuccess={handlePaymentSuccess}
                         onPaymentError={handlePaymentError}
                       />
@@ -1284,14 +1282,20 @@ const BookingForm = () => {
         <div className="PageForm_footer__hOO1l">
           <div
             className="PageForm_footerInner__5Enax"
-            style={{ maxWidth: "1070px" }}
+            style={{ maxWidth: "1280px" }}
           >
             <p>
-              <span>Privacy Policy</span>
-              <span className="PageForm_divide__vwhn0">|</span>
-              ABCD Company
+              <span onClick={() => window.open("/privacy-policy", "_blank")}>
+                Privacy Policy
+              </span>
+              <span class="PageForm_divide__vwhn0">|</span>
+              <span onClick={() => window.open("/cookie-policy", "_blank")}>
+                Cookie Policy
+              </span>
+              <span class="PageForm_divide__vwhn0">|</span>IQ International PTe.
+              LTD
             </p>
-            <p>©2026 Bitcoin Innovation & Market Evolution 2026</p>
+            <p>©2026 Lithium Downstream Summit 2026</p>
           </div>
         </div>
       </div>

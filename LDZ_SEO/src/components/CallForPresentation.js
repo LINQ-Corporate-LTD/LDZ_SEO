@@ -46,6 +46,8 @@ const CallForPresentation = () => {
   const [proposedTitleErrorMessage, setProposedTitleErrorMessage] = useState("");
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [addToCalendarSuccessMessage, setAddToCalendarSuccessMessage] = useState("");
+
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -926,6 +928,10 @@ const CallForPresentation = () => {
                       e.preventDefault();
 
                       try {
+                        setAddToCalendarSuccessMessage(<p style={{ color: 'green' }}>Thank You for Subscribing</p>)
+                        setTimeout(() => {
+                          setAddToCalendarSuccessMessage("");
+                        }, 5000);
                         await fetch(
                           "https://linq-staging-site.com/admin1/addcalendersubscriber",
                           {
@@ -958,6 +964,7 @@ const CallForPresentation = () => {
                       value="Submit"
                       style={{ backgroundColor: "var(--secondary-color)" }}
                     />
+                    {addToCalendarSuccessMessage}
                   </form>
                 </div>
               </Popup>
