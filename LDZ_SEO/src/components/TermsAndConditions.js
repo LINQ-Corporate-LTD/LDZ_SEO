@@ -120,7 +120,11 @@ const TermsAndConditions = () => {
             <div className="TermsAndConditions_section__zAzp-">
               <h4>8. Code of Conduct</h4>
               <p>
-                All Attendees are subject to a Code of Conduct, separately detailed, which unambiguously delineates behavioral expectations, including policies on harassment, discrimination, and other forms of misconduct.
+                All Attendees are subject to a{' '}
+                <a href="https://iq-hub.com/code-of-conduct" target="_blank" rel="noopener noreferrer">
+                  Code of Conduct
+                </a>
+                , separately detailed, which unambiguously delineates behavioral expectations, including policies on harassment, discrimination, and other forms of misconduct.
               </p>
             </div>
             <div className="TermsAndConditions_section__zAzp-">
@@ -250,7 +254,10 @@ const TermsAndConditions = () => {
             <div className="TermsAndConditions_section__zAzp-">
               <h4>26. Right to Refuse Admission</h4>
               <p>
-                The Organizer unequivocally reserves the absolute right to refuse admission or eject Attendees for non-compliance with the Code of Conduct, or deems the Attendee to be a commercial risk to the Event.
+                The Organizer unequivocally reserves the absolute right to refuse admission or eject Attendees for non-compliance with the{' '}
+                <a href="https://iq-hub.com/code-of-conduct" target="_blank" rel="noopener noreferrer">
+                  Code of Conduct
+                </a>, or deems the Attendee to be a commercial risk to the Event.
               </p>
             </div>
             <div className="TermsAndConditions_section__zAzp-">
