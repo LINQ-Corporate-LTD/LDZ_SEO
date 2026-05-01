@@ -894,7 +894,7 @@ def subscribersFun(request):
 @permission_classes((AllowAny,))
 @api_view(['GET'])
 def eventFaqsFun(request):
-    faqs_list = eventFaqs.objects.all().filter(isDelete='No').order_by('-id')
+    faqs_list = eventFaqs.objects.all().filter(isDelete='No').order_by('id')
     faqsList = []
     for faq in faqs_list:
         x={
