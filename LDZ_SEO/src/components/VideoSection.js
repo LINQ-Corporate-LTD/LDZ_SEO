@@ -37,7 +37,7 @@ const VideoSection = () => {
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="none"
               poster={homeVideoSettings.videoReplaceImage}
             >
               <source

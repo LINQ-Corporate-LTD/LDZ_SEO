@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 import emailImage from "../assets/WebCommonImages/icon-email.png";
 import emailIcon from "../assets/WebCommonImages/msg.png";
 import { usePageSeo } from "../common/usePageSeo";
+import "../assets/css/form.css";
 // const emailImage =
 //   "https://www.desalination-resource-recovery.com/images/icons/icon-email.png";
 // const emailIcon =

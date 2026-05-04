@@ -100,7 +100,7 @@ const HomeSpeakerSlider = () => {
           <Slider {...sliderMagnify}>
             {speakerList.map((speaker, index) => (
               <div key={index} className="magnify-slide with-gradient">
-                <img src={speaker.eventSpeakerHomePageImage} alt={speaker.eventSpeakerName} />
+                <img src={speaker.eventSpeakerHomePageImage} alt={speaker.eventSpeakerName} loading="lazy" />
                 <div className="speaker-details">
                   <div>
                     <p className="fadeText">{speaker.eventSpeakerName}</p>
@@ -139,7 +139,7 @@ const HomeSpeakerSlider = () => {
           <Slider {...settings}>
             {speakerList.map((speaker, index) => (
               <div key={index} className="slide-box with-gradient" onClick={() => setActiveOverlayIndex(null)}>
-                <img src={speaker.eventSpeakerHomePageImage} alt={speaker.eventSpeakerName} />
+                <img src={speaker.eventSpeakerHomePageImage} alt={speaker.eventSpeakerName} loading="lazy" />
                 <div>
                   <p>{speaker.eventSpeakerName}</p>
                   <p>{speaker.eventSpeakerCompany}</p>

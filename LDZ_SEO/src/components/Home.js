@@ -15,6 +15,7 @@ import RelatedEventsSection from "./RelatedEventsSection";
 import TestimonialCarousel from "./TestimonialCarousel";
 import VideoSection from "./VideoSection";
 import "../../src/assets/css/home.css";
+import "../../src/assets/css/sponsor.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -223,6 +224,7 @@ const Home = () => {
                                 <img
                                   src={item?.sponsorComapnyLogo}
                                   alt={`Sponsor ${i + 1}`}
+                                  loading="lazy"
                                 />
                                 {item?.sponsorType !== "Dummy" && (
                                   <a className="SponsorCards_overlay__7MT16">
@@ -259,6 +261,7 @@ const Home = () => {
                                 <img
                                   src={item?.sponsorComapnyLogo}
                                   alt={`Sponsor ${i + 1}`}
+                                  loading="lazy"
                                 />
                                 {item?.sponsorType !== "Dummy" && (
                                   <a className="SponsorCards_overlay__7MT16">

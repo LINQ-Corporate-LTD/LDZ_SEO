@@ -191,7 +191,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 /* -------------------- MIDDLEWARE -------------------- */
-app.use(compression());
+app.use(compression({ level: 6, threshold: 1024 }));
 
 // ✅ ADD THIS — HSTS header for all responses including redirects
 app.use((req, res, next) => {
@@ -205,13 +205,21 @@ app.use((req, res, next) => {
 app.use(
   express.static(path.resolve(__dirname, "../build"), {
     maxAge: "1y",
+    immutable: true,
     index: false,
+    setHeaders(res, filePath) {
+      // HTML should never be cached — always fetch fresh
+      if (filePath.endsWith(".html")) {
+        res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+      }
+    },
   })
 );
 
 app.use(
   express.static(path.resolve(__dirname, "../public"), {
     maxAge: "1y",
+    immutable: true,
     index: false,
   })
 );

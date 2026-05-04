@@ -16,6 +16,7 @@ import ketTakewaysBg from "../assets/WebImages/keytakeaways-who-should-attend.we
 import arrowUpIcon from "../assets/WebCommonImages/accordion-arrow-up.png";
 import arrowDownIcon from "../assets/WebCommonImages/arrow-down-black.png";
 import { usePageSeo } from "../common/usePageSeo";
+import "../assets/css/popUp.css";
 // const arrowUpIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/accordion-arrow-up.png";
 // const arrowDownIcon =

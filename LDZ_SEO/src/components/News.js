@@ -308,6 +308,7 @@ const News = () => {
                               src={news?.newsImage}
                               alt={news?.newsTitle}
                               style={{ height: "208px" }}
+                              loading="lazy"
                             />
                           </div>
                           <div className="NewsCard_lowerContainer__Jsamo">
@@ -368,6 +369,7 @@ const News = () => {
                           <img
                             src={featuredLatestArticle?.newsImage}
                             alt={featuredLatestArticle?.newsTitle}
+                            loading="lazy"
                             style={{
                               maxWidth: "100%",
                               height: "auto",
@@ -409,6 +411,7 @@ const News = () => {
                     <img
                       src={article.newsImage}
                       alt={article.newsTitle}
+                      loading="lazy"
                     ></img>
                   </div>
                   <div className="NewsListingCard_right__RDYVn">

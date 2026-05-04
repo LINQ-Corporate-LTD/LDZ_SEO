@@ -83,6 +83,7 @@ const LatestNews = () => {
                   <img
                     src={featuredLatestArticle?.newsImage}
                     alt={featuredLatestArticle?.newsTitle}
+                    loading="lazy"
                     style={{ maxWidth: "100%", height: "auto", objectFit: "cover" }}
                   />
                   <div className="NewsSection_featuredcategoryAndDate__WZuqu">

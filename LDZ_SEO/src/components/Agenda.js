@@ -13,6 +13,7 @@ import { useApiData } from "../common/ApiContext";
 import speakerDummy from "../../src/assets/images/Speaker_photos/Speaker_dummy.jpg";
 import companyDummy from "../../src/assets/images/Speaker_photos/companyLogo_dummy.png";
 import { usePageSeo } from "../common/usePageSeo";
+import "../../src/assets/css/form.css";
 const Agenda = () => {
   const navigate = useNavigate();
   const [agendaList, setAgendaList] = useState(null);

@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Error404 from "./Error404";
 import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
-
+ import "../../src/assets/css/form.css";
 const SpeakerProfile = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
