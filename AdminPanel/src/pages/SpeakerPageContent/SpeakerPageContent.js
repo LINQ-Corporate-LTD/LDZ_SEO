@@ -62,7 +62,7 @@ const SpeakerPageContent = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/getspeakerpagedata`,
+      `https://www.linq-staging-site.com/admin1/getspeakerpagedata`,
       requestOptions
     )
       .then((response) => response.json())

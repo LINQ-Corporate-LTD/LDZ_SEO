@@ -71,7 +71,7 @@ const StandOutCrowdResponse = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/standoutcrowdresponses`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/standoutcrowdresponses`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -188,7 +188,7 @@ const StandOutCrowdResponse = () => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/deletecrowdformrequest",
+        "https://www.linq-staging-site.com/admin1/deletecrowdformrequest",
         requestOptions
       )
         .then((response) => response.json())

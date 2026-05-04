@@ -15,7 +15,7 @@ import { usePageSeo } from "../common/usePageSeo";
 // const ticket =
 //   "https://www.desalination-resource-recovery.com/images/ticket.svg";
 // const logo =
-//   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
+//   "https://www.linq-staging-site.com/media/mediabitcoin_logo_white.png";
 // const toggle =
 //   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
 // const cardLabel =
@@ -71,7 +71,7 @@ const SponsorBookingForm = () => {
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDesc = pageSeo.pageMetaDescription;
   const seoImage = pageSeo.pageOgImage || null;
-  const canonicalUrl = "https://linq-staging-site.com/sponsor-booking";
+  const canonicalUrl = "https://www.linq-staging-site.com/sponsor-booking";
 
   const numDelegates = delegates?.length;
   const sponsorPackageDelegateQty = parseInt(selectedPackage?.delegatePassQty);
@@ -171,7 +171,7 @@ const SponsorBookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://linq-staging-site.com/admin1/sendmail",
+          "https://www.linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -459,7 +459,7 @@ const SponsorBookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://linq-staging-site.com/admin1/sendmail",
+          "https://www.linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -515,7 +515,7 @@ const SponsorBookingForm = () => {
       };
 
       fetch(
-        "https://linq-staging-site.com/admin1/addnewsponsor",
+        "https://www.linq-staging-site.com/admin1/addnewsponsor",
         requestOptions,
       )
         .then((response) => response.json())
@@ -583,7 +583,7 @@ const SponsorBookingForm = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/sponsoraddons`,
+      `https://www.linq-staging-site.com/admin1/sponsoraddons`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -648,7 +648,7 @@ const SponsorBookingForm = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/getactivedelegatepackage`,
+      `https://www.linq-staging-site.com/admin1/getactivedelegatepackage`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -677,7 +677,7 @@ const SponsorBookingForm = () => {
   //       body: formData,
   //     };
   //     fetch(
-  //       `https://linq-staging-site.com/admin1/sponsoroffercouponbycode`,
+  //       `https://www.linq-staging-site.com/admin1/sponsoroffercouponbycode`,
   //       requestOptions,
   //     )
   //       .then((response) => response.json())
@@ -717,7 +717,7 @@ const SponsorBookingForm = () => {
     let formData = new FormData();
     formData.append("couponCode", code);
 
-    fetch(`https://linq-staging-site.com/admin1/sponsoroffercouponbycode`, {
+    fetch(`https://www.linq-staging-site.com/admin1/sponsoroffercouponbycode`, {
       method: "POST",
       body: formData,
     })

@@ -118,7 +118,7 @@ const EditTestimonial = ({
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/edittestimonial",
+        "https://www.linq-staging-site.com/admin1/edittestimonial",
         requestOptions
       )
         .then((response) => response.json())

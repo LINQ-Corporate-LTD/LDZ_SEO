@@ -27,7 +27,7 @@ const Agenda = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/getagenda`,
+      `https://www.linq-staging-site.com/admin1/getagenda`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -356,7 +356,7 @@ const Agenda = () => {
       body: finalData,
     };
     fetch(
-      "https://linq-staging-site.com/admin1/addcontactusrequest",
+      "https://www.linq-staging-site.com/admin1/addcontactusrequest",
       requestOptions,
     )
       .then((response) => response.json())
@@ -461,7 +461,7 @@ const Agenda = () => {
     //     body: finalData,
     //   };
     //   fetch(
-    //     "https://linq-staging-site.com/admin1/addcontactusrequest",
+    //     "https://www.linq-staging-site.com/admin1/addcontactusrequest",
     //     requestOptions,
     //   )
     //     .then((response) => response.json())
@@ -519,7 +519,7 @@ const Agenda = () => {
 
   //   setIsVerify(true);
   //   try {
-  //     const response = await fetch("https://linq-staging-site.com/admin1/verifyemaildomain", {
+  //     const response = await fetch("https://www.linq-staging-site.com/admin1/verifyemaildomain", {
   //       method: "POST",
   //       headers: {
   //         "Content-Type": "application/json",
@@ -599,7 +599,7 @@ const Agenda = () => {
 
     try {
       const response = await fetch(
-        "https://linq-staging-site.com/admin1/verifyemaildomain",
+        "https://www.linq-staging-site.com/admin1/verifyemaildomain",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -611,7 +611,7 @@ const Agenda = () => {
 
       // ✅ Save entry in DB regardless of blocked or valid
       await fetch(
-        "https://linq-staging-site.com/admin1/addagendasubscriber",
+        "https://www.linq-staging-site.com/admin1/addagendasubscriber",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

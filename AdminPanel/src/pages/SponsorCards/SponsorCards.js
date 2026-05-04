@@ -72,7 +72,7 @@ const SponsorCards = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/sponsorcards`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/sponsorcards`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -181,7 +181,7 @@ const SponsorCards = () => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/deletesponsorcard",
+        "https://www.linq-staging-site.com/admin1/deletesponsorcard",
         requestOptions
       )
         .then((response) => response.json())

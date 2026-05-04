@@ -100,7 +100,7 @@ const NewsDescription = () => {
     console.log("newsId: ", id);
     const requestOptions = { method: "POST", body: formData };
 
-    fetch(`https://linq-staging-site.com/admin1/newsbyid`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/newsbyid`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status && data.NewsData?.length > 0) {
@@ -129,7 +129,7 @@ const NewsDescription = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/generalnews`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/generalnews`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {

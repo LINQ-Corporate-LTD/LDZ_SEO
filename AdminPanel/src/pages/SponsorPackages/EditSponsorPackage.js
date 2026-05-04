@@ -163,7 +163,7 @@ const EditSponsorPackage = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://linq-staging-site.com/admin1/editsponsorpackage", requestOptions)
+      fetch("https://www.linq-staging-site.com/admin1/editsponsorpackage", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

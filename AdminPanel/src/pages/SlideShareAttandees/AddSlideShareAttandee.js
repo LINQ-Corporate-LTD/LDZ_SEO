@@ -44,7 +44,7 @@ const AddSlideShareAttandee = (props) => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/eventprojects`,
+      `https://www.linq-staging-site.com/admin1/eventprojects`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -143,7 +143,7 @@ const AddSlideShareAttandee = (props) => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/addslideShareAttandee",
+        "https://www.linq-staging-site.com/admin1/addslideShareAttandee",
         requestOptions,
       )
         .then((response) => response.json())

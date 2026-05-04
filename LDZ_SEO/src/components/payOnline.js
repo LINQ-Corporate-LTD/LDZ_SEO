@@ -103,7 +103,7 @@ const PayOnline = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://linq-staging-site.com/admin1/sendmail",
+          "https://www.linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -128,7 +128,7 @@ const PayOnline = () => {
     finalData.append("totalPayAmount", payFormData?.amount);
     finalData.append("email", payFormData?.email);
 
-    fetch("https://linq-staging-site.com/admin1/addpayonlinerequest", {
+    fetch("https://www.linq-staging-site.com/admin1/addpayonlinerequest", {
       method: "POST",
       body: finalData,
     })
@@ -199,7 +199,7 @@ const PayOnline = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://linq-staging-site.com/pay-online" />
+        <link rel="canonical" href="https://www.linq-staging-site.com/pay-online" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

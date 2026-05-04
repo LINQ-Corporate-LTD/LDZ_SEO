@@ -62,7 +62,7 @@ const EditSponsorAddOnType = ({
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/editsponsoraddontype",
+        "https://www.linq-staging-site.com/admin1/editsponsoraddontype",
         requestOptions
       )
         .then((response) => response.json())

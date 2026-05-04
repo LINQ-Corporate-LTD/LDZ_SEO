@@ -80,7 +80,7 @@ const AddContactUsHelper = (props) => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/addcontactuspagehelper",
+        "https://www.linq-staging-site.com/admin1/addcontactuspagehelper",
         requestOptions
       )
         .then((response) => response.json())

@@ -26,7 +26,7 @@
 //         const requestOptions = {
 //             method: "GET",
 //         };
-//         fetch(`https://linq-staging-site.com/admin1/getslideShare`, requestOptions)
+//         fetch(`https://www.linq-staging-site.com/admin1/getslideShare`, requestOptions)
 //             .then((response) => response.json())
 //             .then((data) => {
 //                 if (
@@ -61,7 +61,7 @@
 //         const requestOptions = {
 //             method: "GET",
 //         };
-//         fetch(`https://linq-staging-site.com/admin1/getslideShareAttandee`, requestOptions)
+//         fetch(`https://www.linq-staging-site.com/admin1/getslideShareAttandee`, requestOptions)
 //             .then((response) => response.json())
 //             .then((data) => {
 //                 if (
@@ -595,7 +595,7 @@ const SlideShare = () => {
     // ─── API calls ───────────────────────────────────────────────────────────────
 
     const callSlideShareListApi = () => {
-        fetch(`https://linq-staging-site.com/admin1/getslideShare`)
+        fetch(`https://www.linq-staging-site.com/admin1/getslideShare`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.detail === "The Token is expired" || data?.message === "Invalid token") {
@@ -617,7 +617,7 @@ const SlideShare = () => {
     };
 
     const callSlideShareAttandeeListApi = () => {
-        fetch(`https://linq-staging-site.com/admin1/getslideShareAttandee`)
+        fetch(`https://www.linq-staging-site.com/admin1/getslideShareAttandee`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.detail === "The Token is expired" || data?.message === "Invalid token") {
@@ -644,7 +644,7 @@ const SlideShare = () => {
         setIsLoggingIn(true);
         try {
             const response = await fetch(
-                `https://linq-staging-site.com/admin1/securelogin`,
+                `https://www.linq-staging-site.com/admin1/securelogin`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

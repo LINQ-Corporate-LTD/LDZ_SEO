@@ -78,7 +78,7 @@ const EditExpertSpeaker = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://linq-staging-site.com/admin1/editexpertspeaker", requestOptions)
+      fetch("https://www.linq-staging-site.com/admin1/editexpertspeaker", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

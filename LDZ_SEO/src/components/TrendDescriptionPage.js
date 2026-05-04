@@ -82,7 +82,7 @@
 //     const requestOptions = {
 //       method: "GET",
 //     };
-//     fetch(`https://linq-staging-site.com/admin1/eventsponsors`, requestOptions)
+//     fetch(`https://www.linq-staging-site.com/admin1/eventsponsors`, requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (
@@ -117,7 +117,7 @@
 //     const requestOptions = {
 //       method: "GET",
 //     };
-//     fetch(`https://linq-staging-site.com/admin1/eventindustrytrends`, requestOptions)
+//     fetch(`https://www.linq-staging-site.com/admin1/eventindustrytrends`, requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (
@@ -209,7 +209,7 @@
 //     let formData = new FormData();
 //     formData.append("trendId", id);
 
-//     fetch(`https://linq-staging-site.com/admin1/trendbyid`, {
+//     fetch(`https://www.linq-staging-site.com/admin1/trendbyid`, {
 //       method: "POST",
 //       body: formData,
 //     })
@@ -231,7 +231,7 @@
 //   const fetchTrendBySlug = async (slugFromUrl) => {
 //     try {
 //       const res = await fetch(
-//         `https://linq-staging-site.com/admin1/eventindustrytrends`
+//         `https://www.linq-staging-site.com/admin1/eventindustrytrends`
 //       );
 //       const data = await res.json();
 
@@ -395,7 +395,7 @@
 //         <meta name="twitter:card" content="summary_large_image" />
 //         <meta name="twitter:title" content={seoTitle} />
 //         <meta name="twitter:description" content={seoDesc} />
-//         <link rel="canonical" href="https://linq-staging-site.com/trenddescription/Market-Dynamics" />
+//         <link rel="canonical" href="https://www.linq-staging-site.com/trenddescription/Market-Dynamics" />
 //       </Helmet>
 //       <Navbar forceScrolled />
 //       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>
@@ -731,7 +731,7 @@ const TrendDescriptionPage = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/getagenda`,
+      `https://www.linq-staging-site.com/admin1/getagenda`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -793,7 +793,7 @@ const TrendDescriptionPage = () => {
   const fetchTrendDetailClient = (id) => {
     const formData = new FormData();
     formData.append("trendId", id);
-    fetch(`https://linq-staging-site.com/admin1/trendbyid`, {
+    fetch(`https://www.linq-staging-site.com/admin1/trendbyid`, {
       method: "POST",
       body: formData,
     })

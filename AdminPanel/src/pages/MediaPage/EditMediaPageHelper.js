@@ -97,7 +97,7 @@ const EditMediaPageHelper = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://linq-staging-site.com/admin1/editmediapagehelpers", requestOptions)
+      fetch("https://www.linq-staging-site.com/admin1/editmediapagehelpers", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

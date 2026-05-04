@@ -92,7 +92,7 @@ const EditEventStatatics = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://linq-staging-site.com/admin1/edithomecountpoints", requestOptions)
+      fetch("https://www.linq-staging-site.com/admin1/edithomecountpoints", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

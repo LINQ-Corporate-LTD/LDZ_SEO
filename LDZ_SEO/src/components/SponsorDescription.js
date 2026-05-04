@@ -91,7 +91,7 @@ const SponsorDescription = () => {
       const formData = new FormData();
       formData.append("sponsorId", sponsorId);
 
-      const response = await fetch(`https://linq-staging-site.com/admin1/sponsorbyid`, {
+      const response = await fetch(`https://www.linq-staging-site.com/admin1/sponsorbyid`, {
         method: "POST",
         body: formData,
       });
@@ -110,7 +110,7 @@ const SponsorDescription = () => {
   const fetchSponsorBySlug = async (slug) => {
     try {
       const response = await fetch(
-        `https://linq-staging-site.com/admin1/eventsponsors`
+        `https://www.linq-staging-site.com/admin1/eventsponsors`
       );
       const data = await response.json();
 
@@ -265,7 +265,7 @@ const SponsorDescription = () => {
       body: finalData,
     };
     fetch(
-      "https://linq-staging-site.com/admin1/addquickproposalrequest",
+      "https://www.linq-staging-site.com/admin1/addquickproposalrequest",
       requestOptions,
     )
       .then((response) => response.json())
@@ -336,7 +336,7 @@ const SponsorDescription = () => {
   //       body: finalData,
   //     };
   //     fetch(
-  //       "https://linq-staging-site.com/admin1/addquickproposalrequest",
+  //       "https://www.linq-staging-site.com/admin1/addquickproposalrequest",
   //       requestOptions
   //     )
   //       .then((response) => response.json())

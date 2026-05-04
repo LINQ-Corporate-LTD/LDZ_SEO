@@ -62,7 +62,7 @@ const ContactUsPageContent = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/contactusstaticdata`,
+      `https://www.linq-staging-site.com/admin1/contactusstaticdata`,
       requestOptions
     )
       .then((response) => response.json())

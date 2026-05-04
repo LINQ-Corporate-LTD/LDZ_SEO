@@ -58,7 +58,7 @@ const AddIndustry = (props) => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/addeventparticipatedindustry",
+        "https://www.linq-staging-site.com/admin1/addeventparticipatedindustry",
         requestOptions
       )
         .then((response) => response.json())

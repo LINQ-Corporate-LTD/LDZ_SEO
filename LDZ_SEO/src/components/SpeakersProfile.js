@@ -75,7 +75,7 @@ const SpeakerProfile = () => {
       formData.append("speakerId", speakerId);
 
       const response = await fetch(
-        `https://linq-staging-site.com/admin1/speakerbyid`,
+        `https://www.linq-staging-site.com/admin1/speakerbyid`,
         {
           method: "POST",
           body: formData,
@@ -97,7 +97,7 @@ const SpeakerProfile = () => {
   const fetchSpeakerBySlug = async (slug) => {
     try {
       const response = await fetch(
-        `https://linq-staging-site.com/admin1/eventspeakers`
+        `https://www.linq-staging-site.com/admin1/eventspeakers`
       );
       const data = await response.json();
 
@@ -255,7 +255,7 @@ const SpeakerProfile = () => {
       body: finalData,
     };
     fetch(
-      "https://linq-staging-site.com/admin1/addquickproposalrequest",
+      "https://www.linq-staging-site.com/admin1/addquickproposalrequest",
       requestOptions,
     )
       .then((response) => response.json())

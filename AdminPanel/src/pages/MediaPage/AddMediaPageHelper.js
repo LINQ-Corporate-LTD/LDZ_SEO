@@ -76,7 +76,7 @@ const AddMediaPageHelper = (props) => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://linq-staging-site.com/admin1/addmediapagehelpers", requestOptions)
+      fetch("https://www.linq-staging-site.com/admin1/addmediapagehelpers", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

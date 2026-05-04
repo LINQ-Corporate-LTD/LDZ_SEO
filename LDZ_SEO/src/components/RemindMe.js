@@ -15,7 +15,7 @@ import { Helmet } from "react-helmet-async";
 import { useApiData } from "../common/ApiContext";
 import { usePageSeo } from "../common/usePageSeo";
 // const logo =
-//   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
+//   "https://www.linq-staging-site.com/media/mediabitcoin_logo_white.png";
 // const plusIcon =
 //   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
 // const closeBtn =
@@ -478,7 +478,7 @@ const RemindMeLater = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://linq-staging-site.com/remind-me-later" />
+        <link rel="canonical" href="https://www.linq-staging-site.com/remind-me-later" />
       </Helmet>
       <div className="PageForm_container__NA5Wr">
         <div className="PageForm_header__7W2Cz">

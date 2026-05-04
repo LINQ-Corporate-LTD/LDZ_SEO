@@ -71,7 +71,7 @@ const CoreAttandeesList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/eventcoreattandees`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/eventcoreattandees`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -171,7 +171,7 @@ const CoreAttandeesList = () => {
         body: finalData,
       };
       fetch(
-        'https://linq-staging-site.com/admin1/deleteeventcoreattandee',
+        'https://www.linq-staging-site.com/admin1/deleteeventcoreattandee',
         requestOptions
       )
         .then((response) => response.json())

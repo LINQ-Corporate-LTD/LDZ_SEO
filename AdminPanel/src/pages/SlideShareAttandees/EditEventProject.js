@@ -78,7 +78,7 @@ const EditEventProject = ({
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/editeventproject",
+        "https://www.linq-staging-site.com/admin1/editeventproject",
         requestOptions,
       )
         .then((response) => response.json())

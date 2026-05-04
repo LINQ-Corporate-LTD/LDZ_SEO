@@ -190,7 +190,7 @@ const Sponsors = () => {
       method: "POST",
       body: finalData,
     };
-    fetch("https://linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
+    fetch("https://www.linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
@@ -259,7 +259,7 @@ const Sponsors = () => {
   //       method: "POST",
   //       body: finalData,
   //     };
-  //     fetch("https://linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
+  //     fetch("https://www.linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
   //       .then((response) => response.json())
   //       .then((data) => {
   //         if (data.status) {
@@ -528,7 +528,7 @@ const Sponsors = () => {
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content={seoTitle} />
-          <link rel="canonical" href="https://linq-staging-site.com/sponsors" />
+          <link rel="canonical" href="https://www.linq-staging-site.com/sponsors" />
         </Helmet>
         <Navbar forceScrolled />
         <div style={{ opacity: 1 }}>

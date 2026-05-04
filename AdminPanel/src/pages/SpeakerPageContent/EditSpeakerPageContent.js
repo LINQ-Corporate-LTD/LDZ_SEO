@@ -37,7 +37,7 @@ const EditSpeakerPageContent = (props) => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/getspeakerpagedata`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/getspeakerpagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -157,7 +157,7 @@ const EditSpeakerPageContent = (props) => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/addspeakerpagestaticdata",
+        "https://www.linq-staging-site.com/admin1/addspeakerpagestaticdata",
         requestOptions
       )
         .then((response) => response.json())

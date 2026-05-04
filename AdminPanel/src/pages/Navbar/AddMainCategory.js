@@ -49,7 +49,7 @@ const AddMainCategory = (props) => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/addnavmaincategory",
+        "https://www.linq-staging-site.com/admin1/addnavmaincategory",
         requestOptions
       )
         .then((response) => response.json())

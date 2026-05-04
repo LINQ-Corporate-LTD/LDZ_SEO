@@ -223,7 +223,7 @@ const SubscribeForm = () => {
       method: "POST",
       body: finalData,
     };
-    fetch("https://linq-staging-site.com/admin1/addsubscriber", requestOptions)
+    fetch("https://www.linq-staging-site.com/admin1/addsubscriber", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {

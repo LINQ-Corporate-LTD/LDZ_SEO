@@ -69,7 +69,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/contactushelpers`,
+      `https://www.linq-staging-site.com/admin1/contactushelpers`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -99,7 +99,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/contactusstaticdata`,
+      `https://www.linq-staging-site.com/admin1/contactusstaticdata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -701,7 +701,7 @@ const ContactUs = () => {
       body: finalData,
     };
     fetch(
-      "https://linq-staging-site.com/admin1/addcontactusrequest",
+      "https://www.linq-staging-site.com/admin1/addcontactusrequest",
       requestOptions,
     )
       .then((response) => response.json())
@@ -814,7 +814,7 @@ const ContactUs = () => {
     //     body: finalData,
     //   };
     //   fetch(
-    //     "https://linq-staging-site.com/admin1/addcontactusrequest",
+    //     "https://www.linq-staging-site.com/admin1/addcontactusrequest",
     //     requestOptions,
     //   )
     //     .then((response) => response.json())
@@ -882,7 +882,7 @@ const ContactUs = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://linq-staging-site.com/contact-us" />
+        <link rel="canonical" href="https://www.linq-staging-site.com/contact-us" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>

@@ -71,7 +71,7 @@ const AddOnsList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/delegatepackageaddons`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/delegatepackageaddons`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -177,7 +177,7 @@ const AddOnsList = () => {
         body: finalData,
       };
       fetch(
-        'https://linq-staging-site.com/admin1/deletedelegatepackageaddons',
+        'https://www.linq-staging-site.com/admin1/deletedelegatepackageaddons',
         requestOptions
       )
         .then((response) => response.json())

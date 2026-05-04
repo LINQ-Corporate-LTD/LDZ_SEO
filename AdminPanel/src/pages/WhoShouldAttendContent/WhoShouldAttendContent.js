@@ -65,7 +65,7 @@ const WhoShouldAttendContent = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/whoshouldattendpagedata`,
+      `https://www.linq-staging-site.com/admin1/whoshouldattendpagedata`,
       requestOptions
     )
       .then((response) => response.json())

@@ -137,7 +137,7 @@ const EventData = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/homepagedata`,
+      `https://www.linq-staging-site.com/admin1/homepagedata`,
       requestOptions,
     )
       .then((response) => response.json())

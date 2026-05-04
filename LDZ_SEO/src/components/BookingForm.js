@@ -10,7 +10,7 @@ import toggle from "../assets/WebCommonImages/toggle.png";
 import cardLabel from "../assets/WebCommonImages/card-labels.png";
 import lockIcon from "../assets/WebCommonImages/lock.png";
 // const logo =
-//   "https://linq-staging-site.com/media/mediabitcoin_logo_white.png";
+//   "https://www.linq-staging-site.com/media/mediabitcoin_logo_white.png";
 
 // const ticket =
 //   "https://www.desalination-resource-recovery.com/images/ticket.svg";
@@ -174,7 +174,7 @@ const BookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://linq-staging-site.com/admin1/sendmail",
+          "https://www.linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -246,7 +246,7 @@ const BookingForm = () => {
   //     };
 
   //     fetch(
-  //       "https://linq-staging-site.com/admin1/addnewdelegate",
+  //       "https://www.linq-staging-site.com/admin1/addnewdelegate",
   //       requestOptions,
   //     )
   //       .then((response) => response.json())
@@ -572,7 +572,7 @@ const BookingForm = () => {
 
       try {
         const emailResponse = await fetch(
-          "https://linq-staging-site.com/admin1/sendmail",
+          "https://www.linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -625,7 +625,7 @@ const BookingForm = () => {
       };
 
       fetch(
-        "https://linq-staging-site.com/admin1/addnewdelegate",
+        "https://www.linq-staging-site.com/admin1/addnewdelegate",
         requestOptions,
       )
         .then((response) => response.json())
@@ -695,7 +695,7 @@ const BookingForm = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/delegatepackageaddons`,
+      `https://www.linq-staging-site.com/admin1/delegatepackageaddons`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -725,7 +725,7 @@ const BookingForm = () => {
   //       body: formData,
   //     };
   //     fetch(
-  //       `https://linq-staging-site.com/admin1/offercouponbycode`,
+  //       `https://www.linq-staging-site.com/admin1/offercouponbycode`,
   //       requestOptions,
   //     )
   //       .then((response) => response.json())
@@ -765,7 +765,7 @@ const BookingForm = () => {
     let formData = new FormData();
     formData.append("couponCode", code);
 
-    fetch(`https://linq-staging-site.com/admin1/offercouponbycode`, {
+    fetch(`https://www.linq-staging-site.com/admin1/offercouponbycode`, {
       method: "POST",
       body: formData,
     })

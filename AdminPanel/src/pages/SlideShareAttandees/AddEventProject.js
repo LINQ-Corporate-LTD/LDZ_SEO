@@ -62,7 +62,7 @@ const AddEventProject = (props) => {
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/addeventproject",
+        "https://www.linq-staging-site.com/admin1/addeventproject",
         requestOptions,
       )
         .then((response) => response.json())

@@ -72,7 +72,7 @@ const SponsorAddOnsList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/sponsoraddons`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/sponsoraddons`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -185,7 +185,7 @@ const SponsorAddOnsList = () => {
         body: finalData,
       };
       fetch(
-        'https://linq-staging-site.com/admin1/deletesponsoraddons',
+        'https://www.linq-staging-site.com/admin1/deletesponsoraddons',
         requestOptions
       )
         .then((response) => response.json())

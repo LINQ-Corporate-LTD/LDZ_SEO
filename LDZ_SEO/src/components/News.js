@@ -39,7 +39,7 @@ const News = () => {
       method: "GET",
     };
     fetch(
-      `https://linq-staging-site.com/admin1/getagenda`,
+      `https://www.linq-staging-site.com/admin1/getagenda`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -76,7 +76,7 @@ const News = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://linq-staging-site.com/admin1/generalnews`, requestOptions)
+    fetch(`https://www.linq-staging-site.com/admin1/generalnews`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -247,7 +247,7 @@ const News = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://linq-staging-site.com/news" />
+        <link rel="canonical" href="https://www.linq-staging-site.com/news" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

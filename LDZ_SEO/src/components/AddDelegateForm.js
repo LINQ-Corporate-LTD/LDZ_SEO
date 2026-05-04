@@ -121,7 +121,7 @@ const CompanyRegistrationForm = () => {
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDesc = pageSeo.pageMetaDescription;
   const seoImage = pageSeo.pageOgImage || null;
-  const canonicalUrl = "https://linq-staging-site.com/booking-form";
+  const canonicalUrl = "https://www.linq-staging-site.com/booking-form";
 
   const handleCompanyDataChange = (field, value) => {
     setCompanyData((prev) => ({
@@ -254,7 +254,7 @@ const CompanyRegistrationForm = () => {
       let invoiceNumber;
       try {
         const invoiceRes = await fetch(
-          "https://linq-staging-site.com/admin1/generate-invoice-no",
+          "https://www.linq-staging-site.com/admin1/generate-invoice-no",
         );
         const invoiceData = await invoiceRes.json();
         invoiceNumber = invoiceData.invoiceNo;
@@ -351,7 +351,7 @@ const CompanyRegistrationForm = () => {
         };
         try {
           const emailResponse = await fetch(
-            "https://linq-staging-site.com/admin1/sendmail",
+            "https://www.linq-staging-site.com/admin1/sendmail",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -423,7 +423,7 @@ const CompanyRegistrationForm = () => {
 
         try {
           const zohoResponse = await fetch(
-            "https://linq-staging-site.com/admin1/sendtozoho",
+            "https://www.linq-staging-site.com/admin1/sendtozoho",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -504,7 +504,7 @@ const CompanyRegistrationForm = () => {
   }, [showStep2]);
 
   const callDelegateAddOnsApi = () => {
-    fetch(`https://linq-staging-site.com/admin1/delegatepackageaddons`)
+    fetch(`https://www.linq-staging-site.com/admin1/delegatepackageaddons`)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -530,7 +530,7 @@ const CompanyRegistrationForm = () => {
     }
     let formData = new FormData();
     formData.append("couponCode", code);
-    fetch(`https://linq-staging-site.com/admin1/offercouponbycode`, {
+    fetch(`https://www.linq-staging-site.com/admin1/offercouponbycode`, {
       method: "POST",
       body: formData,
     })
@@ -652,7 +652,7 @@ const CompanyRegistrationForm = () => {
       };
       try {
         const emailResponse = await fetch(
-          "https://linq-staging-site.com/admin1/sendmail",
+          "https://www.linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -782,7 +782,7 @@ const CompanyRegistrationForm = () => {
       };
       try {
         const emailResponse = await fetch(
-          "https://linq-staging-site.com/admin1/sendmail",
+          "https://www.linq-staging-site.com/admin1/sendmail",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -827,7 +827,7 @@ const CompanyRegistrationForm = () => {
       finalData.append("totalPaidAmount", prices.finalTotal);
       finalData.append("transectionId", stripeResponse.paymentIntentId);
 
-      fetch("https://linq-staging-site.com/admin1/addnewdelegate", {
+      fetch("https://www.linq-staging-site.com/admin1/addnewdelegate", {
         method: "POST",
         body: finalData,
       })

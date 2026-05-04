@@ -74,7 +74,7 @@ const EditIndustry = ({
         body: finalData,
       };
       fetch(
-        "https://linq-staging-site.com/admin1/editeventparticipatedindustry",
+        "https://www.linq-staging-site.com/admin1/editeventparticipatedindustry",
         requestOptions
       )
         .then((response) => response.json())

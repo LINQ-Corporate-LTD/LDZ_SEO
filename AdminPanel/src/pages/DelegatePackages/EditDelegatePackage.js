@@ -145,7 +145,7 @@ const EditDelegatePackage = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://linq-staging-site.com/admin1/editdelegatepackage", requestOptions)
+      fetch("https://www.linq-staging-site.com/admin1/editdelegatepackage", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (
