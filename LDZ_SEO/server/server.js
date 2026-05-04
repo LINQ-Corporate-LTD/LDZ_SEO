@@ -290,6 +290,22 @@ app.get("*", async (req, res) => {
 
     const { helmet } = helmetContext;
     const themeStyle = buildThemeStyle(initialData?.theme);
+
+    // Preload hints for LCP and video poster so the browser discovers them
+    // in the initial document instead of waiting for JS/CSS evaluation.
+    const lcpImageUrl = initialData?.homeVideoSettings?.eventDetailBackImage;
+    const posterImageUrl = initialData?.homeVideoSettings?.videoReplaceImage;
+    const criticalPreloads = [
+      lcpImageUrl
+        ? `<link rel="preload" as="image" href="${lcpImageUrl}" fetchpriority="high">`
+        : "",
+      posterImageUrl
+        ? `<link rel="preload" as="image" href="${posterImageUrl}" fetchpriority="low">`
+        : "",
+    ]
+      .filter(Boolean)
+      .join("\n          ");
+
     const indexFile = path.resolve(__dirname, "../build/index.html");
 
     fs.readFile(indexFile, "utf8", (err, htmlData) => {
@@ -329,8 +345,9 @@ app.get("*", async (req, res) => {
         // Inject Helmet tags + theme just before </head>
         .replace(
           "</head>",
-          `  ${helmetHeadTags}
-          <!-- SSR DEBUG: 
+          `  ${criticalPreloads}
+          ${helmetHeadTags}
+          <!-- SSR DEBUG:
                Path: ${req.url}
                hasTheme: ${!!initialData?.theme}
                newsDetailCount: ${initialData?.newsDetail?.length || 0}

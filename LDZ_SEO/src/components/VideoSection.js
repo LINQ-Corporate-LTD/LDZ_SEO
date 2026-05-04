@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import "../../src/assets/css/video.css";
 import { useApiData } from "../../src/common/ApiContext";
 import arrowIcon from '../assets/WebCommonImages/up-arrow-white.png'
@@ -26,6 +27,17 @@ const VideoSection = () => {
   } = useApiData();
 
   return (
+    <>
+      {homeVideoSettings?.eventDetailBackImage && (
+        <Helmet>
+          <link
+            rel="preload"
+            as="image"
+            href={homeVideoSettings.eventDetailBackImage}
+            fetchpriority="high"
+          />
+        </Helmet>
+      )}
     <div className="home-banner-container custom-style-header">
       <div className="videoContainer">
         <div>
@@ -127,6 +139,7 @@ const VideoSection = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
