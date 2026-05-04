@@ -61,7 +61,6 @@ const Attandees = () => {
     eventDetails,
   } = useApiData();
   const agendaVersion = eventDetails?.agendaVersion;
-  console.log("----------------agendaVersion: ", agendaVersion);
 
   useEffect(() => {
     callPastAttandeeListApi();
@@ -116,9 +115,6 @@ const Attandees = () => {
   const updatedAgendaList = Array.isArray(agendaList)
     ? agendaList.filter((item) => item.status === "Speaker").slice(0, 3)
     : [];
-  console.log('agendaList', agendaList);
-  console.log('dayItem', dayItem);
-  console.log('updatedAgendaList', updatedAgendaList);
 
 
   const chunkArray = (array, size) => {

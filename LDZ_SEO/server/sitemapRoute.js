@@ -21,14 +21,14 @@ function mountSitemapRoute(app) {
 
             // Serve from cache if fresh
             if (cachedXml && now - cacheTimestamp < CACHE_TTL_MS) {
-                console.log("🗺️  Serving cached sitemap.xml");
+         
                 res.setHeader("Content-Type", "application/xml");
                 res.setHeader("Cache-Control", "public, max-age=86400"); // 24h browser cache
                 return res.send(cachedXml);
             }
 
             // Regenerate
-            console.log("🗺️  Regenerating sitemap.xml...");
+       
             cachedXml = await generateSitemap();
             cacheTimestamp = now;
 
@@ -67,8 +67,6 @@ Sitemap: ${DOMAIN}/sitemap.xml
         res.setHeader("Content-Type", "text/plain");
         res.send(txt);
     });
-
-    console.log("✅ Sitemap routes mounted: /sitemap.xml, /sitemap-index.xml, /robots.txt");
 }
 
 module.exports = { mountSitemapRoute };

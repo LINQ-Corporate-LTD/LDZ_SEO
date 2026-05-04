@@ -63,9 +63,6 @@ export default function GoogleTranslate({
   // Create unique class name based on color to force CSS update
   const dropdownClass = `lang-dropdown-${dropdownColor === "#000000" ? "black" : "white"}`;
 
-  console.log("Dropdown Color:", dropdownColor);
-  console.log("Dropdown Class:", dropdownClass);
-  console.log("showWhiteNavbar:", showWhiteNavbar);
 
   return (
     <div style={{ marginRight: "15px", marginLeft: "5px" }}>

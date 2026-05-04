@@ -23,27 +23,14 @@ import toggle from "../assets/WebCommonImages/toggle.png";
 import cardLabel from "../assets/WebCommonImages/card-labels.png";
 import lockIcon from "../assets/WebCommonImages/lock.png";
 import { usePageSeo } from "../common/usePageSeo";
-// const logo =
-//   "https://www.linq-staging-site.com/media/mediabitcoin_logo_white.png";
-// const plusIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
-// const closeBtn =
-//   "https://www.desalination-resource-recovery.com/images/icons/del-cross.png";
-// const toggle =
-//   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
-// const cardLabel =
-//   "https://www.desalination-resource-recovery.com/images/logos/card-labels.png";
-// const lockIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/lock.png";
+
 
 const countries = getNames();
 const AddSponsorDelegateForm = () => {
   const location = useLocation();
-  console.log("location: ", location);
   const navigate = useNavigate();
   const phoneInputRef = useRef(null);
   const selectedPackage = location?.state?.selectedPackage;
-  console.log("selectedPackage: ", selectedPackage);
 
   const { eventDetails, eventGeneralSettings, navLogos } = useApiData();
 
@@ -227,7 +214,6 @@ const AddSponsorDelegateForm = () => {
         delegates: delegates,
         termsAgreement: termsAgreement,
       };
-      console.log("formData: ", formData);
 
       let invoiceNumber;
       try {
@@ -291,8 +277,7 @@ const AddSponsorDelegateForm = () => {
           }
         });
         await Promise.all(submissions);
-        console.log(`ðŸŽŸï¸ Company: ${formData.company.companyName}`);
-        console.log(`ðŸ§¾ Invoice Number: ${invoiceNumber}`);
+        
       }
 
       async function sendBookingEmail() {
@@ -352,11 +337,7 @@ const AddSponsorDelegateForm = () => {
           submitCompanyDelegatesToHubSpot(formData),
           sendBookingEmail(),
         ]);
-        console.log("selectedPackage", selectedPackage);
-        console.log("companyData", companyData);
-        console.log("delegates", delegates);
-        console.log("termsAgreement", termsAgreement);
-        console.log("invoiceNumber", invoiceNumber);
+       
 
         // â”€â”€ Instead of navigating, store the data and show Step 2 inline â”€â”€
         setStep2Data({
@@ -440,7 +421,7 @@ const AddSponsorDelegateForm = () => {
 
     async function sendStep2Email() {
       const prices = calculatePrices();
-      console.log("🛒 Selected Add-Ons for Step 2 Email:", selectedAddOns);
+    
       let step2Html = `
       <h3>Sponsor Booking Form Step 2</h3>
       <div style='width: 60%; background-color: transparent; color: black;'>
@@ -491,7 +472,7 @@ const AddSponsorDelegateForm = () => {
         subject: `${eventDetails?.eventShortCode} - Sponsor Booking Form Step 2`,
         html: step2Html,
       };
-      console.log("📧 Sending Step 2 email with payload:", emailPayload);
+      
       try {
         const emailResponse = await fetch(
           "https://www.linq-staging-site.com/admin1/sendmail",
@@ -503,7 +484,7 @@ const AddSponsorDelegateForm = () => {
         );
         if (emailResponse.ok) {
           const emailResult = await emailResponse.json();
-          console.log("✅ Step 2 Email result:", emailResult);
+          
         } else {
           const errorText = await emailResponse.text();
           console.error(
@@ -532,7 +513,7 @@ const AddSponsorDelegateForm = () => {
   const handlePaymentSuccess = async (stripeResponse) => {
     const prices = calculatePrices();
     async function sendStep3Email() {
-      console.log("🛒 Selected Add-Ons for Step 3 Email:", selectedAddOns);
+      
       let step3Html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -626,7 +607,7 @@ const AddSponsorDelegateForm = () => {
         subject: `${eventDetails?.eventShortCode} - Sponsor Booking Confirmation - Payment Successful`,
         html: step3Html,
       };
-      console.log("📧 Sending Step 3 email with payload:", emailPayload);
+      
       try {
         const emailResponse = await fetch(
           "https://www.linq-staging-site.com/admin1/sendmail",
@@ -1065,12 +1046,7 @@ const AddSponsorDelegateForm = () => {
   );
 
   if (showStep2) {
-    // const seoTitle =
-    //   "Sponsor Booking | Bitcoin Innovation & Market Evolution 2026";
-    // const seoDesc =
-    //   "Book your sponsorship package for Bitcoin Innovation & Market Evolution 2026.";
-    // const canonicalUrl =
-    //   "https://www.linq-staging-site.com/sponsor-booking";
+
 
     return (
       <>

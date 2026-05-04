@@ -20,14 +20,6 @@ import emailIcon from "../assets/WebCommonImages/msg.png";
 import phoneIcon from "../assets/WebCommonImages/phone-call.png";
 import { usePageSeo } from "../common/usePageSeo";
 import { useApiData } from "../common/ApiContext";
-// const leftArrowIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
-// const rightArrowIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-right.png";
-// const emailIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/msg.png";
-// const phoneIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/phone-call.png";
 
 const Sponsors = () => {
   const sliderRef = useRef(null);
@@ -194,15 +186,6 @@ const Sponsors = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
-          // toast.success("Record Added Successfully.", {
-          //   position: "top-right",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          // });
           setFullName("");
           setFullNameErr(false);
           setCompanyName("");
@@ -219,87 +202,8 @@ const Sponsors = () => {
       })
       .catch((error) => {
         console.log("error: ", error);
-        // toast.error("There was an error, Please try again later.", {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        // });
       });
   };
-
-  // const submitBtnClk = (e) => {
-  //   e.preventDefault();
-  //   if (fullName === "") {
-  //     setFullNameErr(true);
-  //   } else if (companyName === "") {
-  //     setCompanyNameErr(true);
-  //   } else if (mobile === "") {
-  //     setMobileErr(true);
-  //   } else if (email === "") {
-  //     setEmailErr(true);
-  //     setEmailErrMsg("Email is required");
-  //   } else if (!validateEmail(email)) {
-  //     setEmailErr(true);
-  //     setEmailErrMsg("Please enter a valid email address");
-  //   } else {
-  //     const finalData = new FormData();
-  //     finalData.append("requesterName", fullName);
-  //     finalData.append("requesterCompanyName", companyName);
-  //     finalData.append("requesterMobile", mobile);
-  //     finalData.append("requesterEmail", email);
-  //     if (message?.length > 0) {
-  //       finalData.append("requesterMessage", JSON.stringify(message));
-  //     }
-
-  //     const requestOptions = {
-  //       method: "POST",
-  //       body: finalData,
-  //     };
-  //     fetch("https://www.linq-staging-site.com/admin1/addcrowdformrequest", requestOptions)
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         if (data.status) {
-  //           toast.success("Record Added Successfully.", {
-  //             position: "top-right",
-  //             autoClose: 5000,
-  //             hideProgressBar: false,
-  //             closeOnClick: true,
-  //             pauseOnHover: true,
-  //             draggable: true,
-  //             progress: undefined,
-  //           });
-  //           setFullName("");
-  //           setFullNameErr(false);
-  //           setCompanyName("");
-  //           setCompanyNameErr(false);
-  //           setMobile("");
-  //           setMobileErr(false);
-  //           setEmail("");
-  //           setEmailErr(false);
-  //           setEmailErrMsg("");
-  //           setMessage("");
-  //         } else {
-  //           toast.error(data?.message);
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.log("error: ", error);
-  //         toast.error("There was an error, Please try again later.", {
-  //           position: "top-right",
-  //           autoClose: 5000,
-  //           hideProgressBar: false,
-  //           closeOnClick: true,
-  //           pauseOnHover: true,
-  //           draggable: true,
-  //           progress: undefined,
-  //         });
-  //       });
-  //   }
-  // };
 
   const handleResize = () => {
     setIsMobile(window.innerWidth < 991);
@@ -513,7 +417,6 @@ const Sponsors = () => {
     "https://www.direct-lithium-extraction-show.com/api/images/sponsor/1757675931045-678212680.png";
 
   const pageSeo = usePageSeo("sponsors");
-  console.log("pageSeo sponsors: ", pageSeo);
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDesc = pageSeo.pageMetaDescription;
   const seoImage = pageSeo.pageOgImage || null;

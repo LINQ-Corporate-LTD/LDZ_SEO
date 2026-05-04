@@ -63,8 +63,6 @@ const CheckoutForm = forwardRef(
           return;
         }
 
-        console.log("Payment Method created:", paymentMethod.id);
-
         // STEP 2: Send payment method to your Django backend
         const response = await fetch(
           "https://www.linq-staging-site.com/admin1/stripe-client-secret",

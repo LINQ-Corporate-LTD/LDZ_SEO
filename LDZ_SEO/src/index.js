@@ -25,14 +25,11 @@ const app = (
 const hasSSRContent =
   rootElement.hasChildNodes() && rootElement.children.length > 0;
 
-console.log("SSR Content detected:", hasSSRContent);
-console.log("Initial Data:", window.__INITIAL_DATA__);
-
 if (hasSSRContent) {
-  console.log("🔄 Hydrating SSR content");
+  console.log("Hydrating SSR content");
   hydrateRoot(rootElement, app);
 } else {
-  console.log("🎨 Rendering client-side only");
+  console.log("Rendering client-side only");
   const root = createRoot(rootElement);
   root.render(app);
 }

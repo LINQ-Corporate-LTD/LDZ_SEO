@@ -12,46 +12,24 @@ import toggle from "../../src/assets/WebCommonImages/toggle.png";
 import cardLabel from "../../src/assets/WebCommonImages/card-labels.png";
 import lockIcon from "../../src/assets/WebCommonImages/lock.png";
 import { usePageSeo } from "../common/usePageSeo";
-// const ticket =
-//   "https://www.desalination-resource-recovery.com/images/ticket.svg";
-// const logo =
-//   "https://www.linq-staging-site.com/media/mediabitcoin_logo_white.png";
-// const toggle =
-//   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
-// const cardLabel =
-//   "https://www.desalination-resource-recovery.com/images/logos/card-labels.png";
-// const lockIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/lock.png";
 
 const SponsorBookingForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("location: ", location);
   const toEmails = useSSRData("toEmails") || "benny.scott@iq-hub.com";
   const selectedPackage = location?.state?.selectedPackage;
-  console.log("selectedPackage: ", selectedPackage);
   const delegates = location?.state?.delegates;
-  console.log("delegates: ", delegates);
   const companyDetails = location?.state?.companyData;
-  console.log("companyDetails: ", companyDetails);
   const [sponsorAddOns, setSponsorAddOns] = useState([]);
-  console.log("sponsorAddOns: ", sponsorAddOns);
   const [showPaymentForm, setShowPaymentForm] = useState(false);
   const [paymentAmount, setPaymentAmount] = useState(100);
   const [marketingAndLiterature, setMarketingAndLiterature] = useState([]);
-  console.log("marketingAndLiterature: ", marketingAndLiterature);
   const [sessionAndOnSite, setSessionAndOnSite] = useState([]);
-  console.log("sessionAndOnSite: ", sessionAndOnSite);
   const [selectedAddOns, setSelectedAddOns] = useState([]);
-  console.log("selectedAddOns: ", selectedAddOns);
   const [discountCode, setDiscountCode] = useState("");
-  console.log("discountCode: ", discountCode);
   const [discountPercent, setDiscountPercent] = useState(0);
   const [discountData, setDiscountData] = useState("");
-  console.log("discountData: ", discountData);
-  console.log("discountPercent: ", discountPercent);
   const [activeDelPackageData, setActiveDelPackageData] = useState([]);
-  console.log("activeDelPackageData: ", activeDelPackageData);
   const invopiceNo = location?.state?.uniqueInvoiceNo;
   const paymentFormRef = useRef(null);
   const discountInputRef = useRef(null);
@@ -535,16 +513,6 @@ const SponsorBookingForm = () => {
                 emailResult.error,
               );
             }
-
-            // toast.success("Payment completed successfully!", {
-            //   position: "top-right",
-            //   autoClose: 5000,
-            //   hideProgressBar: false,
-            //   closeOnClick: true,
-            //   pauseOnHover: true,
-            //   draggable: true,
-            //   progress: undefined,
-            // });
             navigate("/thank-you", { state: { authorized: true } });
           } else {
             console.log("❌ Error:", data?.message);
@@ -552,15 +520,6 @@ const SponsorBookingForm = () => {
         })
         .catch((error) => {
           console.log("error: ", error);
-          // toast.error("There was an error, Please try again later.", {
-          //   position: "top-right",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          // });
         });
     } catch (err) {
       console.log("Error saving booking:", err);
@@ -667,44 +626,6 @@ const SponsorBookingForm = () => {
     }
   };
 
-  // const applyDiscountCode = () => {
-  //   // Replace with actual API call to validate discount code
-  //   if (discountCode.trim()) {
-  //     let formData = new FormData();
-  //     formData.append("couponCode", discountCode.trim());
-  //     const requestOptions = {
-  //       method: "POST",
-  //       body: formData,
-  //     };
-  //     fetch(
-  //       `https://www.linq-staging-site.com/admin1/sponsoroffercouponbycode`,
-  //       requestOptions,
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         if (data && data.status) {
-  //           setDiscountData(data["offerCoupons"]);
-  //           setDiscountPercent(data["offerCoupons"][0]?.discountAmount);
-  //         } else {
-  //           toast.error(data?.message);
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         setTimeout(() => {
-  //           toast.error("There was an error, Please try again later.", {
-  //             position: "top-right",
-  //             autoClose: 5000,
-  //             hideProgressBar: false,
-  //             closeOnClick: true,
-  //             pauseOnHover: true,
-  //             draggable: true,
-  //             progress: undefined,
-  //           });
-  //         }, 1000);
-  //       });
-  //   }
-  // };
-
   const applyDiscountCode = (codeOverride) => {
     const code = (codeOverride ?? discountCode).trim();
 
@@ -746,69 +667,12 @@ const SponsorBookingForm = () => {
       })
       .catch(() => {
         console.log("There was an error, Please try again later.")
-        // toast.error("There was an error, Please try again later.", {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        // });
       });
   };
 
-  // const calculatePrices = () => {
-  //   const packagePrice = parseFloat(selectedPackage?.sponsorPackagePrice);
-  //   console.log("packagePrice: ", packagePrice);
-
-  //   // additional delegates price
-  //   const additionalDelegatePrice =
-  //     additionalDelegates * activeDelPackageData[0]?.deligatePackagePrice;
-
-  //   const taxPercent = parseFloat(
-  //     eventGeneralSettings?.purchaseTaxPercent || 0
-  //   );
-  //   console.log("taxPercent: ", taxPercent);
-
-  //   // Initial price (delegates × package price)
-  //   const initialPrice = numDelegates * packagePrice;
-  //   console.log("initialPrice: ", initialPrice);
-
-  //   // Calculate discount amount
-  //   const discountAmount = (initialPrice * discountPercent) / 100;
-  //   const priceAfterDiscount = initialPrice - discountAmount;
-
-  //   // Calculate add-ons total
-  //   const addOnsTotal = selectedAddOns.reduce((sum, addOn) => {
-  //     return sum + parseFloat(addOn.additionalPrice || 0);
-  //   }, 0);
-
-  //   // Calculate tax on (price after discount + add-ons)
-  //   const taxableAmount = priceAfterDiscount + addOnsTotal;
-  //   console.log("taxableAmount: ", taxableAmount);
-  //   const taxAmount = (taxableAmount * taxPercent) / 100;
-  //   console.log("taxAmount: ", taxAmount);
-
-  //   // Calculate final total
-  //   const finalTotal = priceAfterDiscount + addOnsTotal + taxAmount;
-  //   console.log("finalTotal: ", finalTotal);
-
-  //   return {
-  //     initialPrice: initialPrice.toFixed(2),
-  //     additionalDelegatePrice: additionalDelegatePrice.toFixed(2),
-  //     discountAmount: discountAmount.toFixed(2),
-  //     priceAfterDiscount: priceAfterDiscount.toFixed(2),
-  //     addOnsTotal: addOnsTotal.toFixed(2),
-  //     taxAmount: taxAmount.toFixed(2),
-  //     finalTotal: finalTotal.toFixed(2),
-  //   };
-  // };
-
   const calculatePrices = () => {
     const packagePrice = parseFloat(selectedPackage?.sponsorPackagePrice || 0);
-    console.log("packagePrice: ", packagePrice);
+
 
     // additional delegates price
     const additionalDelegatePrice =
@@ -818,11 +682,11 @@ const SponsorBookingForm = () => {
     const taxPercent = parseFloat(
       eventGeneralSettings?.purchaseTaxPercent || 0,
     );
-    console.log("taxPercent: ", taxPercent);
+
 
     // Sponsor package price (base price - no discount applied)
     const sponsorPackagePrice = packagePrice;
-    console.log("sponsorPackagePrice: ", sponsorPackagePrice);
+
 
     // Calculate discount amount on additional delegates only (if there are additional delegates)
     const discountAmount =
@@ -839,25 +703,25 @@ const SponsorBookingForm = () => {
 
     // Calculate tax on sponsor package (no discount)
     const taxOnSponsorPackage = (sponsorPackagePrice * taxPercent) / 100;
-    console.log("taxOnSponsorPackage: ", taxOnSponsorPackage);
+
 
     // Calculate tax on additional delegates (after discount)
     const taxOnAdditionalDelegates =
       (additionalDelegatePriceAfterDiscount * taxPercent) / 100;
-    console.log("taxOnAdditionalDelegates: ", taxOnAdditionalDelegates);
+
 
     // Calculate tax on add-ons
     const taxOnAddOns = (addOnsTotal * taxPercent) / 100;
-    console.log("taxOnAddOns: ", taxOnAddOns);
+
 
     // Total tax amount
     const taxAmount =
       taxOnSponsorPackage + taxOnAdditionalDelegates + taxOnAddOns;
-    console.log("taxAmount: ", taxAmount);
+
 
     // Initial price for display (sponsor package + additional delegates)
     const initialPrice = sponsorPackagePrice + additionalDelegatePrice;
-    console.log("initialPrice: ", initialPrice);
+
 
     // Calculate final total
     const finalTotal =
@@ -865,7 +729,6 @@ const SponsorBookingForm = () => {
       additionalDelegatePriceAfterDiscount +
       addOnsTotal +
       taxAmount;
-    console.log("finalTotal: ", finalTotal);
 
     return {
       initialPrice: initialPrice.toFixed(2),

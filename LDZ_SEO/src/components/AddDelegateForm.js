@@ -29,13 +29,9 @@ const CompanyRegistrationForm = () => {
   const location = useLocation();
   const selectedPackage = location?.state?.selectedCard;
   const selectedQty = location?.state?.quantity;
-  console.log("selectedQty: ", selectedQty);
-  console.log("selectedPackage: ", selectedPackage);
   const phoneInputRef = useRef(null);
   const toEmails = useSSRData("toEmails") || "benny.scott@iq-hub.com";
-  console.log("toEmailsAddDelegateForm: ", toEmails);
   const { eventDetails, eventGeneralSettings, navLogos } = useApiData();
-  console.log("eventDetails: ", eventDetails);
 
   // ─── Step transition state ─────────────────────────────────────────────────
   const [showStep2, setShowStep2] = useState(false);
@@ -75,7 +71,6 @@ const CompanyRegistrationForm = () => {
   };
 
   const [delegates, setDelegates] = useState(initializeDelegates());
-  console.log("delegates: ", delegates);
 
   const [delegateCount, setDelegateCount] = useState(
     selectedQty && selectedQty > 0 ? selectedQty : 1,
@@ -99,7 +94,6 @@ const CompanyRegistrationForm = () => {
     state: "",
     postalCode: "",
   });
-  console.log("companyData: ", companyData);
 
   const [companyErrors, setCompanyErrors] = useState({
     companyName: false,
@@ -249,7 +243,6 @@ const CompanyRegistrationForm = () => {
         delegates: delegates,
         termsAgreement: termsAgreement,
       };
-      console.log("formData: ", formData);
 
       let invoiceNumber;
       try {
@@ -304,17 +297,12 @@ const CompanyRegistrationForm = () => {
               },
             );
             const result = await response.json();
-            console.log(
-              `✅ Submitted ${delegate.firstName} ${delegate.lastName}:`,
-              result,
-            );
           } catch (error) {
             console.error(`❌ Error submitting ${delegate.firstName}:`, error);
           }
         });
         await Promise.all(submissions);
-        console.log(`🎟️ Company: ${formData.company.companyName}`);
-        console.log(`🧾 Invoice Number: ${invoiceNumber}`);
+        
       }
 
       async function sendBookingEmail() {
@@ -360,7 +348,7 @@ const CompanyRegistrationForm = () => {
           );
           const emailResult = await emailResponse.json();
           if (emailResult.status === "success") {
-            console.log("✅ Email sent successfully");
+            ("✅ Email sent successfully");
           } else {
             console.error("❌ Email sending failed:", emailResult.message);
           }
@@ -431,7 +419,7 @@ const CompanyRegistrationForm = () => {
             },
           );
           const zohoResult = await zohoResponse.json();
-          console.log("✅ Zoho submission successful:", zohoResult);
+          ("✅ Zoho submission successful:", zohoResult);
         } catch (error) {
           console.error("❌ Error submitting to Zoho:", error);
         }
@@ -684,7 +672,6 @@ const CompanyRegistrationForm = () => {
 
   const handlePaymentSuccess = async (stripeResponse) => {
     const prices = calculatePrices();
-    console.log("stripeResponse: ", stripeResponse);
 
     async function sendStep3Email() {
       let step3Html = `

@@ -14,12 +14,6 @@ import { FormControl, FormHelperText } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import { useApiData } from "../common/ApiContext";
 import { usePageSeo } from "../common/usePageSeo";
-// const logo =
-//   "https://www.linq-staging-site.com/media/mediabitcoin_logo_white.png";
-// const plusIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/plus.png";
-// const closeBtn =
-//   "https://www.desalination-resource-recovery.com/images/icons/del-cross.png";
 const countries = getNames();
 
 const RemindMeLater = () => {
@@ -27,8 +21,6 @@ const RemindMeLater = () => {
   const location = useLocation();
   const selectedPackage = location?.state?.selectedCard;
   const selectedQty = location?.state?.quantity;
-  console.log("selectedQty: ", selectedQty);
-  console.log("selectedPackage: ", selectedPackage);
   const phoneInputRef = useRef(null);
   const createDelegate = (id) => ({
     id,
@@ -62,7 +54,6 @@ const RemindMeLater = () => {
   };
 
   const [delegates, setDelegates] = useState(initializeDelegates());
-  console.log("delegates: ", delegates);
 
   const [delegateCount, setDelegateCount] = useState(
     selectedQty && selectedQty > 0 ? selectedQty : 1
@@ -86,7 +77,6 @@ const RemindMeLater = () => {
     state: "",
     postalCode: "",
   });
-  console.log("companyData: ", companyData);
   const [companyErrors, setCompanyErrors] = useState({
     companyName: false,
     webAddress: false,
@@ -104,14 +94,6 @@ const RemindMeLater = () => {
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
   const [termsAgreement, setTermsAgreement] = useState(false);
-  // const validateField = (fieldName, value) => {
-  //   const isRequired = !value || value.trim() === "";
-  //   setErrors((prev) => ({
-  //     ...prev,
-  //     [fieldName]: isRequired,
-  //   }));
-  //   return !isRequired;
-  // };
   const [validationErrors, setValidationErrors] = useState({});
 
   // Get country options from react-select-country-list
@@ -119,22 +101,6 @@ const RemindMeLater = () => {
     { value: "", label: "Select a country" },
     ...countryList().getData(),
   ];
-
-  // Handle company data changes
-  // const handleCompanyDataChange = (field, value) => {
-  //   setCompanyData((prev) => ({
-  //     ...prev,
-  //     [field]: value,
-  //   }));
-
-  //   // Clear error when field becomes valid (only if form submission was attempted)
-  //   if (validationErrors[field]) {
-  //     setValidationErrors((prev) => ({
-  //       ...prev,
-  //       [field]: false,
-  //     }));
-  //   }
-  // };
 
   const handleCompanyDataChange = (field, value) => {
     setCompanyData((prev) => ({
@@ -203,70 +169,6 @@ const RemindMeLater = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-
-  // const validateForm = () => {
-  //   const newCompanyErrors = {};
-  //   const newDelegateErrors = {};
-  //   let isValid = true;
-
-  //   // Validate company data
-  //   const requiredCompanyFields = [
-  //     "companyName",
-  //     "address",
-  //     "country",
-  //     "city",
-  //     "postalCode",
-  //   ];
-  //   requiredCompanyFields.forEach((field) => {
-  //     if (!companyData[field] || !companyData[field].trim()) {
-  //       newCompanyErrors[field] = true;
-  //       isValid = false;
-  //     } else {
-  //       newCompanyErrors[field] = false;
-  //     }
-  //   });
-
-  //   // Set webAddress and state as not required (always false)
-  //   newCompanyErrors.webAddress = false;
-  //   newCompanyErrors.state = false;
-
-  //   // Validate delegates
-  //   delegates.forEach((delegate) => {
-  //     const requiredDelegateFields = [
-  //       "firstName",
-  //       "lastName",
-  //       "position",
-  //       "email",
-  //       "mobile",
-  //     ];
-
-  //     requiredDelegateFields.forEach((field) => {
-  //       const errorKey = `delegate_${delegate.id}_${field}`;
-  //       if (!delegate[field] || !delegate[field].trim()) {
-  //         newDelegateErrors[errorKey] = true;
-  //         isValid = false;
-  //       } else if (field === "email" && !isValidEmail(delegate[field])) {
-  //         newDelegateErrors[errorKey] = true;
-  //         isValid = false;
-  //       } else {
-  //         newDelegateErrors[errorKey] = false;
-  //       }
-  //     });
-  //   });
-
-  //   // Validate terms agreement
-  //   if (!termsAgreement) {
-  //     setTermsError(true);
-  //     isValid = false;
-  //   } else {
-  //     setTermsError(false);
-  //   }
-
-  //   setCompanyErrors(newCompanyErrors);
-  //   setDelegateErrors(newDelegateErrors);
-
-  //   return isValid;
-  // };
 
   const validateForm = () => {
     const newCompanyErrors = {};
@@ -346,7 +248,6 @@ const RemindMeLater = () => {
         delegates: delegates,
         termsAgreement: termsAgreement,
       };
-      console.log("formData: ", formData);
 
       const invoiceNumber = `WDRM25TBC-${Math.floor(
         1000 + Math.random() * 9000
@@ -403,9 +304,6 @@ const RemindMeLater = () => {
 
         // Run all submissions simultaneously
         await Promise.all(submissions);
-
-        console.log(`🎟️ Company: ${formData.company.companyName}`);
-        console.log(`🧾 Invoice Number: ${invoiceNumber}`);
       }
 
       // Run the submission

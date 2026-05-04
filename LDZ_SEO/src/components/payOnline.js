@@ -23,7 +23,6 @@ const PayOnline = () => {
     eventGeneralSettings,
     themeSettings,
   } = useApiData();
-  console.log('eventDetails', eventDetails);
 
   // ✅ Initialize from SSR data (direct URL load) or fetch client-side (button navigation)
   const [windowWidth, setWindowWidth] = useState(
@@ -52,8 +51,8 @@ const PayOnline = () => {
   };
 
   const handlePaymentSuccess = (data) => {
-    toast.success("Payment Successful!");
-    console.log("Payment Success:", data);
+    // toast.success("Payment Successful!");
+    // console.log("Payment Success:", data);
     navigate("/thank-you", { state: { authorized: true } });
   };
 

@@ -10,10 +10,6 @@ import emailImage from "../assets/WebCommonImages/icon-email.png";
 import emailIcon from "../assets/WebCommonImages/msg.png";
 import { usePageSeo } from "../common/usePageSeo";
 import "../assets/css/form.css";
-// const emailImage =
-//   "https://www.desalination-resource-recovery.com/images/icons/icon-email.png";
-// const emailIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/msg.png";
 
 const ContactUs = () => {
   const [windowWidth, setWindowWidth] = useState(
@@ -21,22 +17,16 @@ const ContactUs = () => {
   );
   const [helpersList, setHelpersList] = useState([]);
   const [personName, setPersonName] = useState("");
-  console.log("personName: ", personName);
   const [personNameError, setPersonNameError] = useState("");
   const [personCompany, setPersonCompany] = useState("");
-  console.log("personCompany: ", personCompany);
   const [personCompanyError, setPersonCompanyError] = useState("");
   const [personEmail, setPersonEmail] = useState("");
-  console.log("personEmail: ", personEmail);
   const [personEmailError, setPersonEmailError] = useState("");
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [personMobile, setPersonMobile] = useState("");
-  console.log("personMobile: ", personMobile);
   const [personMobileError, setPersonMobileError] = useState("");
   const [message, setMessage] = useState("");
-  console.log("message: ", message);
   const [reason, setReason] = useState([]);
-  console.log("reason: ", reason);
   const [contactUsPageData, setContactUsPageData] = useState([]);
   const [emailDes, setEmailDes] = useState("");
 
@@ -707,15 +697,6 @@ const ContactUs = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
-          // toast.success("Record Added Successfully.", {
-          //   position: "top-right",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          // });
           setPersonName("");
           setPersonCompany("");
           setPersonEmail("");
@@ -728,134 +709,10 @@ const ContactUs = () => {
       })
       .catch((error) => {
         console.log("error: ", error);
-        // toast.error("There was an error, Please try again later.", {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        // });
       });
-
-    // if (personName === "") {
-    //   // toast.error("Full Name is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonNameError(true);
-    // } else if (personName?.length < 3) {
-    //   // toast.error("minimum 3 characters is Required!", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonNameError(true);
-    // } else if (personCompany === "") {
-    //   // toast.error("Company Name is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonCompanyError(true);
-    // } else if (personEmail === "") {
-    //   // toast.error("Email Address is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonEmailError(true);
-    //   setEmailErrMsg("Email is required");
-    // } else if (!validateEmail(personEmail)) {
-    //   setPersonEmailError(true);
-    //   setEmailErrMsg("Please enter a valid email address");
-    // } else if (personMobile === "") {
-    //   // toast.error("Mobile Number is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonMobileError(true);
-    // } else {
-    //   const finalData = new FormData();
-    //   finalData.append("contactPersonName", personName);
-    //   finalData.append("contactPersonCompanyName", personCompany);
-    //   finalData.append("contactPersonEmail", personEmail);
-    //   finalData.append("contactPersonMobile", personMobile);
-    //   finalData.append("contactPersonMessage", message);
-    //   if (reason?.length > 0) {
-    //     finalData.append("contactUsReason", JSON.stringify(reason));
-    //   }
-
-    //   const requestOptions = {
-    //     method: "POST",
-    //     body: finalData,
-    //   };
-    //   fetch(
-    //     "https://www.linq-staging-site.com/admin1/addcontactusrequest",
-    //     requestOptions,
-    //   )
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       if (data.status) {
-    //         toast.success("Record Added Successfully.", {
-    //           position: "top-right",
-    //           autoClose: 5000,
-    //           hideProgressBar: false,
-    //           closeOnClick: true,
-    //           pauseOnHover: true,
-    //           draggable: true,
-    //           progress: undefined,
-    //         });
-    //         setPersonName("");
-    //         setPersonCompany("");
-    //         setPersonEmail("");
-    //         setPersonMobile("");
-    //         setMessage("");
-    //         setReason([]);
-    //       } else {
-    //         toast.error(data?.message);
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.log("error: ", error);
-    //       toast.error("There was an error, Please try again later.", {
-    //         position: "top-right",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //       });
-    //     });
-    // }
   };
 
   const handleCheckboxChange = (e) => {
-    console.log("e: ", e);
     const { name, checked } = e.target;
     if (checked) {
       setReason((prev) => [...prev, name]);
@@ -1114,214 +971,6 @@ const ContactUs = () => {
           </article>
         </div>
       </div>
-      {/* Contact Form Section */}
-      {/* <div style={contactFormSectionStyle}>
-        <div style={containerStyle}>
-          <div style={{ margin: "0 auto" }}>
-            <h2 style={headingStyle}>REQUEST A CALL BACK</h2>
-            <form style={formStyle} onSubmit={submitBtnClk}>
-              <div style={formRowStyle}>
-                <div style={inputContainerStyle}>
-                  <input
-                    name="fullname"
-                    type="text"
-                    placeholder="Full Name *"
-                    style={inputStyle}
-                    required
-                    value={personName}
-                    onChange={(e) => {
-                      setPersonName(e.target.value);
-                      setPersonNameError(false);
-                    }}
-                  />
-                </div>
-                <div style={inputContainerStyle}>
-                  <input
-                    name="companyname"
-                    type="text"
-                    placeholder="Company Name *"
-                    style={inputStyle}
-                    required
-                    value={personCompany}
-                    onChange={(e) => {
-                      setPersonCompany(e.target.value);
-                      setPersonCompanyError(false);
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div style={formRowStyle}>
-                <div style={inputContainerStyle}>
-                  <input
-                    name="email"
-                    type="email"
-                    placeholder="Email Address *"
-                    style={inputStyle}
-                    required
-                    value={personEmail}
-                    onChange={(e) => {
-                      setPersonEmail(e.target.value);
-                      setPersonEmailError(false);
-                    }}
-                  />
-                </div>
-                <div style={inputContainerStyle}>
-                  <input
-                    name="mobilenumber"
-                    type="tel"
-                    placeholder="Mobile Number *"
-                    style={inputStyle}
-                    required
-                    value={personMobile}
-                    onChange={(e) => {
-                      setPersonMobile(e.target.value);
-                      setPersonMobileError(false);
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div style={textareaContainerStyle}>
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  cols={30}
-                  rows={6}
-                  style={textareaStyle}
-                  value={message}
-                  onChange={(e) => {
-                    setMessage(e.target.value);
-                  }}
-                />
-              </div>
-
-              <div style={checkboxSectionStyle}>
-                <div style={checkboxContainerStyle}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      width: isMobile ? "100%" : "max-content",
-                      marginBottom: isMobile ? "5px" : "0",
-                    }}
-                  >
-                    <label style={checkboxLabelStyle}>Tell me more about</label>
-                  </div>
-
-                  <div style={checkboxItemStyle}>
-                    <input
-                      style={checkboxInputStyle}
-                      type="checkbox"
-                      id="speaker"
-                      name="speaker_opportunities"
-                      value="Checked"
-                      onChange={handleCheckboxChange}
-                      checked={reason.includes("speaker_opportunities")}
-                    />
-                    <label htmlFor="speaker" style={checkboxLabelStyle}>
-                      Becoming a Speaker
-                    </label>
-                  </div>
-
-                  <div style={checkboxItemStyle}>
-                    <input
-                      style={checkboxInputStyle}
-                      type="checkbox"
-                      id="sponsorship"
-                      name="sponsorship_options"
-                      value="Checked"
-                      onChange={handleCheckboxChange}
-                      checked={reason.includes("sponsorship_options")}
-                    />
-                    <label htmlFor="sponsorship" style={checkboxLabelStyle}>
-                      Sponsorship packages
-                    </label>
-                  </div>
-
-                  <div style={checkboxItemStyle}>
-                    <input
-                      style={checkboxInputStyle}
-                      type="checkbox"
-                      id="attending"
-                      name="attending_the_event"
-                      value="Checked"
-                      onChange={handleCheckboxChange}
-                      checked={reason.includes("attending_the_event")}
-                    />
-                    <label htmlFor="attending" style={checkboxLabelStyle}>
-                      Attending the show
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                style={submitButtonStyle}
-                type="submit"
-                onMouseEnter={(e) => handleSubmitHover(e, true)}
-                onMouseLeave={(e) => handleSubmitHover(e, false)}
-              >
-                submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Email Us Section */}
-      {/* <div style={emailSectionStyle}>
-        <h1 style={emailHeadingStyle}>
-          <img
-            style={emailImageStyle}
-            src={emailImage || "/placeholder.svg"}
-            alt="Email Icon"
-          />
-          <span
-            style={{
-              color: "#181818",
-              marginTop: isMobile ? "0" : "5px",
-              marginBottom: "0",
-              padding: "0",
-            }}
-          >
-            Email Us
-          </span>
-        </h1>
-
-        <p style={emailDescriptionStyle}>
-          Have questions or need assistance? We're just an email away. Simply
-          click an option below to open an email. Our responsive team is
-          committed to providing answers on everything from event details to
-          registration. We're here to help and excited to hear from you!
-        </p>
-
-        <div style={emailCardsContainerStyle}>
-          {helpersList?.map((item) => (
-            <div style={emailCardStyle}>
-              <h5 style={cardTitleStyle}>{item?.reasonToHelp}:</h5>
-              {item?.helpingPersonName !== "" && (
-                <h6 style={cardNameStyle}>{item?.helpingPersonName}</h6>
-              )}
-              <h6 style={cardNameStyle}>{item?.helpingPersonDesignation}</h6>
-              <p style={{ ...cardPositionStyle, visibility: "hidden" }}>
-                Hidden
-              </p>
-              <a
-                style={cardEmailStyle}
-                href={`mailto:${item?.helpingPersonEmail}?subject=${encodeURIComponent("Bitcoin Innovation & Market Evolution 2026")}`}
-              >
-                <img
-                  style={emailIconStyle}
-                  src={emailIcon || "/placeholder.svg"}
-                  alt="Email Icon"
-                />
-                {item?.helpingPersonEmail}
-              </a>
-            </div>
-          ))}
-        </div>
-      </div> */}
 
       <Footer />
     </>

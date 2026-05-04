@@ -13,11 +13,6 @@ import rightArrowIcon from '../assets/WebCommonImages/icon-arrow-right.png'
 import { usePageSeo } from "../common/usePageSeo";
 import { useApiData } from "../common/ApiContext";
 
-// const leftArrowIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
-// const rightArrowIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-right.png";
-
 const News = () => {
   const navigate = useNavigate();
   const [newsList, setNewsList] = useState([]);
@@ -26,7 +21,6 @@ const News = () => {
     eventDetails,
   } = useApiData();
   const agendaVersion = eventDetails?.agendaVersion;
-  console.log("----------------agendaVersion: ", agendaVersion);
 
   useEffect(() => {
     callNewsListApi();

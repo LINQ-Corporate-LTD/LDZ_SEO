@@ -15,7 +15,6 @@ const SpeakerProfile = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log("state: ", state);
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200
   );
@@ -261,15 +260,6 @@ const SpeakerProfile = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
-          // toast.success("Record Added Successfully.", {
-          //   position: "top-right",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          // });
           setFullName("");
           setFullNameErr(false);
           setCompanyName("");
@@ -286,15 +276,6 @@ const SpeakerProfile = () => {
       })
       .catch((error) => {
         console.log("error: ", error);
-        // toast.error("There was an error, Please try again later.", {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        // });
       });
   };
 
@@ -309,14 +290,6 @@ const SpeakerProfile = () => {
 
   return (
     <>
-      {/*
-        ✅ CRITICAL SEO FIX:
-        Render <Helmet> ONLY when seoTitle is a real non-empty string from the backend.
-        If we always render <Helmet>, React-Helmet emits <title></title> when data is
-        absent (i.e. during SSR when backend fetch failed or is still loading).
-        SEO crawlers like Semrush read the FIRST <title> they find — an empty one =
-        "Missing title tag". By gating on seoTitle we guarantee zero empty tags.
-      */}
       {seoTitle && (
         <Helmet>
           <title>{seoTitle}</title>

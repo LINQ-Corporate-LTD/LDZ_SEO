@@ -341,12 +341,11 @@ async function fetchSSRData(pathname) {
       (s) => s.eventSpeakerName?.toLowerCase().replace(/\s+/g, "-") === slug,
     );
 
-    console.log(`🔍 Speaker SSR: slug="${slug}" | speakers.length=${speakers?.length ?? "FETCH_FAILED"} | matched=${matched ? matched.eventSpeakerName : "NOT_FOUND"}`);
 
     let speakerProfile = null;
     if (matched) {
       speakerProfile = await fetchSpeakerById(matched.id);
-      console.log(`🧑 speakerProfile fetched: ${speakerProfile ? `${speakerProfile.length} record(s), title="${speakerProfile[0]?.eventSpeakerMetaTitle}"` : "FAILED"}`);
+     
     }
     return { ...base, speakers, speakerProfile, news, sponsors, trends };
   }

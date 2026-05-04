@@ -14,16 +14,6 @@ import linkedInLogo from '../assets/WebCommonImages/share-linkedIn.png'
 import whatsappLogo from '../assets/WebCommonImages/share-whatsapp.png'
 import emailLogo from '../assets/WebCommonImages/share-email.png'
 import copyLogo from '../assets/WebCommonImages/share-copy.png'
-// const newsImg =
-//   "https://www.desalination-resource-recovery.com/api/images/news/1749734842198.jpg";
-// const linkedInLogo =
-//   "https://www.desalination-resource-recovery.com/images/icons/share-linkedIn.png";
-// const whatsappLogo =
-//   "https://www.desalination-resource-recovery.com/images/icons/share-whatsapp.png";
-// const emailLogo =
-//   "https://www.desalination-resource-recovery.com/images/icons/share-email.png";
-// const copyLogo =
-//   "https://www.desalination-resource-recovery.com/images/icons/share-copy.png";
 
 const toSlug = (str = "") => {
   return str
@@ -97,7 +87,6 @@ const NewsDescription = () => {
     setLoading(true);
     let formData = new FormData();
     formData.append("newsId", id);
-    console.log("newsId: ", id);
     const requestOptions = { method: "POST", body: formData };
 
     fetch(`https://www.linq-staging-site.com/admin1/newsbyid`, requestOptions)
@@ -245,29 +234,12 @@ Read the full article: ${currentUrl}`);
     navigator.clipboard
       .writeText(currentUrl)
       .then(() => {
-        // toast.success("Link copied to clipboard!", {
-        //   position: "top-right",
-        //   autoClose: 2000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        // });
         console.log("Link copied to clipboard: ", currentUrl);
       })
       .catch(() => {
-        // toast.error("Failed to copy link", {
-        //   position: "top-right",
-        //   autoClose: 2000,
-        // });
         console.log("Failed to copy link");
       });
   };
-
-  // if (loading) return <div>Loading...</div>;
-  // if (isNotFound) {
-  //   return <Error404 />;
-  // }
 
   if (!validSlug) {
     return <Error404 />;
@@ -455,20 +427,6 @@ Read the full article: ${currentUrl}`);
                         {windowWidth > 1024 && <h2>Latest News</h2>}
                         <ul>
                           {latestNewsItems?.map((item, index) => (
-                            // add a tag due to Semrush warning
-                            // <li>
-                            //   <div className="NewsSection_categoryAndDate__WBz4R">
-                            //     <p onClick={() => handleClick(item)}>
-                            //       {formatDate(item?.newsCreatedDate)}
-                            //     </p>
-                            //   </div>
-                            //   <div
-                            //     className="NewsSection_newsTitle__1tiob"
-                            //     onClick={() => handleClick(item)}
-                            //   >
-                            //     {item?.newsTitle}
-                            //   </div>
-                            // </li>
                             <li key={index}>
                               <Link
                                 to={`/news/${toSlug(item.newsTitle)}`}

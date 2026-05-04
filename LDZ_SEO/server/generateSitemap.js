@@ -140,7 +140,6 @@ ${urlEntries}
 
 /* -------- main -------- */
 async function generateSitemap() {
-    console.log("🗺️  Generating sitemap...");
 
     const [speakerSlugs, newsSlugs, trendSlugs, sponsorSlugs] =
         await Promise.all([
@@ -158,19 +157,12 @@ async function generateSitemap() {
         ...sponsorSlugs,
     ];
 
-    console.log(`✅ Total URLs: ${allRoutes.length}`);
-    console.log(`   - Static:   ${STATIC_ROUTES.length}`);
-    console.log(`   - Speakers: ${speakerSlugs.length}`);
-    console.log(`   - News:     ${newsSlugs.length}`);
-    console.log(`   - Trends:   ${trendSlugs.length}`);
-    console.log(`   - Sponsors: ${sponsorSlugs.length}`);
 
     const xml = buildSitemapXml(allRoutes);
 
     // Write to /public/sitemap.xml so it's served as a static file
     const outputPath = path.resolve(__dirname, "../public/sitemap.xml");
     fs.writeFileSync(outputPath, xml, "utf8");
-    console.log(`📄 sitemap.xml written to: ${outputPath}`);
 
     return xml;
 }

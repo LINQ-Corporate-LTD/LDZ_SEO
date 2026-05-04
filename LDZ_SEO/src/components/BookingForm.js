@@ -9,36 +9,18 @@ import { useSSRData } from "../common/useSSRData";
 import toggle from "../assets/WebCommonImages/toggle.png";
 import cardLabel from "../assets/WebCommonImages/card-labels.png";
 import lockIcon from "../assets/WebCommonImages/lock.png";
-// const logo =
-//   "https://www.linq-staging-site.com/media/mediabitcoin_logo_white.png";
-
-// const ticket =
-//   "https://www.desalination-resource-recovery.com/images/ticket.svg";
-// const toggle =
-//   "https://www.desalination-resource-recovery.com/images/icons/toggle.png";
-// const cardLabel =
-//   "https://www.desalination-resource-recovery.com/images/logos/card-labels.png";
-// const lockIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/lock.png";
-
 const BookingForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const selectedPackage = location?.state?.selectedPackage;
   const delegates = location?.state?.delegates;
-  console.log("delegates: ", delegates);
   const companyDetails = location?.state?.companyData;
-  console.log("companyDetails: ", companyDetails);
   const invopiceNo = location?.state?.uniqueInvoiceNo;
   const [delegateAddOns, setDelegateAddOns] = useState([]);
   const [selectedAddOns, setSelectedAddOns] = useState([]);
-  console.log("selectedAddOns: ", selectedAddOns);
   const [discountCode, setDiscountCode] = useState("");
-  console.log("discountCode: ", discountCode);
   const [discountPercent, setDiscountPercent] = useState(0);
   const [discountData, setDiscountData] = useState("");
-  console.log("discountData: ", discountData);
-  console.log("discountPercent: ", discountPercent);
   const paymentFormRef = useRef(null);
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200,
@@ -62,30 +44,6 @@ const BookingForm = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // const handlePaymentClick = async () => {
-  //   // Validate amount
-  //   if (!prices.finalTotal || parseFloat(prices.finalTotal) <= 0) {
-  //     toast.error("Invalid payment amount.");
-  //     return;
-  //   }
-
-  //   // Validate delegates
-  //   if (!delegates || delegates.length === 0) {
-  //     toast.error(
-  //       "No delegates found. Please go back and add delegate information.",
-  //     );
-  //     return;
-  //   }
-
-  //   // Check if payment form is ready
-  //   if (paymentFormRef.current) {
-  //     // Trigger payment submission
-  //     await paymentFormRef.current.submitPayment();
-  //   } else {
-  //     toast.error("Payment form is not ready. Please try again.");
-  //   }
-  // };
 
   const handlePaymentClick = async () => {
     // Validate amount
@@ -211,116 +169,6 @@ const BookingForm = () => {
       console.log("❌ Error in payment process:");
     }
   };
-
-  // ADD THIS: Success handler
-
-  // const handlePaymentSuccess = async (stripeResponse) => {
-  //   console.log("stripeResponse: ", stripeResponse);
-  //   try {
-  //     const finalData = new FormData();
-  //     finalData.append("purchasedDelegatePackageId", selectedPackage?.id);
-  //     finalData.append("companyName", companyDetails?.companyName);
-  //     finalData.append("companyWebsite", companyDetails?.webAddress);
-  //     finalData.append("companyAddress", companyDetails?.address);
-  //     finalData.append("companyCountry", companyDetails?.country);
-  //     finalData.append("companyState", companyDetails?.state);
-  //     finalData.append("companyCity", companyDetails?.city);
-  //     finalData.append("companyPincode", companyDetails.postalCode);
-  //     finalData.append("delegateList", JSON.stringify(delegates));
-  //     if (selectedAddOns && selectedAddOns.length > 0) {
-  //       finalData.append("addOns", JSON.stringify(selectedAddOns));
-  //     }
-  //     if (discountCode !== "" && discountCode !== null) {
-  //       finalData.append("couponCode", discountCode);
-  //     }
-  //     finalData.append("totalPassAmount", prices.initialPrice);
-  //     finalData.append("discountAmount", prices.discountAmount);
-  //     finalData.append("addOnsAmount", prices.addOnsTotal);
-  //     finalData.append("taxableCharge", prices.taxAmount);
-  //     finalData.append("totalPaidAmount", prices.finalTotal);
-  //     finalData.append("transectionId", stripeResponse.paymentIntentId);
-
-  //     const requestOptions = {
-  //       method: "POST",
-  //       body: finalData,
-  //     };
-
-  //     fetch(
-  //       "https://www.linq-staging-site.com/admin1/addnewdelegate",
-  //       requestOptions,
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         if (data.status) {
-  //           console.log("Payment successful:", stripeResponse);
-  //           toast.success("Payment completed successfully!", {
-  //             position: "top-right",
-  //             autoClose: 5000,
-  //             hideProgressBar: false,
-  //             closeOnClick: true,
-  //             pauseOnHover: true,
-  //             draggable: true,
-  //             progress: undefined,
-  //           });
-  //           navigate("/thank-you");
-  //         } else {
-  //           toast.error(data?.message);
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.log("error: ", error);
-  //         toast.error("There was an error, Please try again later.", {
-  //           position: "top-right",
-  //           autoClose: 5000,
-  //           hideProgressBar: false,
-  //           closeOnClick: true,
-  //           pauseOnHover: true,
-  //           draggable: true,
-  //           progress: undefined,
-  //         });
-  //       });
-
-  //     // const res = await fetch("http://localhost:8000/admin1/store-booking", {
-  //     //   method: "POST",
-  //     //   headers: { "Content-Type": "application/json" },
-  //     //   body: JSON.stringify({
-  //     //     delegates,
-  //     //     companyDetails,
-  //     //     selectedPackage,
-  //     //     selectedAddOns,
-  //     //     amount: prices.finalTotal,
-  //     //     paymentIntentId: stripeResponse.paymentIntentId,
-  //     //     userEmail:
-  //     //       delegates?.[0]?.email ||
-  //     //       delegates?.find((d) => d.email)?.email ||
-  //     //       companyDetails?.email ||
-  //     //       "",
-  //     //     eventName: eventDetails?.eventName,
-  //     //   }),
-  //     // });
-
-  //     // const result = await res.json();
-  //     // if (res.ok) {
-  //     //   console.log("Payment successful:", stripeResponse);
-  //     //   toast.success("Payment completed successfully!");
-  //     //   console.log("Booking stored successfully:", result);
-  //     //   // You can save booking details here or navigate to success page
-  //     //   navigate("/thank-you", {
-  //     //     // state: {
-  //     //     //   transactionId: stripeResponse.paymentIntentId,
-  //     //     //   amount: prices.finalTotal,
-  //     //     //   delegates: delegates,
-  //     //     //   package: selectedPackage
-  //     //     // }
-  //     //   });
-  //     //   // maybe navigate to success page
-  //     // } else {
-  //     //   console.error("Failed to save booking:", result.error);
-  //     // }
-  //   } catch (err) {
-  //     console.error("Error saving booking:", err);
-  //   }
-  // };
   const handlePaymentSuccess = async (stripeResponse) => {
     console.log("stripeResponse: ", stripeResponse);
 
@@ -646,16 +494,6 @@ const BookingForm = () => {
               );
             }
 
-            // toast.success("Payment completed successfully!", {
-            //   position: "top-right",
-            //   autoClose: 5000,
-            //   hideProgressBar: false,
-            //   closeOnClick: true,
-            //   pauseOnHover: true,
-            //   draggable: true,
-            //   progress: undefined,
-            // });
-
             navigate("/thank-you", { state: { authorized: true } });
           } else {
             // toast.error(data?.message);
@@ -665,15 +503,6 @@ const BookingForm = () => {
         })
         .catch((error) => {
           console.log("error: ", error);
-          // toast.error("There was an error, Please try again later.", {
-          //   position: "top-right",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          // });
         });
     } catch (err) {
       console.log("Error saving booking:", err);
@@ -715,44 +544,6 @@ const BookingForm = () => {
     }
   };
 
-  // const applyDiscountCode = () => {
-  //   // Replace with actual API call to validate discount code
-  //   if (discountCode.trim()) {
-  //     let formData = new FormData();
-  //     formData.append("couponCode", discountCode.trim());
-  //     const requestOptions = {
-  //       method: "POST",
-  //       body: formData,
-  //     };
-  //     fetch(
-  //       `https://www.linq-staging-site.com/admin1/offercouponbycode`,
-  //       requestOptions,
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         if (data && data.status) {
-  //           setDiscountData(data["offerCoupons"]);
-  //           setDiscountPercent(data["offerCoupons"][0]?.discountAmount);
-  //         } else {
-  //           toast.error(data?.message);
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         setTimeout(() => {
-  //           toast.error("There was an error, Please try again later.", {
-  //             position: "top-right",
-  //             autoClose: 5000,
-  //             hideProgressBar: false,
-  //             closeOnClick: true,
-  //             pauseOnHover: true,
-  //             draggable: true,
-  //             progress: undefined,
-  //           });
-  //         }, 1000);
-  //       });
-  //   }
-  // };
-
   const applyDiscountCode = (codeOverride) => {
     const code = (codeOverride ?? discountCode).trim();
 
@@ -793,16 +584,6 @@ const BookingForm = () => {
         }
       })
       .catch(() => {
-        // toast.error("There was an error, Please try again later.", {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        // });
         console.log("There was an error, Please try again later.");
       });
   };
@@ -857,15 +638,6 @@ const BookingForm = () => {
         </p>
       </div>
       <div className="BookingFormV2_inputContainer__UHPNl">
-        {/* <div>
-          <input
-            type="text"
-            placeholder="Discount Code"
-            value={discountCode}
-            onChange={(e) => setDiscountCode(e.target.value)}
-            onKeyPress={(e) => e.key === "Enter" && applyDiscountCode()}
-          />
-        </div> */}
         <div>
           <input
             ref={discountInputRef}

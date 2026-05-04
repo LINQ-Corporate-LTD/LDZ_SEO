@@ -18,7 +18,6 @@ const Agenda = () => {
   const navigate = useNavigate();
   const [agendaList, setAgendaList] = useState(null);
   const [blockedDomainError, setBlockedDomainError] = useState(false);
-  console.log("agendaList: ", agendaList);
   useEffect(() => {
     callAgendaListApi();
   }, []);
@@ -163,21 +162,6 @@ const Agenda = () => {
     },
   ];
 
-
-
-  // const [formData, setFormData] = React.useState({
-  //   fullName: "",
-  //   companyName: "",
-  //   proposedTitle: "",
-  //   emailAddress: "",
-  //   briefOutline: "",
-  // });
-
-  // const [focusedField, setFocusedField] = React.useState(null);
-
-
-
-
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200);
   const [emailVerification, setEmailVerification] = useState("");
@@ -186,16 +170,12 @@ const Agenda = () => {
   const [isVerify, setIsVerify] = useState(false);
 
   const [personName, setPersonName] = useState("");
-  console.log("personName: ", personName);
   const [personNameError, setPersonNameError] = useState("");
   const [personCompany, setPersonCompany] = useState("");
-  console.log("personCompany: ", personCompany);
   const [personCompanyError, setPersonCompanyError] = useState("");
   const [personEmail, setPersonEmail] = useState("");
-  console.log("personEmail: ", personEmail);
   const [personEmailError, setPersonEmailError] = useState("");
   const [personProposedTitle, setPersonProposedTitle] = useState("");
-  console.log("personProposedTitle: ", personProposedTitle);
   const [personProposedTitleError, setPersonProposedTitleError] = useState("");
   const [briefoutline, setBriefOutline] = useState("");
   const [isAgendaEmailMessage, setAgendaEmailMessage] = useState("");
@@ -207,12 +187,10 @@ const Agenda = () => {
   const [personEmailErrorMessage, setPersonEmailErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  console.log("briefoutline: ", briefoutline);
   const {
     eventDetails,
   } = useApiData();
   const agendaVersion = eventDetails?.agendaVersion;
-  console.log("agendaVersion: ", agendaVersion);
 
   useEffect(() => {
     const handleResize = () => {
@@ -222,15 +200,6 @@ const Agenda = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // Responsive breakpoints
-  // const isXSmall = windowWidth < 480;
-  // const isSmall = windowWidth >= 480 && windowWidth < 768;
-  // const isMedium = windowWidth >= 768 && windowWidth < 1024;
-  // const isLarge = windowWidth >= 1024 && windowWidth < 1440;
-  // const isXLarge = windowWidth >= 1440;
-  // const isMobile = windowWidth < 768;
-  // const isTablet = windowWidth >= 768 && windowWidth < 1024;
 
   const submitButtonStyle = {
     backgroundColor: "var(--secondary-color)",
@@ -362,15 +331,6 @@ const Agenda = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
-          // toast.success("Record Added Successfully.", {
-          //   position: "top-right",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          // });
           setPersonName("");
           setPersonCompany("");
           setPersonEmail("");
@@ -382,194 +342,12 @@ const Agenda = () => {
       })
       .catch((error) => {
         console.log("error: ", error);
-        // toast.error("There was an error, Please try again later.", {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        // });
       });
-
-    // if (personName === "") {
-    //   // toast.error("Full Name is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonNameError(true);
-    // } else if (personName?.length < 3) {
-    //   toast.error("minimum 3 characters is Required!", {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    //   setPersonNameError(true);
-    // } else if (personCompany === "") {
-    //   // toast.error("Company Name is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonCompanyError(true);
-    // } else if (personEmail === "") {
-    //   // toast.error("Email Address is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonEmailError(true);
-    // } else if (personProposedTitle === "") {
-    //   // toast.error("Proposed Title is Required", {
-    //   //   position: "top-right",
-    //   //   autoClose: 5000,
-    //   //   hideProgressBar: false,
-    //   //   closeOnClick: true,
-    //   //   pauseOnHover: true,
-    //   //   draggable: true,
-    //   //   progress: undefined,
-    //   // });
-    //   setPersonProposedTitleError(true);
-    // } else {
-    //   const finalData = new FormData();
-    //   finalData.append("contactPersonName", personName);
-    //   finalData.append("contactPersonCompanyName", personCompany);
-    //   finalData.append("contactPersonEmail", personEmail);
-    //   finalData.append("contactProposedTitle", personProposedTitle);
-    //   finalData.append("contactPersonBriefOutline", briefoutline);
-
-    //   const requestOptions = {
-    //     method: "POST",
-    //     body: finalData,
-    //   };
-    //   fetch(
-    //     "https://www.linq-staging-site.com/admin1/addcontactusrequest",
-    //     requestOptions,
-    //   )
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       if (data.status) {
-    //         toast.success("Record Added Successfully.", {
-    //           position: "top-right",
-    //           autoClose: 5000,
-    //           hideProgressBar: false,
-    //           closeOnClick: true,
-    //           pauseOnHover: true,
-    //           draggable: true,
-    //           progress: undefined,
-    //         });
-    //         setPersonName("");
-    //         setPersonCompany("");
-    //         setPersonEmail("");
-    //         setPersonProposedTitle("");
-    //         setBriefOutline("");
-    //       } else {
-    //         toast.error(data?.briefoutline);
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.log("error: ", error);
-    //       toast.error("There was an error, Please try again later.", {
-    //         position: "top-right",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //       });
-    //     });
-    // }
   };
-
-  // const emailSubmitBtnClk = async (e) => {
-  //   e.preventDefault();
-
-  //   if (emailVerification === "") {
-  //     toast.error("Email Address is Required", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //     });
-  //     setEmailVerificationError(true);
-  //     return;
-  //   }
-
-  //   setIsVerify(true);
-  //   try {
-  //     const response = await fetch("https://www.linq-staging-site.com/admin1/verifyemaildomain", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ email: emailVerification }),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (!data.status) {
-  //       setIsVerify(false);
-  //       setBlockedDomainError(true);
-  //       toast.error(data.message, {
-  //         position: "top-right",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //       });
-  //       setEmailVerificationError(true);
-  //       return;
-  //     }
-  //     setBlockedDomainError(false);
-  //     // ✅ Domain is valid — proceed
-  //     Cookies.set("agendaEmailVerify", emailVerification, { expires: 200 });
-  //     setAgendaVerification(true);
-
-  //   } catch (error) {
-  //     setIsVerify(false);
-  //     toast.error("Something went wrong. Please try again.", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //     });
-  //   }
-  // };
 
   const checkOnChangeEmail = async () => {
     if (emailVerification === "") {
       setAgendaEmailMessage(<p className="Agenda_errorMsg__IIG4Q">Email Address is Required</p>)
-      // toast.error("Email Address is Required", {
-      //   position: "top-right",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
       setEmailVerificationError(true);
       return;
     } else {
@@ -582,15 +360,6 @@ const Agenda = () => {
 
     if (emailVerification === "") {
       setAgendaEmailMessage(<p className="Agenda_errorMsg__IIG4Q">Email Address is Required</p>)
-      // toast.error("Email Address is Required", {
-      //   position: "top-right",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
       setEmailVerificationError(true);
       return;
     }
@@ -623,15 +392,6 @@ const Agenda = () => {
         setIsVerify(false);
         setBlockedDomainError(true);
         setAgendaEmailMessage(<p className="Agenda_errorMsg__IIG4Q">{data.message}</p>)
-        // toast.error(data.message, {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        // });
         setEmailVerificationError(true);
         return;
       }
@@ -650,49 +410,6 @@ const Agenda = () => {
 
   const lessThen1350 = windowWidth < 1350;
   const lessThen940 = windowWidth < 940;
-
-  // const clockIcon =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1746442801380.png";
-  // const speaker1 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748499580588.png";
-  // const speaker1CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1746442350501.png";
-  // const speaker2 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748499916005.png";
-  // const speaker2CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1746442464285.png";
-  // const speaker3 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748500011294.png";
-  // const speaker3CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1746442550914.png";
-  // const speaker4 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748951889925.png";
-  // const speaker4CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/images/placeholder-logo.png";
-  // const speaker5 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748499064015.png";
-  // const speaker5CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1746442699143.png";
-  // const speaker6 =
-  //   "https://www.desalination-resource-recovery.com/images/dummy.jpg";
-  // const speaker6CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1752133797739.png";
-  // const speaker7 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748499707602.png";
-  // const speaker7CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1747994806707.png";
-  // const speaker8 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1747995229597.jpg";
-  // const speaker8CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1747995229597.png";
-  // const speaker9 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748500061130.png";
-  // const speaker9CompanyLogo =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1747382099530.png";
-  // const speaker10 =
-  //   "https://www.desalination-resource-recovery.com/api/images/agenda/1748499972064.png";
-  // const speaker10CompanyLogo =
-  //   "	https://www.desalination-resource-recovery.com/api/images/agenda/1746443107646.png";
 
   useEffect(() => {
     const savedEmail = Cookies.get("agendaEmailVerify");

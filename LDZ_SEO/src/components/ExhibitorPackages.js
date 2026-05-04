@@ -37,22 +37,6 @@ import tickImg from "../assets/WebCommonImages/tick.png";
 import arrowUp from "../assets/WebCommonImages/accordion-arrow-up-white.png";
 import arrowDown from "../assets/WebCommonImages/accordion-arrow-down-white.png";
 import { usePageSeo } from "../common/usePageSeo";
-// const leftArrowIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-left.png";
-// const rightArrowIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/icon-arrow-right.png";
-
-// const emailIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/msg.png";
-// const phoneIcon =
-//   "https://www.desalination-resource-recovery.com/images/icons/phone-call.png";
-// const tickImg =
-//   "https://www.desalination-resource-recovery.com/images/icons/tick.png";
-
-// const arrowUp =
-//   "https://www.desalination-resource-recovery.com/images/icons/accordion-arrow-up.png";
-// const arrowDown =
-//   "https://www.desalination-resource-recovery.com/images/icons/accordion-arrow-down.png";
 
 const logos = [
   partner1,
@@ -515,8 +499,6 @@ const ExhibitorPackages = () => {
     eventGeneralSettings,
     themeSettings,
   } = useApiData();
-  console.log("exeventDetails: ", eventDetails);
-  console.log("exeventGeneralSettings: ", eventGeneralSettings);
 
   useEffect(() => {
     const handleResize = () => {
@@ -1461,77 +1443,6 @@ const ExhibitorPackages = () => {
             <div>
               <TestimonialCarousel />
             </div>
-            {/* <section className="networking-section">
-            <div className="container">
-              <h2 className="text-black text-[30px] font-extrabold my-12 p-0 text-center uppercase">
-                they've attended our events
-              </h2>
-
-              <div className="row">
-                <div className="col-md-8">
-                  <img
-                    src={row1Image}
-                    alt={row1.name}
-                    className="w-100 h-100"
-                  />
-                </div>
-                <div className="col-md-4 p-0">
-                  <div className="testimonial-section w-100 h-100">
-                    <div className="p-5">
-                      <div className="testimonial-text">{row1.quote}</div>
-                      <div className="testimonial-author">{row1.name}</div>
-                      <div className="testimonial-company">{row1.company}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-md-4">
-                  <img
-                    src={row2ImageLeft}
-                    alt="Left image"
-                    className="w-100 h-100"
-                  />
-                </div>
-                <div className="col-md-4 p-0">
-                  <div className="testimonial-section w-100 h-100">
-                    <div className="p-5">
-                      <div className="testimonial-text">{row2.quote}</div>
-                      <div className="testimonial-author">{row2.name}</div>
-                      <div className="testimonial-company">{row2.company}</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-4">
-                  <img
-                    src={row2ImageRight}
-                    alt="Right image"
-                    className="w-100 h-100"
-                  />
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-md-4 p-0">
-                  <div className="testimonial-section w-100 h-100">
-                    <div className="p-5">
-                      <div className="testimonial-text">{row3.quote}</div>
-                      <div className="testimonial-author">{row3.name}</div>
-                      <div className="testimonial-company">{row3.company}</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-8">
-                  <img
-                    src={row3Image}
-                    alt={row3.name}
-                    className="w-100 h-100"
-                  />
-                </div>
-              </div>
-            </div>
-          </section> */}
 
             <section className="SponsorLanding_contactContainer__hipqh">
               <h2>Get in touch to Book Your Trade Show Booth</h2>
@@ -1558,61 +1469,6 @@ const ExhibitorPackages = () => {
                 ))}
               </div>
             </section>
-            {/* <section
-            class="contact-section_mediaPartbers"
-            style={{ backgroundColor: "#ffffff" }}
-          >
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-10">
-                  <h2
-                    class="contact-heading_mediaPartbers"
-                    style={{ fontSize: "30px" }}
-                  >
-                    GET IN TOUCH TO BOOK YOUR TRADE SHOW BOOTH
-                  </h2>
-
-                  <div class="row g-4">
-                    <div class="col-md-6 ">
-                      <div class="contact-card_mediaPartbers">
-                        <h3 class="contact-name_mediaPartbers pb-1 text-capitalize">
-                          LEE NAVARRO
-                        </h3>
-                        <div class="contact-info_mediaPartbers">
-                          <i class="fas fa-envelope"></i>
-                          <a href="mailto:lee.navarro@big-hub.com">
-                            lee.navarro@big-hub.com
-                          </a>
-                        </div>
-                        <div class="contact-info_mediaPartbers">
-                          <i class="fas fa-phone"></i>
-                          <a href="tel:+12065820128">+1 206 582 0128</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6 ">
-                      <div class="contact-card_mediaPartbers">
-                        <h3 class="contact-name_mediaPartbers pb-1 text-capitalize">
-                          Sean Collins
-                        </h3>
-                        <div class="contact-info_mediaPartbers">
-                          <i class="fas fa-envelope"></i>
-                          <a href="mailto:lee.navarro@big-hub.com">
-                            lee.navarro@big-hub.com
-                          </a>
-                        </div>
-                        <div class="contact-info_mediaPartbers">
-                          <i class="fas fa-phone"></i>
-                          <a href="tel:+12065820128">+1 206 582 0128</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section> */}
           </article>
         </div>
       </div>
