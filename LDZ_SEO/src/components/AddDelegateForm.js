@@ -348,7 +348,7 @@ const CompanyRegistrationForm = () => {
           );
           const emailResult = await emailResponse.json();
           if (emailResult.status === "success") {
-            ("✅ Email sent successfully");
+            console.log("✅ Email sent successfully");
           } else {
             console.error("❌ Email sending failed:", emailResult.message);
           }
@@ -419,7 +419,7 @@ const CompanyRegistrationForm = () => {
             },
           );
           const zohoResult = await zohoResponse.json();
-          ("✅ Zoho submission successful:", zohoResult);
+          console.log("✅ Zoho submission successful:", zohoResult);
         } catch (error) {
           console.error("❌ Error submitting to Zoho:", error);
         }
