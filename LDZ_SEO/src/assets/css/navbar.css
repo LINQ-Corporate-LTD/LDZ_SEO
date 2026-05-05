@@ -1086,7 +1086,10 @@
     width: 70% !important;
 } */
 
-.NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_register__UET28 button:hover,
+.NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_register__UET28 button:hover {
+    background-color: #fff;
+}
+
 .NewNavbar_wholeContainerWhite__QY0eF .NewNavbar_container__dGANs .NewNavbar_register__UET28 button:hover {
     background-color: #fff;
     border: 1px solid #181818;
