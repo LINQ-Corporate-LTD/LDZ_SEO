@@ -291,11 +291,11 @@ const Footer = () => {
           <a href="/sponsor-booking">Sponsor Booking Hub</a>
 
           {/* Dynamic Slugs Harvested from SSR Data */}
-          {sponsors.map((s, i) => {
+          {sponsors.filter((s) => s.sponsorType !== "Dummy").map((s, i) => {
             const slug = s.sponsorComapnyName
               ? toSlug(s.sponsorComapnyName)
               : null;
-            if (!slug) return null; // 🚨 Skip if name is missing to prevent /sponsor/null
+            if (!slug) return null;
             return (
               <a key={`seosp-${i}`} href={`/sponsor/${slug}`}>
                 {s.sponsorComapnyName}
