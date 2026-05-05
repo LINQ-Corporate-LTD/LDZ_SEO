@@ -1598,9 +1598,12 @@ const AddEventData = () => {
                       onChange={(e) => setCurrencyName(e.target.value)}
                     /> */}
                     <Select
-                      value={currencyOptions.find((o) => o.label === currencyName) || null}
+                      value={
+                        currencyOptions.find((o) => o.label === currencyName) ||
+                        null
+                      }
                       onChange={(selected) => {
-                        console.log('selected: ', selected);
+                        console.log("selected: ", selected);
                         setCurrencyName(selected?.label || "");
                         // setCurrencySymbol(selected?.symbol || "");
                       }}
@@ -1694,7 +1697,7 @@ const AddEventData = () => {
                     <Input
                       type="file"
                       className="profile-img-file-input"
-                      accept="image/png, image/jpg, image/jpeg"
+                      accept="image/png, image/jpg, image/jpeg, image/webp"
                       name="photo"
                       onChange={(e) =>
                         getUploadParams(e.target.files[0], "videoReplaceImage")
