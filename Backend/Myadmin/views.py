@@ -5599,7 +5599,7 @@ def send_booking_email(request):
 @api_view(['POST'])
 def send_to_zoho(request):
     try:
-        url = "https://flow.zoho.in/60060817867/flow/webhook/incoming?zapikey=YOUR_KEY"
+        url = "https://flow.zoho.in/60060817867/flow/webhook/incoming?zapikey=1001.48c7ec6c66f3417f5e4e55f29dce369f.58f387aa65dfaa387287d049417d8d54&isdebug=false"
 
         response = requests.post(url, json=request.data)
 
