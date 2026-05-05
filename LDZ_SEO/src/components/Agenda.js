@@ -439,7 +439,7 @@ const Agenda = () => {
         {seoImage && <meta name="twitter:image" content={seoImage} />}
         <link
           rel="canonical"
-          href="http://localhost:3000/agenda-page"
+          href="https://www.linq-staging-site.com/agenda-page"
         />
       </Helmet>
       <Navbar forceScrolled />

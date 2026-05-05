@@ -2,12 +2,35 @@
 // server/server.js
 const express = require("express");
 const React = require("react");
-const ReactDOMServer = require("react-dom/server");
+const { renderToPipeableStream } = require("react-dom/server");
 const { StaticRouter } = require("react-router-dom/server");
 const { HelmetProvider } = require("react-helmet-async");
+const { Writable } = require("stream");
 const path = require("path");
 const fs = require("fs");
 const compression = require("compression");
+
+// Renders the React tree to an HTML string, waiting for ALL Suspense
+// boundaries (including React.lazy() components) to resolve so that
+// react-helmet-async has a fully-populated context before we build the page.
+function renderToStringAsync(element) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    const { pipe, abort } = renderToPipeableStream(element, {
+      onAllReady() {
+        const writable = new Writable({
+          write(chunk, _enc, cb) { chunks.push(chunk); cb(); },
+        });
+        writable.on("finish", () => resolve(Buffer.concat(chunks).toString("utf8")));
+        writable.on("error", reject);
+        pipe(writable);
+      },
+      onError(err) { reject(err); },
+    });
+    // Safety valve – prevent the request from hanging forever
+    setTimeout(() => { abort(); reject(new Error("SSR render timeout")); }, 10000);
+  });
+}
 const { fetchSSRData } = require("./ssrDataFetcher");
 
 const { mountSitemapRoute } = require("./sitemapRoute");
@@ -87,7 +110,7 @@ app.get("*", async (req, res) => {
 
     let appString = "";
     try {
-      appString = ReactDOMServer.renderToString(
+      appString = await renderToStringAsync(
         React.createElement(
           HelmetProvider,
           { context: helmetContext },
@@ -98,7 +121,6 @@ app.get("*", async (req, res) => {
           )
         )
       );
-      
     } catch (renderError) {
       console.error("❌ React render error:", renderError);
       appString = "<div>Loading...</div>";
