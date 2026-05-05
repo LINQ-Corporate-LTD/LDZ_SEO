@@ -553,10 +553,10 @@
     width: 210px;
 }
 
-.NewNavbar_googleTranslateEnabled__6pHnw .NewNavbar_register__UET28 button {
+/* .NewNavbar_googleTranslateEnabled__6pHnw .NewNavbar_register__UET28 button {
     padding: 0 21px !important;
     width: auto !important;
-}
+} */
 
 .NewNavbar_wholeContainer__z2zti .NewNavbar_container__dGANs .NewNavbar_register__UET28>svg {
     fill: var(--primary-color);
