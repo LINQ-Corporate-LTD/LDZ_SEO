@@ -354,7 +354,7 @@ const Attandees = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://www.linq-staging-site.com/attandees" />
+        <link rel="canonical" href="https://www.linq-staging-site.com/attendees" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>
