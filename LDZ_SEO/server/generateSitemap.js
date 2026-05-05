@@ -3,8 +3,6 @@
 // Or use the /sitemap.xml Express route in sitemapRoute.js
 
 const fetch = require("node-fetch");
-const fs = require("fs");
-const path = require("path");
 
 const BASE_URL = "https://www.linq-staging-site.com/admin1";
 const DOMAIN = "https://www.linq-staging-site.com";
@@ -104,7 +102,7 @@ async function fetchSponsorSlugs() {
     const d = await get("eventsponsors");
     const list = d?.status ? d.eventSponsors : [];
     return list
-        .filter((s) => s.sponsorComapnyName) // 🚨 Filter out null/empty names
+        .filter((s) => s.sponsorComapnyName && s.sponsorType !== "Dummy")
         .map((s) => ({
             url: `/sponsor/${toSlug(s.sponsorComapnyName)}`,
             changefreq: "monthly",
@@ -159,11 +157,6 @@ async function generateSitemap() {
 
 
     const xml = buildSitemapXml(allRoutes);
-
-    // Write to /public/sitemap.xml so it's served as a static file
-    const outputPath = path.resolve(__dirname, "../public/sitemap.xml");
-    fs.writeFileSync(outputPath, xml, "utf8");
-
     return xml;
 }
 

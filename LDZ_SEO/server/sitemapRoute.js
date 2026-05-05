@@ -41,6 +41,13 @@ function mountSitemapRoute(app) {
         }
     });
 
+    /* ---------- /sitemap-refresh (clears cache so next request regenerates) ---------- */
+    app.get("/sitemap-refresh", (req, res) => {
+        cachedXml = null;
+        cacheTimestamp = 0;
+        res.send("Sitemap cache cleared. Next request to /sitemap.xml will regenerate.");
+    });
+
     /* ---------- /sitemap-index.xml (optional - points to main sitemap) ---------- */
     app.get("/sitemap-index.xml", (req, res) => {
         const DOMAIN = "https://www.linq-staging-site.com";

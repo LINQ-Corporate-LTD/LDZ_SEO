@@ -52,6 +52,11 @@ app.use((req, res, next) => {
   next();
 });
 
+/* -------------------- SITEMAP + ROBOTS -------------------- */
+// Must be registered BEFORE express.static so the dynamic route
+// takes priority over any stale public/sitemap.xml static file.
+mountSitemapRoute(app);
+
 app.use(
   express.static(path.resolve(__dirname, "../build"), {
     maxAge: "1y",
@@ -73,9 +78,6 @@ app.use(
     index: false,
   })
 );
-
-/* -------------------- SITEMAP + ROBOTS -------------------- */
-mountSitemapRoute(app);
 
 /* -------------------- THEME CSS HELPER -------------------- */
 function buildThemeStyle(theme) {
