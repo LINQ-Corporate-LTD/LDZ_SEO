@@ -36,6 +36,7 @@ const PAGES = [
   { label: "Privacy Policy", key: "privacy-policy" },
   { label: "Terms & Conditions", key: "terms-conditions" },
   { label: "News", key: "news" },
+  { label: "Cookie Policy", key: "cookie-policy" },
   // { label: "Slide Share",       key: "slide-share" },
 ];
 

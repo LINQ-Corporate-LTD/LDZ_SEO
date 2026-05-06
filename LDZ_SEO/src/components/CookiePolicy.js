@@ -20,27 +20,28 @@ const CookiePolicy = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // const pageSeo = usePageSeo("privacy-policy");
-  // const seoTitle = pageSeo.pageMetaTitle || `Bitcoin Innovation & Market Evolution 2026 | Privacy Policy`;
-  // const seoDesc = pageSeo.pageMetaDescription || "Understand data collection, retention, cookies, third-party sharing and rights under the Privacy Policy of Bitcoin Innovation & Market Evolution 2026.";
-  // const seoImage = pageSeo.pageOgImage || null;
+  const pageSeo = usePageSeo("cookie-policy");
+  const seoTitle = pageSeo.pageMetaTitle;
+  const seoDesc = pageSeo.pageMetaDescription;
+  const seoImage = pageSeo.pageOgImage || null;
+  const canonicalUrl = "https://www.linq-staging-site.com/cookie-policy";
 
   return (
     <>
       {/* <CookieBanner /> */}
-      {/* <Helmet>
+      <Helmet>
         <title>{seoTitle}</title>
         <meta name="description" content={seoDesc} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
         <meta property="og:type" content="website" />
         {seoImage && <meta property="og:image" content={seoImage} />}
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://www.linq-staging-site.com/cookie-policy" />
-      </Helmet> */}
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>
         <Navbar forceScrolled />
         <div className="PrivacyPolicy_container__9i2D-">
@@ -164,8 +165,7 @@ const CookiePolicy = () => {
                 <p>This Privacy Policy was last updated on 01/02/2026</p>
               </i>
             </div>
-            <div className="PrivacyPolicy_section__7mnwT">
-            </div>
+            <div className="PrivacyPolicy_section__7mnwT"></div>
           </div>
         </div>
         <Footer />
