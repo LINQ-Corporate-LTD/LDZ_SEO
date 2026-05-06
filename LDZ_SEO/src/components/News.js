@@ -119,11 +119,23 @@ const News = () => {
       remainingItems.length > 5 ? remainingItems.slice(0, 4) : remainingItems;
   }
 
+  // const formatDate = (dateString) => {
+  //   const date = new Date(dateString);
+  //   const options = { day: "2-digit", month: "short", year: "numeric" };
+  //   return date.toLocaleDateString("en-GB", options);
+  // };
+
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { day: "2-digit", month: "short", year: "numeric" };
-    return date.toLocaleDateString("en-GB", options);
-  };
+  const date = new Date(dateString);
+
+  const day = date.toLocaleDateString("en-GB", { day: "2-digit" });
+  const month = date
+    .toLocaleDateString("en-GB", { month: "short" })
+    .toUpperCase();
+  const year = date.toLocaleDateString("en-GB", { year: "numeric" });
+
+  return `${day} ${month} ${year}`;
+};
 
   const allTopics = [
     {

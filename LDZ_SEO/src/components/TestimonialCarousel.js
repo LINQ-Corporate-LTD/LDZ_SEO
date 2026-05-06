@@ -153,15 +153,39 @@ export default function TestimonialCarousel() {
   const testimonialContentRow2 = [testimonialList[2], testimonialList[3]]
   const testimonialContentRow3 = [testimonialList[4], testimonialList[5]]
 
-  const settings = {
+  const settings1 = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 6000,
+    cssEase: "linear"
+  };
+
+  const settings2 = {
+    dots: false,
+    infinite: true,
+    speed: 1500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    cssEase: "linear"
+  };
+
+  const settings3 = {
+    dots: false,
+    infinite: true,
+    speed: 1500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 10000,
     cssEase: "linear"
   };
 
@@ -184,7 +208,7 @@ export default function TestimonialCarousel() {
               </div>
               <div className="Testimonials_column__LabYB undefined ">
                 <div className="slider-card" style={{ borderTopRightRadius: "2px" }}>
-                  <Slider {...settings}>
+                  <Slider {...settings1}>
                     {testimonialContentRow1.map((testimonialItem) => (
                       <div className="slide">
                         <img src={quotationIcon} alt="Quotation icon"></img>
@@ -210,7 +234,7 @@ export default function TestimonialCarousel() {
               </div>
               <div className="Testimonials_column__LabYB undefined ">
                 <div className="slider-card" style={{ borderTopRightRadius: "2px" }}>
-                  <Slider {...settings}>
+                  <Slider {...settings2}>
                     {testimonialContentRow2.map((testimonialItem) => (
                       <div className="slide">
                         <img src={quotationIcon} alt="Quotation icon"></img>
@@ -236,7 +260,7 @@ export default function TestimonialCarousel() {
             <div className="Testimonials_Lastrow__x-bQb">
               <div className="Testimonials_column__LabYB undefined ">
                 <div className="slider-card" style={{ borderTopRightRadius: "2px" }}>
-                  <Slider {...settings}>
+                  <Slider {...settings3}>
                     {testimonialContentRow3.map((testimonialItem) => (
                       <div className="slide">
                         <img src={quotationIcon} alt="Quotation icon"></img>
