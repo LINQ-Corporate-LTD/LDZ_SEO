@@ -290,6 +290,11 @@ const SponsorDescription = () => {
               ${message ? `<tr><td style="padding:6px;border:1px solid #ddd;"><b>Brief Outline:</b></td><td style="padding:6px;border:1px solid #ddd;">${message}</td></tr>` : ""}
             </table>
           </div>
+          <p style="font-weight: 700">
+            <span style="text-decoration: underline">Quick Access</span>
+            <br />
+            Link: <a style="font-weight: 500" target="_blank" href="https://www.australia.lithium-downstream-summit.com">https://www.australia.lithium-downstream-summit.com</a>
+          </p>
         `;
 
         await fetch(

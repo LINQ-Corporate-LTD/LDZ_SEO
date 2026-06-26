@@ -345,6 +345,11 @@ const RemindMeLater = () => {
           ` : ""}
         </table>
       </div>
+      <p style="font-weight: 700">
+        <span style="text-decoration: underline">Quick Access</span>
+        <br />
+        Link: <a style="font-weight: 500" target="_blank" href="https://www.australia.lithium-downstream-summit.com">https://www.australia.lithium-downstream-summit.com</a>
+      </p>
     `;
 
     try {
