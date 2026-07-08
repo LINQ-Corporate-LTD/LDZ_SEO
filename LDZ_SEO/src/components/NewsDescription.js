@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { cleanHtml } from "../utils/cleanHtml";
 import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import "../../src/assets/css/NewsDescription.css";
 import Navbar from "./Navbar";
@@ -307,10 +308,7 @@ Read the full article: ${currentUrl}`);
                   <p
                     lang="en"
                     dangerouslySetInnerHTML={{
-                      __html: newsData[0]?.newsShortDescription.replace(
-                        /^"(.*)"$/,
-                        "$1"
-                      ),
+                      __html: cleanHtml(newsData[0]?.newsShortDescription),
                     }}
                   ></p>
                 </div>
@@ -409,10 +407,7 @@ Read the full article: ${currentUrl}`);
                   <p
                     lang="en"
                     dangerouslySetInnerHTML={{
-                      __html: newsData[0]?.newsDescription.replace(
-                        /^"(.*)"$/,
-                        "$1"
-                      ),
+                      __html: cleanHtml(newsData[0]?.newsDescription),
                     }}
                   ></p>
                 </div>

@@ -1,6 +1,7 @@
 // src/components/LatestNews.js
 // Data now comes from SSR (window.__INITIAL_DATA__.news). No client-side fetch.
 import React from "react";
+import { cleanHtml } from "../utils/cleanHtml";
 import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/LatestNews.css";
 import { useSSRData } from "../common/useSSRData";
@@ -99,7 +100,7 @@ const LatestNews = () => {
                   <p
                     lang="en"
                     dangerouslySetInnerHTML={{
-                      __html: featuredLatestArticle?.newsShortDescription?.replace(/^"(.*)"$/, "$1"),
+                      __html: cleanHtml(featuredLatestArticle?.newsShortDescription),
                     }}
                   />
                 </Link>
